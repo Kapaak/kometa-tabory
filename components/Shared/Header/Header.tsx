@@ -7,7 +7,7 @@ import Hamburger from "./Hamburger/Hamburger";
 import Navigation from "./Navigation/Navigation";
 import Logo from "./Logo/Logo";
 //redux
-import { RootState } from "@/redux";
+import { RootState } from "@/state";
 import { Flex } from "@ui-library";
 
 export const Header = () => {

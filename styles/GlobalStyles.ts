@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
         --font1: 'Bebas Neue', cursive;
         --font2: 'Poppins', sans-serif;
 
-        --col1: #FFCA0F;
+        --col1: #73F0C0;
         --col2: #2172DD;
         --col3: #DCE9FA;
         --colw: #F8F8F8;

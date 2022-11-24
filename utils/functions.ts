@@ -15,3 +15,7 @@ export const delay = (callback: () => void, delayInMs?: number) =>
 			resolve();
 		}, delayInMs ?? 500)
 	);
+
+export const removeSpace = (value: string) => {
+	return value.replace(/\s+/g, "");
+};

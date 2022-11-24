@@ -8,7 +8,7 @@ import Wave from "@/public/icons/wave.svg";
 //styles
 import * as S from "./AboutSection.style";
 //redux
-import { toggleShadow } from "@/redux";
+import { toggleShadow } from "@/state";
 
 export const AboutSection = () => {
 	const { ref, inView, entry } = useInView({

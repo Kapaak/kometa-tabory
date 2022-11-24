@@ -1,6 +1,6 @@
 //libraries
 import Link from "next/link";
-import { toggleNavigation } from "@/redux";
+import { toggleNavigation } from "@/state";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 //styles

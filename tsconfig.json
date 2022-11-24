@@ -20,7 +20,7 @@
       "@/public/*":["public/*"],
       "@/utils":["utils"],
       "@ui-library":["styles/UI"],
-      "@/redux":["redux"]
+      "@/state":["state"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

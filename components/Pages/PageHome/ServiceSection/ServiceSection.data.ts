@@ -25,4 +25,25 @@ export const data: IService[] = [
 		alt: "dvě plavkyně na začátku dráhy",
 		scrollTarget: scrollTargets.courses,
 	},
+	{
+		headline: "Kurzy",
+		text: "Učíme plavat děti od 4 do 17 let.",
+		image: Tabor,
+		alt: "dvě plavkyně na začátku dráhy",
+		scrollTarget: scrollTargets.courses,
+	},
+	{
+		headline: "Kurzy",
+		text: "Učíme plavat děti od 4 do 17 let.",
+		image: Tabor,
+		alt: "dvě plavkyně na začátku dráhy",
+		scrollTarget: scrollTargets.courses,
+	},
+	{
+		headline: "Kurzy",
+		text: "Učíme plavat děti od 4 do 17 let.",
+		image: Tabor,
+		alt: "dvě plavkyně na začátku dráhy",
+		scrollTarget: scrollTargets.courses,
+	},
 ];

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 //styles
 import * as S from "./Hamburger.style";
 //redux
-import { RootState, toggleNavigation } from "@/redux";
+import { RootState, toggleNavigation } from "@/state";
 
 const Hamburger = () => {
 	const dispatch = useDispatch();

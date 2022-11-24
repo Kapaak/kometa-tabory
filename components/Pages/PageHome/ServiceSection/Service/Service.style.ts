@@ -10,6 +10,7 @@ export const Service = styled.article`
 	flex-direction: column;
 	gap: 1rem;
 	flex: 1 1 30%;
+	min-width: 40rem;
 	border-radius: var(--small-border-rad);
 	box-shadow: var(--shadow);
 	font-family: var(--font1);
@@ -25,6 +26,7 @@ export const Flex = styled(SFlex)`
 
 	@media (${dimensions.notebook}) {
 		padding: 3rem;
+		margin-top: 2rem;
 	}
 `;
 
@@ -53,7 +55,7 @@ export const Label = styled.span`
 	transform: translateY(50%);
 	padding: 1.4rem 2rem;
 	border-radius: 4rem;
-	background-color: #ffca0f;
+	background-color: var(--col1);
 `;
 
 export const Image = styled(NextImage)`
@@ -64,4 +66,5 @@ export const Image = styled(NextImage)`
 
 export const A = styled(SA)`
 	align-self: end;
+	padding: 1rem 2rem;
 `;
