@@ -33,6 +33,7 @@ export const MaxWidth = styled(SMaxWidth)`
 		background-size: 10rem;
 		width: 10rem;
 		height: 10rem;
+		z-index: -1;
 
 		@media (${dimensions.desktop}) {
 			left: 30rem;
@@ -49,6 +50,7 @@ export const MaxWidth = styled(SMaxWidth)`
 		width: 10rem;
 		height: 10rem;
 		transform: rotate(180deg);
+		z-index: -1;
 
 		@media (${dimensions.desktop}) {
 			right: 30rem;

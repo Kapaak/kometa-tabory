@@ -7,12 +7,6 @@ export const TestimonialSection = () => {
 	return (
 		<S.Testimonial name="testimonial">
 			<S.MaxWidth>
-				{/* <Image
-					src={"/icons/quotes.svg"}
-					width={100}
-					height={100}
-					alt="quotation marks"
-				/> */}
 				<S.Text center variant="dark">
 					Za naše dcerky obrovská pochvala všem kteří se na táboře jakkoliv
 					podíleli. Holky byly každý den nadšené a už oznámily, že příští rok

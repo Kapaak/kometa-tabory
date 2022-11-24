@@ -10,8 +10,7 @@ export const ServiceSection = () => {
 	return (
 		<S.ServiceSection>
 			<MaxWidth>
-				{/* //TODO predelat na grid, a pridej pak 7. tabor */}
-				<S.Flex gap="4rem" wrap="wrap">
+				<S.Container>
 					{data.map((d, i) => (
 						<Service
 							headline={d.headline}
@@ -22,7 +21,7 @@ export const ServiceSection = () => {
 							alt={d.alt}
 						/>
 					))}
-				</S.Flex>
+				</S.Container>
 			</MaxWidth>
 		</S.ServiceSection>
 	);

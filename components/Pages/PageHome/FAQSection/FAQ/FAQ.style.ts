@@ -22,6 +22,7 @@ export const TitleButton = styled.button`
 `;
 
 export const H4 = styled.h4`
+	color: var(--colb);
 	font-size: 1.6rem;
 	font-weight: 500;
 	text-transform: uppercase;

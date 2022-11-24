@@ -14,9 +14,7 @@ export const FAQWrapper = styled.div`
 `;
 
 export const Container = styled.div`
-	@media (${dimensions.desktop}) {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 4rem;
-	}
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+	gap: 4rem;
 `;

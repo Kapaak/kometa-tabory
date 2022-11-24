@@ -7,7 +7,7 @@ export const Trainer = styled.article`
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
-	height: 40rem;
+	min-height: 40rem;
 	flex: 1 1 33%;
 	border-radius: var(--small-border-rad);
 	box-shadow: var(--shadow);

@@ -9,8 +9,6 @@ export const Service = styled.article`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	flex: 1 1 30%;
-	min-width: 40rem;
 	border-radius: var(--small-border-rad);
 	box-shadow: var(--shadow);
 	font-family: var(--font1);

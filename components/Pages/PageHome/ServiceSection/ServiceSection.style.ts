@@ -11,6 +11,12 @@ export const Flex = styled(SFlex)`
 	}
 `;
 
+export const Container = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+	gap: 4rem;
+`;
+
 export const ServiceSection = styled.section`
 	padding: 1.5rem 0;
 `;

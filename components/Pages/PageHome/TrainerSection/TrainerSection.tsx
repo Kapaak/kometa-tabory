@@ -2,13 +2,14 @@ import { Flex, MaxWidth } from "@ui-library";
 import { Headline } from "components/Shared";
 import { Trainer } from "./Trainer";
 import { data } from "./TrainerSection.data";
+import * as S from "./TrainerSection.style";
 
 export const TrainerSection = () => {
 	return (
 		<div>
 			<MaxWidth>
 				<Headline>Trenéři</Headline>
-				<Flex direction="row" justify="space-between" gap="4rem">
+				<S.Container>
 					{data?.map((d, i) => (
 						<Trainer
 							key={i}
@@ -21,7 +22,7 @@ export const TrainerSection = () => {
 							alt={d?.alt}
 						/>
 					))}
-				</Flex>
+				</S.Container>
 			</MaxWidth>
 		</div>
 	);
