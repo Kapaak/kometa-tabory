@@ -31,7 +31,8 @@ export const data = [
 		name: "Ostatní trenéři",
 		title: "trenéři Kometa Brno",
 		image: Ostatní,
-		description: "Celá naše parta se skládá ze školených a zkušených trenérů.",
+		description:
+			"Vaše děti budou trénovat trenéři s trenérskou licencí a několika lety praxe.",
 		alt: "trener komety",
 	},
 ];

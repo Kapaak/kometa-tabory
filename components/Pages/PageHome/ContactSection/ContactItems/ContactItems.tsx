@@ -16,9 +16,15 @@ const ContactItems = ({ data }: Props) => {
 		<Flex gap="2rem">
 			<Headline>Kontakt</Headline>
 			<S.Text variant="dark">
-				V případě jakýchkoliv dotazů nás kontaktujte.
+				Náš tábor se nachází v rozlehlém areálu SKP KOMETA BRNO, který se
+				nachází vedle Brněnské Riviéry. Máme tu obrovské travnaté plochy, kde
+				můžeme běhat a hrát spousty her, ať už ve stínu pod stromy nebo na
+				sluníčku. A kdyby pršelo, tak máme připravenou tělocvičnu. Pokud se k
+				nám chcete vydat MHD, tak je nejlepší vystoupit na zastávce BAUEROVA. A
+				když přijedete autem, tak můžete zastavit naproti přes ulici, kde je
+				veliké parkoviště.
 			</S.Text>
-			<Flex gap="2rem">
+			<S.Container>
 				{data.map((d, i) => (
 					<ContactItem
 						key={i}
@@ -27,7 +33,7 @@ const ContactItems = ({ data }: Props) => {
 						fragment={d.fragment}
 					/>
 				))}
-			</Flex>
+			</S.Container>
 		</Flex>
 	);
 };

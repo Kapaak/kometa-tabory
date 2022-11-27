@@ -10,6 +10,7 @@ import {
 	SmileyXEyes,
 	Lifebuoy,
 	CalendarBlank,
+	Archive,
 } from "phosphor-react";
 
 export const data = [
@@ -89,6 +90,13 @@ export const data = [
 				description:
 					"At’ už je na tom vaše dítě s plaváním jakkoliv, u nás se pro něj vždycky místo najde. Ti nejmenší začínají v rybičkách, pokročilejší jsou zařazeni do delfínků a ti nejzkušenější plavou na velkém 25m bazéně.",
 				icon: Lifebuoy,
+			},
+			{
+				id: "216",
+				title: "CO VŠE CENA ZAHRNUJE?",
+				description:
+					"Cena zahrnuje celodenní program, vstupné, jízdné, obědy a pitný režim.",
+				icon: Archive,
 			},
 		],
 	},

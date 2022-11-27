@@ -10,11 +10,11 @@ export const TestimonialSection = () => {
 				<S.Text center variant="dark">
 					Za naše dcerky obrovská pochvala všem kteří se na táboře jakkoliv
 					podíleli. Holky byly každý den nadšené a už oznámily, že příští rok
-					chtejí znovu
+					chtejí znovu.
 				</S.Text>
 				<S.AuthorContainer>
 					<Text bold variant="dark" center>
-						Barbora Nováková
+						Iveta Maráková
 					</Text>
 					<Text variant="grey" center>
 						facebook komentáře

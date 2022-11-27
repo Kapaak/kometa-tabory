@@ -63,7 +63,9 @@ const Service = (props: Props) => {
 					</S.ServiceItem>
 					<S.ServiceItem>
 						<BatteryMedium size={22} />
-						<span>{info?.capacity}</span>
+						<span>
+							{info?.actualCapacity} / {info?.maxCapacity}
+						</span>
 					</S.ServiceItem>
 					<S.ServiceItem>
 						<Backpack size={22} />

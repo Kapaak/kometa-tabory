@@ -15,7 +15,8 @@ export interface IServiceInfo {
 	price: number;
 	oldPrice?: number;
 	date: string;
-	capacity: string;
+	actualCapacity: number;
+	maxCapacity: number;
 	event: string;
 }
 

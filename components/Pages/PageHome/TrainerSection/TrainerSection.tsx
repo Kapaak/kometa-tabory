@@ -1,12 +1,12 @@
 import { Flex, MaxWidth } from "@ui-library";
-import { Headline } from "components/Shared";
+import { Headline, SectionElement } from "components/Shared";
 import { Trainer } from "./Trainer";
 import { data } from "./TrainerSection.data";
 import * as S from "./TrainerSection.style";
 
 export const TrainerSection = () => {
 	return (
-		<div>
+		<SectionElement name="trainer">
 			<MaxWidth>
 				<Headline>Trenéři</Headline>
 				<S.Container>
@@ -24,6 +24,6 @@ export const TrainerSection = () => {
 					))}
 				</S.Container>
 			</MaxWidth>
-		</div>
+		</SectionElement>
 	);
 };

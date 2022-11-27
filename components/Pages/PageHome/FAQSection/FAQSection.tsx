@@ -1,12 +1,12 @@
 import { MaxWidth } from "@ui-library";
-import { Headline } from "components/Shared";
+import { Headline, SectionElement } from "components/Shared";
 import { FAQ } from "./FAQ";
 import { data } from "./FAQSection.data";
 import * as S from "./FAQSection.style";
 
 export const FAQSection = () => {
 	return (
-		<div>
+		<SectionElement name="faq">
 			<MaxWidth>
 				<Headline>Základní informace</Headline>
 				<S.Container>
@@ -25,6 +25,6 @@ export const FAQSection = () => {
 					))}
 				</S.Container>
 			</MaxWidth>
-		</div>
+		</SectionElement>
 	);
 };

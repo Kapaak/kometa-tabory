@@ -9,6 +9,10 @@ export enum scrollTargets {
 	kindergardens = "kindergardens",
 	schools = "schools",
 	courses = "courses",
+	trainer = "trainer",
+	testimonial = "testimonial",
+	faq = "faq",
+	services = "services",
 }
 
 export enum contentType {
