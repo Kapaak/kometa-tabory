@@ -16,7 +16,7 @@ export const FAQ = ({ title, description, icon }: FAQProps) => {
 			<S.TitleButton onClick={() => setShowMore(prev => !prev)}>
 				{icon && <Icon size={30} weight="light" />}
 				<S.H4>{title}</S.H4>
-				<S.CaretIcon size={20} weight="light" active={showMore} />
+				{/* <S.CaretIcon size={20} weight="light" active={showMore} /> */}
 			</S.TitleButton>
 			{showMore && <S.Text variant="dark">{description}</S.Text>}
 		</S.FAQ>

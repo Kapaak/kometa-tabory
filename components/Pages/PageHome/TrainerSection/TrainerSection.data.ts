@@ -1,36 +1,37 @@
-import DummyTrainer from "@/public/images/dummy_trainer.jpg";
+import Anicka from "@/public/images/anicka_trainer.jpg";
+import Tom from "@/public/images/tom_trainer.jpg";
+import Ostatní from "@/public/images/all-trainer.jpg";
 
 export const data = [
 	{
 		name: "Bc. Anička Matušová",
 		title: "vedoucí táborů",
-		image: DummyTrainer,
+		image: Anicka,
 		description:
-			"Jmenuji se Barbora Nováková. Jsem pečlivý, spolehlivý a pracovitý člověk s pozitivním přístupem. Umím dobře vycházet s lidmi a mám ráda týmovou spolupráci.",
+			"Jsem bývalá závodní plavkyně. Jako trenérka pracuji už 10 let. Ve svém volném čase ráda sleduji Harryho Poterra a život královské rodiny.",
 		contact: {
-			email: "anicka@anicka.cz",
-			phone: "+420 606 354 747",
+			email: "annamatusova25@gmail.com",
+			phone: "+420 626 354 747",
 		},
 		alt: "trener komety",
 	},
 	{
 		name: "Tom Strnad",
 		title: "vedoucí táborů",
-		image: DummyTrainer,
+		image: Tom,
 		description:
-			"Jmenuji se Barbora Nováková. Jsem pečlivý, spolehlivý a pracovitý člověk s pozitivním přístupem. Umím dobře vycházet s lidmi a mám ráda týmovou spolupráci.",
+			"Pro Kometu pracuji už 5 let. V mém volném čase rád hraju hokej a točím videa na drony.",
 		contact: {
 			email: "tom@tom.cz",
-			phone: "+420 606 354 747",
+			phone: "+420 721 024 391",
 		},
 		alt: "trener komety",
 	},
 	{
-		name: "Ostatní",
+		name: "Ostatní trenéři",
 		title: "trenéři Kometa Brno",
-		image: DummyTrainer,
-		description:
-			"Jmenuji se Barbora Nováková. Jsem pečlivý, spolehlivý a pracovitý člověk s pozitivním přístupem. Umím dobře vycházet s lidmi a mám ráda týmovou spolupráci.",
+		image: Ostatní,
+		description: "Celá naše parta se skládá ze školených a zkušených trenérů.",
 		alt: "trener komety",
 	},
 ];

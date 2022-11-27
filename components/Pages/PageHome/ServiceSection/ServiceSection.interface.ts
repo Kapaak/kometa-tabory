@@ -8,6 +8,15 @@ export interface IService {
 	image: StaticImageData;
 	alt: string;
 	scrollTarget: scrollTargets;
+	info: IServiceInfo;
+}
+
+export interface IServiceInfo {
+	price: number;
+	oldPrice?: number;
+	date: string;
+	capacity: string;
+	event: string;
 }
 
 export { scrollTargets };

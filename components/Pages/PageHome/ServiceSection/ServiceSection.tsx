@@ -13,12 +13,13 @@ export const ServiceSection = () => {
 				<S.Container>
 					{data.map((d, i) => (
 						<Service
-							headline={d.headline}
-							text={d.text}
-							image={d.image}
-							scrollTarget={d.scrollTarget}
+							headline={d?.headline}
+							text={d?.text}
+							image={d?.image}
+							scrollTarget={d?.scrollTarget}
+							info={d?.info}
 							key={i}
-							alt={d.alt}
+							alt={d?.alt}
 						/>
 					))}
 				</S.Container>
