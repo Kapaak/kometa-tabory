@@ -33,8 +33,8 @@ export const Text = styled(SText)`
 	font-weight: 300;
 `;
 
-export const CaretIcon = styled(CaretDown)<{ active: boolean }>`
+export const CaretIcon = styled(CaretDown)<{ $isActive?: boolean }>`
 	margin-left: auto;
-	transform: ${({ active }) => (active ? "rotate(180deg)" : "rotate(0)")};
+	transform: ${({ $isActive }) => ($isActive ? "rotate(180deg)" : "rotate(0)")};
 	transition: all 0.5s ease;
 `;
