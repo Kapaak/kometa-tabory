@@ -13,7 +13,7 @@ export const Flex = styled(SFlex)`
 
 export const Container = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
 	gap: 4rem;
 `;
 

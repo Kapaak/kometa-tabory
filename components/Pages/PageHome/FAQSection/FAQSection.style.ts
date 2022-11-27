@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { dimensions } from "utils/breakpoints";
 
 export const Headline = styled.h3`
 	font-family: var(--font1);
@@ -15,6 +14,6 @@ export const FAQWrapper = styled.div`
 
 export const Container = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 	gap: 4rem;
 `;
