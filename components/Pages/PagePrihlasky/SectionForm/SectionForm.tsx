@@ -5,6 +5,7 @@ import { BaseSyntheticEvent } from "react";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ArrowCircleRight, ArrowRight } from "phosphor-react";
 import { ControlledSelect } from "./ControlledSelect";
+import { ControlledCheckbox } from "./ControlledCheckbox";
 import { createOption } from "utils/functions";
 
 interface SectionFormProps {
@@ -30,6 +31,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 	return (
 		<S.Form onSubmit={handleSubmit(onSubmit)}>
 			<S.Container>
+				<ControlledCheckbox name="what-input">what</ControlledCheckbox>
 				<S.FormItem>
 					<Subheadline variant="dark">Osobní údaje</Subheadline>
 					<div>
