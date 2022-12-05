@@ -19,3 +19,7 @@ export const delay = (callback: () => void, delayInMs?: number) =>
 export const removeSpace = (value: string) => {
 	return value.replace(/\s+/g, "");
 };
+
+export const createOption = (label: string, value: string) => {
+	return { label, value };
+};

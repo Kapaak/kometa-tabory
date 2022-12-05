@@ -9,6 +9,7 @@ export interface IService {
 	alt: string;
 	scrollTarget: scrollTargets;
 	info: IServiceInfo;
+	url: string;
 }
 
 export interface IServiceInfo {

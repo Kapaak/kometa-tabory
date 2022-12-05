@@ -3,6 +3,7 @@
  */
 
 export * from "./A";
+export * from "./Button";
 export * from "./Flex";
 export * from "./MainHeadline";
 export * from "./MainSubheadline";

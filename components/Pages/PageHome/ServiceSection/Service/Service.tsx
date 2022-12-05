@@ -23,18 +23,13 @@ interface Props {
 	alt: string;
 	scrollTarget: scrollTargets;
 	info: IServiceInfo;
+	url: string;
 }
 
 const Service = (props: Props) => {
-	const { headline, text, image, scrollTarget, alt, info } = props;
+	const { headline, text, image, scrollTarget, alt, info, url } = props;
 
 	const router = useRouter();
-
-	const clickHandler = async () => {
-		await router.push("/prihlasky");
-
-		scrollTo(scrollTarget);
-	};
 
 	return (
 		<S.Service initial="hidden" whileHover="visible">
@@ -72,13 +67,7 @@ const Service = (props: Props) => {
 						<span>{info?.event}</span>
 					</S.ServiceItem>
 				</S.ServiceItems>
-				<S.A
-					variant="transparent-blue"
-					onClick={clickHandler}
-					aria-label="odkazuje na stránku přihlášky"
-				>
-					Přihláška
-				</S.A>
+				<S.A href={`/prihlasky/${url}`}>Přihláška</S.A>
 			</S.Container>
 		</S.Service>
 	);

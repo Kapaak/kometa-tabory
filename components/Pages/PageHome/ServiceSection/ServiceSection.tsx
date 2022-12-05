@@ -68,6 +68,7 @@ export const ServiceSection = () => {
 							scrollTarget={d?.scrollTarget}
 							info={d?.info}
 							alt={d?.alt}
+							url={d?.url}
 						/>
 					))}
 				</S.Container>

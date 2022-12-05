@@ -4,7 +4,7 @@ import Ostatní from "@/public/images/all-trainer.jpg";
 
 export const data = [
 	{
-		name: "Bc. Anička Matušová",
+		name: "Anička Matušová",
 		title: "vedoucí táborů",
 		image: Anicka,
 		description:
