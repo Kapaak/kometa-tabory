@@ -6,6 +6,8 @@ import { ChildrenList } from "./ChildrenList";
 import { ChildData } from "./PagePrihlasky.interface";
 import { SectionForm } from "./SectionForm";
 import * as S from "./PagePrihlasky.style";
+import { yupResolver } from "@hookform/resolvers/yup";
+import yup, { string, object, array } from "yup";
 
 const initialState = {
 	id: "fajapfa13asd",
@@ -35,6 +37,14 @@ interface PagePrihlaskyProps {
 	camp: IService | undefined;
 }
 
+const formSchema = {
+	name: string().required("Name is required").min(7, "Message"),
+};
+
+const schema = object({
+	test: array().of(object().shape(formSchema)),
+}).required();
+
 export const PagePrihlasky = ({ camp }: PagePrihlaskyProps) => {
 	const [activeChildren, setActiveChildren] = useState<Array<ChildData>>([
 		initialState,
@@ -42,7 +52,9 @@ export const PagePrihlasky = ({ camp }: PagePrihlaskyProps) => {
 
 	const [selectedChildId, setSelectedChildId] = useState(initialState?.id);
 
-	const form = useForm();
+	const form = useForm({
+		// resolver: yupResolver(schema),
+	});
 	const { unregister, setValue } = form;
 
 	useEffect(() => {

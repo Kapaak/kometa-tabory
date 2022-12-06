@@ -3,7 +3,6 @@ import * as S from "./SectionForm.style";
 import { useFormContext } from "react-hook-form";
 import { BaseSyntheticEvent } from "react";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
-import { ArrowCircleRight, ArrowRight } from "phosphor-react";
 import { ControlledSelect } from "./ControlledSelect";
 import { ControlledCheckbox } from "./ControlledCheckbox";
 import { createOption } from "utils/functions";
@@ -18,7 +17,10 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 		console.log(d, "dd");
 	};
 
-	const { handleSubmit, register } = useFormContext();
+	const {
+		handleSubmit,
+		formState: { errors },
+	} = useFormContext();
 
 	const handleBlur = (
 		e: BaseSyntheticEvent,
@@ -30,6 +32,15 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 
 	return (
 		<S.Form onSubmit={handleSubmit(onSubmit)}>
+			<button type="button" onClick={() => console.log("errors", errors)}>
+				show errs
+			</button>
+			<button
+				type="button"
+				onClick={() => console.log("errors", errors[childId]?.name.message)}
+			>
+				nth err
+			</button>
 			<S.Container>
 				<S.FormItem>
 					<Subheadline variant="dark">Osobní údaje</Subheadline>
@@ -38,14 +49,18 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							name={`${childId}.name`}
 							placeholder="Jméno dítěte"
 							onNameBlur={handleBlur}
+							required="Jméno nesmí být prázdné"
 						/>
 						<S.Label>Jméno dítěte</S.Label>
+						<div>{errors[childId]?.name?.message}</div>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.surname`}
 							placeholder="Příjmení dítěte"
+							required="Příjmení nesmí být prázdné"
 						/>
+						<div>{errors[childId]?.surname?.message}</div>
 						<S.Label>Příjmení dítěte</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
@@ -56,7 +71,6 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 						<S.Label>Rodné číslo</S.Label>
 					</S.FormInputContainer>
 					<div>
-						{/* <label htmlFor="">Je dítě občanem ČR?</label> */}
 						<ControlledSelect
 							name={`${childId}.czech-nationality`}
 							options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
@@ -135,7 +149,9 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					{/* TODO -> checkbox */}
 					<div>
 						{/* //tohle asi ani nepotrebuju posilat, spis by to melo byt required jinak je nepustit dal */}
-						<ControlledCheckbox name={`${childId}.`} />
+						<ControlledCheckbox name={`${childId}.`}>
+							Souhlasím s podmínkami
+						</ControlledCheckbox>
 						{/* doplnit vysvetlivku (nejaky podnadpis) */}
 					</div>
 					<S.FormInputContainer>

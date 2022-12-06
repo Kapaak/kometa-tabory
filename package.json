@@ -11,6 +11,7 @@
     "barell-comps": "barrelsby -d ./components --delete"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.9.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
@@ -29,7 +30,8 @@
     "react-scroll": "^1.8.8",
     "react-select": "^5.7.0",
     "styled-components": "^5.3.6",
-    "typescript": "*"
+    "typescript": "*",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react-scroll": "^1.8.5",

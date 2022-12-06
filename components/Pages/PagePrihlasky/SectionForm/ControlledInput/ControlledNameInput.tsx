@@ -9,16 +9,19 @@ interface ControllerNameInputProps {
 		e: BaseSyntheticEvent,
 		callback: (e: BaseSyntheticEvent) => void
 	) => void;
+	required?: boolean | string;
 }
 
 export const ControlledNameInput = ({
 	name,
 	placeholder,
 	onNameBlur,
+	required = false,
 }: ControllerNameInputProps) => {
 	return (
 		<Controller
 			name={name}
+			rules={{ required }}
 			render={({ field: { onBlur, ...restField } }) => (
 				<S.FormInput
 					type="text"
