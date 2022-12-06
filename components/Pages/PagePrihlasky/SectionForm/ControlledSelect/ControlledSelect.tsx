@@ -44,13 +44,15 @@ export const ControlledSelect = ({
 		);
 	};
 
+	const id = useId();
+
 	return (
 		<Controller
 			name={name}
 			render={({ field: { onChange, value, name, ...restField } }) => (
 				<Select
 					name={name}
-					instanceId={useId()}
+					instanceId={id}
 					isSearchable
 					placeholder={placeholder}
 					options={options}

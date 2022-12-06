@@ -30,6 +30,8 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 		callback(e);
 	};
 
+	const currentError = errors[childId] as any;
+
 	return (
 		<S.Form onSubmit={handleSubmit(onSubmit)}>
 			<button type="button" onClick={() => console.log("errors", errors)}>
@@ -37,7 +39,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 			</button>
 			<button
 				type="button"
-				onClick={() => console.log("errors", errors[childId]?.name.message)}
+				onClick={() => console.log("errors", currentError?.name.message)}
 			>
 				nth err
 			</button>
@@ -52,7 +54,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							required="Jméno nesmí být prázdné"
 						/>
 						<S.Label>Jméno dítěte</S.Label>
-						<div>{errors[childId]?.name?.message}</div>
+						<div>{currentError?.name.message}</div>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
 						<ControlledInput
@@ -60,7 +62,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							placeholder="Příjmení dítěte"
 							required="Příjmení nesmí být prázdné"
 						/>
-						<div>{errors[childId]?.surname?.message}</div>
+						<div>{currentError?.name.message}</div>
 						<S.Label>Příjmení dítěte</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
