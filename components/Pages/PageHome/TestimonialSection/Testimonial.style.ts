@@ -1,5 +1,5 @@
 import { SectionElement } from "components/Shared";
-import { MaxWidth as SMaxWidth, Text as SText } from "@ui-library";
+import { MaxWidth as SMaxWidth } from "@ui-library";
 import styled from "styled-components";
 import { dimensions } from "utils/breakpoints";
 
@@ -14,15 +14,6 @@ export const Testimonial = styled(SectionElement)`
 `;
 
 // linear-gradient(267.1deg, rgba(33, 114, 221, 0.16) 16.34%, rgba(115, 240, 192, 0.8) 100.35%);
-
-export const AuthorContainer = styled.div`
-	margin-top: 8rem;
-`;
-
-export const Text = styled(SText)`
-	max-width: 45rem;
-	margin: 0 auto;
-`;
 
 export const MaxWidth = styled(SMaxWidth)`
 	position: relative;

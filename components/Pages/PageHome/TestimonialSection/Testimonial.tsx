@@ -1,26 +1,58 @@
 import { MaxWidth, Text } from "@ui-library";
-import Image from "next/image";
-
+import styled from "styled-components";
+import { Carousel } from "./Carousel";
 import * as S from "./Testimonial.style";
+import { data } from "./Testimonial.data";
+import { TestimonialItem } from "./TestimonialItem";
+
+export const Item = styled.div<{ img: string }>`
+	text-align: center;
+	padding: 100px;
+	background-image: ${props => `url(${props.img})`};
+	background-size: cover;
+`;
 
 export const TestimonialSection = () => {
 	return (
 		<S.Testimonial name="testimonial">
 			<S.MaxWidth>
-				<S.Text center variant="dark">
-					Za naše dcerky obrovská pochvala všem kteří se na táboře jakkoliv
-					podíleli. Holky byly každý den nadšené a už oznámily, že příští rok
-					chtejí znovu.
-				</S.Text>
-				<S.AuthorContainer>
-					<Text bold variant="dark" center>
-						Iveta Maráková
-					</Text>
-					<Text variant="grey" center>
-						facebook komentáře
-					</Text>
-				</S.AuthorContainer>
+				<Carousel>
+					{data?.map(d => (
+						<TestimonialItem
+							key={d?.id}
+							author={d?.author}
+							source={d?.source}
+							text={d?.text}
+						/>
+					))}
+					{/* <Item img="https://unsplash.it/475/205" />
+					<Item img="https://unsplash.it/476/205" />
+					<Item img="https://unsplash.it/477/205" />
+					<Item img="https://unsplash.it/478/205" />
+					<Item img="https://unsplash.it/479/205" /> */}
+				</Carousel>
 			</S.MaxWidth>
 		</S.Testimonial>
 	);
 };
+// export const TestimonialSection = () => {
+// 	return (
+// 		<S.Testimonial name="testimonial">
+// 			<S.MaxWidth>
+// 				<S.Text center variant="dark">
+// 					Za naše dcerky obrovská pochvala všem kteří se na táboře jakkoliv
+// 					podíleli. Holky byly každý den nadšené a už oznámily, že příští rok
+// 					chtejí znovu.
+// 				</S.Text>
+// 				<S.AuthorContainer>
+// 					<Text bold variant="dark" center>
+// 						Iveta Maráková
+// 					</Text>
+// 					<Text variant="grey" center>
+// 						facebook komentáře
+// 					</Text>
+// 				</S.AuthorContainer>
+// 			</S.MaxWidth>
+// 		</S.Testimonial>
+// 	);
+// };
