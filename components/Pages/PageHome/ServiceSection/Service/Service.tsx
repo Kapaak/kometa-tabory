@@ -1,20 +1,15 @@
 //libraries
 import { StaticImageData } from "next/image";
-import { useRouter } from "next/router";
-import { Coin, CalendarBlank, BatteryMedium, Backpack } from "phosphor-react";
 //styles
 import * as S from "./Service.style";
 import { Text } from "@ui-library";
 //interfaces
 import { IServiceInfo, scrollTargets } from "../ServiceSection.interface";
 //others
-import { scrollTo } from "@/utils";
-import {
-	imageVariant,
-	labelVariant,
-	textVariant,
-	ulVariant,
-} from "./Service.variant";
+import { imageVariant, textVariant } from "./Service.variant";
+import { FullTerm } from "./FullTerm";
+import { DiscountLabel } from "./DiscountLabel";
+import { ServiceInfo } from "./ServiceInfo";
 
 interface Props {
 	headline: string;
@@ -27,46 +22,28 @@ interface Props {
 }
 
 const Service = (props: Props) => {
-	const { headline, text, image, scrollTarget, alt, info, url } = props;
-
-	const router = useRouter();
-
+	const { headline, text, image, alt, info, url } = props;
+	const isFull = info?.actualCapacity === info?.maxCapacity;
 	return (
 		<S.Service initial="hidden" whileHover="visible">
 			<S.ImageContainer variants={imageVariant} transition={{ bounce: 0 }}>
 				<S.Image src={image} placeholder="blur" alt={alt} />
+				{isFull && <FullTerm />}
 			</S.ImageContainer>
 			<S.Container layout variants={textVariant}>
 				{info?.oldPrice && (
-					<S.Label variants={labelVariant}>
-						{Math.ceil(100 - (info?.price / info?.oldPrice) * 100)}% sleva
-					</S.Label>
+					<DiscountLabel price={info?.price} oldPrice={info?.oldPrice} />
 				)}
 				<S.Subheadline variant="dark">{headline}</S.Subheadline>
 				<Text variant="grey">{text}</Text>
-				<S.ServiceItems layout variants={ulVariant}>
-					<S.ServiceItem bold>
-						<Coin size={22} />
-						<span>{info?.price} Kč</span>
-						{info?.oldPrice && (
-							<S.LineThroughText>{info?.oldPrice} Kč</S.LineThroughText>
-						)}
-					</S.ServiceItem>
-					<S.ServiceItem>
-						<CalendarBlank size={22} />
-						<span>{info?.date}</span>
-					</S.ServiceItem>
-					<S.ServiceItem>
-						<BatteryMedium size={22} />
-						<span>
-							{info?.actualCapacity} / {info?.maxCapacity}
-						</span>
-					</S.ServiceItem>
-					<S.ServiceItem>
-						<Backpack size={22} />
-						<span>{info?.event}</span>
-					</S.ServiceItem>
-				</S.ServiceItems>
+				<ServiceInfo
+					currentCapacity={info?.actualCapacity}
+					date={info?.date}
+					maxCapacity={info?.maxCapacity}
+					price={info?.price}
+					oldPrice={info?.oldPrice}
+					specialEvent={info?.event}
+				/>
 				<S.A href={`/prihlasky/${url}`}>Přihláška</S.A>
 			</S.Container>
 		</S.Service>

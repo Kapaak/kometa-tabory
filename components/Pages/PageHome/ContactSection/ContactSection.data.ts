@@ -12,7 +12,7 @@ export const data: IContact[] = [
 		icon: LocationIcon,
 		fragment: [
 			{
-				output: "Sportovní 486/4, Brno 602 00",
+				output: "Bauerova 321/5, Brno 603 00",
 				type: contentType.normal,
 			},
 		],

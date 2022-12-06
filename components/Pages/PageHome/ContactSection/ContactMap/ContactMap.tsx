@@ -5,7 +5,7 @@ const ContactMap = () => {
 	return (
 		<S.Map
 			title="kontakt"
-			src="https://snazzymaps.com/embed/421429"
+			src="https://snazzymaps.com/embed/444763"
 			loading="lazy"
 		/>
 	);

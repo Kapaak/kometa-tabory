@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NextImage from "next/image";
 //styles
 import { dimensions } from "@/utils";
-import { A as SA, Subheadline as SSubheadline } from "@ui-library";
+import { A as SA, Subheadline as SSubheadline, Text } from "@ui-library";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -31,24 +31,6 @@ export const Service = styled(motion.article)`
 	}
 `;
 
-export const LineThroughText = styled.span`
-	text-decoration: line-through 0.2rem;
-`;
-
-export const ServiceItems = styled(motion.ul)`
-	margin: 1rem 0 0 1rem;
-	gap: 1rem;
-	font-family: var(--font2);
-`;
-
-export const ServiceItem = styled.li<{ bold?: boolean }>`
-	list-style-type: none;
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-	font-weight: ${({ bold }) => (bold ? 400 : 300)};
-`;
-
 export const Container = styled(motion.div)`
 	position: relative;
 	display: flex;
@@ -63,16 +45,6 @@ export const Container = styled(motion.div)`
 	@media (${dimensions.notebook}) {
 		padding: 3rem;
 	}
-`;
-
-export const Label = styled(motion.span)`
-	position: absolute;
-	top: -5rem;
-	left: 2rem;
-	transform: translateY(50%);
-	padding: 1.4rem 2rem;
-	border-radius: 4rem;
-	background-color: var(--col1);
 `;
 
 export const Image = styled(NextImage)`
