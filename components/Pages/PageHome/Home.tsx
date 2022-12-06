@@ -1,12 +1,15 @@
 import { Space } from "@ui-library";
-import { AboutSection } from "./AboutSection";
-import { ContactSection } from "./ContactSection";
-import { FAQSection } from "./FAQSection";
-import { HeroSection } from "./HeroSection";
-import { ServiceSection } from "./ServiceSection/ServiceSection";
-import { SponsorSection } from "./SponsorSection";
-import { TestimonialSection } from "./TestimonialSection";
-import { TrainerSection } from "./TrainerSection";
+import {
+	TrainerSection,
+	TestimonialSection,
+	SponsorSection,
+	ServiceSection,
+	HeroSection,
+	FAQSection,
+	DocumentSection,
+	ContactSection,
+	AboutSection,
+} from "./index";
 
 export const PageHome = () => {
 	return (
@@ -22,6 +25,8 @@ export const PageHome = () => {
 			<TestimonialSection />
 			<Space />
 			<TrainerSection />
+			<Space />
+			<DocumentSection />
 			<Space />
 			<ContactSection />
 			<Space />

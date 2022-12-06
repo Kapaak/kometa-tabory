@@ -13,8 +13,6 @@ export const Testimonial = styled(SectionElement)`
 	);
 `;
 
-// linear-gradient(267.1deg, rgba(33, 114, 221, 0.16) 16.34%, rgba(115, 240, 192, 0.8) 100.35%);
-
 export const MaxWidth = styled(SMaxWidth)`
 	position: relative;
 	&::before {

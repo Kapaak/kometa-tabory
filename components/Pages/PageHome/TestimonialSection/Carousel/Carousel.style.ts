@@ -53,7 +53,8 @@ export const SlideButton = styled.button<{ active: boolean }>`
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: ${({ active }) => (active ? "var(--col1)" : "var(--colg)")};
+	background-color: ${({ active }) =>
+		active ? "var(--col1)" : "var(--collg)"};
 
 	&:active {
 		position: relative;

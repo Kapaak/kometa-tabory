@@ -10,7 +10,7 @@ export const data = [
 		description:
 			"Jsem bývalá závodní plavkyně. Jako trenérka pracuji už 10 let. Ve svém volném čase ráda sleduji Harryho Poterra a život královské rodiny.",
 		contact: {
-			email: "annamatusova25@gmail.com",
+			email: "taborpisarky@kometaplavani.cz",
 			phone: "+420 626 354 747",
 		},
 		alt: "trener komety",
@@ -22,7 +22,7 @@ export const data = [
 		description:
 			"Pro Kometu pracuji už 5 let. V mém volném čase rád hraju hokej a točím videa na drony.",
 		contact: {
-			email: "tom@tom.cz",
+			email: "taborpisarky@kometaplavani.cz",
 			phone: "+420 721 024 391",
 		},
 		alt: "trener komety",

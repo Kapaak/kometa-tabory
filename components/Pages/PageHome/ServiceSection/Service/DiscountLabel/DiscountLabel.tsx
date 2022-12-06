@@ -9,7 +9,7 @@ interface DiscountLabelProps {
 export const DiscountLabel = ({ price, oldPrice }: DiscountLabelProps) => {
 	return (
 		<S.Label variants={labelVariant}>
-			{Math.ceil(100 - (price / oldPrice) * 100)}% sleva
+			{Math.floor(100 - (price / oldPrice) * 100)}% sleva
 		</S.Label>
 	);
 };

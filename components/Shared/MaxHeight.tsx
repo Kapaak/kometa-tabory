@@ -35,7 +35,7 @@ const SMaxHeight = styled.div<{ $gradient: boolean; height: number }>`
 
 	background: ${({ $gradient }) =>
 		$gradient
-			? `linear-gradient(266.41deg, rgba(33, 114, 221, 0.8) -2.58%, rgba(33, 114, 221, 0.16) -2.57%, rgba(115, 240, 192, 0.8) 100.35%)`
+			? `linear-gradient(220.41deg, rgba(33, 114, 221, 0.8) -2.58%, rgba(33, 114, 221, 0.16) -2.57%, rgba(115, 240, 192, 0.8) 100.35%)`
 			: "unset"};
 
 	${({ $gradient }) =>
@@ -47,11 +47,12 @@ const SMaxHeight = styled.div<{ $gradient: boolean; height: number }>`
 				min-height: 40rem;
 				height: calc(100vh - var(--header-height) - 12rem);
 				background: linear-gradient(
-					266.41deg,
-					rgba(33, 114, 221, 0.8) -2.58%,
-					rgba(33, 114, 221, 0.16) -2.57%,
+					267.1deg,
+					rgba(33, 114, 221, 0.1) 20.34%,
 					rgba(115, 240, 192, 0.8) 100.35%
 				);
 			}
 		`}
 `;
+
+// linear-gradient(267.1deg, rgba(33, 114, 221, 0.16) 16.34%, rgba(115, 240, 192, 0.8) 100.35%);
