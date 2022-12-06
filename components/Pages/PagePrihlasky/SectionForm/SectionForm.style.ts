@@ -19,7 +19,7 @@ export const FormInput = styled.input`
 export const FormItem = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 3rem;
 `;
 
 export const ArrowRightIcon = styled(ArrowRight)`
@@ -36,4 +36,22 @@ export const ArrowRightIcon = styled(ArrowRight)`
 export const Form = styled.form`
 	display: flex;
 	flex-direction: column;
+`;
+
+export const FormInputContainer = styled.div`
+	position: relative;
+	input:focus + label {
+		opacity: 1;
+		transform: translateY(-2rem);
+	}
+`;
+
+export const Label = styled.label`
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: transform 0.3s ease, opacity 0.2s ease;
+	pointer-events: none;
+	font-size: 1.3rem;
 `;

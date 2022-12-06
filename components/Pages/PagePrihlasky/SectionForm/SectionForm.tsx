@@ -31,32 +31,30 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 	return (
 		<S.Form onSubmit={handleSubmit(onSubmit)}>
 			<S.Container>
-				<ControlledCheckbox name="what-input">what</ControlledCheckbox>
 				<S.FormItem>
 					<Subheadline variant="dark">Osobní údaje</Subheadline>
-					<div>
-						{/* <label htmlFor="">Jméno dítěte</label> */}
+					<S.FormInputContainer>
 						<ControlledNameInput
 							name={`${childId}.name`}
 							placeholder="Jméno dítěte"
 							onNameBlur={handleBlur}
 						/>
-					</div>
-					<div>
-						{/* <label htmlFor="">Příjmení dítěte</label> */}
+						<S.Label>Jméno dítěte</S.Label>
+					</S.FormInputContainer>
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.surname`}
 							placeholder="Příjmení dítěte"
 						/>
-					</div>
-					<div>
-						{/* <label htmlFor="">Rodné číslo</label> */}
+						<S.Label>Příjmení dítěte</S.Label>
+					</S.FormInputContainer>
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.personal-id-num`}
 							placeholder="Rodné číslo"
 						/>
-					</div>
-					{/* to bude select ANO / NE */}
+						<S.Label>Rodné číslo</S.Label>
+					</S.FormInputContainer>
 					<div>
 						{/* <label htmlFor="">Je dítě občanem ČR?</label> */}
 						<ControlledSelect
@@ -65,56 +63,55 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							placeholder="Je dítě občanem ČR?"
 						/>
 					</div>
-					<div>
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.date-of-birth`}
 							placeholder="Datum narození"
 						/>
-					</div>
+						<S.Label>Datum narození</S.Label>
+					</S.FormInputContainer>
 
 					{/* TODO -> posilat do excelu vypocitany vek ditete v dobe konani taboru */}
-
-					<div>
-						{/* <label htmlFor="">Adresa a číslo popisné</label> */}
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.address`}
 							placeholder="Adresa a číslo popisné"
 						/>
-					</div>
-					<div>
-						{/* <label htmlFor="">Město</label> */}
+						<S.Label>Adresa a číslo popisné</S.Label>
+					</S.FormInputContainer>
+					<S.FormInputContainer>
 						<ControlledInput name={`${childId}.city`} placeholder="Město" />
-					</div>
-					<div>
-						{/* <label htmlFor="">PSČ</label> */}
+						<S.Label>Město</S.Label>
+					</S.FormInputContainer>
+					<S.FormInputContainer>
 						<ControlledInput name={`${childId}.post-code`} placeholder="PSČ" />
-					</div>
-					<div>
-						{/* <label htmlFor="">Pojišťovna</label> */}
+						<S.Label>PSČ</S.Label>
+					</S.FormInputContainer>
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.insurance`}
 							placeholder="Pojišťovna"
 						/>
-					</div>
+						<S.Label>Pojišťovna</S.Label>
+					</S.FormInputContainer>
 				</S.FormItem>
 				<S.FormItem>
 					<Subheadline variant="dark">Kontaktní údaje</Subheadline>
-					<div>
-						{/* <label htmlFor="">Telefon</label> */}
+					<S.FormInputContainer>
 						<ControlledInput name={`${childId}.phone`} placeholder="Telefon" />
-					</div>
-					<div>
-						{/* <label htmlFor="">E-mail</label> */}
+						<S.Label>Telefon</S.Label>
+					</S.FormInputContainer>
+					<S.FormInputContainer>
 						<ControlledInput name={`${childId}.email`} placeholder="E-mail" />
-					</div>
+						<S.Label>E-mail</S.Label>
+					</S.FormInputContainer>
 				</S.FormItem>
 				<S.FormItem>
 					<Subheadline variant="dark">Ostatní</Subheadline>
-					<div>
-						{/* <label htmlFor="">Alergie</label> */}
+					<S.FormInputContainer>
 						<ControlledInput name={`${childId}.alergy`} placeholder="Alergie" />
-					</div>
-					{/* TODO -> select  PLAVEC / NEPLAVEC */}
+						<S.Label>Alergie</S.Label>
+					</S.FormInputContainer>
 					<div>
 						{/* <label htmlFor="">Plavecké schopnosti</label> */}
 						<ControlledSelect
@@ -126,39 +123,29 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							]}
 						/>
 					</div>
-					<div>
-						{/* <label htmlFor="">Poznámky</label> */}
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.health-issues`}
 							placeholder="Upozornění  na zdravotní potíže"
 						/>
+						<S.Label>Zdravotní potíže</S.Label>
 						{/* doplnit vysvetlivku (nejaky podnadpis) */}
-					</div>
+					</S.FormInputContainer>
 
 					{/* TODO -> checkbox */}
 					<div>
-						{/* <label htmlFor="">Souhlas s podmínkami</label> */}
-						{/* <S.FormInput
-							{...register(`${childId}.constent`)}
-							type="text"
-							placeholder="Souhlas s podmínkami"
-						/> */}
-						<input
-							placeholder="Souhlas s podmínkami"
-							type="checkbox"
-							name=""
-							id=""
-						/>
+						{/* //tohle asi ani nepotrebuju posilat, spis by to melo byt required jinak je nepustit dal */}
+						<ControlledCheckbox name={`${childId}.`} />
 						{/* doplnit vysvetlivku (nejaky podnadpis) */}
 					</div>
-					<div>
-						{/* <label htmlFor="">Jak jste se o nás dozvěděli?</label> */}
+					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.found-us`}
 							placeholder="Jak jste se o nás dozvěděli?"
 						/>
+						<S.Label>Jak jste se o nás dozvěděli?</S.Label>
 						{/* doplnit vysvetlivku (nejaky podnadpis) */}
-					</div>
+					</S.FormInputContainer>
 				</S.FormItem>
 			</S.Container>
 			<Button>
