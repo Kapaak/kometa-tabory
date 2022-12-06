@@ -6,8 +6,6 @@ export const NEXT = "NEXT";
 export const PREV = "PREV";
 export const NTH = "NTH";
 
-//tohle oddel je to docela mess
-
 type Direction = typeof PREV | typeof NEXT | typeof NTH;
 
 interface CarouselState {
@@ -66,10 +64,8 @@ export const Carousel = (props: PropsWithChildren) => {
 			<S.SlideButtonContainer>
 				{React.Children.map(props.children, (_, i) => (
 					<S.SlideButton
+						//kdybych chtel v budoucnu dat jen dopredu a nebo dozadu, tak staci slide(NEXT) slide(PREV)
 						onClick={() => slide(NTH, i)}
-						onMouseOver={() =>
-							console.log(state.pos, "pos", state.pos === i, i)
-						}
 						active={state.pos === i}
 					/>
 				))}

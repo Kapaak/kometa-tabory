@@ -25,34 +25,8 @@ export const TestimonialSection = () => {
 							text={d?.text}
 						/>
 					))}
-					{/* <Item img="https://unsplash.it/475/205" />
-					<Item img="https://unsplash.it/476/205" />
-					<Item img="https://unsplash.it/477/205" />
-					<Item img="https://unsplash.it/478/205" />
-					<Item img="https://unsplash.it/479/205" /> */}
 				</Carousel>
 			</S.MaxWidth>
 		</S.Testimonial>
 	);
 };
-// export const TestimonialSection = () => {
-// 	return (
-// 		<S.Testimonial name="testimonial">
-// 			<S.MaxWidth>
-// 				<S.Text center variant="dark">
-// 					Za naše dcerky obrovská pochvala všem kteří se na táboře jakkoliv
-// 					podíleli. Holky byly každý den nadšené a už oznámily, že příští rok
-// 					chtejí znovu.
-// 				</S.Text>
-// 				<S.AuthorContainer>
-// 					<Text bold variant="dark" center>
-// 						Iveta Maráková
-// 					</Text>
-// 					<Text variant="grey" center>
-// 						facebook komentáře
-// 					</Text>
-// 				</S.AuthorContainer>
-// 			</S.MaxWidth>
-// 		</S.Testimonial>
-// 	);
-// };

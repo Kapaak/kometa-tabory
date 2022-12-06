@@ -27,6 +27,8 @@ export const CarouselContainer = styled.div<{ sliding: boolean }>`
 export const Wrapper = styled.div`
 	width: 100%;
 	overflow: hidden;
+	max-width: 60rem;
+	margin: 0 auto;
 `;
 
 export const CarouselSlot = styled.div<{ order: number }>`
@@ -41,6 +43,7 @@ export const SlideButtonContainer = styled.div`
 	justify-content: center;
 	gap: 1rem;
 	margin: 0 auto;
+	padding-top: 2rem;
 	max-width: 14rem;
 `;
 
@@ -49,9 +52,8 @@ export const SlideButton = styled.button<{ active: boolean }>`
 	height: 1.2rem;
 	border: none;
 	border-radius: 50%;
-	background-color: var(--col2);
 	cursor: pointer;
-	background-color: ${({ active }) => active && "orange"};
+	background-color: ${({ active }) => (active ? "var(--col1)" : "var(--colg)")};
 
 	&:active {
 		position: relative;
