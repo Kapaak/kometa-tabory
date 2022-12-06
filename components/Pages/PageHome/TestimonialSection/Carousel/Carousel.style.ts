@@ -17,6 +17,11 @@ export const CarouselContainer = styled.div<{ sliding: boolean }>`
 		if (props.dir === PREV) return "translateX(calc(2 * (-100%)))";
 		return "translateX(0%)";
 	}};
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
 `;
 
 export const Wrapper = styled.div`
