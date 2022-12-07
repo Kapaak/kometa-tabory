@@ -40,8 +40,15 @@ export const ChildrenList = (props: ChildrenListProps) => {
 	};
 
 	return (
-		<S.ChildrenList direction="row" align="center">
-			<S.ChildContainer direction="row" gap="2rem">
+		<S.ChildrenList>
+			<S.Button
+				onClick={handleChildAdd}
+				disabled={activeChildren.length === MAX_LENGTH}
+			>
+				<UserCirclePlus size={35} weight="light" />
+				<span>Přidat další dítě (max. 4 děti)</span>
+			</S.Button>
+			<S.ChildContainer gap="2rem">
 				{activeChildren?.map(child => (
 					<ChildItem
 						key={child?.id}
@@ -53,13 +60,6 @@ export const ChildrenList = (props: ChildrenListProps) => {
 					/>
 				))}
 			</S.ChildContainer>
-			<S.Button
-				onClick={handleChildAdd}
-				disabled={activeChildren.length === MAX_LENGTH}
-			>
-				<UserCirclePlus size={35} weight="light" />
-				<span>Přidat další dítě (max. 4 děti)</span>
-			</S.Button>
 		</S.ChildrenList>
 	);
 };

@@ -28,6 +28,7 @@ const initialFormState = {
 	"post-code": "",
 	surname: "",
 	"swimming-abilities": "",
+	gender: "",
 };
 
 interface PagePrihlaskyProps {

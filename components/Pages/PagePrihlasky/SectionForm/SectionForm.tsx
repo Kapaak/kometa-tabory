@@ -1,10 +1,9 @@
-import { Button, Subheadline } from "@ui-library";
+import { Button, Subheadline, Text } from "@ui-library";
 import * as S from "./SectionForm.style";
 import { useFormContext } from "react-hook-form";
 import { BaseSyntheticEvent } from "react";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ControlledSelect } from "./ControlledSelect";
-import { ControlledCheckbox } from "./ControlledCheckbox";
 import { createOption } from "utils/functions";
 
 interface SectionFormProps {
@@ -80,9 +79,9 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.personal-id-num`}
-							placeholder="Rodné číslo"
+							placeholder="Rodné číslo dítěte (př. 045421/1234)"
 							pattern={/\d{4}([.,\/]\d{4})/}
-							required="Rodné číslo s lomítkem."
+							required="Rodné číslo v nesprávném formátu. Příklad: 045421/1234."
 						/>
 						<S.Label>Rodné číslo</S.Label>
 						<S.ErrorContainer>
@@ -139,7 +138,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							name={`${childId}.email`}
 							placeholder="E-mail"
 							pattern={/\S+@\S+\.\S+/}
-							required="Platný email musí obsahovat @."
+							required="Platný email musí obsahovat @ (př. novak.filip@email.cz)."
 						/>
 						<S.Label>E-mail</S.Label>
 						{
@@ -185,15 +184,22 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					</S.FormInputContainer>
 				</S.FormItem>
 			</S.Container>
-			<div style={{ marginLeft: "auto" }}>
-				<ControlledCheckbox name="consent" required>
-					Souhlasím s podmínkami
-				</ControlledCheckbox>
-
+			<S.SubmitContainer>
+				<S.Text>
+					Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{" "}
+					<S.UnderlinedInput
+						href="/files/VSEOBECNE-PODMINKY.pdf"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						podmínkami přijetí
+					</S.UnderlinedInput>
+					. S podmínkami souhlasím a moje dítě je splňuje.
+				</S.Text>
 				<Button>
 					Odeslat vše <S.ArrowRightIcon size={38} />
 				</Button>
-			</div>
+			</S.SubmitContainer>
 		</S.Form>
 	);
 };

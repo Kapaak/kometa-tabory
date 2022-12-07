@@ -1,6 +1,8 @@
 import { ArrowRight } from "phosphor-react";
 import styled from "styled-components";
 
+import { Text as SText } from "@ui-library";
+
 export const Container = styled.div`
 	display: grid;
 	gap: 4rem;
@@ -50,4 +52,23 @@ export const Label = styled.label`
 export const ErrorContainer = styled.div`
 	color: var(--colr);
 	font-size: 1.2rem;
+`;
+
+export const SubmitContainer = styled.div`
+	margin-left: auto;
+	max-width: 61rem;
+	text-align: right;
+`;
+
+export const Text = styled(SText)`
+	color: var(--colg);
+	text-align: inherit;
+	font-weight: 500;
+	margin: 1rem 0;
+`;
+
+export const UnderlinedInput = styled.a`
+	color: var(--col2);
+	text-decoration: underline;
+	text-underline-offset: 0.5rem;
 `;
