@@ -8,14 +8,14 @@ type ControlledCheckboxProps = JSX.IntrinsicElements["input"] & {
 export const ControlledCheckbox = ({
 	children,
 	name,
-	...props
+	...rest
 }: ControlledCheckboxProps) => {
 	return (
 		<Controller
 			name={name}
 			render={({ field: { value, ...restField } }) => (
 				<label style={{ marginRight: "1em" }}>
-					<input type="checkbox" {...props} {...restField} checked={value} />
+					<input type="checkbox" {...rest} {...restField} checked={value} />
 					{children}
 				</label>
 			)}

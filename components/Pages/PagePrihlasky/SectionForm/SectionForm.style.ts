@@ -6,15 +6,6 @@ export const Container = styled.div`
 	gap: 4rem;
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 `;
-//delete
-export const FormInput = styled.input`
-	border: none;
-	background-color: transparent;
-	border-bottom: 1px solid var(--collg);
-	padding: 1rem;
-	width: 100%;
-	font-size: 1.6rem;
-`;
 
 export const FormItem = styled.div`
 	display: flex;
@@ -54,4 +45,9 @@ export const Label = styled.label`
 	transition: transform 0.3s ease, opacity 0.2s ease;
 	pointer-events: none;
 	font-size: 1.3rem;
+`;
+
+export const ErrorContainer = styled.div`
+	color: var(--colr);
+	font-size: 1.2rem;
 `;

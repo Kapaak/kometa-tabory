@@ -34,7 +34,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 
 	return (
 		<S.Form onSubmit={handleSubmit(onSubmit)}>
-			<button type="button" onClick={() => console.log("errors", errors)}>
+			{/* <button type="button" onClick={() => console.log("errors", errors)}>
 				show errs
 			</button>
 			<button
@@ -42,7 +42,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 				onClick={() => console.log("errors", currentError?.name.message)}
 			>
 				nth err
-			</button>
+			</button> */}
 			<S.Container>
 				<S.FormItem>
 					<Subheadline variant="dark">Osobní údaje</Subheadline>
@@ -54,7 +54,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							required="Jméno nesmí být prázdné"
 						/>
 						<S.Label>Jméno dítěte</S.Label>
-						<div>{currentError?.name?.message}</div>
+						<S.ErrorContainer>{currentError?.name?.message}</S.ErrorContainer>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
 						<ControlledInput
@@ -62,15 +62,32 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							placeholder="Příjmení dítěte"
 							required="Příjmení nesmí být prázdné"
 						/>
-						<div>{currentError?.surname?.message}</div>
+						<S.ErrorContainer>
+							{currentError?.surname?.message}
+						</S.ErrorContainer>
 						<S.Label>Příjmení dítěte</S.Label>
 					</S.FormInputContainer>
+					<div>
+						<ControlledSelect
+							name={`${childId}.gender`}
+							placeholder="Pohlaví"
+							options={[
+								createOption("Muž", "muž"),
+								createOption("Žena", "žena"),
+							]}
+						/>
+					</div>
 					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.personal-id-num`}
 							placeholder="Rodné číslo"
+							pattern={/\d{4}([.,\/]\d{4})/}
+							required="Rodné číslo s lomítkem."
 						/>
 						<S.Label>Rodné číslo</S.Label>
+						<S.ErrorContainer>
+							{currentError?.["personal-id-num"]?.message}
+						</S.ErrorContainer>
 					</S.FormInputContainer>
 					<div>
 						<ControlledSelect
@@ -82,9 +99,9 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.date-of-birth`}
-							placeholder="Datum narození"
+							placeholder="Datum narození dítěte"
 						/>
-						<S.Label>Datum narození</S.Label>
+						<S.Label>Datum narození dítěte</S.Label>
 					</S.FormInputContainer>
 
 					{/* TODO -> posilat do excelu vypocitany vek ditete v dobe konani taboru */}
@@ -125,7 +142,11 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							required="Platný email musí obsahovat @."
 						/>
 						<S.Label>E-mail</S.Label>
-						{<div>{currentError?.email?.message}</div>}
+						{
+							<S.ErrorContainer>
+								{currentError?.email?.message}
+							</S.ErrorContainer>
+						}
 					</S.FormInputContainer>
 				</S.FormItem>
 				<S.FormItem>
@@ -154,14 +175,6 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 						{/* doplnit vysvetlivku (nejaky podnadpis) */}
 					</S.FormInputContainer>
 
-					{/* TODO -> checkbox */}
-					<div>
-						{/* //tohle asi ani nepotrebuju posilat, spis by to melo byt required jinak je nepustit dal */}
-						<ControlledCheckbox name={`${childId}.`}>
-							Souhlasím s podmínkami
-						</ControlledCheckbox>
-						{/* doplnit vysvetlivku (nejaky podnadpis) */}
-					</div>
 					<S.FormInputContainer>
 						<ControlledInput
 							name={`${childId}.found-us`}
@@ -172,9 +185,15 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					</S.FormInputContainer>
 				</S.FormItem>
 			</S.Container>
-			<Button>
-				Odeslat vše <S.ArrowRightIcon size={38} />
-			</Button>
+			<div style={{ marginLeft: "auto" }}>
+				<ControlledCheckbox name="consent" required>
+					Souhlasím s podmínkami
+				</ControlledCheckbox>
+
+				<Button>
+					Odeslat vše <S.ArrowRightIcon size={38} />
+				</Button>
+			</div>
 		</S.Form>
 	);
 };
