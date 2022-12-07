@@ -54,7 +54,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							required="Jméno nesmí být prázdné"
 						/>
 						<S.Label>Jméno dítěte</S.Label>
-						<div>{currentError?.name.message}</div>
+						<div>{currentError?.name?.message}</div>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
 						<ControlledInput
@@ -62,7 +62,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							placeholder="Příjmení dítěte"
 							required="Příjmení nesmí být prázdné"
 						/>
-						<div>{currentError?.name.message}</div>
+						<div>{currentError?.surname?.message}</div>
 						<S.Label>Příjmení dítěte</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
@@ -118,8 +118,14 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 						<S.Label>Telefon</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
-						<ControlledInput name={`${childId}.email`} placeholder="E-mail" />
+						<ControlledInput
+							name={`${childId}.email`}
+							placeholder="E-mail"
+							pattern={/\S+@\S+\.\S+/}
+							required="Platný email musí obsahovat @."
+						/>
 						<S.Label>E-mail</S.Label>
+						{<div>{currentError?.email?.message}</div>}
 					</S.FormInputContainer>
 				</S.FormItem>
 				<S.FormItem>
