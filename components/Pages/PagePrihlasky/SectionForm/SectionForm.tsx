@@ -78,26 +78,26 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					</div>
 					<S.FormInputContainer>
 						<ControlledInput
-							name={`${childId}.personal-id-num`}
+							name={`${childId}.personalIdNum`}
 							placeholder="Rodné číslo dítěte (př. 045421/1234)"
 							pattern={/\d{4}([.,\/]\d{4})/}
 							required="Rodné číslo v nesprávném formátu. Příklad: 045421/1234."
 						/>
 						<S.Label>Rodné číslo</S.Label>
 						<S.ErrorContainer>
-							{currentError?.["personal-id-num"]?.message}
+							{currentError?.personalIdNum?.message}
 						</S.ErrorContainer>
 					</S.FormInputContainer>
 					<div>
 						<ControlledSelect
-							name={`${childId}.czech-nationality`}
+							name={`${childId}.czechNationality`}
 							options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
 							placeholder="Je dítě občanem ČR?"
 						/>
 					</div>
 					<S.FormInputContainer>
 						<ControlledInput
-							name={`${childId}.date-of-birth`}
+							name={`${childId}.dateOfBirth`}
 							placeholder="Datum narození dítěte"
 						/>
 						<S.Label>Datum narození dítěte</S.Label>
@@ -116,7 +116,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 						<S.Label>Město</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
-						<ControlledInput name={`${childId}.post-code`} placeholder="PSČ" />
+						<ControlledInput name={`${childId}.postCode`} placeholder="PSČ" />
 						<S.Label>PSČ</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
@@ -157,7 +157,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					<div>
 						{/* <label htmlFor="">Plavecké schopnosti</label> */}
 						<ControlledSelect
-							name={`${childId}.swimming-abilities`}
+							name={`${childId}.swimmingAbilities`}
 							placeholder="Plavecké schopnosti"
 							options={[
 								createOption("Plavec", "plavec"),
@@ -167,7 +167,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 					</div>
 					<S.FormInputContainer>
 						<ControlledInput
-							name={`${childId}.health-issues`}
+							name={`${childId}.healthIssues`}
 							placeholder="Upozornění  na zdravotní potíže"
 						/>
 						<S.Label>Zdravotní potíže</S.Label>
@@ -176,7 +176,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 
 					<S.FormInputContainer>
 						<ControlledInput
-							name={`${childId}.found-us`}
+							name={`${childId}.foundUs`}
 							placeholder="Jak jste se o nás dozvěděli?"
 						/>
 						<S.Label>Jak jste se o nás dozvěděli?</S.Label>
