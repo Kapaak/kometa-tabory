@@ -44,7 +44,8 @@ const Service = (props: Props) => {
 					oldPrice={info?.oldPrice}
 					specialEvent={info?.event}
 				/>
-				<S.A href={`/prihlasky/${url}`}>Přihláška</S.A>
+				{/* <S.A href={`/prihlasky/${url}`}>Přihláška</S.A> */}
+				<S.Button disabled>Přihlášky budou spuštěny 1.1.2023</S.Button>
 			</S.Container>
 		</S.Service>
 	);

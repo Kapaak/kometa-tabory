@@ -1,7 +1,8 @@
-import { Flex, MaxWidth, Text } from "@ui-library";
+import { MaxWidth, Text } from "@ui-library";
 import { Headline } from "components/Shared";
 import * as S from "./DocumentSection.style";
 import { Document } from "./Document";
+import { data } from "./DocumentSection.data";
 
 export const DocumentSection = () => {
 	return (
@@ -15,22 +16,9 @@ export const DocumentSection = () => {
 						</Text>
 					</S.TextContainer>
 					<S.GridContainer>
-						<Document
-							title="Základní informace o táboře"
-							filePath="/files/VSEOBECNE-PODMINKY.pdf"
-						/>
-						<Document
-							title="Základní informace o táboře"
-							filePath="/files/VSEOBECNE-PODMINKY.pdf"
-						/>
-						<Document
-							title="Základní informace o táboře"
-							filePath="/files/VSEOBECNE-PODMINKY.pdf"
-						/>
-						<Document
-							title="Základní informace o táboře"
-							filePath="/files/VSEOBECNE-PODMINKY.pdf"
-						/>
+						{data.map(d => (
+							<Document key={d?.id} title={d?.title} filePath={d?.filePath} />
+						))}
 					</S.GridContainer>
 				</S.FlexContainer>
 			</MaxWidth>

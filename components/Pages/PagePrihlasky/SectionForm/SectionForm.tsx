@@ -74,7 +74,9 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 								createOption("Muž", "muž"),
 								createOption("Žena", "žena"),
 							]}
+							required="Pohlaví musí být vyplněno"
 						/>
+						<S.ErrorContainer>{currentError?.gender?.message}</S.ErrorContainer>
 					</div>
 					<S.FormInputContainer>
 						<ControlledInput
@@ -93,7 +95,11 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							name={`${childId}.czechNationality`}
 							options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
 							placeholder="Je dítě občanem ČR?"
+							required="Národnost musí být vyplněna"
 						/>
+						<S.ErrorContainer>
+							{currentError?.czechNationality?.message}
+						</S.ErrorContainer>
 					</div>
 					<S.FormInputContainer>
 						<ControlledInput
@@ -120,18 +126,53 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 						<S.Label>PSČ</S.Label>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
-						<ControlledInput
+						<ControlledSelect
 							name={`${childId}.insurance`}
-							placeholder="Pojišťovna"
+							options={[
+								createOption(
+									"Všeobecná zdravotní pojišťovna",
+									"všeobecná zdravotní pojišťovna"
+								),
+								createOption("Vojenská zdravotní pojišťovna", "vojenská"),
+								createOption(
+									"Česká průmyslová zdravotní pojišťovna",
+									"česká průmyslová zdravotní pojišťovna"
+								),
+								createOption(
+									"Oborová zdravotní pojišťovna",
+									"oborová zdravotní pojišťovna"
+								),
+								createOption(
+									"Zaměstnanecká pojišťovna Škoda",
+									"zaměstnanecká pojišťovna škoda"
+								),
+								createOption(
+									"Zdravotní pojišťovna ministerstva vnitra",
+									"zdravotní pojišťovna ministerstva vnitra"
+								),
+								createOption(
+									"Revírní bratrská pokladna zdravotní pojišťovna",
+									"revírní bratrská pokladna zdravotní pojišťovna"
+								),
+							]}
+							placeholder="Zdravotní pojišťovna"
+							required="Zdravotní pojišťovn musí být vyplněna"
 						/>
-						<S.Label>Pojišťovna</S.Label>
+						<S.ErrorContainer>
+							{currentError?.insurance?.message}
+						</S.ErrorContainer>
 					</S.FormInputContainer>
 				</S.FormItem>
 				<S.FormItem>
 					<Subheadline variant="dark">Kontaktní údaje</Subheadline>
 					<S.FormInputContainer>
-						<ControlledInput name={`${childId}.phone`} placeholder="Telefon" />
+						<ControlledInput
+							name={`${childId}.phone`}
+							placeholder="Telefon"
+							required="Telefon musí být vyplněn"
+						/>
 						<S.Label>Telefon</S.Label>
+						<S.ErrorContainer>{currentError?.phone?.message}</S.ErrorContainer>
 					</S.FormInputContainer>
 					<S.FormInputContainer>
 						<ControlledInput
@@ -141,11 +182,7 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 							required="Platný email musí obsahovat @ (př. novak.filip@email.cz)."
 						/>
 						<S.Label>E-mail</S.Label>
-						{
-							<S.ErrorContainer>
-								{currentError?.email?.message}
-							</S.ErrorContainer>
-						}
+						<S.ErrorContainer>{currentError?.email?.message}</S.ErrorContainer>
 					</S.FormInputContainer>
 				</S.FormItem>
 				<S.FormItem>
@@ -163,7 +200,11 @@ export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
 								createOption("Plavec", "plavec"),
 								createOption("Neplavec", "neplavec"),
 							]}
+							required="Plavecké schopnosti musí být vyplněny."
 						/>
+						<S.ErrorContainer>
+							{currentError?.swimmingAbilities?.message}
+						</S.ErrorContainer>
 					</div>
 					<S.FormInputContainer>
 						<ControlledInput

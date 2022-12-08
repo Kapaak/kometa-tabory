@@ -21,10 +21,18 @@ export const MaxWidth = styled(SMaxWidth)`
 		position: absolute;
 		background-repeat: no-repeat;
 		background-image: url("/icons/quotes.svg");
-		background-size: 10rem;
-		width: 10rem;
-		height: 10rem;
+		background-size: 5rem;
+		width: 5rem;
+		height: 5rem;
+		opacity: 0.3;
 		z-index: -1;
+
+		@media (${dimensions.tablet}) {
+			background-size: 10rem;
+			width: 10rem;
+			height: 10rem;
+			opacity: 1;
+		}
 
 		@media (${dimensions.desktop}) {
 			left: 30rem;
@@ -37,11 +45,19 @@ export const MaxWidth = styled(SMaxWidth)`
 		bottom: 0;
 		background-repeat: no-repeat;
 		background-image: url("/icons/quotes.svg");
-		background-size: 10rem;
-		width: 10rem;
-		height: 10rem;
+		background-size: 5rem;
+		width: 5rem;
+		height: 5rem;
+		opacity: 0.3;
 		transform: rotate(180deg);
 		z-index: -1;
+
+		@media (${dimensions.tablet}) {
+			background-size: 10rem;
+			width: 10rem;
+			height: 10rem;
+			opacity: 1;
+		}
 
 		@media (${dimensions.desktop}) {
 			right: 30rem;

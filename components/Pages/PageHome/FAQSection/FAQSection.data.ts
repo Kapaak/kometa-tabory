@@ -45,12 +45,12 @@ export const data = [
 					"Pokud potřebujete potvrzení pro zdravotní pojišťovnu, přineste si vyplněný formulář z Vaší zdravotní pojišťovny v první den nástupu na tábor.",
 				icon: FirstAid,
 			},
-			{
-				id: "55",
-				title: "STORNO PODMÍNKY",
-				description: "Text bude doplněn.",
-				icon: XCircle,
-			},
+			// {
+			// 	id: "55",
+			// 	title: "STORNO PODMÍNKY",
+			// 	description: "Text bude doplněn.",
+			// 	icon: XCircle,
+			// },
 		],
 	},
 	{
@@ -107,22 +107,21 @@ export const data = [
 			{
 				id: "311",
 				title: "Pondělí",
-				description:
-					"V případě, že požadujete vystavení faktury, budeme od vás potřebovat tyto údaje: fakturační údaje firmy, jméno žadatele (zaměstnanec) – jeho osobní údaje požadované firmou, jméno dítěte, datum narození, kurz do kterého se hlásí (spec. symbol), datum začátku a konce kurzu, cena kurzu, telefon na žadatele, e-mail, na který se bude faktura posílat",
+				description: `Každé ráno si děti přebíráme v areálu Komety Brno od 7:30 do 8:00, poté máme rozcvičku a pár her na seznámení se.
+					Následuje svačina a volné pokračování v hraní her.
+					Obědváme kolem 12:30 a po obědě následuje polední klid. Odpoledne chodíme do lesa, nebo hrajeme tematické hry. Program končí v 16:30 a děti si můžete vyzvednout do 17:00.`,
 				icon: CalendarBlank,
 			},
 			{
 				id: "312",
 				title: "Úterý, Čtvrtek, Pátek",
-				description:
-					"V případě, že požadujete vystavení faktury, budeme od vás potřebovat tyto údaje: fakturační údaje firmy, jméno žadatele (zaměstnanec) – jeho osobní údaje požadované firmou, jméno dítěte, datum narození, kurz do kterého se hlásí (spec. symbol), datum začátku a konce kurzu, cena kurzu, telefon na žadatele, e-mail, na který se bude faktura posílat",
+				description: `Tyto dny s dětmi chodíme dopoledne plavat. Příchod do táboru je od 7:30 do 8:00 jako ostatní dny, následuje rozcvička a krátká hra. Poté se autobusem přesouváme na Kraví Horu, kde se dětem věnují zkušení a certifikovaní trenéři. Po plavání se přesouváme zpět do tábora. Zde máme oběd a polední klid. Odpolední program je věnován hrám a v pátek hledání pokladu. Děti si můžete vyzvednout opět mezi 16:30 a 17:00.`,
 				icon: CalendarBlank,
 			},
 			{
 				id: "313",
 				title: "Středa",
-				description:
-					"V případě, že požadujete vystavení faktury, budeme od vás potřebovat tyto údaje: fakturační údaje firmy, jméno žadatele (zaměstnanec) – jeho osobní údaje požadované firmou, jméno dítěte, datum narození, kurz do kterého se hlásí (spec. symbol), datum začátku a konce kurzu, cena kurzu, telefon na žadatele, e-mail, na který se bude faktura posílat",
+				description: `Ve středu jezdíme na tematické výlety. Dle vzdálenosti a dopravní situace se může měnit příchod a odchod dětí z táboru. Všechny informace Vám sdělí vedoucí trenér v daném týdnu táboru. Popřípadě se lze individuálně domluvit na jiném čase.`,
 				icon: CalendarBlank,
 			},
 		],

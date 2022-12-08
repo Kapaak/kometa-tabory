@@ -4,6 +4,7 @@ export const Document = styled.div`
 	margin: 1rem 0;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid var(--col2);
+	max-height: 5rem;
 `;
 
 export const H4 = styled.h4`

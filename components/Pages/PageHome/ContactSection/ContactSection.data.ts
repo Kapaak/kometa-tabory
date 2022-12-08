@@ -32,7 +32,7 @@ export const data: IContact[] = [
 		icon: PhoneIcon,
 		fragment: [
 			{
-				output: "+420 606 354 747",
+				output: "+420 626 354 747",
 				type: contentType.link,
 			},
 		],
@@ -42,7 +42,7 @@ export const data: IContact[] = [
 		icon: EmailIcon,
 		fragment: [
 			{
-				output: "plavaniluzanky@kometabrno.cz",
+				output: "taborpisarky@kometaplavani.cz",
 				type: contentType.link,
 			},
 		],

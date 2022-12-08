@@ -30,8 +30,8 @@ export const HeroSection = () => {
 						</div>
 						<div>
 							<S.TextContainer variant="light" center bold>
-								Přijďte si s námi užít spoustu zábavy na sportovní příměstských
-								táborech!
+								Přijďte si s námi užít spoustu zábavy na sportovních
+								příměstských táborech!
 							</S.TextContainer>
 						</div>
 					</S.FlexWrapper>

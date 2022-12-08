@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import NextImage from "next/image";
-import { center } from "@/utils";
+import { center, dimensions } from "@/utils";
 
 export const Trainer = styled.article`
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
-	min-height: 40rem;
+	min-height: 47rem;
 	flex: 1 1 33%;
 	border-radius: var(--small-border-rad);
 	box-shadow: var(--shadow);
@@ -25,6 +25,10 @@ export const Trainer = styled.article`
 			rgba(54, 54, 54, 0) 99.93%
 		);
 		z-index: 2;
+	}
+
+	@media (${dimensions.desktop}) {
+		min-height: 40rem;
 	}
 `;
 

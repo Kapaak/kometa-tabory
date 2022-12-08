@@ -53,7 +53,9 @@ export const Image = styled(NextImage)`
 	object-fit: cover;
 `;
 
-export const A = styled(Link)`
+//todo tohle pak pouzij jako link
+// export const A = styled(Link)`
+export const Button = styled.button`
 	//todo uprav jestli ty styly jsou vsecchny potreba
 	display: inline-block;
 	border-radius: 2.4rem;

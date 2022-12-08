@@ -2,27 +2,30 @@
 import styled from "styled-components";
 //styles
 import { dimensions } from "@/utils";
+import Link from "next/link";
+import NextImage from "next/image";
 
-export const Logo = styled.a`
+export const Image = styled(NextImage)`
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+`;
+
+export const Logo = styled(Link)`
 	position: relative;
 	display: inline-block;
 	z-index: 10;
-	padding: 1rem 2rem;
 	cursor: pointer;
-	width: 11rem;
+	width: 6rem;
 	margin: 0 2rem;
 	height: 100%;
 	z-index: 2;
 
 	@media (${dimensions.notebook}) {
-		width: 10rem;
-		padding: 0;
-		margin: 0;
+		width: 7rem;
 	}
 
 	@media (${dimensions.desktop}) {
-		width: 11rem;
-		padding: 0;
 		margin: 0;
 	}
 `;

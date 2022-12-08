@@ -17,13 +17,7 @@ const Prihlasky = () => {
 		setCamp(getCampByName());
 	}, [router]);
 
-	return (
-		<main>
-			<PagePrihlasky camp={camp} />
-		</main>
-	);
+	return <main>{/* <PagePrihlasky camp={camp} /> */}</main>;
 };
-
-//todo .. mely by tu byt jen paths, ktery jsou v tech datech, jinak to ma hazet 404
 
 export default Prihlasky;

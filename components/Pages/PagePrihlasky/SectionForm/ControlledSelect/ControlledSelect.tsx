@@ -1,6 +1,7 @@
 import { CaretCircleDown } from "phosphor-react";
 import React, { useId } from "react";
 import { Controller } from "react-hook-form";
+import { ValidationRule } from "react-hook-form/dist/types";
 import Select, {
 	StylesConfig,
 	components,
@@ -15,12 +16,16 @@ interface ControlledSelectProps {
 	name: string;
 	placeholder: string;
 	options: Option[];
+	required?: boolean | string;
+	pattern?: ValidationRule<RegExp>;
 }
 
 export const ControlledSelect = ({
 	name,
 	placeholder,
 	options,
+	required,
+	pattern,
 }: ControlledSelectProps) => {
 	const styles: StylesConfig = {
 		control: (baseStyles, state) => ({
@@ -49,6 +54,7 @@ export const ControlledSelect = ({
 	return (
 		<Controller
 			name={name}
+			rules={{ required, pattern }}
 			render={({ field: { onChange, value, name, ...restField } }) => (
 				<Select
 					name={name}
