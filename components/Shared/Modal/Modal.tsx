@@ -1,5 +1,6 @@
 import { Text } from "@ui-library";
 import { UserCirclePlus } from "phosphor-react";
+import { PropsWithChildren } from "react";
 import ReactModal from "react-modal";
 import * as S from "./Modal.style";
 
@@ -7,11 +8,16 @@ ReactModal.setAppElement("body");
 
 interface ModalProps {
 	isOpen: boolean;
-	addChild: () => void;
 	redirect: () => void;
+	headline: string;
 }
 
-export const Modal = ({ isOpen, addChild, redirect }: ModalProps) => {
+export const Modal = ({
+	isOpen,
+	redirect,
+	headline,
+	children,
+}: PropsWithChildren<ModalProps>) => {
 	const modalStyles = {
 		content: {
 			inset: "0",
@@ -29,18 +35,8 @@ export const Modal = ({ isOpen, addChild, redirect }: ModalProps) => {
 
 	return (
 		<ReactModal isOpen={isOpen} style={modalStyles}>
-			<S.Headline center>VAŠE PŘIHLÁŠKA BYLA ÚSPĚŠNĚ ODESLÁNA</S.Headline>
-			<Text variant="dark">
-				Prosím vyčkejte na potvrzení přihlášky na e-mail. Pokud vám nepřijde do
-				2 dnů, volejte +420 723 111 222. Děkujeme a budeme se na vás těšit v
-				létě!
-			</Text>
-
-			<S.CreateButton onClick={addChild}>
-				<UserCirclePlus size={30} color="var(--col2)" />
-				PŘIDAT DALŠÍ DÍTĚ
-			</S.CreateButton>
-
+			<S.Headline center>{headline}</S.Headline>
+			{children}
 			<S.LeaveButton onClick={redirect}>
 				vrátit na úvodní stránku <S.ArrowRightIcon size={38} />
 			</S.LeaveButton>

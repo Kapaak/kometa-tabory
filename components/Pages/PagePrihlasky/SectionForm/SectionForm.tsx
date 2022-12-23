@@ -7,6 +7,7 @@ import { createOption } from "utils/functions";
 import { Modal } from "components/Shared";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { SuccessModal } from "./SuccessModal";
 
 export const SectionForm = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +73,11 @@ export const SectionForm = () => {
 
 	return (
 		<FormProvider {...form}>
-			<Modal isOpen={isOpen} addChild={resetAll} redirect={redirectHome} />
+			<SuccessModal
+				isOpen={isOpen}
+				addChild={resetAll}
+				redirect={redirectHome}
+			/>
 			<S.Form onSubmit={handleSubmit(onSubmit)}>
 				<S.Container>
 					<S.FormItem>
