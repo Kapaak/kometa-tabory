@@ -4,10 +4,11 @@ import { FormProvider, useForm } from "react-hook-form";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ControlledSelect } from "./ControlledSelect";
 import { createOption } from "utils/functions";
-import { Modal } from "components/Shared";
+import { IconButton, Modal } from "components/Shared";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { SuccessModal } from "./SuccessModal";
+import { CircleWavyCheck } from "phosphor-react";
 
 export const SectionForm = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -73,6 +74,7 @@ export const SectionForm = () => {
 
 	return (
 		<FormProvider {...form}>
+			<IconButton iconAfter={CircleWavyCheck}>icon</IconButton>
 			<SuccessModal
 				isOpen={isOpen}
 				addChild={resetAll}

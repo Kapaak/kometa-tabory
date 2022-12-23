@@ -19,6 +19,10 @@ export const TitleButton = styled.button`
 
 	width: 100%;
 	padding: 1rem 0rem 2rem;
+
+	& > svg:first-of-type {
+		min-width: 3rem;
+	}
 `;
 
 export const H4 = styled.h4`
@@ -37,4 +41,5 @@ export const CaretIcon = styled(CaretDown)<{ $isActive?: boolean }>`
 	margin-left: auto;
 	transform: ${({ $isActive }) => ($isActive ? "rotate(180deg)" : "rotate(0)")};
 	transition: all 0.5s ease;
+	min-width: 2rem;
 `;

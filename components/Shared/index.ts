@@ -5,3 +5,4 @@ export * from "./SectionElement";
 export * from "./MaxHeight";
 export * from "./Headline";
 export * from "./Modal";
+export * from "./IconButton";
