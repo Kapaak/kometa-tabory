@@ -1,246 +1,291 @@
-import { Button, Subheadline, Text } from "@ui-library";
+import { Button, Subheadline } from "@ui-library";
 import * as S from "./SectionForm.style";
-import { useFormContext } from "react-hook-form";
-import { BaseSyntheticEvent } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ControlledSelect } from "./ControlledSelect";
 import { createOption } from "utils/functions";
+import { Modal } from "components/Shared";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-interface SectionFormProps {
-	childId: string;
-	onNameChange: (name: string) => void;
-}
+export const SectionForm = () => {
+	const [isOpen, setIsOpen] = useState(false);
 
-export const SectionForm = ({ childId, onNameChange }: SectionFormProps) => {
+	const router = useRouter();
+
 	const onSubmit = (d: any) => {
 		console.log(d, "dd");
+		normalizeSelectInputs(d);
+		setIsOpen(true);
 	};
+
+	//todo select input vraci {label:"...",value:"..."}, ja chci ale jen "...", to se nastavuje uvnitr toho selectu nejak
+	const normalizeSelectInputs = (data: any) => {
+		const newData = { ...data };
+		newData.czechNationality = data?.czechNationality?.value;
+		newData.gender = data?.gender?.value;
+		newData.insurance = data?.insurance?.value;
+		newData.swimmingAbilities = data?.swimmingAbilities?.value;
+	};
+
+	type FormValues = {
+		firstName: string;
+		lastName: string;
+		email: string;
+		address: string;
+		alergy: string;
+		city: string;
+		czechNationality: string;
+		dateOfBirth: string;
+		foundUs: string;
+		gender: string;
+		healthIssues: string;
+		insurance: string;
+		personalIdNum: string;
+		phone: string;
+		postCode: string;
+		swimmingAbilities: string;
+	};
+
+	const form = useForm<FormValues>();
 
 	const {
 		handleSubmit,
 		formState: { errors },
-	} = useFormContext();
+		reset,
+	} = form;
 
-	const handleBlur = (
-		e: BaseSyntheticEvent,
-		callback: (e: BaseSyntheticEvent) => void
-	) => {
-		onNameChange(e.target.value);
-		callback(e);
+	const resetAll = () => {
+		//ty select pole se neresetovaly, kdyz jsem dal reset()
+		reset({
+			gender: "",
+			czechNationality: "",
+			insurance: "",
+			swimmingAbilities: "",
+		});
+		setIsOpen(false);
 	};
 
-	const currentError = errors[childId] as any;
+	const redirectHome = () => {
+		router.push("/");
+	};
 
 	return (
-		<S.Form onSubmit={handleSubmit(onSubmit)}>
-			{/* <button type="button" onClick={() => console.log("errors", errors)}>
-				show errs
-			</button>
-			<button
-				type="button"
-				onClick={() => console.log("errors", currentError?.name.message)}
-			>
-				nth err
-			</button> */}
-			<S.Container>
-				<S.FormItem>
-					<Subheadline variant="dark">Osobní údaje</Subheadline>
-					<S.FormInputContainer>
-						<ControlledNameInput
-							name={`${childId}.name`}
-							placeholder="Jméno dítěte"
-							onNameBlur={handleBlur}
-							required="Jméno nesmí být prázdné"
-						/>
-						<S.Label>Jméno dítěte</S.Label>
-						<S.ErrorContainer>{currentError?.name?.message}</S.ErrorContainer>
-					</S.FormInputContainer>
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.surname`}
-							placeholder="Příjmení dítěte"
-							required="Příjmení nesmí být prázdné"
-						/>
-						<S.ErrorContainer>
-							{currentError?.surname?.message}
-						</S.ErrorContainer>
-						<S.Label>Příjmení dítěte</S.Label>
-					</S.FormInputContainer>
-					<div>
-						<ControlledSelect
-							name={`${childId}.gender`}
-							placeholder="Pohlaví"
-							options={[
-								createOption("Muž", "muž"),
-								createOption("Žena", "žena"),
-							]}
-							required="Pohlaví musí být vyplněno"
-						/>
-						<S.ErrorContainer>{currentError?.gender?.message}</S.ErrorContainer>
-					</div>
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.personalIdNum`}
-							placeholder="Rodné číslo dítěte (př. 045421/1234)"
-							pattern={/\d{4}([.,\/]\d{4})/}
-							required="Rodné číslo v nesprávném formátu. Příklad: 045421/1234."
-						/>
-						<S.Label>Rodné číslo</S.Label>
-						<S.ErrorContainer>
-							{currentError?.personalIdNum?.message}
-						</S.ErrorContainer>
-					</S.FormInputContainer>
-					<div>
-						<ControlledSelect
-							name={`${childId}.czechNationality`}
-							options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
-							placeholder="Je dítě občanem ČR?"
-							required="Národnost musí být vyplněna"
-						/>
-						<S.ErrorContainer>
-							{currentError?.czechNationality?.message}
-						</S.ErrorContainer>
-					</div>
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.dateOfBirth`}
-							placeholder="Datum narození dítěte"
-						/>
-						<S.Label>Datum narození dítěte</S.Label>
-					</S.FormInputContainer>
+		<FormProvider {...form}>
+			<Modal isOpen={isOpen} addChild={resetAll} redirect={redirectHome} />
+			<S.Form onSubmit={handleSubmit(onSubmit)}>
+				<S.Container>
+					<S.FormItem>
+						<Subheadline variant="dark">Osobní údaje</Subheadline>
+						<S.FormInputContainer>
+							<ControlledNameInput
+								name={`firstName`}
+								placeholder="Jméno dítěte"
+								required="Jméno nesmí být prázdné"
+							/>
+							<S.Label>Jméno dítěte</S.Label>
+							<S.ErrorContainer>{errors?.firstName?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`lastName`}
+								placeholder="Příjmení dítěte"
+								required="Příjmení nesmí být prázdné"
+							/>
+							<S.Label>Příjmení dítěte</S.Label>
+							<S.ErrorContainer>{errors?.lastName?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+						<div>
+							<ControlledSelect
+								name={`gender`}
+								placeholder="Pohlaví"
+								options={[
+									createOption("Muž", "muž"),
+									createOption("Žena", "žena"),
+								]}
+								required="Pohlaví musí být vyplněno"
+							/>
+							<S.ErrorContainer>{errors?.gender?.message}</S.ErrorContainer>
+						</div>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`personalIdNum`}
+								placeholder="Rodné číslo dítěte (př. 045421/1234)"
+								pattern={/\d{4}([.,\/]\d{4})/}
+								required="Rodné číslo v nesprávném formátu. Příklad: 045421/1234."
+							/>
+							<S.Label>Rodné číslo</S.Label>
+							<S.ErrorContainer>
+								{errors?.personalIdNum?.message}
+							</S.ErrorContainer>
+						</S.FormInputContainer>
+						<div>
+							<ControlledSelect
+								name={`czechNationality`}
+								options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
+								placeholder="Je dítě občanem ČR?"
+								required="Národnost musí být vyplněna"
+							/>
+							<S.ErrorContainer>
+								{errors?.czechNationality?.message}
+							</S.ErrorContainer>
+						</div>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`dateOfBirth`}
+								placeholder="Datum narození dítěte"
+								required="Datum narození musí být vyplněno."
+							/>
+							<S.Label>Datum narození dítěte</S.Label>
+							<S.ErrorContainer>
+								{errors?.dateOfBirth?.message}
+							</S.ErrorContainer>
+						</S.FormInputContainer>
 
-					{/* TODO -> posilat do excelu vypocitany vek ditete v dobe konani taboru */}
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.address`}
-							placeholder="Adresa a číslo popisné"
-						/>
-						<S.Label>Adresa a číslo popisné</S.Label>
-					</S.FormInputContainer>
-					<S.FormInputContainer>
-						<ControlledInput name={`${childId}.city`} placeholder="Město" />
-						<S.Label>Město</S.Label>
-					</S.FormInputContainer>
-					<S.FormInputContainer>
-						<ControlledInput name={`${childId}.postCode`} placeholder="PSČ" />
-						<S.Label>PSČ</S.Label>
-					</S.FormInputContainer>
-					<S.FormInputContainer>
-						<ControlledSelect
-							name={`${childId}.insurance`}
-							options={[
-								createOption(
-									"Všeobecná zdravotní pojišťovna",
-									"všeobecná zdravotní pojišťovna"
-								),
-								createOption("Vojenská zdravotní pojišťovna", "vojenská"),
-								createOption(
-									"Česká průmyslová zdravotní pojišťovna",
-									"česká průmyslová zdravotní pojišťovna"
-								),
-								createOption(
-									"Oborová zdravotní pojišťovna",
-									"oborová zdravotní pojišťovna"
-								),
-								createOption(
-									"Zaměstnanecká pojišťovna Škoda",
-									"zaměstnanecká pojišťovna škoda"
-								),
-								createOption(
-									"Zdravotní pojišťovna ministerstva vnitra",
-									"zdravotní pojišťovna ministerstva vnitra"
-								),
-								createOption(
-									"Revírní bratrská pokladna zdravotní pojišťovna",
-									"revírní bratrská pokladna zdravotní pojišťovna"
-								),
-							]}
-							placeholder="Zdravotní pojišťovna"
-							required="Zdravotní pojišťovn musí být vyplněna"
-						/>
-						<S.ErrorContainer>
-							{currentError?.insurance?.message}
-						</S.ErrorContainer>
-					</S.FormInputContainer>
-				</S.FormItem>
-				<S.FormItem>
-					<Subheadline variant="dark">Kontaktní údaje</Subheadline>
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.phone`}
-							placeholder="Telefon"
-							required="Telefon musí být vyplněn"
-						/>
-						<S.Label>Telefon</S.Label>
-						<S.ErrorContainer>{currentError?.phone?.message}</S.ErrorContainer>
-					</S.FormInputContainer>
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.email`}
-							placeholder="E-mail"
-							pattern={/\S+@\S+\.\S+/}
-							required="Platný email musí obsahovat @ (př. novak.filip@email.cz)."
-						/>
-						<S.Label>E-mail</S.Label>
-						<S.ErrorContainer>{currentError?.email?.message}</S.ErrorContainer>
-					</S.FormInputContainer>
-				</S.FormItem>
-				<S.FormItem>
-					<Subheadline variant="dark">Ostatní</Subheadline>
-					<S.FormInputContainer>
-						<ControlledInput name={`${childId}.alergy`} placeholder="Alergie" />
-						<S.Label>Alergie</S.Label>
-					</S.FormInputContainer>
-					<div>
-						{/* <label htmlFor="">Plavecké schopnosti</label> */}
-						<ControlledSelect
-							name={`${childId}.swimmingAbilities`}
-							placeholder="Plavecké schopnosti"
-							options={[
-								createOption("Plavec", "plavec"),
-								createOption("Neplavec", "neplavec"),
-							]}
-							required="Plavecké schopnosti musí být vyplněny."
-						/>
-						<S.ErrorContainer>
-							{currentError?.swimmingAbilities?.message}
-						</S.ErrorContainer>
-					</div>
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.healthIssues`}
-							placeholder="Upozornění  na zdravotní potíže"
-						/>
-						<S.Label>Zdravotní potíže</S.Label>
-						{/* doplnit vysvetlivku (nejaky podnadpis) */}
-					</S.FormInputContainer>
+						{/* TODO -> posilat do excelu vypocitany vek ditete v dobe konani taboru */}
 
-					<S.FormInputContainer>
-						<ControlledInput
-							name={`${childId}.foundUs`}
-							placeholder="Jak jste se o nás dozvěděli?"
-						/>
-						<S.Label>Jak jste se o nás dozvěděli?</S.Label>
-						{/* doplnit vysvetlivku (nejaky podnadpis) */}
-					</S.FormInputContainer>
-				</S.FormItem>
-			</S.Container>
-			<S.SubmitContainer>
-				<S.Text>
-					Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{" "}
-					<S.UnderlinedInput
-						href="/files/VSEOBECNE-PODMINKY.pdf"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						podmínkami přijetí
-					</S.UnderlinedInput>
-					. S podmínkami souhlasím a moje dítě je splňuje.
-				</S.Text>
-				<Button>
-					Odeslat vše <S.ArrowRightIcon size={38} />
-				</Button>
-			</S.SubmitContainer>
-		</S.Form>
+						<S.FormInputContainer>
+							<ControlledSelect
+								name={`insurance`}
+								options={[
+									createOption(
+										"Všeobecná zdravotní pojišťovna",
+										"všeobecná zdravotní pojišťovna"
+									),
+									createOption("Vojenská zdravotní pojišťovna", "vojenská"),
+									createOption(
+										"Česká průmyslová zdravotní pojišťovna",
+										"česká průmyslová zdravotní pojišťovna"
+									),
+									createOption(
+										"Oborová zdravotní pojišťovna",
+										"oborová zdravotní pojišťovna"
+									),
+									createOption(
+										"Zaměstnanecká pojišťovna Škoda",
+										"zaměstnanecká pojišťovna škoda"
+									),
+									createOption(
+										"Zdravotní pojišťovna ministerstva vnitra",
+										"zdravotní pojišťovna ministerstva vnitra"
+									),
+									createOption(
+										"Revírní bratrská pokladna zdravotní pojišťovna",
+										"revírní bratrská pokladna zdravotní pojišťovna"
+									),
+								]}
+								placeholder="Zdravotní pojišťovna"
+								required="Zdravotní pojišťovn musí být vyplněna"
+							/>
+							<S.ErrorContainer>{errors?.insurance?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+					</S.FormItem>
+					<S.FormItem>
+						<Subheadline variant="dark">Kontaktní údaje</Subheadline>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`phone`}
+								placeholder="Telefon"
+								required="Telefon musí být vyplněn"
+							/>
+							<S.Label>Telefon</S.Label>
+							<S.ErrorContainer>{errors?.phone?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`email`}
+								placeholder="E-mail"
+								pattern={/\S+@\S+\.\S+/}
+								required="Platný email musí obsahovat @ (př. novak.filip@email.cz)."
+							/>
+							<S.Label>E-mail</S.Label>
+							<S.ErrorContainer>{errors?.email?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`address`}
+								placeholder="Adresa a číslo popisné"
+								required="Adresa musí být vyplněna"
+							/>
+							<S.Label>Adresa a číslo popisné</S.Label>
+							<S.ErrorContainer>{errors?.address?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`city`}
+								placeholder="Město"
+								required="Město musí být vyplněno"
+							/>
+							<S.Label>Město</S.Label>
+							<S.ErrorContainer>{errors?.city?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`postCode`}
+								placeholder="PSČ"
+								required="PSČ musí být vyplněno"
+							/>
+							<S.Label>PSČ</S.Label>
+							<S.ErrorContainer>{errors?.postCode?.message}</S.ErrorContainer>
+						</S.FormInputContainer>
+					</S.FormItem>
+					<S.FormItem>
+						<Subheadline variant="dark">Ostatní</Subheadline>
+						<S.FormInputContainer>
+							<ControlledInput name={`alergy`} placeholder="Alergie" />
+							<S.Label>Alergie</S.Label>
+						</S.FormInputContainer>
+						<div>
+							{/* <label htmlFor="">Plavecké schopnosti</label> */}
+							<ControlledSelect
+								name={`swimmingAbilities`}
+								placeholder="Plavecké schopnosti"
+								options={[
+									createOption("Plavec", "plavec"),
+									createOption("Neplavec", "neplavec"),
+								]}
+								required="Plavecké schopnosti musí být vyplněny."
+							/>
+							<S.ErrorContainer>
+								{errors?.swimmingAbilities?.message}
+							</S.ErrorContainer>
+						</div>
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`healthIssues`}
+								placeholder="Upozornění  na zdravotní potíže"
+							/>
+							<S.Label>Zdravotní potíže</S.Label>
+							{/* doplnit vysvetlivku (nejaky podnadpis) */}
+						</S.FormInputContainer>
+
+						<S.FormInputContainer>
+							<ControlledInput
+								name={`foundUs`}
+								placeholder="Jak jste se o nás dozvěděli?"
+							/>
+							<S.Label>Jak jste se o nás dozvěděli?</S.Label>
+							{/* doplnit vysvetlivku (nejaky podnadpis) */}
+						</S.FormInputContainer>
+					</S.FormItem>
+				</S.Container>
+				<S.SubmitContainer>
+					<S.Text>
+						Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{" "}
+						<S.UnderlinedInput
+							href="/files/VSEOBECNE-PODMINKY.pdf"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
+							podmínkami přijetí
+						</S.UnderlinedInput>
+						. S podmínkami souhlasím a moje dítě je splňuje.
+					</S.Text>
+					<Button>
+						Odeslat <S.ArrowRightIcon size={38} />
+					</Button>
+				</S.SubmitContainer>
+			</S.Form>
+		</FormProvider>
 	);
 };

@@ -4,3 +4,4 @@ export * from "./HeadSelector";
 export * from "./SectionElement";
 export * from "./MaxHeight";
 export * from "./Headline";
+export * from "./Modal";

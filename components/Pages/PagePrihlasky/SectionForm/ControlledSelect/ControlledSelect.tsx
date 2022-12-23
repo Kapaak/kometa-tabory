@@ -76,4 +76,29 @@ export const ControlledSelect = ({
 			)}
 		/>
 	);
+	// return (
+	// 	<Controller
+	// 		name={name}
+	// 		rules={{ required, pattern }}
+	// 		render={({ field: { onChange, value, name, ...restField } }) => (
+	// 			<Select
+	// 				name={name}
+	// 				instanceId={id}
+	// 				isSearchable
+	// 				placeholder={placeholder}
+	// 				options={options}
+	// 				menuPosition="fixed"
+	// 				menuPlacement="auto"
+	// 				value={value}
+	// 				onChange={val => onChange(val)}
+	// 				styles={styles}
+	// 				components={{
+	// 					DropdownIndicator,
+	// 					IndicatorSeparator: null,
+	// 				}}
+	// 				{...restField}
+	// 			/>
+	// 		)}
+	// 	/>
+	// );
 };

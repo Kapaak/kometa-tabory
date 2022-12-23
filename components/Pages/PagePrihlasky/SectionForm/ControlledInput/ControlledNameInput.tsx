@@ -5,17 +5,12 @@ import * as S from "./ControlledInput.style";
 interface ControllerNameInputProps {
 	name: string;
 	placeholder: string;
-	onNameBlur: (
-		e: BaseSyntheticEvent,
-		callback: (e: BaseSyntheticEvent) => void
-	) => void;
 	required?: boolean | string;
 }
 
 export const ControlledNameInput = ({
 	name,
 	placeholder,
-	onNameBlur,
 	required = false,
 }: ControllerNameInputProps) => {
 	return (
@@ -23,12 +18,7 @@ export const ControlledNameInput = ({
 			name={name}
 			rules={{ required }}
 			render={({ field: { onBlur, ...restField } }) => (
-				<S.FormInput
-					type="text"
-					placeholder={placeholder}
-					onBlur={e => onNameBlur(e, onBlur)}
-					{...restField}
-				/>
+				<S.FormInput type="text" placeholder={placeholder} {...restField} />
 			)}
 			defaultValue=""
 		/>

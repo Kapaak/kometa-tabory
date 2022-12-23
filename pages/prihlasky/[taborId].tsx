@@ -17,7 +17,11 @@ const Prihlasky = () => {
 		setCamp(getCampByName());
 	}, [router]);
 
-	return <main>{/* <PagePrihlasky camp={camp} /> */}</main>;
+	return (
+		<main>
+			<PagePrihlasky camp={camp} />
+		</main>
+	);
 };
 
 export default Prihlasky;
