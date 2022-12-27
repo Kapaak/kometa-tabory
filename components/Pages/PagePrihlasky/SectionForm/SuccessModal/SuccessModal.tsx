@@ -1,5 +1,5 @@
-import { Text } from "@ui-library";
-import { Modal } from "components/Shared";
+import { Divider, Flex, Strong, Text } from "@ui-library";
+import { IconButton, Modal } from "components/Shared";
 import { UserCirclePlus } from "phosphor-react";
 import * as S from "./SuccessModal.style";
 
@@ -20,15 +20,22 @@ export const SuccessModal = ({ addChild, isOpen, redirect }: ModalProps) => {
 				Potvrzení objednávky a informace k platbě jsme Vám poslali na e-mail.
 				Moc si vážíme Vaší důvěry.
 			</Text>
-			<Text variant="dark">Potřebujete pomoci?</Text>
+			<Divider />
 			<Text variant="dark">
+				<Strong weight="400">Potřebujete pomoci? </Strong>
 				Volejte na +420 606 354 747 nebo piště na taborpisarky@kometaplavani.cz
 			</Text>
+			<Divider width="50%" />
 
-			<S.CreateButton onClick={addChild}>
-				<UserCirclePlus size={30} color="var(--col2)" />
-				PŘIDAT DALŠÍ DÍTĚ
-			</S.CreateButton>
+			<S.ButtonContainer justify="center" direction="row">
+				<S.CreateButton onClick={addChild}>
+					<UserCirclePlus size={34} color="var(--col2)" />
+					PŘIDAT DALŠÍ DÍTĚ
+				</S.CreateButton>
+				<IconButton onClick={redirect} iconAfter={S.ArrowRightIcon}>
+					vrátit na úvodní stránku
+				</IconButton>
+			</S.ButtonContainer>
 		</Modal>
 	);
 };

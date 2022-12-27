@@ -64,7 +64,8 @@ export const Text = styled(SText)`
 	color: var(--colg);
 	text-align: inherit;
 	font-weight: 500;
-	margin: 1rem 0;
+	margin: 1rem 0 4rem;
+	font-size: 1.4rem;
 `;
 
 export const UnderlinedInput = styled.a`

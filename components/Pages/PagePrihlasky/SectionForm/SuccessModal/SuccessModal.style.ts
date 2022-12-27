@@ -1,7 +1,8 @@
+import { Flex } from "@ui-library";
+import { ArrowRight } from "phosphor-react";
 import styled from "styled-components";
 
 export const CreateButton = styled.button`
-	margin-top: 2rem;
 	color: var(--col2);
 	display: flex;
 	gap: 1rem;
@@ -11,4 +12,19 @@ export const CreateButton = styled.button`
 	cursor: pointer;
 	background-color: transparent;
 	border: none;
+`;
+
+export const ArrowRightIcon = styled(ArrowRight)`
+	position: absolute;
+	right: 0.2rem;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: var(--col2);
+	color: var(--colw);
+	border-radius: 50%;
+	padding: 0.6rem;
+`;
+
+export const ButtonContainer = styled(Flex)`
+	margin-top: 3rem;
 `;

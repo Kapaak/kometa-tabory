@@ -57,13 +57,6 @@ export const MoreInfoContainer = styled.div`
 	font-family: var(--font2);
 `;
 
-export const Divider = styled.div<{ width?: string }>`
-	height: 0.1rem;
-	background-color: var(--collg);
-	margin: 1rem 0;
-	width: ${({ width }) => width ?? "100%"};
-`;
-
 export const TextContainer = styled.div<{ selected: boolean }>`
 	display: flex;
 	flex-direction: column;

@@ -9,7 +9,7 @@ export const Button = styled.button<{ disabled?: boolean }>`
 	text-transform: uppercase;
 	font-family: var(--font1);
 	color: var(--col2);
-	padding: 1.4rem 5rem 1rem 2rem;
+	padding: 1rem 5rem 1rem 2rem;
 	background-color: transparent;
 	cursor: pointer;
 	border-radius: 2.4rem;

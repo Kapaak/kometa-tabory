@@ -12,4 +12,5 @@ export const Subheadline = styled.h2`
 	font-weight: 500;
 	color: var(--col2);
 	font-size: var(--fsheadline);
+	margin: 0.5rem 0 6rem;
 `;

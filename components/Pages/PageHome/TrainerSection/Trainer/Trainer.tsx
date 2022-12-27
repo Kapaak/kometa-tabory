@@ -1,4 +1,4 @@
-import { A, Text } from "@ui-library";
+import { A, Divider, Text } from "@ui-library";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { removeSpace } from "utils/functions";
@@ -34,9 +34,9 @@ export const Trainer = ({
 
 				{isSelected && (
 					<S.MoreInfoContainer>
-						<S.Divider />
+						<Divider />
 						<Text variant="dark">{description}</Text>
-						<S.Divider width="50%" />
+						<Divider width="50%" />
 						<A href={`tel:${phone && removeSpace(phone)}`}>{phone}</A>
 						<br />
 						<A href={`mailto:${email}`}>{email}</A>

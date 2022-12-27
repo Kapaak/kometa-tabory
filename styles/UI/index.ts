@@ -11,3 +11,5 @@ export * from "./MaxWidth";
 export * from "./Space";
 export * from "./Subheadline";
 export * from "./Text";
+export * from "./Divider";
+export * from "./Strong";

@@ -1,8 +1,5 @@
-import { Text } from "@ui-library";
-import { UserCirclePlus } from "phosphor-react";
 import { PropsWithChildren } from "react";
 import ReactModal from "react-modal";
-import { IconButton } from "../IconButton";
 import * as S from "./Modal.style";
 
 ReactModal.setAppElement("body");
@@ -15,7 +12,6 @@ interface ModalProps {
 
 export const Modal = ({
 	isOpen,
-	redirect,
 	headline,
 	children,
 }: PropsWithChildren<ModalProps>) => {
@@ -38,9 +34,6 @@ export const Modal = ({
 		<ReactModal isOpen={isOpen} style={modalStyles}>
 			<S.Headline center>{headline}</S.Headline>
 			{children}
-			<IconButton onClick={redirect} iconAfter={S.ArrowRightIcon}>
-				vrátit na úvodní stránku
-			</IconButton>
 		</ReactModal>
 	);
 };
