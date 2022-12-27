@@ -20,18 +20,21 @@ interface SectionFormProps {
 
 export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const router = useRouter();
 
 	const onSubmit = async (d: any) => {
 		const newVals = normalizeSelectInputs(d);
+		setIsLoading(true);
 		try {
 			await handleExcelUpload(newVals);
-			await axios.post("/api/email", { email: d?.email });
+			axios.post("/api/email", { email: d?.email });
 		} catch (e) {
 			console.log("cant send email or create user");
 		} finally {
 			setIsOpen(true);
+			setIsLoading(false);
 		}
 	};
 
@@ -314,8 +317,13 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 						</S.UnderlinedInput>
 						. S podmínkami souhlasím a moje dítě je splňuje.
 					</S.Text>
-					<Button>
-						Odeslat <S.ArrowRightIcon size={38} />
+					<Button disabled={isLoading}>
+						{isLoading && <span>odesílám ...</span>}
+						{!isLoading && (
+							<span>
+								Odeslat <S.ArrowRightIcon size={38} />
+							</span>
+						)}
 					</Button>
 				</S.SubmitContainer>
 			</S.Form>
