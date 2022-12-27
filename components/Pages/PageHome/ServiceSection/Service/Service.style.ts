@@ -4,6 +4,7 @@ import NextImage from "next/image";
 //styles
 import { dimensions } from "@/utils";
 import { Subheadline as SSubheadline, Text } from "@ui-library";
+import { Button as SButton } from "components/Shared";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -47,37 +48,20 @@ export const Container = styled(motion.div)`
 	}
 `;
 
-export const Image = styled(NextImage)`
+export const Image = styled(NextImage)<{ toGrayscale?: boolean }>`
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	filter: ${({ toGrayscale }) => toGrayscale && "grayscale(20)"};
 `;
 
 //todo tohle pak pouzij jako link
 // export const A = styled(Link)`
-export const Button = styled.button`
+export const Button = styled(SButton)`
 	//todo uprav jestli ty styly jsou vsecchny potreba
-	display: inline-block;
-	border-radius: 2.4rem;
-	text-transform: inherit;
-	font-family: inherit;
-	font-size: var(--fbutton);
-	padding: inherit;
-	letter-spacing: inherit;
-	transition: all 0.2s ease;
-	cursor: pointer;
 	align-self: end;
-	padding: 1rem 2rem;
+	padding: 1rem 2rem; // tohle by bylo ideal aby nemusel pridavat
 	margin-top: auto;
-
-	color: var(--col2);
-	border: 2px solid var(--col2);
-
-	&:hover {
-		transition: all 0.35s ease;
-		background-color: var(--col2);
-		color: var(--colw);
-	}
 `;
 
 export const A = styled(Link)`

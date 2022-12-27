@@ -2,7 +2,7 @@
 import { StaticImageData } from "next/image";
 //styles
 import * as S from "./Service.style";
-import { A, Text } from "@ui-library";
+import { A, Button, Text } from "@ui-library";
 //interfaces
 import { IServiceInfo, scrollTargets } from "../ServiceSection.interface";
 //others
@@ -24,12 +24,17 @@ interface Props {
 
 const Service = (props: Props) => {
 	const { headline, text, image, alt, info, url, currentCapacity } = props;
-	const isFull = info?.actualCapacity === info?.maxCapacity;
+	const isFull = currentCapacity === info?.maxCapacity;
 
 	return (
 		<S.Service initial="hidden" whileHover="visible">
 			<S.ImageContainer variants={imageVariant} transition={{ bounce: 0 }}>
-				<S.Image src={image} placeholder="blur" alt={alt} />
+				<S.Image
+					src={image}
+					placeholder="blur"
+					alt={alt}
+					toGrayscale={isFull}
+				/>
 				{isFull && <FullTerm />}
 			</S.ImageContainer>
 			<S.Container layout variants={textVariant}>
@@ -46,7 +51,8 @@ const Service = (props: Props) => {
 					oldPrice={info?.oldPrice}
 					specialEvent={info?.event}
 				/>
-				<S.A href={`/prihlasky/${url}`}>Přihláška</S.A>
+				{isFull && <S.Button disabled>Termín je již zaplněný</S.Button>}
+				{!isFull && <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>}
 				{/* <S.Button disabled>Přihlášky budou spuštěny 1.1.2023</S.Button> */}
 			</S.Container>
 		</S.Service>
