@@ -10,6 +10,7 @@ export interface IService {
 	scrollTarget: scrollTargets;
 	info: IServiceInfo;
 	url: string;
+	spreadsheetId: string;
 }
 
 export interface IServiceInfo {

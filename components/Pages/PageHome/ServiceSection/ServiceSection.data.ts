@@ -26,6 +26,7 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Výlet do ZOO",
 		},
+		spreadsheetId: "0",
 	},
 	{
 		headline: "T2 - Sporťáček",
@@ -42,6 +43,7 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Bongo",
 		},
+		spreadsheetId: "993666287",
 	},
 	{
 		headline: "T3 - Piráti z Karibiku",
@@ -58,6 +60,7 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Plavba na člunech",
 		},
+		spreadsheetId: "63632264",
 	},
 	{
 		headline: "T4 - Harry Potter",
@@ -74,6 +77,7 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Přehrada, hrad Veveří",
 		},
+		spreadsheetId: "149335024",
 	},
 	{
 		headline: "T5 - Cesta za dobrodružstvím",
@@ -90,6 +94,7 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Moravský kras",
 		},
+		spreadsheetId: "2040410537",
 	},
 	{
 		headline: "T6 - Trosečníci",
@@ -106,6 +111,7 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Plavba na paddleboardech",
 		},
+		spreadsheetId: "401116402",
 	},
 	{
 		headline: "T7 - Vesmírná dobrodružství",
@@ -122,5 +128,6 @@ export const data: IService[] = [
 			maxCapacity: 30,
 			event: "Planetárium",
 		},
+		spreadsheetId: "785653286",
 	},
 ];

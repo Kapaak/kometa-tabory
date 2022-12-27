@@ -12,7 +12,7 @@ export const DocumentSection = () => {
 					<S.TextContainer>
 						<Headline>Dokumenty</Headline>
 						<Text variant="dark">
-							Důležíté dokumenty pro stáhnutí ve formě PDF.
+							Důležité dokumenty pro stáhnutí ve formě PDF.
 						</Text>
 					</S.TextContainer>
 					<S.GridContainer>

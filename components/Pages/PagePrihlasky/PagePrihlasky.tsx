@@ -37,7 +37,9 @@ export const PagePrihlasky = ({ camp }: PagePrihlaskyProps) => {
 			<MaxWidth>
 				<S.Headline>{camp?.headline}</S.Headline>
 				<S.Subheadline>{camp?.info?.date}</S.Subheadline>
-				<SectionForm />
+				{camp?.spreadsheetId && (
+					<SectionForm spreadsheet={camp.spreadsheetId} />
+				)}
 			</MaxWidth>
 		</div>
 	);

@@ -48,8 +48,8 @@ export const SlideButtonContainer = styled.div`
 `;
 
 export const SlideButton = styled.button<{ active: boolean }>`
-	width: 1.2rem;
-	height: 1.2rem;
+	width: 1rem;
+	height: 1rem;
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;

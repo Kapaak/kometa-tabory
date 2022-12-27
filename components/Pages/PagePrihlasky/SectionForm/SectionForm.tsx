@@ -9,16 +9,21 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { SuccessModal } from "./SuccessModal";
 import { CircleWavyCheck } from "phosphor-react";
+import { appendSpreadsheet } from "lib/google";
+import dayjs from "dayjs";
 
-export const SectionForm = () => {
+interface SectionFormProps {
+	spreadsheet: string;
+}
+
+export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const router = useRouter();
 
-	const onSubmit = (d: any) => {
-		console.log(d, "dd");
+	const onSubmit = async (d: any) => {
 		const newVals = normalizeSelectInputs(d);
-		console.log(newVals, "xx");
+		handleExcelUpload(newVals);
 		setIsOpen(true);
 	};
 
@@ -75,8 +80,35 @@ export const SectionForm = () => {
 		router.push("/");
 	};
 
+	const handleExcelUpload = async (d: FormValues) => {
+		const currentDateTime = dayjs().format("DD-MM-YYYY hh:mm");
+		await appendSpreadsheet(
+			{
+				"Časová značka": currentDateTime,
+				Jméno: d?.firstName,
+				Příjmení: d?.lastName,
+				Pohlaví: d?.gender,
+				"Rodné číslo": d?.personalIdNum,
+				"Je dítě občan ČR": d?.czechNationality,
+				"Datum narození": d?.dateOfBirth,
+				"Zdravotní pojišťovna": d?.insurance,
+				Telefon: d?.phone,
+				Email: d?.email,
+				"Adresa a číslo popisné": d?.address,
+				Město: d?.city,
+				PSČ: d?.postCode,
+				Alergie: d?.alergy,
+				"Plavecké schopnosti": d?.swimmingAbilities,
+				"Zdravotní potíže": d?.healthIssues,
+				"Jak jste se o nás dozvěděli": d?.foundUs,
+			},
+			spreadsheet
+		);
+	};
+
 	return (
 		<FormProvider {...form}>
+			{/* <button onClick={handleExcelUpload}>check excel</button> */}
 			<IconButton iconAfter={CircleWavyCheck}>icon</IconButton>
 			<SuccessModal
 				isOpen={isOpen}
@@ -183,6 +215,8 @@ export const SectionForm = () => {
 										"Revírní bratrská pokladna zdravotní pojišťovna",
 										"revírní bratrská pokladna zdravotní pojišťovna"
 									),
+									createOption("Jiná", "jiná"),
+									createOption("Žádná", "žádná"),
 								]}
 								placeholder="Zdravotní pojišťovna"
 								required="Zdravotní pojišťovn musí být vyplněna"

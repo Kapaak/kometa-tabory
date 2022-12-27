@@ -17,9 +17,12 @@ export const SuccessModal = ({ addChild, isOpen, redirect }: ModalProps) => {
 			redirect={redirect}
 		>
 			<Text variant="dark">
-				Prosím vyčkejte na potvrzení přihlášky na e-mail. Pokud vám nepřijde do
-				2 dnů, volejte +420 723 111 222. Děkujeme a budeme se na vás těšit v
-				létě!
+				Potvrzení objednávky a informace k platbě jsme Vám poslali na e-mail.
+				Moc si vážíme Vaší důvěry.
+			</Text>
+			<Text variant="dark">Potřebujete pomoci?</Text>
+			<Text variant="dark">
+				Volejte na +420 606 354 747 nebo piště na taborpisarky@kometaplavani.cz
 			</Text>
 
 			<S.CreateButton onClick={addChild}>
