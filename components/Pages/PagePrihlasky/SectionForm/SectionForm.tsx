@@ -17,7 +17,8 @@ export const SectionForm = () => {
 
 	const onSubmit = (d: any) => {
 		console.log(d, "dd");
-		normalizeSelectInputs(d);
+		const newVals = normalizeSelectInputs(d);
+		console.log(newVals, "xx");
 		setIsOpen(true);
 	};
 
@@ -28,6 +29,8 @@ export const SectionForm = () => {
 		newData.gender = data?.gender?.value;
 		newData.insurance = data?.insurance?.value;
 		newData.swimmingAbilities = data?.swimmingAbilities?.value;
+
+		return newData;
 	};
 
 	type FormValues = {
