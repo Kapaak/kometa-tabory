@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NextImage from "next/image";
 //styles
 import { dimensions } from "@/utils";
-import { A as SA, Subheadline as SSubheadline, Text } from "@ui-library";
+import { Subheadline as SSubheadline, Text } from "@ui-library";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -56,6 +56,31 @@ export const Image = styled(NextImage)`
 //todo tohle pak pouzij jako link
 // export const A = styled(Link)`
 export const Button = styled.button`
+	//todo uprav jestli ty styly jsou vsecchny potreba
+	display: inline-block;
+	border-radius: 2.4rem;
+	text-transform: inherit;
+	font-family: inherit;
+	font-size: var(--fbutton);
+	padding: inherit;
+	letter-spacing: inherit;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	align-self: end;
+	padding: 1rem 2rem;
+	margin-top: auto;
+
+	color: var(--col2);
+	border: 2px solid var(--col2);
+
+	&:hover {
+		transition: all 0.35s ease;
+		background-color: var(--col2);
+		color: var(--colw);
+	}
+`;
+
+export const A = styled(Link)`
 	//todo uprav jestli ty styly jsou vsecchny potreba
 	display: inline-block;
 	border-radius: 2.4rem;

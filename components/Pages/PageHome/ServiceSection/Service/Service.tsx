@@ -2,7 +2,7 @@
 import { StaticImageData } from "next/image";
 //styles
 import * as S from "./Service.style";
-import { Text } from "@ui-library";
+import { A, Text } from "@ui-library";
 //interfaces
 import { IServiceInfo, scrollTargets } from "../ServiceSection.interface";
 //others
@@ -46,8 +46,8 @@ const Service = (props: Props) => {
 					oldPrice={info?.oldPrice}
 					specialEvent={info?.event}
 				/>
-				{/* <S.A href={`/prihlasky/${url}`}>Přihláška</S.A> */}
-				<S.Button disabled>Přihlášky budou spuštěny 1.1.2023</S.Button>
+				<S.A href={`/prihlasky/${url}`}>Přihláška</S.A>
+				{/* <S.Button disabled>Přihlášky budou spuštěny 1.1.2023</S.Button> */}
 			</S.Container>
 		</S.Service>
 	);
