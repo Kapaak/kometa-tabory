@@ -12,6 +12,7 @@ import { CircleWavyCheck } from "phosphor-react";
 import { appendSpreadsheet } from "lib/google";
 import dayjs from "dayjs";
 import { FormValues } from "../PagePrihlasky.interface";
+import axios from "axios";
 
 interface SectionFormProps {
 	spreadsheet: string;
@@ -24,8 +25,14 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 
 	const onSubmit = async (d: any) => {
 		const newVals = normalizeSelectInputs(d);
-		handleExcelUpload(newVals);
-		setIsOpen(true);
+		try {
+			await handleExcelUpload(newVals);
+			await axios.post("/api/email", { email: d?.email });
+		} catch (e) {
+			console.log("cant send email or create user");
+		} finally {
+			setIsOpen(true);
+		}
 	};
 
 	//todo select input vraci {label:"...",value:"..."}, ja chci ale jen "...", to se nastavuje uvnitr toho selectu nejak
