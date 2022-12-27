@@ -4,13 +4,14 @@ import { FormProvider, useForm } from "react-hook-form";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ControlledSelect } from "./ControlledSelect";
 import { createOption } from "utils/functions";
-import { IconButton, Modal } from "components/Shared";
+import { IconButton } from "components/Shared";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { SuccessModal } from "./SuccessModal";
 import { CircleWavyCheck } from "phosphor-react";
 import { appendSpreadsheet } from "lib/google";
 import dayjs from "dayjs";
+import { FormValues } from "../PagePrihlasky.interface";
 
 interface SectionFormProps {
 	spreadsheet: string;
@@ -36,25 +37,6 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 		newData.swimmingAbilities = data?.swimmingAbilities?.value;
 
 		return newData;
-	};
-
-	type FormValues = {
-		firstName: string;
-		lastName: string;
-		email: string;
-		address: string;
-		alergy: string;
-		city: string;
-		czechNationality: string;
-		dateOfBirth: string;
-		foundUs: string;
-		gender: string;
-		healthIssues: string;
-		insurance: string;
-		personalIdNum: string;
-		phone: string;
-		postCode: string;
-		swimmingAbilities: string;
 	};
 
 	const form = useForm<FormValues>();

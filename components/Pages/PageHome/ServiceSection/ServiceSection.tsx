@@ -7,6 +7,7 @@ import Service from "./Service/Service";
 import { data } from "./ServiceSection.data";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Filter } from "./Filter";
+import { getAllSheets } from "lib/google";
 
 enum Criteria {
 	All = "all",
@@ -18,6 +19,7 @@ export const ServiceSection = () => {
 	const [filteredData, setFilteredData] = useState(data);
 	const [open, setOpen] = useState(false);
 	const [selectedCriteria, setSelectedCriteria] = useState("all");
+	const [sheetsRowCount, setSheetsRowCount] = useState([]);
 
 	const handleCriteriaSelect = (e: ChangeEvent<HTMLInputElement>) => {
 		setSelectedCriteria(e.currentTarget.value);
@@ -49,6 +51,22 @@ export const ServiceSection = () => {
 		}
 	};
 
+	const sheetIds = data?.map(d => d?.spreadsheetId);
+
+	useEffect(() => {
+		(async () => {
+			const sheets = await getAllSheets(sheetIds);
+
+			sheets &&
+				Promise.allSettled(sheets)
+					.then((resSheets: any) => {
+						const updated = resSheets.map((sheet: any) => sheet.value.length);
+						setSheetsRowCount(updated);
+					})
+					.catch(e => console.log(e));
+		})();
+	}, []);
+
 	return (
 		<S.ServiceSection name="services">
 			<MaxWidth>
@@ -69,6 +87,7 @@ export const ServiceSection = () => {
 							info={d?.info}
 							alt={d?.alt}
 							url={d?.url}
+							currentCapacity={sheetsRowCount[i] ?? 0}
 						/>
 					))}
 				</S.Container>

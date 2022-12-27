@@ -19,11 +19,13 @@ interface Props {
 	scrollTarget: scrollTargets;
 	info: IServiceInfo;
 	url: string;
+	currentCapacity: number;
 }
 
 const Service = (props: Props) => {
-	const { headline, text, image, alt, info, url } = props;
+	const { headline, text, image, alt, info, url, currentCapacity } = props;
 	const isFull = info?.actualCapacity === info?.maxCapacity;
+
 	return (
 		<S.Service initial="hidden" whileHover="visible">
 			<S.ImageContainer variants={imageVariant} transition={{ bounce: 0 }}>
@@ -37,7 +39,7 @@ const Service = (props: Props) => {
 				<S.Subheadline variant="dark">{headline}</S.Subheadline>
 				<Text variant="grey">{text}</Text>
 				<ServiceInfo
-					currentCapacity={info?.actualCapacity}
+					currentCapacity={currentCapacity}
 					date={info?.date}
 					maxCapacity={info?.maxCapacity}
 					price={info?.price}

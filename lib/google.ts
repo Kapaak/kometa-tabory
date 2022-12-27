@@ -25,7 +25,7 @@ export const appendSpreadsheet = async (row: any, sheetId: string) => {
 	}
 };
 
-export const clickMaxHandler = async (sheetId: string) => {
+export const getRowsBySheetId = async (sheetId: string) => {
 	try {
 		await doc.useServiceAccountAuth(authCredentials);
 
@@ -34,8 +34,19 @@ export const clickMaxHandler = async (sheetId: string) => {
 		const sheet = doc.sheetsById[sheetId];
 		const result = await sheet.getRows();
 
-		console.log(result, "reso");
+		return result;
 	} catch (e) {
-		console.log("eerrror:", e);
+		console.log("get rows by sheet id:", e);
+	}
+};
+
+export const getAllSheets = async (sheetIds: Array<string>) => {
+	try {
+		await doc.useServiceAccountAuth(authCredentials);
+
+		await doc.loadInfo();
+		return sheetIds?.map(sheetId => doc.sheetsById[sheetId].getRows());
+	} catch (e) {
+		console.log("get all sheets:" + e);
 	}
 };
