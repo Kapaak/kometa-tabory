@@ -11,6 +11,7 @@ import {
 	Lifebuoy,
 	CalendarBlank,
 	Archive,
+	Scroll,
 } from "phosphor-react";
 
 export const data = [
@@ -18,6 +19,13 @@ export const data = [
 		id: "1",
 		headline: "Platba",
 		items: [
+			{
+				id: "00",
+				title: "Cenové podmínky a způsob úhrady",
+				description:
+					"Tábor je potřeba uhradit do 31.5.2023 (přihlásíte-li se po tomto datu, tábor zaplaťte v den podání přihlášky) na účet 8822184001, banka 5500,				variabilní symbol 259 02, specifický symbol 1 – 7 (podle čísla táboru). Do zprávy pro příjemce je nutné napsat jméno dítěte. Za každé dítě a každý tábor je nutné poslat peníze jednotlivě.",
+				icon: Scroll,
+			},
 			{
 				id: "11",
 				title: "POTVRZENÍ PŘIHLÁŠKY NA EMAIL ",
