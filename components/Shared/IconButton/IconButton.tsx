@@ -1,8 +1,10 @@
 import { PropsWithChildren } from "react";
 import { Icon as TIcon } from "phosphor-react";
 import * as S from "./IconButton.style";
+import { ButtonProps } from "../Button";
+import { LoadingIcon } from "../Button/Button.style";
 
-interface IconButtonProps extends PropsWithChildren {
+interface IconButtonProps extends ButtonProps {
 	iconBefore?: TIcon;
 	iconAfter?: TIcon;
 }
@@ -11,14 +13,22 @@ export const IconButton = ({
 	children,
 	iconBefore,
 	iconAfter,
-}: IconButtonProps) => {
+	loading,
+	...rest
+}: PropsWithChildren<IconButtonProps>) => {
 	const IconBefore = iconBefore as TIcon;
 	const IconAfter = iconAfter as TIcon;
 	return (
-		<S.Button>
-			{iconBefore && <IconBefore size={30} weight="light" />}
-			{children}
-			{iconAfter && <IconAfter size={30} weight="light" />}
+		<S.Button {...rest}>
+			{!loading && iconBefore && <IconBefore size={34} weight="regular" />}
+			{!loading && children}
+			{!loading && iconAfter && <IconAfter size={34} weight="regular" />}
+
+			{loading && (
+				<span>
+					odesílám ... <LoadingIcon size={34} weight="fill" />
+				</span>
+			)}
 		</S.Button>
 	);
 };

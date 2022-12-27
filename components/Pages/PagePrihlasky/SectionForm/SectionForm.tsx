@@ -1,14 +1,13 @@
-import { Button, Subheadline } from "@ui-library";
+import { Subheadline } from "@ui-library";
 import * as S from "./SectionForm.style";
 import { FormProvider, useForm } from "react-hook-form";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ControlledSelect } from "./ControlledSelect";
 import { createOption } from "utils/functions";
-import { IconButton } from "components/Shared";
+import { Button, IconButton } from "components/Shared";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { SuccessModal } from "./SuccessModal";
-import { CircleWavyCheck } from "phosphor-react";
 import { appendSpreadsheet } from "lib/google";
 import dayjs from "dayjs";
 import { FormValues } from "../PagePrihlasky.interface";
@@ -100,8 +99,6 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 
 	return (
 		<FormProvider {...form}>
-			{/* <button onClick={handleExcelUpload}>check excel</button> */}
-			<IconButton iconAfter={CircleWavyCheck}>icon</IconButton>
 			<SuccessModal
 				isOpen={isOpen}
 				addChild={resetAll}
@@ -317,14 +314,14 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 						</S.UnderlinedInput>
 						. S podmínkami souhlasím a moje dítě je splňuje.
 					</S.Text>
-					<Button disabled={isLoading}>
-						{isLoading && <span>odesílám ...</span>}
-						{!isLoading && (
-							<span>
-								Odeslat <S.ArrowRightIcon size={38} />
-							</span>
-						)}
-					</Button>
+
+					<IconButton
+						loading={isLoading}
+						disabled={isLoading}
+						iconAfter={S.ArrowRightIcon}
+					>
+						Odeslat
+					</IconButton>
 				</S.SubmitContainer>
 			</S.Form>
 		</FormProvider>

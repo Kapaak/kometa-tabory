@@ -3,7 +3,7 @@
  */
 
 export * from "./A";
-export * from "./Button";
+export * from "../../components/Shared/Button/Button.style";
 export * from "./Flex";
 export * from "./MainHeadline";
 export * from "./MainSubheadline";
