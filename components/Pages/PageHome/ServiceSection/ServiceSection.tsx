@@ -8,7 +8,6 @@ import { data } from "./ServiceSection.data";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Filter } from "./Filter";
 import { getAllSheets } from "lib/google";
-import axios from "axios";
 
 enum Criteria {
 	All = "all",
@@ -64,17 +63,12 @@ export const ServiceSection = () => {
 						const updated = resSheets.map((sheet: any) => sheet.value.length);
 						setSheetsRowCount(updated);
 					})
-					.catch(e => console.log(e));
+					.catch(e => console.log("promise error", e));
 		})();
 	}, []);
 
 	return (
 		<S.ServiceSection name="services">
-			<button
-				onClick={() => axios.post("/api/email", { email: "bara.sex.cz" })}
-			>
-				send email
-			</button>
 			<MaxWidth>
 				<Filter
 					isOpen={open}

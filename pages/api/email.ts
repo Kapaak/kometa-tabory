@@ -5,7 +5,7 @@ const handler = (req: NextRequest, res: NextResponse) => {
 	//@ts-ignore  pridej typ pro NextRequest
 	const { email } = req.body;
 
-	sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY || "");
+	sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY ?? "");
 
 	const msg = {
 		to: email,
