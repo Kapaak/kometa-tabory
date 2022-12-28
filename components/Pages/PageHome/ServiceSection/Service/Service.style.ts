@@ -48,11 +48,11 @@ export const Container = styled(motion.div)`
 	}
 `;
 
-export const Image = styled(NextImage)<{ toGrayscale?: boolean }>`
+export const Image = styled(NextImage)<{ $toGrayscale?: boolean }>`
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	filter: ${({ toGrayscale }) => toGrayscale && "grayscale(20)"};
+	filter: ${({ $toGrayscale }) => $toGrayscale && "grayscale(20)"};
 `;
 
 //todo tohle pak pouzij jako link

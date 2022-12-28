@@ -33,7 +33,7 @@ const Service = (props: Props) => {
 					src={image}
 					placeholder="blur"
 					alt={alt}
-					toGrayscale={isFull}
+					$toGrayscale={isFull}
 				/>
 				{isFull && <FullTerm />}
 			</S.ImageContainer>
