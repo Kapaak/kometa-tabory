@@ -103,7 +103,7 @@ export const photos: PhotoProps[] = [
 		rowEnd: 2,
 	},
 	{
-		source: "/gallery/letni aktivity.jpg",
+		source: "/gallery/letni tabor pro deti od 4 let.jpg",
 		colStart: 6,
 		colEnd: 7,
 		rowStart: 2,

@@ -5,7 +5,6 @@ import { dimensions } from "utils/breakpoints";
 export const PhotoGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-	grid-template-rows: repeat(4, 20rem);
 	grid-gap: 1rem;
 	margin-top: 3rem;
 
@@ -23,6 +22,7 @@ type ImageContainerProps = {
 
 export const ImageContainer = styled.div<ImageContainerProps>`
 	position: relative;
+	height: 15rem;
 
 	${({ colStart, colEnd, rowStart, rowEnd }) => css`
 		grid-column: ${colStart} ${colEnd};
@@ -34,6 +34,7 @@ export const ImageContainer = styled.div<ImageContainerProps>`
 	`}
 
 	@media(${dimensions.desktop}) {
+		height: 20rem;
 		${({ colStart, colEnd, rowStart, rowEnd }) => css`
 			grid-column: ${colStart} / ${colEnd};
 			grid-row: ${rowStart} / ${rowEnd};
@@ -44,4 +45,5 @@ export const ImageContainer = styled.div<ImageContainerProps>`
 export const Image = styled(NextImage)`
 	object-fit: cover;
 	cursor: pointer;
+	border-radius: 0.5rem;
 `;

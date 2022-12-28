@@ -14,6 +14,7 @@ export const PhotoGrid = ({ photos, onClick }: PhotoGridProps) => {
 		<S.PhotoGrid>
 			{photos.map((photo, i) => (
 				<S.ImageContainer
+					key={i}
 					onClick={() => clickHandler(i)}
 					colStart={photo?.colStart}
 					colEnd={photo?.colEnd}
