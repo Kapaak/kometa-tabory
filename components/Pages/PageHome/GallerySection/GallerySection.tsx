@@ -74,14 +74,14 @@ export const photos: PhotoProps[] = [
 		rowEnd: 1,
 	},
 	{
-		source: "/gallery/detsky letni tabor.jpg",
+		source: "/gallery/primestsky tabor kometa brno.jpg",
 		colStart: 1,
 		colEnd: 2,
 		rowStart: 2,
 		rowEnd: 2,
 	},
 	{
-		source: "/gallery/detsky tabor cena.jpg",
+		source: "/gallery/primestsky tabor brno.jpg",
 		colStart: 2,
 		colEnd: 3,
 		rowStart: 2,
@@ -96,7 +96,7 @@ export const photos: PhotoProps[] = [
 	},
 
 	{
-		source: "/gallery/letni aktivity.jpg",
+		source: "/gallery/primestsky tabor plavání brno.jpg",
 		colStart: 5,
 		colEnd: 6,
 		rowStart: 2,

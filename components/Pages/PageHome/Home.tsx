@@ -10,6 +10,7 @@ import {
 	ContactSection,
 	AboutSection,
 	GallerySection,
+	VideoSection,
 } from "./index";
 
 export const PageHome = () => {
@@ -20,6 +21,8 @@ export const PageHome = () => {
 			<AboutSection />
 			<Space half />
 			<ServiceSection />
+			<Space />
+			<VideoSection />
 			<Space />
 			<FAQSection />
 			<Space />

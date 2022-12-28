@@ -9,3 +9,4 @@ export * from "./SponsorSection";
 export * from "./TestimonialSection";
 export * from "./TrainerSection";
 export * from "./GallerySection";
+export * from "./VideoSection";
