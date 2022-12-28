@@ -52,6 +52,11 @@ export const data: Array<INavLink> = [
 	},
 	{
 		href: "/",
+		scrollTarget: scrollTargets.gallery,
+		output: "Galerie",
+	},
+	{
+		href: "/",
 		scrollTarget: scrollTargets.contact,
 		output: "Kontakt",
 	},

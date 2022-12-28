@@ -1,5 +1,5 @@
 import { MaxWidth } from "@ui-library";
-import { Headline } from "components/Shared";
+import { Headline, SectionElement } from "components/Shared";
 import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { PhotoGrid } from "./PhotoGrid";
@@ -18,7 +18,7 @@ export const GallerySection = () => {
 		setViewerIsOpen(false);
 	};
 	return (
-		<div>
+		<SectionElement name="gallery">
 			<MaxWidth>
 				<Headline>Galerie</Headline>
 				<PhotoGrid photos={photos} onClick={openLightbox} />
@@ -32,7 +32,7 @@ export const GallerySection = () => {
 					)}
 				</ModalGateway>
 			</MaxWidth>
-		</div>
+		</SectionElement>
 	);
 };
 

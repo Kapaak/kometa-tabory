@@ -23,6 +23,8 @@ type ImageContainerProps = {
 export const ImageContainer = styled.div<ImageContainerProps>`
 	position: relative;
 	height: 15rem;
+	overflow: hidden;
+	border-radius: 0.5rem;
 
 	${({ colStart, colEnd, rowStart, rowEnd }) => css`
 		grid-column: ${colStart} ${colEnd};
@@ -45,5 +47,10 @@ export const ImageContainer = styled.div<ImageContainerProps>`
 export const Image = styled(NextImage)`
 	object-fit: cover;
 	cursor: pointer;
-	border-radius: 0.5rem;
+
+	transition: all 0.3s ease;
+
+	&:hover {
+		transform: scale(1.2);
+	}
 `;

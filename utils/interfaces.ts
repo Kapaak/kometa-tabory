@@ -11,6 +11,7 @@ export enum scrollTargets {
 	courses = "courses",
 	trainer = "trainer",
 	testimonial = "testimonial",
+	gallery = "gallery",
 	faq = "faq",
 	services = "services",
 }
