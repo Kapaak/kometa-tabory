@@ -22,8 +22,8 @@ export const HeadSelector = () => {
 	return (
 		<Head>
 			<title>Příměšťák Brno | Kometa </title>
+			<link rel="icon" href="/icons/logo-tabory.svg" />
 			{/* {/* <title> {currentRouteTitle} Plavecká škola | Kometa </title>
-      <link rel="icon" href="/icons/tucnak.svg" />
       <meta name="author" content="Pavel Zapletal & Barbora Novakova" />
       <meta
         name="keywords"
