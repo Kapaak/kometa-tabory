@@ -3,6 +3,7 @@ import { Headline } from "components/Shared";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
+import * as S from "./VideoSection.style";
 // const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export const VideoSection = () => {
@@ -13,11 +14,19 @@ export const VideoSection = () => {
 		}
 	}, []);
 	return (
-		<div>
+		<S.Video name="video">
 			<MaxWidth>
-				<Headline>Video</Headline>
-				{hasWindow && <ReactPlayer url="./videos/video.mp4" controls />}
+				{hasWindow && (
+					<S.VideoWrapper>
+						<ReactPlayer
+							url="./videos/video.mp4"
+							controls
+							width="100%"
+							height="100%"
+						/>
+					</S.VideoWrapper>
+				)}
 			</MaxWidth>
-		</div>
+		</S.Video>
 	);
 };
