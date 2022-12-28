@@ -9,6 +9,7 @@ import {
 	DocumentSection,
 	ContactSection,
 	AboutSection,
+	GallerySection,
 } from "./index";
 
 export const PageHome = () => {
@@ -25,6 +26,8 @@ export const PageHome = () => {
 			<TestimonialSection />
 			<Space />
 			<TrainerSection />
+			<Space />
+			<GallerySection />
 			<Space />
 			<DocumentSection />
 			<Space />
