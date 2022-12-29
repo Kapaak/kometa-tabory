@@ -15,6 +15,10 @@ export const LineThroughText = styled.span`
 	-webkit-text-decoration-line: line-through;
 `;
 
+export const CapacityText = styled.span<{ smallCapacity: boolean }>`
+	color: ${({ smallCapacity }) => smallCapacity && "var(--colr)"};
+`;
+
 export const ServiceItem = styled.li<{ bold?: boolean }>`
 	list-style-type: none;
 	display: flex;

@@ -14,6 +14,7 @@ interface ServiceInfoProps {
 export const ServiceInfo = (props: ServiceInfoProps) => {
 	const { currentCapacity, date, maxCapacity, price, specialEvent, oldPrice } =
 		props;
+
 	return (
 		<S.ServiceItems layout variants={ulVariant}>
 			<S.ServiceItem bold>
@@ -27,9 +28,13 @@ export const ServiceInfo = (props: ServiceInfoProps) => {
 			</S.ServiceItem>
 			<S.ServiceItem>
 				<BatteryMedium size={22} />
-				<span>
-					Volná místa: {maxCapacity - currentCapacity} z {maxCapacity}
-				</span>
+				<div>
+					<span>Volná místa: </span>
+					<S.CapacityText smallCapacity={maxCapacity - currentCapacity < 5}>
+						{maxCapacity - currentCapacity}
+					</S.CapacityText>
+					<span> z {maxCapacity}</span>
+				</div>
 			</S.ServiceItem>
 			<S.ServiceItem>
 				<Backpack size={22} />
