@@ -8,7 +8,7 @@ export const data = [
 		title: "vedoucí táborů",
 		image: Anicka,
 		description:
-			"Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Poté jsem se začala trénovat děti. Momentálně vedu plavání na Kohoutovicích a Holzové. Volný čas ráda trávím cestováním a sledováním filmů.",
+			"Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Poté jsem začala trénovat děti. Momentálně vedu plavání na Kohoutovicích a Holzové. Volný čas ráda trávím cestováním a sledováním filmů.",
 		contact: {
 			email: "taborpisarky@kometaplavani.cz",
 			phone: "+420 626 354 747",
@@ -20,7 +20,7 @@ export const data = [
 		title: "vedoucí táborů",
 		image: Tom,
 		description:
-			"Trénování dětí se věnuji více než 5 let. Momentálně působím na bazénu v Kohoutovicích, na Holzové a Milenové. Ve volném čase se rád cestuji, sportuji a zkoumám nové věci.",
+			"Trénování dětí se věnuji více než 5 let. Momentálně působím na bazénech v Kohoutovicích, na Holzové a Milenové. Ve volném čase rád cestuji, sportuji a zkoumám nové věci.",
 		contact: {
 			email: "taborpisarky@kometaplavani.cz",
 			phone: "+420 721 024 391",

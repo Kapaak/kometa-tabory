@@ -1,4 +1,4 @@
-import { PhotoProps } from "../GallerySection";
+import { PhotoProps } from "../GallerySection.data";
 import * as S from "./PhotoGrid.style";
 
 interface PhotoGridProps {
@@ -22,6 +22,9 @@ export const PhotoGrid = ({ photos, onClick }: PhotoGridProps) => {
 						alt={photo?.alt}
 						src={photo?.source}
 						fill
+						sizes="(max-width: 768px) 50vw,
+						(max-width: 1200px) 50vw,
+						33vw"
 						blurDataURL={photo?.source}
 						placeholder="blur"
 					/>
