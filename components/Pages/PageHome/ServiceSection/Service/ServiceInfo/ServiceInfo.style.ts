@@ -10,6 +10,8 @@ export const ServiceItems = styled(motion.ul)`
 export const LineThroughText = styled.span`
 	text-decoration: line-through 0.2rem;
 	text-decoration-line: line-through;
+	text-decoration-thickness: 0.2rem;
+	-webkit-text-decoration-thickness: 0.2rem;
 	-webkit-text-decoration-line: line-through;
 `;
 
