@@ -9,3 +9,4 @@ export * from "./Button";
 export * from "./IconButton";
 export * from "./RadioGroup";
 export * from "./Popover";
+export * from "./DiscountLabel";

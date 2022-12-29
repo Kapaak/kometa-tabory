@@ -1,4 +1,5 @@
 import { Space } from "@ui-library";
+import { DiscountLabel } from "@/components";
 import {
 	TrainerSection,
 	TestimonialSection,
@@ -16,6 +17,7 @@ import {
 export const PageHome = () => {
 	return (
 		<main>
+			<DiscountLabel />
 			<HeroSection />
 			<Space half />
 			<AboutSection />

@@ -18,6 +18,10 @@ export const Header = styled.header<{ withShadow: boolean }>`
 		withShadow ? "0 0 20px 0 rgba(10,19,10,.2)" : "none"};
 
 	transition: all 0.5s ease;
+
+	@media (${dimensions.notebook}) {
+		top: 3.4rem;
+	}
 `;
 
 export const MaxWidth = styled.div`
