@@ -30,9 +30,7 @@ export const AboutSection = () => {
 	return (
 		<S.AboutSection name="about" ref={ref}>
 			<S.MaxWidth>
-				<S.ImageContainer>
-					<Image src={Wave} alt="vlnka" />
-				</S.ImageContainer>
+				<Image src={Wave} alt="vlnka" />
 				<S.AboutText center>
 					Naše příměstské tábory jsou tu pro všechny sportovce a dobrodruhy ve
 					věku od 4 do 15 let. Plavat budeme 3x týdně pod vedením licencovaných
@@ -42,9 +40,7 @@ export const AboutSection = () => {
 					odchází spokojení, protože se dětem intenzivně věnujeme a to od 7:30
 					ráno až do 17:00 odpoledne.
 				</S.AboutText>
-				<S.ImageContainer>
-					<Image src={Wave} alt="vlnka" />
-				</S.ImageContainer>
+				<Image src={Wave} alt="vlnka" />
 			</S.MaxWidth>
 		</S.AboutSection>
 	);
