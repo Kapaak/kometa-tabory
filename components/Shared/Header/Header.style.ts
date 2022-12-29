@@ -20,7 +20,7 @@ export const Header = styled.header<{ withShadow: boolean }>`
 	transition: all 0.5s ease;
 
 	@media (${dimensions.notebook}) {
-		top: 3.4rem;
+		top: 3.2rem;
 	}
 `;
 

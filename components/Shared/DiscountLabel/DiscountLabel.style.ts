@@ -11,7 +11,7 @@ export const DiscountLabel = styled.div`
 	width: 100%;
 	padding: 0.4rem var(--side-padding);
 	background-color: var(--col1);
-	z-index: 9;
+	z-index: 10;
 
 	@media (${dimensions.notebook}) {
 		display: flex;

@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { GlobalStyles } from "../styles/GlobalStyles";
-import { Header, Footer, HeadSelector } from "@/components";
+import { Header, Footer, HeadSelector, DiscountLabel } from "@/components";
 import { store } from "@/state";
 import { Provider } from "react-redux";
 import Script from "next/script";
@@ -21,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
             `}
 			</Script>
 			<HeadSelector />
+			<DiscountLabel />
 			<Header />
 			<GlobalStyles />
 			<Component {...pageProps} />
