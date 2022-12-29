@@ -28,7 +28,7 @@ export const ServiceInfo = (props: ServiceInfoProps) => {
 			<S.ServiceItem>
 				<BatteryMedium size={22} />
 				<span>
-					{currentCapacity} / {maxCapacity}
+					Volná místa: {maxCapacity - currentCapacity} z {maxCapacity}
 				</span>
 			</S.ServiceItem>
 			<S.ServiceItem>

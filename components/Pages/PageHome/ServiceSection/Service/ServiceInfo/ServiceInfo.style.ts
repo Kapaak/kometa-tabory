@@ -9,6 +9,8 @@ export const ServiceItems = styled(motion.ul)`
 
 export const LineThroughText = styled.span`
 	text-decoration: line-through 0.2rem;
+	text-decoration-line: line-through;
+	-webkit-text-decoration-line: line-through;
 `;
 
 export const ServiceItem = styled.li<{ bold?: boolean }>`

@@ -25,8 +25,8 @@ export const RadioGroup = ({
 			aria-label="View density"
 			onValueChange={onChange}
 		>
-			{radioOptions?.map(radioOption => (
-				<Flex align="center" direction="row">
+			{radioOptions?.map((radioOption, i) => (
+				<Flex align="center" direction="row" key={i}>
 					<S.RadioGroupItem value={radioOption?.value} id={radioOption?.id}>
 						<S.RadioGroupIndicator />
 					</S.RadioGroupItem>
