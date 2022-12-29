@@ -19,7 +19,7 @@ export const IconButton = ({
 	const IconBefore = iconBefore as TIcon;
 	const IconAfter = iconAfter as TIcon;
 	return (
-		<S.Button {...rest}>
+		<S.IconButton {...rest}>
 			{!loading && iconBefore && <IconBefore size={38} weight="regular" />}
 			{!loading && children}
 			{!loading && iconAfter && <IconAfter size={38} weight="regular" />}
@@ -29,6 +29,6 @@ export const IconButton = ({
 					odesílám ... <LoadingIcon size={38} weight="fill" />
 				</span>
 			)}
-		</S.Button>
+		</S.IconButton>
 	);
 };

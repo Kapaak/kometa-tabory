@@ -1,12 +1,12 @@
 //libraries
 import styled from "styled-components";
+import Link from "next/link";
 import NextImage from "next/image";
 //styles
 import { dimensions } from "@/utils";
-import { Subheadline as SSubheadline, Text } from "@ui-library";
+import { Subheadline as SSubheadline } from "@ui-library";
 import { Button as SButton } from "components/Shared";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 export const ImageContainer = styled(motion.div)`
 	position: relative;
@@ -54,14 +54,17 @@ export const Image = styled(NextImage)<{ $toGrayscale?: boolean }>`
 	object-fit: cover;
 	filter: ${({ $toGrayscale }) => $toGrayscale && "grayscale(20)"};
 `;
-
+export const ButtonContainer = styled.div`
+	display: flex;
+	margin-top: auto;
+	margin-left: auto;
+`;
 //todo tohle pak pouzij jako link
 // export const A = styled(Link)`
-export const Button = styled(SButton)`
-	//todo uprav jestli ty styly jsou vsecchny potreba
-	align-self: end;
-	padding: 1rem 2rem; // tohle by bylo ideal aby nemusel pridavat
-	margin-top: auto;
+export const ShowMoreButton = styled(SButton)`
+	@media (${dimensions.notebook}) {
+		display: none;
+	}
 `;
 
 export const A = styled(Link)`

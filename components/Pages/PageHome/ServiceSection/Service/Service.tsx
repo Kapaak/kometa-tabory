@@ -2,7 +2,7 @@
 import { StaticImageData } from "next/image";
 //styles
 import * as S from "./Service.style";
-import { A, Button, Text } from "@ui-library";
+import { Button, Text } from "@ui-library";
 //interfaces
 import { IServiceInfo, scrollTargets } from "../ServiceSection.interface";
 //others
@@ -10,6 +10,7 @@ import { imageVariant, textVariant } from "./Service.variant";
 import { FullTerm } from "./FullTerm";
 import { DiscountLabel } from "./DiscountLabel";
 import { ServiceInfo } from "./ServiceInfo";
+import { useState } from "react";
 
 interface Props {
 	headline: string;
@@ -24,18 +25,24 @@ interface Props {
 
 const Service = (props: Props) => {
 	const { headline, text, image, alt, info, url, currentCapacity } = props;
-	const isFull = currentCapacity === info?.maxCapacity;
+	const isCapacityFull = currentCapacity === info?.maxCapacity;
+
+	const [showMore, setShowMore] = useState(false);
 
 	return (
-		<S.Service initial="hidden" whileHover="visible">
+		<S.Service
+			initial="hidden"
+			whileHover="visible"
+			animate={showMore ? "visible" : "hidden"}
+		>
 			<S.ImageContainer variants={imageVariant} transition={{ bounce: 0 }}>
 				<S.Image
 					src={image}
 					placeholder="blur"
 					alt={alt}
-					$toGrayscale={isFull}
+					$toGrayscale={isCapacityFull}
 				/>
-				{isFull && <FullTerm />}
+				{isCapacityFull && <FullTerm />}
 			</S.ImageContainer>
 			<S.Container layout variants={textVariant}>
 				{info?.oldPrice && (
@@ -51,9 +58,16 @@ const Service = (props: Props) => {
 					oldPrice={info?.oldPrice}
 					specialEvent={info?.event}
 				/>
-				{isFull && <S.Button disabled>Termín je již zaplněný</S.Button>}
-				{!isFull && <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>}
-				{/* <S.Button disabled>Přihlášky budou spuštěny 1.1.2023</S.Button> */}
+				<S.ButtonContainer>
+					<S.ShowMoreButton
+						variant="plain"
+						onClick={() => setShowMore(prev => !prev)}
+					>
+						Více o táboru
+					</S.ShowMoreButton>
+					{isCapacityFull && <Button disabled>Termín je již zaplněný</Button>}
+					{!isCapacityFull && <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>}
+				</S.ButtonContainer>
 			</S.Container>
 		</S.Service>
 	);
