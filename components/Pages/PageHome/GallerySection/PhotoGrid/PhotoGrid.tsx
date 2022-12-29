@@ -21,7 +21,13 @@ export const PhotoGrid = ({ photos, onClick }: PhotoGridProps) => {
 					rowStart={photo?.rowStart}
 					rowEnd={photo?.rowEnd}
 				>
-					<S.Image alt="pepe" src={photo.source} fill />
+					<S.Image
+						alt="pepe"
+						src={photo.source}
+						fill
+						blurDataURL={photo.source}
+						placeholder="blur"
+					/>
 				</S.ImageContainer>
 			))}
 		</S.PhotoGrid>
