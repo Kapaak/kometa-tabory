@@ -5,7 +5,7 @@ import * as S from "./ServiceSection.style";
 import Service from "./Service/Service";
 //data
 import { data } from "./ServiceSection.data";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Filter } from "./Filter";
 import { getAllSheets } from "lib/google";
 
@@ -21,8 +21,8 @@ export const ServiceSection = () => {
 	const [selectedCriteria, setSelectedCriteria] = useState("all");
 	const [sheetsRowCount, setSheetsRowCount] = useState([]);
 
-	const handleCriteriaSelect = (e: ChangeEvent<HTMLInputElement>) => {
-		setSelectedCriteria(e.currentTarget.value);
+	const handleCriteriaSelect = (val: string) => {
+		setSelectedCriteria(val);
 	};
 
 	useEffect(() => {
@@ -74,7 +74,6 @@ export const ServiceSection = () => {
 					isOpen={open}
 					onClick={() => setOpen(prev => !prev)}
 					onCriteriaChange={handleCriteriaSelect}
-					selectedCriteria={selectedCriteria}
 				/>
 				<S.Container>
 					{filteredData.map((d, i) => (
