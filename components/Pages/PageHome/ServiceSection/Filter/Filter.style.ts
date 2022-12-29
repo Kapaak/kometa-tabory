@@ -1,15 +1,8 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-	display: inline-flex;
-	align-items: center;
-	gap: 1rem;
-	border: none;
-	background-color: transparent;
-	font-size: 1.6rem;
-	font-family: var(--font2);
-	text-transform: uppercase;
 	cursor: pointer;
+	text-transform: uppercase;
 `;
 
 export const Filter = styled.div`

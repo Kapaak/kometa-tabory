@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { CircleNotch } from "phosphor-react";
 
 export const Button = styled.button<{ disabled?: boolean }>`
-	display: flex;
 	position: relative;
+	display: flex;
 	border: 2px solid var(--col2);
 	text-transform: uppercase;
 	font-family: var(--font1);

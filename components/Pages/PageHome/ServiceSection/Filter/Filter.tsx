@@ -1,12 +1,9 @@
-import { CaretIcon } from "../../FAQSection/FAQ/FAQ.style";
-
 import * as S from "./Filter.style";
-import { RadioGroup, RadioOption } from "components/Shared";
+import { RadioGroup, RadioOption, Popover } from "components/Shared";
 
 interface FilterProps {
-	isOpen: boolean;
-	onClick: () => void;
 	onCriteriaChange: (e: string) => void;
+	selectedOption: string;
 }
 
 const filterOptions: RadioOption[] = [
@@ -27,17 +24,20 @@ const filterOptions: RadioOption[] = [
 	},
 ];
 
-export const Filter = (props: FilterProps) => {
-	const { isOpen, onClick, onCriteriaChange } = props;
+export const Filter = ({ onCriteriaChange, selectedOption }: FilterProps) => {
 	return (
 		<S.Filter>
-			<S.Button onClick={onClick}>
-				<span>obsazenost</span>
-				<CaretIcon />
-			</S.Button>
-			<S.Popover isOpen={isOpen}>
-				<RadioGroup radioOptions={filterOptions} onChange={onCriteriaChange} />
-			</S.Popover>
+			<Popover
+				buttonLabel="obsazenost"
+				headline="Vyhledat:"
+				accesibilityLabel="Řazení podle obsazenosti"
+			>
+				<RadioGroup
+					selectedValue={selectedOption}
+					radioOptions={filterOptions}
+					onChange={onCriteriaChange}
+				/>
+			</Popover>
 		</S.Filter>
 	);
 };

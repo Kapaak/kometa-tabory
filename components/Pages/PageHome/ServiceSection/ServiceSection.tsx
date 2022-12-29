@@ -17,7 +17,6 @@ enum Criteria {
 
 export const ServiceSection = () => {
 	const [filteredData, setFilteredData] = useState(data);
-	const [open, setOpen] = useState(false);
 	const [selectedCriteria, setSelectedCriteria] = useState("all");
 	const [sheetsRowCount, setSheetsRowCount] = useState([]);
 
@@ -71,8 +70,7 @@ export const ServiceSection = () => {
 		<S.ServiceSection name="services">
 			<MaxWidth>
 				<Filter
-					isOpen={open}
-					onClick={() => setOpen(prev => !prev)}
+					selectedOption={selectedCriteria}
 					onCriteriaChange={handleCriteriaSelect}
 				/>
 				<S.Container>

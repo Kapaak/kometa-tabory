@@ -11,12 +11,17 @@ export type RadioOption = {
 interface RadioGroupProps {
 	radioOptions: RadioOption[];
 	onChange: (val: string) => void;
+	selectedValue: string;
 }
 
-export const RadioGroup = ({ radioOptions, onChange }: RadioGroupProps) => {
+export const RadioGroup = ({
+	radioOptions,
+	onChange,
+	selectedValue,
+}: RadioGroupProps) => {
 	return (
 		<S.RadioGroupRoot
-			defaultValue={radioOptions[0]?.value}
+			defaultValue={selectedValue || radioOptions[0]?.value}
 			aria-label="View density"
 			onValueChange={onChange}
 		>
