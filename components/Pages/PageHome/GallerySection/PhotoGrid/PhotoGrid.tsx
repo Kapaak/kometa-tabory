@@ -7,25 +7,22 @@ interface PhotoGridProps {
 }
 
 export const PhotoGrid = ({ photos, onClick }: PhotoGridProps) => {
-	const clickHandler = (i: number) => {
-		onClick(i);
-	};
 	return (
 		<S.PhotoGrid>
 			{photos.map((photo, i) => (
 				<S.ImageContainer
 					key={i}
-					onClick={() => clickHandler(i)}
+					onClick={() => onClick(i)}
 					colStart={photo?.colStart}
 					colEnd={photo?.colEnd}
 					rowStart={photo?.rowStart}
 					rowEnd={photo?.rowEnd}
 				>
 					<S.Image
-						alt="pepe"
-						src={photo.source}
+						alt={photo?.alt}
+						src={photo?.source}
 						fill
-						blurDataURL={photo.source}
+						blurDataURL={photo?.source}
 						placeholder="blur"
 					/>
 				</S.ImageContainer>

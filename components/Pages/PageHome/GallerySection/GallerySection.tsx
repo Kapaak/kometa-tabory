@@ -42,6 +42,7 @@ export type PhotoProps = {
 	colEnd: number;
 	rowStart: number;
 	rowEnd: number;
+	alt: string;
 };
 
 export const photos: PhotoProps[] = [
@@ -51,6 +52,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 3,
 		rowStart: 1,
 		rowEnd: 1,
+		alt: "Děti na bazéně při rozcvičce.",
 	},
 	{
 		source: "/gallery/brno primestsky tabor.jpg",
@@ -58,6 +60,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 4,
 		rowStart: 1,
 		rowEnd: 1,
+		alt: "Stříkání vodní pistolí.",
 	},
 	{
 		source: "/gallery/co s sebou na tabor.jpg",
@@ -65,6 +68,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 5,
 		rowStart: 1,
 		rowEnd: 1,
+		alt: "Výlet v přírodě se skupinkou dětí.",
 	},
 	{
 		source: "/gallery/detsky tabor.jpg",
@@ -72,6 +76,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 7,
 		rowStart: 1,
 		rowEnd: 1,
+		alt: "Plavkyně ponořená pod vodou.",
 	},
 	{
 		source: "/gallery/primestsky tabor kometa brno.jpg",
@@ -79,6 +84,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 2,
 		rowStart: 2,
 		rowEnd: 2,
+		alt: "Usmívající se děti před objektivem.",
 	},
 	{
 		source: "/gallery/primestsky tabor brno.jpg",
@@ -86,6 +92,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 3,
 		rowStart: 2,
 		rowEnd: 2,
+		alt: "Imitace pyramidy za pomoci rukou.",
 	},
 	{
 		source: "/gallery/detsky tabor od 5 let.jpg",
@@ -93,6 +100,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 5,
 		rowStart: 2,
 		rowEnd: 2,
+		alt: "Vodní hadice šplíchající po okolních dětech",
 	},
 
 	{
@@ -101,6 +109,7 @@ export const photos: PhotoProps[] = [
 		colEnd: 6,
 		rowStart: 2,
 		rowEnd: 2,
+		alt: "Holka v póze před fotografem.",
 	},
 	{
 		source: "/gallery/letni tabor pro deti od 4 let.jpg",
@@ -108,5 +117,6 @@ export const photos: PhotoProps[] = [
 		colEnd: 7,
 		rowStart: 2,
 		rowEnd: 2,
+		alt: "Lidi připavující se na zápas ve volejbale.",
 	},
 ];
