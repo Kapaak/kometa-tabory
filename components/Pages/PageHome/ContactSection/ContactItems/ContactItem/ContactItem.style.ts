@@ -29,4 +29,5 @@ export const ContactItem = styled(Flex)`
 	padding-bottom: 2rem;
 	border-bottom: 1px solid var(--collg);
 	max-width: 50rem;
+	height: 7rem;
 `;

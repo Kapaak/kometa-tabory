@@ -4,7 +4,6 @@ import { CaretDown } from "phosphor-react";
 
 export const FAQ = styled.div`
 	margin: 1rem 0;
-	padding-bottom: 1rem;
 	border-bottom: 1px solid var(--col2);
 `;
 
@@ -35,6 +34,7 @@ export const H4 = styled.h4`
 
 export const Text = styled(SText)`
 	font-weight: 300;
+	padding-bottom: 1rem;
 `;
 
 export const CaretIcon = styled(CaretDown)<{ $isActive?: boolean }>`

@@ -43,6 +43,7 @@ export const Button = styled.button<{ selected: boolean }>`
 	align-self: flex-end;
 	box-shadow: var(--shadow);
 	cursor: pointer;
+	background-color: var(--colw);
 
 	transition: all 0.5s ease;
 
