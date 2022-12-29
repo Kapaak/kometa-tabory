@@ -15,7 +15,6 @@ export const Button = styled.button<{ disabled?: boolean }>`
 	border-radius: 2.4rem;
 	font-size: var(--fbutton);
 	overflow: hidden;
-	margin-left: auto;
 
 	transition: all 0.3s ease;
 

@@ -4,7 +4,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
 import { ControlledSelect } from "./ControlledSelect";
 import { createOption } from "utils/functions";
-import { Button, IconButton } from "components/Shared";
+import { IconButton } from "components/Shared";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { SuccessModal } from "./SuccessModal";
@@ -172,9 +172,6 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 								{errors?.dateOfBirth?.message}
 							</S.ErrorContainer>
 						</S.FormInputContainer>
-
-						{/* TODO -> posilat do excelu vypocitany vek ditete v dobe konani taboru */}
-
 						<S.FormInputContainer>
 							<ControlledSelect
 								name={`insurance`}
@@ -269,7 +266,6 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 							<S.Label>Alergie</S.Label>
 						</S.FormInputContainer>
 						<div>
-							{/* <label htmlFor="">Plavecké schopnosti</label> */}
 							<ControlledSelect
 								name={`swimmingAbilities`}
 								placeholder="Plavecké schopnosti"
@@ -289,7 +285,6 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 								placeholder="Upozornění  na zdravotní potíže"
 							/>
 							<S.Label>Zdravotní potíže</S.Label>
-							{/* doplnit vysvetlivku (nejaky podnadpis) */}
 						</S.FormInputContainer>
 
 						<S.FormInputContainer>
@@ -298,7 +293,6 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 								placeholder="Jak jste se o nás dozvěděli?"
 							/>
 							<S.Label>Jak jste se o nás dozvěděli?</S.Label>
-							{/* doplnit vysvetlivku (nejaky podnadpis) */}
 						</S.FormInputContainer>
 					</S.FormItem>
 				</S.Container>

@@ -2,6 +2,7 @@ import { ArrowRight } from "phosphor-react";
 import styled from "styled-components";
 
 import { Text as SText } from "@ui-library";
+import { dimensions } from "utils/breakpoints";
 
 export const Container = styled.div`
 	display: grid;
@@ -57,7 +58,12 @@ export const ErrorContainer = styled.div`
 export const SubmitContainer = styled.div`
 	margin-left: auto;
 	max-width: 61rem;
-	text-align: right;
+	text-align: left;
+	margin-top: 2rem;
+
+	@media (${dimensions.tablet}) {
+		text-align: right;
+	}
 `;
 
 export const Text = styled(SText)`

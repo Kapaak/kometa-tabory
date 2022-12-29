@@ -27,7 +27,7 @@ const Service = (props: Props) => {
 	const isFull = currentCapacity === info?.maxCapacity;
 
 	return (
-		<S.Service initial="hidden" whileHover="visible" whileTap="visible">
+		<S.Service initial="hidden" whileHover="visible">
 			<S.ImageContainer variants={imageVariant} transition={{ bounce: 0 }}>
 				<S.Image
 					src={image}

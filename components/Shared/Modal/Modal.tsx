@@ -25,7 +25,7 @@ export const Modal = ({
 			maxWidth: "80%",
 			boxShadow: "var(--shadow)",
 			margin: "0 auto",
-			padding: "6rem",
+			padding: "2rem", // 6rem na vetsim
 		},
 		overlay: { zIndex: "1000", display: "flex", alignItems: "center" },
 	} as ReactModal.Styles;
