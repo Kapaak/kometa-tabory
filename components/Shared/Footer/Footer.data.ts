@@ -1,4 +1,4 @@
-import { contentType } from "./Footer.interface";
+import { ContentType } from "./Footer.interface";
 import { IData } from "./Footer.interface";
 
 export const data: Array<IData> = [
@@ -7,23 +7,23 @@ export const data: Array<IData> = [
 		fragment: [
 			{
 				output: "Bc. Anna Matušová",
-				type: contentType.bold,
+				type: ContentType.bold,
 			},
 			{
 				output: "+420 606 354 747",
-				type: contentType.link,
+				type: ContentType.link,
 			},
 			{
 				output: "taborpisarky@kometaplavani.cz",
-				type: contentType.link,
+				type: ContentType.link,
 			},
 			{
 				output: "Bauerova 321/5, Brno 603 00",
-				type: contentType.normal,
+				type: ContentType.normal,
 			},
 			{
 				output: "Po - Pá: 8:00-15:30",
-				type: contentType.normal,
+				type: ContentType.normal,
 			},
 		],
 	},
@@ -32,34 +32,34 @@ export const data: Array<IData> = [
 		fragment: [
 			{
 				output: "Plavecké kurzy Kometa",
-				type: contentType.bold,
+				type: ContentType.bold,
 			},
 			{
 				output: "Kraví hora",
-				type: contentType.link,
+				type: ContentType.link,
 				href: "https://kometaplavani.cz/plavani-katka/",
 			},
 			{
 				output: "Kohoutovice",
-				type: contentType.link,
+				type: ContentType.link,
 				href: "https://kometaplavani.cz/plavani-bazenky/bazenky/aquapark-kohoutovice/",
 			},
 			{
 				output: "Bazénky",
-				type: contentType.link,
+				type: ContentType.link,
 				href: "https://kometaplavani.cz/plavani-bazenky/",
 			},
 			{
 				output: "",
-				type: contentType.blank,
+				type: ContentType.blank,
 			},
 			{
 				output: "Tábory a letní akce",
-				type: contentType.bold,
+				type: ContentType.bold,
 			},
 			{
 				output: "Kraví hora",
-				type: contentType.link,
+				type: ContentType.link,
 				href: "https://kometaplavani.cz/plavani-katka/tabory/",
 			},
 		],
@@ -69,10 +69,10 @@ export const data: Array<IData> = [
 		fragment: [
 			{
 				output: "GDPR",
-				type: contentType.link,
+				type: ContentType.link,
 				href: "https://kometaplavani.cz/plavani-katka/tabory/}",
 			},
-			{ output: "IČO: 44992432", type: contentType.normal },
+			{ output: "IČO: 44992432", type: ContentType.normal },
 		],
 	},
 ];

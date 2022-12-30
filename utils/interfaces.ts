@@ -1,4 +1,4 @@
-export enum scrollTargets {
+export enum ScrollTargets {
 	home = "home",
 	about = "about",
 	application = "application",
@@ -16,15 +16,15 @@ export enum scrollTargets {
 	services = "services",
 }
 
-export enum contentType {
+export enum ContentType {
 	normal = "normal",
 	bold = "bold",
 	link = "link",
 	blank = "blank",
 }
 
-export type fragmentType = {
+export type FragmentType = {
 	output: string;
-	type: contentType;
+	type: ContentType;
 	href?: string;
 };

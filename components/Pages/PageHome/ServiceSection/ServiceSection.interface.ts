@@ -1,6 +1,6 @@
 //interfaces
 import { StaticImageData } from "next/image";
-import { scrollTargets } from "@/utils";
+import { ScrollTargets } from "@/utils";
 
 export interface IService {
 	headline: string;
@@ -21,4 +21,4 @@ export interface IServiceInfo {
 	event: string;
 }
 
-export { scrollTargets };
+export { ScrollTargets };

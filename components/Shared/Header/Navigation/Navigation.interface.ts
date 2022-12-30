@@ -1,8 +1,8 @@
-import { scrollTargets } from "@/utils";
+import { ScrollTargets } from "@/utils";
 
 export interface IDropdown {
 	href: string;
-	scrollTarget?: scrollTargets;
+	scrollTarget?: ScrollTargets;
 	output: string;
 }
 
@@ -10,4 +10,4 @@ export interface INavLink extends IDropdown {
 	dropdown?: Array<IDropdown>;
 }
 
-export { scrollTargets };
+export { ScrollTargets };

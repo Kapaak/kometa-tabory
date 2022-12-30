@@ -1,9 +1,9 @@
-import { contentType, fragmentType } from "@/utils";
+import { ContentType, FragmentType } from "@/utils";
 
 export interface IData {
 	headline: string;
-	fragment: Array<fragmentType>;
+	fragment: Array<FragmentType>;
 }
 
-export { contentType };
-export type { fragmentType };
+export { ContentType };
+export type { FragmentType };

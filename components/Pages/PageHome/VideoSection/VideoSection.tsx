@@ -1,10 +1,7 @@
 import { MaxWidth } from "@ui-library";
-import { Headline } from "components/Shared";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import * as S from "./VideoSection.style";
-// const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export const VideoSection = () => {
 	const [hasWindow, setHasWindow] = useState(false);

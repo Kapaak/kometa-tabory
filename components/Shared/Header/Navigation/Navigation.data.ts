@@ -1,63 +1,63 @@
-import { INavLink, scrollTargets } from "./Navigation.interface";
+import { INavLink, ScrollTargets } from "./Navigation.interface";
 
 export const data: Array<INavLink> = [
 	{
 		href: "/",
-		scrollTarget: scrollTargets.home,
+		scrollTarget: ScrollTargets.home,
 		output: "Domů",
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.about,
+		scrollTarget: ScrollTargets.about,
 		output: "O nás",
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.services,
+		scrollTarget: ScrollTargets.services,
 		output: "Tábory",
 
 		//commented out, because it wont be needed on release
 		// dropdown: [
 		//   {
 		//     href: "/prihlasky/skolky",
-		//     scrollTarget: scrollTargets.skolky,
+		//     scrollTarget: ScrollTargets.skolky,
 		//     output: "školky",
 		//   },
 		//   {
 		//     href: "/prihlasky/skoly",
-		//     scrollTarget: scrollTargets.skoly,
+		//     scrollTarget: ScrollTargets.skoly,
 		//     output: "školy",
 		//   },
 		//   {
 		//     href: "/prihlasky/kurzy",
-		//     scrollTarget: scrollTargets.kurzy,
+		//     scrollTarget: ScrollTargets.kurzy,
 		//     output: "kurzy",
 		//   },
 		// ],
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.faq,
+		scrollTarget: ScrollTargets.faq,
 		output: "Základní informace",
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.testimonial,
+		scrollTarget: ScrollTargets.testimonial,
 		output: "Recenze",
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.trainer,
+		scrollTarget: ScrollTargets.trainer,
 		output: "Trenéři",
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.gallery,
+		scrollTarget: ScrollTargets.gallery,
 		output: "Galerie",
 	},
 	{
 		href: "/",
-		scrollTarget: scrollTargets.contact,
+		scrollTarget: ScrollTargets.contact,
 		output: "Kontakt",
 	},
 ];

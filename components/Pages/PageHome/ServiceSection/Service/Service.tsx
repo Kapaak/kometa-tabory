@@ -1,5 +1,10 @@
 //libraries
+import { useState } from "react";
 import { StaticImageData } from "next/image";
+//components
+import { ServiceInfo } from "./ServiceInfo";
+import { DiscountLabel } from "./DiscountLabel";
+import { FullTerm } from "./FullTerm";
 //styles
 import * as S from "./Service.style";
 import { Button, Text } from "@ui-library";
@@ -7,10 +12,6 @@ import { Button, Text } from "@ui-library";
 import { IServiceInfo } from "../ServiceSection.interface";
 //others
 import { imageVariant, textVariant } from "./Service.variant";
-import { FullTerm } from "./FullTerm";
-import { DiscountLabel } from "./DiscountLabel";
-import { ServiceInfo } from "./ServiceInfo";
-import { useState } from "react";
 
 interface Props {
 	headline: string;

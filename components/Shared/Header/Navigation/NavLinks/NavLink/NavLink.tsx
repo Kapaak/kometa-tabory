@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 //styles
 import * as S from "./NavLink.style";
 //interfaces
-import { IDropdown, scrollTargets } from "../../Navigation.interface";
+import { IDropdown, ScrollTargets } from "../../Navigation.interface";
 //others
 import { scrollTo } from "@/utils";
 
 interface Props {
 	children: React.ReactNode;
-	scrollTarget?: scrollTargets;
+	scrollTarget?: ScrollTargets;
 	href: string;
 	dropdown?: Array<IDropdown>;
 }

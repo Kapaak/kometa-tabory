@@ -1,8 +1,11 @@
-import { MaxWidth } from "@ui-library";
-import { Headline, SectionElement } from "components/Shared";
+//libraries
 import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
+//components
+import { MaxWidth } from "@ui-library";
 import { PhotoGrid } from "./PhotoGrid";
+import { Headline, SectionElement } from "components/Shared";
+//data
 import { photos } from "./GallerySection.data";
 
 export const GallerySection = () => {

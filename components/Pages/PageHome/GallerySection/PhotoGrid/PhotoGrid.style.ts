@@ -2,6 +2,13 @@ import styled, { css } from "styled-components";
 import NextImage from "next/image";
 import { dimensions } from "utils/breakpoints";
 
+type ImageContainerProps = {
+	colStart: number;
+	colEnd: number;
+	rowStart: number;
+	rowEnd: number;
+};
+
 export const PhotoGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -13,13 +20,6 @@ export const PhotoGrid = styled.div`
 	}
 `;
 
-type ImageContainerProps = {
-	colStart: number;
-	colEnd: number;
-	rowStart: number;
-	rowEnd: number;
-};
-
 export const ImageContainer = styled.div<ImageContainerProps>`
 	position: relative;
 	height: 15rem;
@@ -29,10 +29,6 @@ export const ImageContainer = styled.div<ImageContainerProps>`
 	${({ colStart, colEnd, rowStart, rowEnd }) => css`
 		grid-column: ${colStart} ${colEnd};
 		grid-row: ${rowStart} ${rowEnd};
-		/* grid-column-start: ${colStart ?? "unset"};
-		grid-column-end: ${colEnd ?? "unset"};
-		grid-row-start: ${rowStart ?? "unset"};
-		grid-row-end: ${rowEnd ?? "unset"}; */
 	`}
 
 	@media(${dimensions.desktop}) {

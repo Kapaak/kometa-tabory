@@ -3,7 +3,7 @@ import * as S from "./PhotoGrid.style";
 
 interface PhotoGridProps {
 	photos: PhotoProps[];
-	onClick: (e: any) => void;
+	onClick: (num: number) => void;
 }
 
 export const PhotoGrid = ({ photos, onClick }: PhotoGridProps) => {

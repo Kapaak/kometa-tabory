@@ -1,8 +1,11 @@
-import { MaxWidth } from "@ui-library";
+//components
 import { Headline, SectionElement } from "components/Shared";
+import { MaxWidth } from "@ui-library";
 import { FAQ } from "./FAQ";
-import { data } from "./FAQSection.data";
+//styles
 import * as S from "./FAQSection.style";
+//data
+import { data } from "./FAQSection.data";
 
 export const FAQSection = () => {
 	return (

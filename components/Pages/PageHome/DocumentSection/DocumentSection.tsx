@@ -1,7 +1,10 @@
-import { MaxWidth, Text } from "@ui-library";
-import { Headline } from "components/Shared";
-import * as S from "./DocumentSection.style";
+//components
 import { Document } from "./Document";
+import { Headline } from "components/Shared";
+//styles
+import * as S from "./DocumentSection.style";
+import { MaxWidth, Text } from "@ui-library";
+//data
 import { data } from "./DocumentSection.data";
 
 export const DocumentSection = () => {

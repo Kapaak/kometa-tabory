@@ -1,15 +1,15 @@
 //libraries
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 //componenets
-import { ContentRenderer } from "@/utils";
+import { ContentRenderer, FragmentType } from "@/utils";
 //styles
 import * as S from "./ContactItem.style";
 import { Flex } from "@ui-library";
 
 interface Props {
 	headline: string;
-	fragment: any;
-	icon: any;
+	fragment: FragmentType[];
+	icon: StaticImageData;
 }
 
 const ContactItem = ({ headline, fragment, icon }: Props) => {

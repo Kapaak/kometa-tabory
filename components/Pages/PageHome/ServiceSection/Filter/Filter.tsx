@@ -1,5 +1,7 @@
-import * as S from "./Filter.style";
+//components
 import { RadioGroup, RadioOption, Popover } from "components/Shared";
+//styles
+import * as S from "./Filter.style";
 
 interface FilterProps {
 	onCriteriaChange: (e: string) => void;

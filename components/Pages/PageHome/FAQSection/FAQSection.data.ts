@@ -3,7 +3,6 @@ import {
 	Wallet,
 	Coin,
 	FirstAid,
-	XCircle,
 	Backpack,
 	ForkKnife,
 	Users,
@@ -53,12 +52,6 @@ export const data = [
 					"Pokud potřebujete potvrzení pro zdravotní pojišťovnu, přineste si vyplněný formulář z Vaší zdravotní pojišťovny v první den nástupu na tábor.",
 				icon: FirstAid,
 			},
-			// {
-			// 	id: "55",
-			// 	title: "STORNO PODMÍNKY",
-			// 	description: "Text bude doplněn.",
-			// 	icon: XCircle,
-			// },
 		],
 	},
 	{
