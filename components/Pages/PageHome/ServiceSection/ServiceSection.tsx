@@ -80,7 +80,6 @@ export const ServiceSection = () => {
 							headline={d?.headline}
 							text={d?.text}
 							image={d?.image}
-							scrollTarget={d?.scrollTarget}
 							info={d?.info}
 							alt={d?.alt}
 							url={d?.url}

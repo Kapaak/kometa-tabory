@@ -4,7 +4,7 @@ import { StaticImageData } from "next/image";
 import * as S from "./Service.style";
 import { Button, Text } from "@ui-library";
 //interfaces
-import { IServiceInfo, scrollTargets } from "../ServiceSection.interface";
+import { IServiceInfo } from "../ServiceSection.interface";
 //others
 import { imageVariant, textVariant } from "./Service.variant";
 import { FullTerm } from "./FullTerm";
@@ -17,7 +17,6 @@ interface Props {
 	text: string;
 	image: StaticImageData;
 	alt: string;
-	scrollTarget: scrollTargets;
 	info: IServiceInfo;
 	url: string;
 	currentCapacity: number;

@@ -9,14 +9,10 @@ interface PagePrihlaskyProps {
 
 export const PagePrihlasky = ({ camp }: PagePrihlaskyProps) => {
 	return (
-		<div>
-			<MaxWidth>
-				<S.Headline>{camp?.headline}</S.Headline>
-				<S.Subheadline>{camp?.info?.date}</S.Subheadline>
-				{camp?.spreadsheetId && (
-					<SectionForm spreadsheet={camp.spreadsheetId} />
-				)}
-			</MaxWidth>
-		</div>
+		<MaxWidth>
+			<S.Headline>{camp?.headline}</S.Headline>
+			<S.Subheadline>{camp?.info?.date}</S.Subheadline>
+			{camp?.spreadsheetId && <SectionForm spreadsheet={camp.spreadsheetId} />}
+		</MaxWidth>
 	);
 };
