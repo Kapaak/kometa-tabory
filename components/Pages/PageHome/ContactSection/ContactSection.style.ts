@@ -8,10 +8,10 @@ import { dimensions } from "@/utils";
 export const ContactSection = styled(SectionElement)``;
 
 export const Flex = styled(SFlex)`
-	gap: 4rem;
+  gap: 4rem;
 
-	@media (${dimensions.notebook}) {
-		flex-direction: row-reverse;
-		gap: 10rem;
-	}
+  @media (${dimensions.notebook}) {
+    flex-direction: row-reverse;
+    gap: 10rem;
+  }
 `;

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint ./ --ext js,jsx,ts,tsx",
     "barell-ui": "barrelsby -d ./styles/UI --delete",
-    "barell-comps": "barrelsby -d ./components --delete"
+    "barell-comps": "barrelsby -d ./components --delete",
+    "pretty":"prettier --write **/*.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -56,6 +57,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.10",
     "nanoid": "^4.0.0",
-    "phosphor-react": "^1.4.1"
+    "phosphor-react": "^1.4.1",
+    "prettier": "^2.8.1"
   }
 }
