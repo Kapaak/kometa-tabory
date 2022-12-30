@@ -70,7 +70,7 @@ export const data: Array<IData> = [
       {
         output: "GDPR",
         type: ContentType.link,
-        href: "https://kometaplavani.cz/plavani-katka/tabory/}",
+        href: "https://www.primestak-brno.cz/files/ZASADY_GDPR.pdf",
       },
       { output: "IČO: 44992432", type: ContentType.normal },
     ],
