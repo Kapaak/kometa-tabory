@@ -7,7 +7,6 @@ export interface IService {
 	text: string;
 	image: StaticImageData;
 	alt: string;
-	scrollTarget: scrollTargets;
 	info: IServiceInfo;
 	url: string;
 	spreadsheetId: string;

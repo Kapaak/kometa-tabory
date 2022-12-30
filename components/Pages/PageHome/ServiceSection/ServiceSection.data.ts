@@ -8,7 +8,6 @@ import Piráti from "@/public/images/pirates.jpg";
 import Vesmír from "@/public/images/space.jpg";
 
 import { IService } from "./ServiceSection.interface";
-import { scrollTargets } from "./ServiceSection.interface";
 
 export const data: IService[] = [
 	{
@@ -17,7 +16,6 @@ export const data: IService[] = [
 		image: Zootropolis,
 		alt: "Postavy z filmu zootropolis",
 		url: "zootropolis",
-		scrollTarget: scrollTargets.kindergardens,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
@@ -34,7 +32,6 @@ export const data: IService[] = [
 		image: Sport,
 		alt: "děti hrající fotbal na hřišti",
 		url: "sportovni-hry",
-		scrollTarget: scrollTargets.schools,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
@@ -51,7 +48,6 @@ export const data: IService[] = [
 		image: Piráti,
 		alt: "Hlavní postava z filmu piráti z karibiku",
 		url: "pirati-z-karibiku",
-		scrollTarget: scrollTargets.courses,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
@@ -68,7 +64,6 @@ export const data: IService[] = [
 		image: Harry,
 		alt: "tři hlavní hrdinové filmu harry potter",
 		url: "harry-potter",
-		scrollTarget: scrollTargets.courses,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
@@ -85,7 +80,6 @@ export const data: IService[] = [
 		image: Adventure,
 		alt: "historická mapa s kompasem ukazující směr",
 		url: "cesta-za-dobrodruzstvim",
-		scrollTarget: scrollTargets.courses,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
@@ -102,7 +96,6 @@ export const data: IService[] = [
 		image: Trosečníci,
 		alt: "loď ztroskotaná na pevnině",
 		url: "trosecnik",
-		scrollTarget: scrollTargets.courses,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
@@ -119,7 +112,6 @@ export const data: IService[] = [
 		image: Vesmír,
 		alt: "malé planety ve vesmíru",
 		url: "vesmir",
-		scrollTarget: scrollTargets.courses,
 		info: {
 			price: 3499,
 			oldPrice: 4900,
