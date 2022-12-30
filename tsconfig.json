@@ -19,6 +19,7 @@
       "@/components":["components"],
       "@/public/*":["public/*"],
       "@/utils":["utils"],
+      "@/hooks":["hooks"],
       "@ui-library":["styles/UI"],
       "@/state":["state"]
     }

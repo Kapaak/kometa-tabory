@@ -1,53 +1,22 @@
+//libraries
+import { useEffect, useState } from "react";
+import { getAllSheets } from "lib/google";
+import { useFilteredCamps } from "@/hooks";
 //styles
 import { MaxWidth } from "@ui-library";
 import * as S from "./ServiceSection.style";
 //components
 import Service from "./Service/Service";
+import { Filter } from "./Filter";
 //data
 import { data } from "./ServiceSection.data";
-import { useEffect, useState } from "react";
-import { Filter } from "./Filter";
-import { getAllSheets } from "lib/google";
-
-enum Criteria {
-	All = "all",
-	Ocupied = "ocupied",
-	Free = "free",
-}
 
 export const ServiceSection = () => {
-	const [filteredData, setFilteredData] = useState(data);
-	const [selectedCriteria, setSelectedCriteria] = useState("all");
 	const [sheetsRowCount, setSheetsRowCount] = useState([]);
+	const { filteredData, criteria, setCriteria } = useFilteredCamps();
 
 	const handleCriteriaSelect = (val: string) => {
-		setSelectedCriteria(val);
-	};
-
-	useEffect(() => {
-		handleFilter(selectedCriteria);
-	}, [selectedCriteria]);
-
-	const handleFilter = (criteria: string) => {
-		switch (criteria) {
-			case Criteria.All: {
-				return setFilteredData(data);
-			}
-			case Criteria.Ocupied: {
-				return setFilteredData(
-					data.filter(p => p?.info?.actualCapacity === p?.info?.maxCapacity)
-				);
-			}
-
-			case Criteria.Free: {
-				return setFilteredData(
-					data.filter(p => p?.info?.actualCapacity !== p?.info?.maxCapacity)
-				);
-			}
-			default: {
-				return setFilteredData(data);
-			}
-		}
+		setCriteria(val);
 	};
 
 	const sheetIds = data?.map(d => d?.spreadsheetId);
@@ -70,7 +39,7 @@ export const ServiceSection = () => {
 		<S.ServiceSection name="services">
 			<MaxWidth>
 				<Filter
-					selectedOption={selectedCriteria}
+					selectedOption={criteria}
 					onCriteriaChange={handleCriteriaSelect}
 				/>
 				<S.Container>
