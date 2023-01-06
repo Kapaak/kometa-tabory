@@ -9,21 +9,25 @@ type RouteType = "/" | "/prihlasky";
 type TitleType = "/prihlasky";
 
 export const HeadSelector = () => {
-	const router = useRouter();
+  const router = useRouter();
 
-	const currentRoute = router.asPath;
+  const currentRoute = router.asPath;
 
-	//   const currentRouteMetaDesc =
-	//     metaDescription[currentRoute as RouteType]?.description ??
-	//     metaDescription.default.description;
+  //   const currentRouteMetaDesc =
+  //     metaDescription[currentRoute as RouteType]?.description ??
+  //     metaDescription.default.description;
 
-	//   const currentRouteTitle = title[currentRoute as TitleType] ?? title.default;
+  //   const currentRouteTitle = title[currentRoute as TitleType] ?? title.default;
 
-	return (
-		<Head>
-			<title>Příměšťák Brno | Kometa </title>
-			<link rel="icon" href="/icons/logo-tabory.svg" />
-			{/* {/* <title> {currentRouteTitle} Plavecká škola | Kometa </title>
+  return (
+    <Head>
+      <title>Příměšťák Brno | Kometa </title>
+      <link rel="icon" href="/icons/logo-tabory.svg" />
+      <meta
+        name="google-site-verification"
+        content="KV7BmFAqyUFzPz1ft0TFad03jyyUR8o0b-1CvI4FmGs"
+      />
+      {/* {/* <title> {currentRouteTitle} Plavecká škola | Kometa </title>
       <meta name="author" content="Pavel Zapletal & Barbora Novakova" />
       <meta
         name="keywords"
@@ -34,8 +38,8 @@ export const HeadSelector = () => {
         href={`https://www.plavani-luzanky.cz${currentRoute}`}
       />
       <meta name="description" content={currentRouteMetaDesc} /> */}
-		</Head>
-	);
+    </Head>
+  );
 };
 
 export default HeadSelector;
