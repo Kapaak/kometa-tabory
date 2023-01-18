@@ -2,6 +2,10 @@ user-agent: *
 Sitemap: https://www.primestak-brno.cz/sitemap.xml
 Disallow: /api/*
 
+user-agent: *
+Sitemap: https://www.primestak-brno.cz/sitemap.xml
+Disallow: /prihlasky/*
+
 user-agent: Googlebot
 Sitemap: https://www.primestak-brno.cz/sitemap.xml
 Allow: /

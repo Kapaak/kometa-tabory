@@ -25,7 +25,7 @@ interface Props {
 
 const Service = (props: Props) => {
 	const { headline, text, image, alt, info, url, currentCapacity } = props;
-	const isCapacityFull = currentCapacity === info?.maxCapacity;
+	const isCapacityFull = currentCapacity >= info?.maxCapacity;
 
 	const [showMore, setShowMore] = useState(false);
 
