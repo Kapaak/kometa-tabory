@@ -11,7 +11,7 @@ export const data = [
       "Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Poté jsem začala trénovat děti. Momentálně vedu plavání na Kohoutovicích a Holzové. Volný čas ráda trávím cestováním a sledováním filmů.",
     contact: {
       email: "taborpisarky@kometaplavani.cz",
-      phone: "+420 626 354 747",
+      phone: "+420 773 708 287",
     },
     alt: "trener komety",
   },

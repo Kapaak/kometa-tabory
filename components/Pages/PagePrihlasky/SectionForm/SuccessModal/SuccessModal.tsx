@@ -24,7 +24,7 @@ export const SuccessModal = ({ addChild, isOpen, redirect }: ModalProps) => {
 				<Divider />
 				<Text variant="dark">
 					<Strong weight="400">Potřebujete pomoci? </Strong>
-					Volejte na +420 606 354 747 nebo piště na
+					Volejte na +420 773 708 287 nebo piště na
 					taborpisarky@kometaplavani.cz
 				</Text>
 				<Divider width="50%" />

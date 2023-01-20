@@ -10,7 +10,7 @@ export const data: Array<IData> = [
         type: ContentType.bold,
       },
       {
-        output: "+420 606 354 747",
+        output: "+420 773 708 287",
         type: ContentType.link,
       },
       {

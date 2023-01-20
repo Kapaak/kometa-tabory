@@ -32,7 +32,7 @@ export const data: IContact[] = [
     icon: PhoneIcon,
     fragment: [
       {
-        output: "+420 626 354 747",
+        output: "+420 773 708 287",
         type: ContentType.link,
       },
     ],
