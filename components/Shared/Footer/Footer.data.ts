@@ -72,7 +72,7 @@ export const data: Array<IData> = [
         type: ContentType.link,
         href: "https://www.primestak-brno.cz/files/ZASADY_GDPR.pdf",
       },
-      { output: "IČO: 44992432", type: ContentType.normal },
+      { output: "IČO: 41604164", type: ContentType.normal },
     ],
   },
 ];
