@@ -17,7 +17,7 @@ export const data: IService[] = [
     alt: "Postavy z filmu zootropolis",
     url: "zootropolis",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "10. 7. - 14. 7. 2023",
       actualCapacity: 0,
@@ -33,7 +33,7 @@ export const data: IService[] = [
     alt: "děti hrající fotbal na hřišti",
     url: "sportovni-hry",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "17. 7. - 21. 7. 2023",
       actualCapacity: 0,
@@ -49,7 +49,7 @@ export const data: IService[] = [
     alt: "Hlavní postava z filmu piráti z karibiku",
     url: "pirati-z-karibiku",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "24. 7. - 28. 7. 2023",
       actualCapacity: 0,
@@ -65,7 +65,7 @@ export const data: IService[] = [
     alt: "tři hlavní hrdinové filmu harry potter",
     url: "harry-potter",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "31. 7. - 4. 8. 2023",
       actualCapacity: 0,
@@ -81,7 +81,7 @@ export const data: IService[] = [
     alt: "historická mapa s kompasem ukazující směr",
     url: "cesta-za-dobrodruzstvim",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "7. 8. - 11. 8. 2023",
       actualCapacity: 0,
@@ -97,7 +97,7 @@ export const data: IService[] = [
     alt: "loď ztroskotaná na pevnině",
     url: "trosecnik",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "14. 8. - 18. 8. 2023",
       actualCapacity: 0,
@@ -113,7 +113,7 @@ export const data: IService[] = [
     alt: "malé planety ve vesmíru",
     url: "vesmir",
     info: {
-      price: 3499,
+      price: 4199,
       oldPrice: 4900,
       date: "21. 8. - 25. 8. 2023",
       actualCapacity: 0,
