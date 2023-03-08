@@ -122,7 +122,7 @@ export const data = [
       {
         id: "313",
         title: "Středa",
-        description: `Ve středu jezdíme na tematické výlety. Dle vzdálenosti a dopravní situace se může měnit příchod a odchod dětí z táboru. Všechny informace Vám sdělí vedoucí trenér v daném týdnu táboru. Popřípadě se lze individuálně domluvit na jiném čase.`,
+        description: `Ve středu jezdíme na tematické výlety. Dle vzdálenosti a dopravní situace se může měnit příchod a odchod dětí z táboru. Všechny informace Vám sdělí vedoucí trenér v daném týdnu táboru. Popřípadě se lze individuálně domluvit na jiném čase. Změna programu vyhrazena.`,
         icon: CalendarBlank,
       },
     ],
