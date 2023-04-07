@@ -62,7 +62,7 @@ export const ButtonContainer = styled.div`
 //todo tohle pak pouzij jako link
 // export const A = styled(Link)`
 export const ShowMoreButton = styled(SButton)`
-  @media (${dimensions.notebook}) {
+  @media (${dimensions.tabletX}) {
     display: none;
   }
 `;
