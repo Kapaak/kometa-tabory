@@ -9,7 +9,7 @@ import { dimensions } from "@/utils";
 
 export const HeroSection = styled(SectionElement)`
   @media (${dimensions.notebook}) {
-    padding: 2rem;
+    padding: 4rem var(--side-padding);
   }
 
   @media (${dimensions.desktop}) {
@@ -22,38 +22,10 @@ export const MaxWidth = styled(SMaxWidth)`
     max-width: 100%;
     padding: var(--side-padding);
   }
-`;
-
-export const ArrowButton = styled.button`
-  display: none;
-  position: absolute;
-  right: 8rem;
-  bottom: -4rem;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 0.5s ease;
-
-  &:hover {
-    transition: all 0.5s ease;
-    transform: translateY(2rem);
-  }
 
   @media (${dimensions.notebook}) {
-    display: block;
-  }
-`;
-
-export const EmphasizedHeadline = styled.span`
-  display: block;
-  font-size: 9rem;
-  letter-spacing: 0.4rem;
-  margin-top: -2rem;
-
-  @media (${dimensions.notebook}) {
-    display: inline-block;
-    font-size: inherit;
-    letter-spacing: inherit;
+    max-width: 100%;
+    padding: 6rem var(--side-padding);
   }
 `;
 
@@ -75,31 +47,18 @@ export const ImageContainer = styled.div`
   border-radius: inherit;
 `;
 
-export const Gradient = styled.div`
-  position: absolute;
-  background-color: var(--col2);
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  z-index: 1;
-`;
-
-export const ImageButton = styled.button`
-  background-color: transparent;
-  border: none;
-  align-self: center;
-`;
-
 export const FlexWrapper = styled(Flex)`
-  @media (${dimensions.tablet}) {
-    align-items: flex-start;
-    text-align: left;
+  padding-bottom: 3rem;
+
+  @media (${dimensions.desktop}) {
+    gap: 3rem;
+    padding-bottom: 0;
   }
 `;
 
 export const TextContainer = styled(Text)`
   margin-bottom: 3rem;
-  max-width: 50rem;
+  max-width: 40rem;
 
   @media (${dimensions.tablet}) {
     text-align: left;
@@ -107,5 +66,9 @@ export const TextContainer = styled(Text)`
 
   @media (${dimensions.notebook}) {
     text-align: left;
+  }
+
+  @media (${dimensions.desktop}) {
+    margin-bottom: 1rem;
   }
 `;

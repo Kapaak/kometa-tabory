@@ -70,16 +70,16 @@ export const ShowMoreButton = styled(SButton)`
 export const A = styled(Link)`
   //todo uprav jestli ty styly jsou vsecchny potreba
   display: inline-block;
-  border-radius: 2.4rem;
+  border-radius: 3rem;
   text-transform: inherit;
   font-family: inherit;
   font-size: var(--fbutton);
   padding: inherit;
-  letter-spacing: inherit;
+  letter-spacing: 0.1rem;
   transition: all 0.2s ease;
   cursor: pointer;
   align-self: end;
-  padding: 1rem 2rem;
+  padding: 1.5rem 4rem;
   margin-top: auto;
 
   color: var(--col2);

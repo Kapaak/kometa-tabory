@@ -1,10 +1,7 @@
-import { FragmentType } from "@/utils";
-import { StaticImageData } from "next/image";
+import { Icon } from "phosphor-react";
 
-export interface IContact {
-  headline: string;
-  icon: StaticImageData;
-  fragment: Array<FragmentType>;
+export interface ContactItem {
+  title: string;
+  icon: Icon;
+  description: string;
 }
-
-export { ContentType } from "@/utils";

@@ -14,6 +14,7 @@ export enum ScrollTargets {
   gallery = "gallery",
   faq = "faq",
   services = "services",
+  location = "location",
 }
 
 export enum ContentType {
