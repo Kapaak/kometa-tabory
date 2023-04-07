@@ -32,11 +32,14 @@ export const Title = styled(SText)`
   font-family: var(--font2);
 `;
 
-export const Subtitle = styled(SText)``;
+export const Subtitle = styled(SText)`
+  font-family: var(--font2);
+`;
 
 export const Text = styled(SText)`
   font-weight: 300;
   padding-bottom: 1rem;
+  font-size: 1.4rem;
 `;
 
 export const CaretIcon = styled(CaretDown)<{ $isActive?: boolean }>`

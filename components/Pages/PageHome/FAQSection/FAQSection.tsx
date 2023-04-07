@@ -1,7 +1,6 @@
 //components
-import { Headline, SectionElement } from "components/Shared";
+import { Expandable, Headline, SectionElement } from "components/Shared";
 import { MaxWidth } from "@ui-library";
-import { FAQ } from "./FAQ";
 //styles
 import * as S from "./FAQSection.style";
 //data
@@ -17,7 +16,7 @@ export const FAQSection = () => {
             <S.FAQWrapper key={d?.id}>
               <S.Headline>{d?.headline}</S.Headline>
               {d?.items.map((item) => (
-                <FAQ
+                <Expandable
                   key={item?.id}
                   title={item?.title}
                   description={item?.description}
