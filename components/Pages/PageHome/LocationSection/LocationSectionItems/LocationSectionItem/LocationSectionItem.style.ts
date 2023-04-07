@@ -32,6 +32,10 @@ export const LocationSectionItem = styled(Flex)`
   max-width: 50rem;
   height: 11rem;
 
+  @media (${dimensions.notebook}) {
+    height: 12rem;
+  }
+
   @media (${dimensions.desktopX}) {
     height: 13rem;
   }
