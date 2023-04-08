@@ -6,7 +6,7 @@ import { ButtonVariant } from "./Button";
 interface ButtonProps {
   disabled?: boolean;
   variant?: ButtonVariant;
-  // color?: "primary" | "secondary";
+  color?: "primary" | "secondary";
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -40,7 +40,7 @@ export const Button = styled.button<ButtonProps>`
       case "filled": {
         if (color === "secondary")
           return css`
-            background-color: var(--col4);
+            background-color: var(--col1);
             color: var(--col2);
             padding: 1.9rem 4rem;
             &:hover {
@@ -58,24 +58,6 @@ export const Button = styled.button<ButtonProps>`
         return css`
           background-color: transparent;
           line-height: 1.6;
-
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            width: 0%;
-            transform: translateX(-50%);
-            height: 0.2rem;
-            background-color: var(--col2);
-            transition: all 0.5s ease;
-          }
-
-          &:hover {
-            &::before {
-              width: 70%;
-            }
-          }
         `;
       default:
         return css``;
