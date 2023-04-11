@@ -31,13 +31,14 @@ export const AboutSection = () => {
       <S.MaxWidth>
         <S.Image src={Wave} alt="vlnka" />
         <S.AboutText center>
-          Naše příměstské tábory jsou tu pro všechny sportovce a dobrodruhy ve
-          věku od 4 do 15 let. Plavat budeme 3x týdně pod vedením licencovaných
-          trenérů s několikaletou praxí. Ve středu je na programu celodenní
-          výlet dle tématu daného týdne. Dále můžete očekávat každodenní
-          sportovní aktivity, tématické hry a soutěže. Děti i rodiče od nás
-          odchází spokojení, protože se dětem intenzivně věnujeme a to od 7:30
-          ráno až do 17:00 odpoledne.
+          Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
+          příměstský tábor s profesionální výukou plavání a otevírací dobou od
+          7:30 do 17:00. Naši kvalifikovaní instruktoři pomohou vašim dětem
+          zdokonalit své plavecké dovednosti a získat sebedůvěru ve vodě. S
+          naším bohatým programem aktivit, jako jsou sportovní hry a výlety,
+          budou vaše děti mít nezapomenutelné zážitky a zároveň se naučí
+          spolupracovat a komunikovat s ostatními dětmi. Rezervujte si místo pro
+          své dítě na našem letním táboře ještě dnes!
         </S.AboutText>
         <S.Image src={Wave} alt="vlnka" />
       </S.MaxWidth>

@@ -35,7 +35,7 @@ const SMaxHeight = styled.div<{ $gradient: boolean; height: number }>`
 
   background: ${({ $gradient }) =>
     $gradient
-      ? `linear-gradient(253.14deg, rgba(255, 255, 255, 0) -15.48%, rgba(33, 114, 221, 0.85) 98.71%)`
+      ? `linear-gradient(360deg, #2172DD 12.58%, rgba(255, 255, 255, 0) 122.53%)`
       : "unset"};
 
   ${({ $gradient }) =>

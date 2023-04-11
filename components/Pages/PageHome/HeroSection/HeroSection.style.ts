@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import NextImage from "next/image";
 //components
-import { SectionElement } from "@/components";
+import { Button, SectionElement } from "@/components";
 import { Flex, Text, MaxWidth as SMaxWidth } from "@ui-library";
 //functions
 import { dimensions } from "@/utils";
@@ -33,7 +33,11 @@ export const Image = styled(NextImage)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 84% 0;
+  object-position: 50% 0;
+`;
+
+export const LightButton = styled(Button)`
+  background-color: var(--col1-light);
 `;
 
 export const ImageContainer = styled.div`
@@ -50,6 +54,10 @@ export const ImageContainer = styled.div`
 export const FlexWrapper = styled(Flex)`
   padding-bottom: 3rem;
 
+  @media (${dimensions.tablet}) {
+    gap: 2rem;
+  }
+
   @media (${dimensions.desktop}) {
     gap: 3rem;
     padding-bottom: 0;
@@ -57,7 +65,7 @@ export const FlexWrapper = styled(Flex)`
 `;
 
 export const TextContainer = styled(Text)`
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   max-width: 40rem;
 
   @media (${dimensions.tablet}) {

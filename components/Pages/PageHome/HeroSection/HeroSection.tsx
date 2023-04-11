@@ -1,9 +1,9 @@
 //styles
-import { MaxHeight, Button } from "@/components";
+import { MaxHeight } from "@/components";
 import { MainHeadline, MainSubheadline } from "@ui-library";
 import * as S from "./HeroSection.style";
 //images
-import HeroImage from "@/public/images/hero-img.png";
+import HeroImage from "@/public/images/hero-img.jpg";
 //others
 import { scrollTo } from "@/utils";
 
@@ -12,7 +12,7 @@ export const HeroSection = () => {
     <S.HeroSection name="home">
       <MaxHeight $gradient={true}>
         <S.MaxWidth>
-          <S.FlexWrapper justify="flex-end" gap="2rem" align="flex-start">
+          <S.FlexWrapper justify="flex-end" gap="1rem" align="flex-start">
             <div>
               <MainHeadline>Tábory riviéra</MainHeadline>
               <MainSubheadline>Plavecká škola kometa</MainSubheadline>
@@ -23,13 +23,13 @@ export const HeroSection = () => {
                 příměstských táborech!
               </S.TextContainer>
             </div>
-            <Button
+            <S.LightButton
               variant="filled"
               color="secondary"
               onClick={() => scrollTo("services")}
             >
               Volné termíny
-            </Button>
+            </S.LightButton>
           </S.FlexWrapper>
         </S.MaxWidth>
         <S.ImageContainer>
