@@ -51,7 +51,7 @@ const Service = (props: Props) => {
           <DiscountLabel price={info?.price} oldPrice={info?.oldPrice} />
         )}
         <S.Subheadline variant="dark">{headline}</S.Subheadline>
-        <Text variant="grey">{text}</Text>
+        <Text variant="grey">{info?.date}</Text>
         <ServiceInfo
           currentCapacity={currentCapacity}
           date={info?.date}
