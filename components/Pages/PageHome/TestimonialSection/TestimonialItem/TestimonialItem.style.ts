@@ -16,3 +16,8 @@ export const TestimonialItem = styled.div`
   place-items: center;
   height: 100%;
 `;
+
+export const TestimonialWrapper = styled.div`
+  max-width: 45rem;
+  user-select: none;
+`;

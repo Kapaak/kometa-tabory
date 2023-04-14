@@ -1,6 +1,7 @@
-import { Button, Text } from "@ui-library";
+import { Text } from "@ui-library";
 import { ArrowRight } from "phosphor-react";
 import styled from "styled-components";
+import { Button } from "../Button";
 
 export const Headline = styled(Text)`
   font-family: var(--font1);

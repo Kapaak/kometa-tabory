@@ -19,3 +19,7 @@ export const Subheadline = styled.h2`
   font-size: var(--fsheadline);
   margin: 0.5rem 0 6rem;
 `;
+
+export const Wrapper = styled.div`
+  padding-top: 4rem;
+`;

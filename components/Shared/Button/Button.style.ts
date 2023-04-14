@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { CircleNotch } from "phosphor-react";
 import { ButtonVariant } from "./Button";
 
-export const Button = styled.button<{
+interface ButtonProps {
   disabled?: boolean;
   variant?: ButtonVariant;
-}>`
+  color?: "primary" | "secondary";
+}
+
+export const Button = styled.button<ButtonProps>`
   display: flex;
   position: relative;
   border: none;
@@ -15,12 +18,13 @@ export const Button = styled.button<{
   color: var(--col2);
   padding: 1rem 2rem;
   cursor: pointer;
-  border-radius: 2.4rem;
+  border-radius: 3rem;
   font-size: var(--fbutton);
   overflow: hidden;
   transition: all 0.3s ease;
+  letter-spacing: 0.1rem;
 
-  ${({ variant = "bordered" }) => {
+  ${({ variant = "bordered", color = "primary" }) => {
     switch (variant) {
       case "bordered":
         return css`
@@ -33,12 +37,23 @@ export const Button = styled.button<{
             transition: all 0.3s ease;
           }
         `;
-      case "filled":
+      case "filled": {
+        if (color === "secondary")
+          return css`
+            background-color: var(--col1);
+            color: var(--col2);
+            padding: 1.9rem 4rem;
+            &:hover {
+              padding: 1.9rem 5rem;
+            }
+          `;
         return css`
+          line-height: 1.6;
           background-color: var(--col2);
           color: var(--colw);
-          line-height: 1.6;
         `;
+      }
+
       case "plain":
         return css`
           background-color: transparent;

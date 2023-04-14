@@ -14,7 +14,7 @@ export const data: Array<INavLink> = [
   {
     href: "/",
     scrollTarget: ScrollTargets.services,
-    output: "Tábory",
+    output: "Přihlášky",
 
     //commented out, because it wont be needed on release
     // dropdown: [
@@ -42,18 +42,18 @@ export const data: Array<INavLink> = [
   },
   {
     href: "/",
-    scrollTarget: ScrollTargets.testimonial,
-    output: "Recenze",
-  },
-  {
-    href: "/",
-    scrollTarget: ScrollTargets.trainer,
-    output: "Trenéři",
-  },
-  {
-    href: "/",
     scrollTarget: ScrollTargets.gallery,
     output: "Galerie",
+  },
+  // {
+  //   href: "/",
+  //   scrollTarget: ScrollTargets.trainer,
+  //   output: "Trenéři",
+  // },
+  {
+    href: "/",
+    scrollTarget: ScrollTargets.location,
+    output: "Lokalita",
   },
   {
     href: "/",

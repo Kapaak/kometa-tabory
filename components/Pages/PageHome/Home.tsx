@@ -5,12 +5,13 @@ import {
   SponsorSection,
   ServiceSection,
   HeroSection,
+  LocationSection,
   FAQSection,
   DocumentSection,
-  ContactSection,
   AboutSection,
   GallerySection,
   VideoSection,
+  ContactSection,
 } from "./index";
 
 export const PageHome = () => {
@@ -20,19 +21,21 @@ export const PageHome = () => {
       <Space half />
       <AboutSection />
       <Space half />
-      <ServiceSection />
-      <Space />
       <VideoSection />
+      <Space />
+      <ServiceSection />
       <Space />
       <FAQSection />
       <Space />
       <TestimonialSection />
-      <Space />
-      <TrainerSection />
+      {/* <Space />
+      <TrainerSection /> */}
       <Space />
       <GallerySection />
       <Space />
       <DocumentSection />
+      <Space />
+      <LocationSection />
       <Space />
       <ContactSection />
       <Space />

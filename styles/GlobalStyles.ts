@@ -18,8 +18,10 @@ export const GlobalStyles = createGlobalStyle`
         --font2: 'Poppins', sans-serif;
 
         --col1: #73F0C0;
+        --col1-light:#ABF6D9;
         --col2: #2172DD;
         --col3: #DCE9FA;
+        --col4:#FFCA0F;
         --colw: #F8F8F8;
         --collg: #dcdcdc;
         --colg:#9A9A9A;
@@ -70,5 +72,4 @@ export const GlobalStyles = createGlobalStyle`
             --fheadline:5.6rem;
         }
     }
-    
 `;
