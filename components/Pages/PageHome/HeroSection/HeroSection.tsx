@@ -20,7 +20,7 @@ export const HeroSection = () => {
             <div>
               <S.TextContainer variant="light" bold>
                 Přijďte si s námi užít spoustu zábavy na sportovních
-                příměstských táborech!
+                příměstských táborech! <br /> Pro děti od 4 do 15 let.
               </S.TextContainer>
             </div>
             <S.LightButton
