@@ -21,7 +21,7 @@ export const HeadSelector = () => {
       <meta name="keywords" content={currentRouteMetaDesc} />
       <link
         rel="canonical"
-        href={`https://www.plavani-luzanky.cz${currentRoute}`}
+        href={`https://www.primestak-brno.cz${currentRoute}`}
       />
       <meta
         name="google-site-verification"
