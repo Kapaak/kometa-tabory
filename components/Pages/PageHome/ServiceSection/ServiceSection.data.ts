@@ -38,7 +38,7 @@ export const data: IService[] = [
       date: "17. 7. - 21. 7. 2023",
       actualCapacity: 0,
       maxCapacity: 30,
-      event: "Výlet: Bruno park",
+      event: "Výlet: Bowling",
     },
     spreadsheetId: "993666287",
   },
