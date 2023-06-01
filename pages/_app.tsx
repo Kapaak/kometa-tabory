@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
             `}
       </Script>
       <HeadSelector />
-      <DiscountLabel />
+      {/* <DiscountLabel /> */}
       <Header />
       <GlobalStyles />
       <Component {...pageProps} />
