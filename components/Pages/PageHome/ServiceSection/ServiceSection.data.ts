@@ -33,8 +33,8 @@ export const data: IService[] = [
     alt: "děti hrající fotbal na hřišti",
     url: "sportovni-hry",
     info: {
-      price: 4900,
-      // oldPrice: 4900,
+      price: 3499,
+      oldPrice: 4900,
       date: "17. 7. - 21. 7. 2023",
       actualCapacity: 0,
       maxCapacity: 30,
@@ -49,8 +49,8 @@ export const data: IService[] = [
     alt: "Hlavní postava z filmu piráti z karibiku",
     url: "pirati-z-karibiku",
     info: {
-      price: 4900,
-      // oldPrice: 4900,
+      price: 3499,
+      oldPrice: 4900,
       date: "24. 7. - 28. 7. 2023",
       actualCapacity: 0,
       maxCapacity: 30,
@@ -97,8 +97,7 @@ export const data: IService[] = [
     alt: "loď ztroskotaná na pevnině",
     url: "trosecnik",
     info: {
-      price: 3499,
-      oldPrice: 4900,
+      price: 4900,
       date: "14. 8. - 18. 8. 2023",
       actualCapacity: 0,
       maxCapacity: 30,
