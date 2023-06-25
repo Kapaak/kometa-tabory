@@ -11,6 +11,8 @@ import {
   CalendarBlank,
   Archive,
   Scroll,
+  MapPin,
+  ClipboardText,
 } from "phosphor-react";
 
 export const data = [
@@ -98,6 +100,20 @@ export const data = [
         description:
           "Cena zahrnuje celodenní program, vstupné, jízdné, obědy a pitný režim.",
         icon: Archive,
+      },
+      {
+        id: "55",
+        title: "KDE PLAVEME",
+        description:
+          "Abychom mohli plavat za každého počasí, jezdíme plavat na kraví horu.",
+        icon: MapPin,
+      },
+      {
+        id: "66",
+        title: "JAKÉ DOKUMENTY JE TŘEBA PŘINÉST",
+        description:
+          "Kopii potvrzení o beinfekčnosti, která nesmí být starší než jeden rok a kopii kartičky pojištěnce.",
+        icon: ClipboardText,
       },
     ],
   },
