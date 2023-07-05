@@ -4,7 +4,7 @@ import Harry from "@/public/images/harry-potter.jpg";
 import Trosečníci from "@/public/images/castaway.jpg";
 import Zootropolis from "@/public/images/zootropolis.jpg";
 import Sport from "@/public/images/sport.jpg";
-import Piráti from "@/public/images/pirates.jpg";
+import Piráti from "@/public/images/pirati-z-karibiku.jpg";
 import Vesmír from "@/public/images/space.jpg";
 
 import { IService } from "./ServiceSection.interface";
