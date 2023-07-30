@@ -94,7 +94,8 @@ export const data: IService[] = [
     alt: "loď ztroskotaná na pevnině",
     url: "trosecnik",
     info: {
-      price: 4900,
+      price: 3499,
+      oldPrice: 4900,
       date: "14. 8. - 18. 8. 2023",
       actualCapacity: 0,
       maxCapacity: 30,
