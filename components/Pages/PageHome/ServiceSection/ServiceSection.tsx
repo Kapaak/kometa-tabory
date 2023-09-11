@@ -12,51 +12,51 @@ import { Filter } from "./Filter";
 import { data } from "./ServiceSection.data";
 
 export const ServiceSection = () => {
-	const [sheetsRowCount, setSheetsRowCount] = useState([]);
-	const { filteredData, criteria, setCriteria } = useFilteredCamps();
+  const [sheetsRowCount, setSheetsRowCount] = useState([]);
+  const { filteredData, criteria, setCriteria } = useFilteredCamps();
 
-	const handleCriteriaSelect = (val: string) => {
-		setCriteria(val);
-	};
+  const handleCriteriaSelect = (val: any) => {
+    setCriteria(val);
+  };
 
-	const sheetIds = data?.map(d => d?.spreadsheetId);
+  const sheetIds = data?.map((d) => d?.spreadsheetId);
 
-	useEffect(() => {
-		(async () => {
-			const sheets = await getAllSheets(sheetIds);
+  useEffect(() => {
+    (async () => {
+      const sheets = await getAllSheets(sheetIds);
 
-			sheets &&
-				Promise.allSettled(sheets)
-					.then((resSheets: any) => {
-						const updated = resSheets.map((sheet: any) => sheet.value.length);
-						setSheetsRowCount(updated);
-					})
-					.catch(e => console.log("promise error", e));
-		})();
-	}, []);
+      sheets &&
+        Promise.allSettled(sheets)
+          .then((resSheets: any) => {
+            const updated = resSheets.map((sheet: any) => sheet.value.length);
+            setSheetsRowCount(updated);
+          })
+          .catch((e) => console.log("promise error", e));
+    })();
+  }, []);
 
-	return (
-		<S.ServiceSection name="services">
-			<MaxWidth>
-				<Filter
-					selectedOption={criteria}
-					onCriteriaChange={handleCriteriaSelect}
-				/>
-				<S.Container>
-					{filteredData.map((d, i) => (
-						<Service
-							key={i}
-							headline={d?.headline}
-							text={d?.text}
-							image={d?.image}
-							info={d?.info}
-							alt={d?.alt}
-							url={d?.url}
-							currentCapacity={sheetsRowCount[i] ?? 0}
-						/>
-					))}
-				</S.Container>
-			</MaxWidth>
-		</S.ServiceSection>
-	);
+  return (
+    <S.ServiceSection name="services">
+      <MaxWidth>
+        <Filter
+          selectedOption={criteria}
+          onCriteriaChange={handleCriteriaSelect}
+        />
+        <S.Container>
+          {filteredData.map((d, i) => (
+            <Service
+              key={i}
+              headline={d?.headline}
+              text={d?.text}
+              image={d?.image}
+              info={d?.info}
+              alt={d?.alt}
+              url={d?.url}
+              currentCapacity={sheetsRowCount[i] ?? 0}
+            />
+          ))}
+        </S.Container>
+      </MaxWidth>
+    </S.ServiceSection>
+  );
 };
