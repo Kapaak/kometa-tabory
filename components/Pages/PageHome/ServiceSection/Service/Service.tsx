@@ -14,7 +14,6 @@ import { IServiceInfo } from "../ServiceSection.interface";
 import { imageVariant, textVariant } from "./Service.variant";
 import { Button } from "components";
 
-import NextLink from "next/link";
 interface Props {
   headline: string;
   text: string;
@@ -62,12 +61,12 @@ const Service = (props: Props) => {
         />
         <S.ButtonContainer>
           <Hidden up="notebook">
-            <S.ShowMoreButton
+            <Button
               variant="plain"
               onClick={() => setShowMore((prev) => !prev)}
             >
               Více o táboru
-            </S.ShowMoreButton>
+            </Button>
           </Hidden>
           {isCapacityFull && <Button disabled>Termín je již zaplněný</Button>}
           {!isCapacityFull && <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>}

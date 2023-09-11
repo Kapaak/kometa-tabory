@@ -1,4 +1,4 @@
-import { Subheadline } from "@ui-library";
+import { Danger, Subheadline } from "@ui-library";
 import * as S from "./SectionForm.style";
 import { FormProvider, useForm } from "react-hook-form";
 import { ControlledInput, ControlledNameInput } from "./ControlledInput";
@@ -110,25 +110,25 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
             <Subheadline variant="dark">Osobní údaje</Subheadline>
             <S.FormInputContainer>
               <ControlledNameInput
-                name={`firstName`}
+                name="firstName"
                 placeholder="Jméno dítěte"
                 required="Jméno nesmí být prázdné"
               />
               <S.Label>Jméno dítěte</S.Label>
-              <S.ErrorContainer>{errors?.firstName?.message}</S.ErrorContainer>
+              <Danger>{errors?.firstName?.message}</Danger>
             </S.FormInputContainer>
             <S.FormInputContainer>
               <ControlledInput
-                name={`lastName`}
+                name="lastName"
                 placeholder="Příjmení dítěte"
                 required="Příjmení nesmí být prázdné"
               />
               <S.Label>Příjmení dítěte</S.Label>
-              <S.ErrorContainer>{errors?.lastName?.message}</S.ErrorContainer>
+              <Danger>{errors?.lastName?.message}</Danger>
             </S.FormInputContainer>
             <div>
               <ControlledSelect
-                name={`gender`}
+                name="gender"
                 placeholder="Pohlaví"
                 options={[
                   createOption("Muž", "muž"),
@@ -136,45 +136,43 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 ]}
                 required="Pohlaví musí být vyplněno"
               />
-              <S.ErrorContainer>{errors?.gender?.message}</S.ErrorContainer>
+              <Danger>{errors?.gender?.message}</Danger>
             </div>
             <S.FormInputContainer>
               <ControlledInput
-                name={`personalIdNum`}
+                name="personalIdNum"
                 placeholder="Rodné číslo dítěte (př. 045421/1234)"
-                pattern={/\d{4}([.,\/]\d{4})/}
-                required="Rodné číslo v nesprávném formátu. Příklad: 045421/1234."
+                pattern={{
+                  value: /\d{4}([.,\/]\d{4})/,
+                  message:
+                    "Rodné číslo v nesprávném formátu. Příklad: 045421/1234.",
+                }}
+                required="Rodné číslo musí být vyplněno."
               />
               <S.Label>Rodné číslo</S.Label>
-              <S.ErrorContainer>
-                {errors?.personalIdNum?.message}
-              </S.ErrorContainer>
+              <Danger>{errors?.personalIdNum?.message}</Danger>
             </S.FormInputContainer>
             <div>
               <ControlledSelect
-                name={`czechNationality`}
+                name="czechNationality"
                 options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
                 placeholder="Je dítě občanem ČR?"
                 required="Národnost musí být vyplněna"
               />
-              <S.ErrorContainer>
-                {errors?.czechNationality?.message}
-              </S.ErrorContainer>
+              <Danger>{errors?.czechNationality?.message}</Danger>
             </div>
             <S.FormInputContainer>
               <ControlledInput
-                name={`dateOfBirth`}
+                name="dateOfBirth"
                 placeholder="Datum narození dítěte"
                 required="Datum narození musí být vyplněno."
               />
               <S.Label>Datum narození dítěte</S.Label>
-              <S.ErrorContainer>
-                {errors?.dateOfBirth?.message}
-              </S.ErrorContainer>
+              <Danger>{errors?.dateOfBirth?.message}</Danger>
             </S.FormInputContainer>
             <S.FormInputContainer>
               <ControlledSelect
-                name={`insurance`}
+                name="insurance"
                 options={[
                   createOption(
                     "Všeobecná zdravotní pojišťovna",
@@ -210,67 +208,71 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 placeholder="Zdravotní pojišťovna"
                 required="Zdravotní pojišťovn musí být vyplněna"
               />
-              <S.ErrorContainer>{errors?.insurance?.message}</S.ErrorContainer>
+              <Danger>{errors?.insurance?.message}</Danger>
             </S.FormInputContainer>
           </S.FormItem>
           <S.FormItem>
             <Subheadline variant="dark">Kontaktní údaje</Subheadline>
             <S.FormInputContainer>
               <ControlledInput
-                name={`phone`}
+                name="phone"
                 placeholder="Telefon"
                 required="Telefon musí být vyplněn"
               />
               <S.Label>Telefon</S.Label>
-              <S.ErrorContainer>{errors?.phone?.message}</S.ErrorContainer>
+              <Danger>{errors?.phone?.message}</Danger>
             </S.FormInputContainer>
             <S.FormInputContainer>
               <ControlledInput
-                name={`email`}
+                name="email"
                 placeholder="E-mail"
-                pattern={/\S+@\S+\.\S+/}
-                required="Platný email musí obsahovat @ (př. novak.filip@email.cz)."
+                pattern={{
+                  value: /\S+@\S+\.\S+/,
+                  message:
+                    "Platný email musí obsahovat @ (př. novak.filip@email.cz).",
+                }}
+                required="Email musí být vyplněn."
               />
               <S.Label>E-mail</S.Label>
-              <S.ErrorContainer>{errors?.email?.message}</S.ErrorContainer>
+              <Danger>{errors?.email?.message}</Danger>
             </S.FormInputContainer>
             <S.FormInputContainer>
               <ControlledInput
-                name={`address`}
+                name="address"
                 placeholder="Adresa a číslo popisné"
                 required="Adresa musí být vyplněna"
               />
               <S.Label>Adresa a číslo popisné</S.Label>
-              <S.ErrorContainer>{errors?.address?.message}</S.ErrorContainer>
+              <Danger>{errors?.address?.message}</Danger>
             </S.FormInputContainer>
             <S.FormInputContainer>
               <ControlledInput
-                name={`city`}
+                name="city"
                 placeholder="Město"
                 required="Město musí být vyplněno"
               />
               <S.Label>Město</S.Label>
-              <S.ErrorContainer>{errors?.city?.message}</S.ErrorContainer>
+              <Danger>{errors?.city?.message}</Danger>
             </S.FormInputContainer>
             <S.FormInputContainer>
               <ControlledInput
-                name={`postCode`}
+                name="postCode"
                 placeholder="PSČ"
                 required="PSČ musí být vyplněno"
               />
               <S.Label>PSČ</S.Label>
-              <S.ErrorContainer>{errors?.postCode?.message}</S.ErrorContainer>
+              <Danger>{errors?.postCode?.message}</Danger>
             </S.FormInputContainer>
           </S.FormItem>
           <S.FormItem>
             <Subheadline variant="dark">Ostatní</Subheadline>
             <S.FormInputContainer>
-              <ControlledInput name={`alergy`} placeholder="Alergie" />
+              <ControlledInput name="alergy" placeholder="Alergie" />
               <S.Label>Alergie</S.Label>
             </S.FormInputContainer>
             <div>
               <ControlledSelect
-                name={`swimmingAbilities`}
+                name="swimmingAbilities"
                 placeholder="Plavecké schopnosti"
                 options={[
                   createOption("Plavec", "plavec"),
@@ -278,13 +280,11 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 ]}
                 required="Plavecké schopnosti musí být vyplněny."
               />
-              <S.ErrorContainer>
-                {errors?.swimmingAbilities?.message}
-              </S.ErrorContainer>
+              <Danger>{errors?.swimmingAbilities?.message}</Danger>
             </div>
             <S.FormInputContainer>
               <ControlledInput
-                name={`healthIssues`}
+                name="healthIssues"
                 placeholder="Upozornění  na zdravotní potíže"
               />
               <S.Label>Zdravotní potíže</S.Label>
@@ -292,7 +292,7 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
 
             <S.FormInputContainer>
               <ControlledInput
-                name={`foundUs`}
+                name="foundUs"
                 placeholder="Jak jste se o nás dozvěděli?"
               />
               <S.Label>Jak jste se o nás dozvěděli?</S.Label>

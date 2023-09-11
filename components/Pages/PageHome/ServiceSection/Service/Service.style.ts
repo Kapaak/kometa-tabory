@@ -59,13 +59,6 @@ export const ButtonContainer = styled.div`
   margin-top: auto;
   margin-left: auto;
 `;
-//todo tohle pak pouzij jako link
-// export const A = styled(Link)`
-export const ShowMoreButton = styled(SButton)`
-  @media (${dimensions.tabletX}) {
-    display: none;
-  }
-`;
 
 export const A = styled(Link)`
   //todo uprav jestli ty styly jsou vsecchny potreba

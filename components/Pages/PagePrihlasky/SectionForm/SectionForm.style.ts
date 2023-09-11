@@ -50,11 +50,6 @@ export const Label = styled.label`
   font-size: 1.3rem;
 `;
 
-export const ErrorContainer = styled.div`
-  color: var(--colr);
-  font-size: 1.2rem;
-`;
-
 export const SubmitContainer = styled.div`
   margin-left: auto;
   max-width: 61rem;
