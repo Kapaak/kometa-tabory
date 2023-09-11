@@ -11,30 +11,30 @@ export const data: Array<INavLink> = [
     scrollTarget: ScrollTargets.about,
     output: "O nás",
   },
-  {
-    href: "/",
-    scrollTarget: ScrollTargets.services,
-    output: "Přihlášky",
+  // {
+  //   href: "/",
+  //   scrollTarget: ScrollTargets.services,
+  //   output: "Přihlášky",
 
-    //commented out, because it wont be needed on release
-    // dropdown: [
-    //   {
-    //     href: "/prihlasky/skolky",
-    //     scrollTarget: ScrollTargets.skolky,
-    //     output: "školky",
-    //   },
-    //   {
-    //     href: "/prihlasky/skoly",
-    //     scrollTarget: ScrollTargets.skoly,
-    //     output: "školy",
-    //   },
-    //   {
-    //     href: "/prihlasky/kurzy",
-    //     scrollTarget: ScrollTargets.kurzy,
-    //     output: "kurzy",
-    //   },
-    // ],
-  },
+  //commented out, because it wont be needed on release
+  // dropdown: [
+  //   {
+  //     href: "/prihlasky/skolky",
+  //     scrollTarget: ScrollTargets.skolky,
+  //     output: "školky",
+  //   },
+  //   {
+  //     href: "/prihlasky/skoly",
+  //     scrollTarget: ScrollTargets.skoly,
+  //     output: "školy",
+  //   },
+  //   {
+  //     href: "/prihlasky/kurzy",
+  //     scrollTarget: ScrollTargets.kurzy,
+  //     output: "kurzy",
+  //   },
+  // ],
+  // },
   {
     href: "/",
     scrollTarget: ScrollTargets.faq,

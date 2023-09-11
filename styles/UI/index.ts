@@ -10,3 +10,4 @@ export * from "./Strong";
 export * from "./Subheadline";
 export * from "./Text";
 export * from "./VerticalStack";
+export * from "./Hidden";

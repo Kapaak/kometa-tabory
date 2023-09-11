@@ -10,6 +10,9 @@ import { dimensions } from "@/utils";
 export const HeroSection = styled(SectionElement)`
   @media (${dimensions.notebook}) {
     padding: 4rem var(--side-padding);
+    & > div {
+      min-height: 50rem;
+    }
   }
 
   @media (${dimensions.desktop}) {

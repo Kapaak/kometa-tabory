@@ -19,6 +19,8 @@ export const GlobalStyles = createGlobalStyle`
 
         --col1: #73F0C0;
         --col1-light:#ABF6D9;
+        --col1-hover: #6ed8b0;
+        --col2-hover: #1A5FBF;
         --col2: #2172DD;
         --col3: #DCE9FA;
         --col4:#FFCA0F;

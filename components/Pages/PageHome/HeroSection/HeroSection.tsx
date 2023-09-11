@@ -28,7 +28,7 @@ export const HeroSection = () => {
               color="secondary"
               onClick={() => scrollTo("services")}
             >
-              Volné termíny
+              Dostupné tábory
             </S.LightButton>
           </S.FlexWrapper>
         </S.MaxWidth>

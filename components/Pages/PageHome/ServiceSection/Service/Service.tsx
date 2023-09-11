@@ -7,7 +7,7 @@ import { DiscountLabel } from "./DiscountLabel";
 import { FullTerm } from "./FullTerm";
 //styles
 import * as S from "./Service.style";
-import { Text } from "@ui-library";
+import { Hidden, Text } from "@ui-library";
 //interfaces
 import { IServiceInfo } from "../ServiceSection.interface";
 //others
@@ -61,12 +61,14 @@ const Service = (props: Props) => {
           specialEvent={info?.event}
         />
         <S.ButtonContainer>
-          <S.ShowMoreButton
-            variant="plain"
-            onClick={() => setShowMore((prev) => !prev)}
-          >
-            Více o táboru
-          </S.ShowMoreButton>
+          <Hidden up="notebook">
+            <S.ShowMoreButton
+              variant="plain"
+              onClick={() => setShowMore((prev) => !prev)}
+            >
+              Více o táboru
+            </S.ShowMoreButton>
+          </Hidden>
           {isCapacityFull && <Button disabled>Termín je již zaplněný</Button>}
           {!isCapacityFull && <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>}
         </S.ButtonContainer>

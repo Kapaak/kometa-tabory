@@ -17,3 +17,11 @@ export const dimensions = {
   desktop: `min-width: ${recalcToEm(devices.desktop)}em`,
   desktopX: `min-width: ${recalcToEm(devices.desktopX)}em`,
 };
+
+export const maxDimensions = {
+  tablet: `max-width: ${recalcToEm(devices.tablet)}em`,
+  tabletX: `max-width: ${recalcToEm(devices.tabletX)}em`,
+  notebook: `max-width: ${recalcToEm(devices.notebook)}em`,
+  desktop: `max-width: ${recalcToEm(devices.desktop)}em`,
+  desktopX: `max-width: ${recalcToEm(devices.desktopX)}em`,
+};

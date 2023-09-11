@@ -1,12 +1,14 @@
 import { keyframes, css } from "styled-components";
 import styled from "styled-components";
 import { CircleNotch } from "phosphor-react";
-import { ButtonVariant } from "./Button";
+import { ButtonColor, ButtonSize, ButtonVariant } from "./Button";
 
 interface ButtonProps {
   disabled?: boolean;
+  isLoading?: boolean;
   variant?: ButtonVariant;
-  color?: "primary" | "secondary";
+  size?: ButtonSize;
+  color?: ButtonColor;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -16,13 +18,13 @@ export const Button = styled.button<ButtonProps>`
   text-transform: uppercase;
   font-family: var(--font1);
   color: var(--col2);
-  padding: 1rem 2rem;
   cursor: pointer;
   border-radius: 3rem;
   font-size: var(--fbutton);
   overflow: hidden;
   transition: all 0.3s ease;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.132rem;
+  width: ${({ isLoading }) => isLoading && "14rem"};
 
   ${({ variant = "bordered", color = "primary" }) => {
     switch (variant) {
@@ -42,15 +44,18 @@ export const Button = styled.button<ButtonProps>`
           return css`
             background-color: var(--col1);
             color: var(--col2);
-            padding: 1.9rem 4rem;
+            min-height: 5rem;
             &:hover {
-              padding: 1.9rem 5rem;
+              background-color: var(--col1-hover);
             }
           `;
         return css`
           line-height: 1.6;
           background-color: var(--col2);
           color: var(--colw);
+          &:hover {
+            background-color: var(--col2-hover);
+          }
         `;
       }
 
@@ -63,6 +68,20 @@ export const Button = styled.button<ButtonProps>`
         return css``;
     }
   }}
+
+  ${({ size = "regular" }) => {
+    switch (size) {
+      case "small":
+        return css`
+          padding: 1rem 2rem;
+        `;
+      case "regular":
+        return css`
+          padding: 1.5rem 2rem;
+        `;
+    }
+  }}
+
 
   background-color: ${({ disabled }) => disabled && "transparent"};
   border-color: ${({ disabled }) => disabled && "var(--collg)"};

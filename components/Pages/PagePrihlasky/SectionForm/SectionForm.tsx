@@ -313,7 +313,7 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
           </S.Text>
 
           <IconButton
-            loading={isLoading}
+            isLoading={isLoading}
             disabled={isLoading}
             iconAfter={S.ArrowRightIcon}
           >
