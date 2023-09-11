@@ -79,7 +79,7 @@ export const data: IService[] = [
     url: "cesta-za-dobrodruzstvim",
     info: {
       price: 3499,
-      oldPrice: 4900,
+      // oldPrice: 4900,
       date: "7. 8. - 11. 8. 2023",
       actualCapacity: 0,
       maxCapacity: 30,
@@ -95,7 +95,7 @@ export const data: IService[] = [
     url: "trosecnik",
     info: {
       price: 3499,
-      oldPrice: 4900,
+      // oldPrice: 4900,
       date: "14. 8. - 18. 8. 2023",
       actualCapacity: 0,
       maxCapacity: 30,

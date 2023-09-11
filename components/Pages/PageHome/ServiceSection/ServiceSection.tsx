@@ -53,6 +53,7 @@ export const ServiceSection = () => {
               alt={d?.alt}
               url={d?.url}
               currentCapacity={sheetsRowCount[i] ?? 0}
+              isAfterSeason={true}
             />
           ))}
         </S.Container>

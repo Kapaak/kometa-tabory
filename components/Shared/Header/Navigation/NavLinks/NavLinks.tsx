@@ -50,7 +50,7 @@ const NavItems = ({ data }: Props) => {
           gap="3rem"
           style={{ marginTop: ".7rem" }}
         >
-          <Link href="https://www.facebook.com/primestakbrno">
+          <Link href="https://www.facebook.com/primestakkometa">
             <Image
               src={FacebookInvertIcon}
               width={22}

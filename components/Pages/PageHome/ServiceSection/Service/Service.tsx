@@ -22,10 +22,20 @@ interface Props {
   info: IServiceInfo;
   url: string;
   currentCapacity: number;
+  isAfterSeason?: boolean;
 }
 
 const Service = (props: Props) => {
-  const { headline, text, image, alt, info, url, currentCapacity } = props;
+  const {
+    headline,
+    text,
+    image,
+    alt,
+    info,
+    url,
+    currentCapacity,
+    isAfterSeason,
+  } = props;
   const isCapacityFull = currentCapacity >= info?.maxCapacity;
 
   const [showMore, setShowMore] = useState(false);
@@ -68,8 +78,13 @@ const Service = (props: Props) => {
               Více o táboru
             </Button>
           </Hidden>
-          {isCapacityFull && <Button disabled>Termín je již zaplněný</Button>}
-          {!isCapacityFull && <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>}
+          {isAfterSeason && <Button disabled>Otevíráme 1.1.2024</Button>}
+          {isCapacityFull && !isAfterSeason && (
+            <Button disabled>Termín je již zaplněný</Button>
+          )}
+          {!isCapacityFull && !isAfterSeason && (
+            <S.A href={`/prihlasky/${url}`}>Přihláška</S.A>
+          )}
         </S.ButtonContainer>
       </S.Container>
     </S.Service>
