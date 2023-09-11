@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 //libraries
 import { useSelector } from "react-redux";
 //components
@@ -10,7 +12,10 @@ import { INavLink, ScrollTargets } from "../Navigation.interface";
 import { RootState } from "@/state";
 import { Button } from "components/Shared/Button";
 import { scrollTo } from "utils/functions";
-import { Hidden } from "@ui-library";
+import { Flex, Hidden } from "@ui-library";
+//images
+import FacebookInvertIcon from "@/public/icons/facebook-invert.svg";
+import InstagramInvertIcon from "@/public/icons/instagram-invert.svg";
 
 interface Props {
   data: Array<INavLink>;
@@ -37,6 +42,31 @@ const NavItems = ({ data }: Props) => {
         <NavLink href="" scrollTarget={ScrollTargets.services}>
           Volné termíny
         </NavLink>
+      </Hidden>
+      <Hidden down="desktop">
+        <Flex
+          direction="row"
+          align="center"
+          gap="3rem"
+          style={{ marginTop: ".7rem" }}
+        >
+          <Link href="https://www.facebook.com/primestakbrno">
+            <Image
+              src={FacebookInvertIcon}
+              width={22}
+              height={22}
+              alt="facebook"
+            />
+          </Link>
+          <Link href="https://www.instagram.com/primestakbrno">
+            <Image
+              src={InstagramInvertIcon}
+              width={22}
+              height={22}
+              alt="instagram"
+            />
+          </Link>
+        </Flex>
       </Hidden>
       <Hidden down="notebook">
         <Button
