@@ -1,7 +1,8 @@
 import sgMail from "@sendgrid/mail";
+import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
-const handler = (req: NextRequest, res: NextResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   //@ts-ignore  pridej typ pro NextRequest
   const { email } = req.body;
 
@@ -16,14 +17,13 @@ const handler = (req: NextRequest, res: NextResponse) => {
     template_id: "d-8cab7a2e32be48cda3c3138c79d9c2a1",
   };
 
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log("Email sent");
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  try {
+    const email = await sgMail.send(msg);
+    return res.send({ data: email, email });
+  } catch (error) {
+    console.error(error);
+    return res.send({ message: error, email });
+  }
 };
 
 export default handler;
