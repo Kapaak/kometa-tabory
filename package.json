@@ -9,10 +9,11 @@
     "lint": "eslint ./ --ext js,jsx,ts,tsx",
     "barell-ui": "barrelsby -d ./styles/UI --delete",
     "barell-comps": "barrelsby -d ./components --delete",
-    "pretty":"prettier --write **/*.ts"
+    "pretty": "prettier --write **/*.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "@portabletext/types": "^2.0.8",
     "@radix-ui/react-popover": "^1.0.2",
     "@radix-ui/react-radio-group": "^1.1.0",
     "@reduxjs/toolkit": "^1.9.0",
@@ -27,6 +28,7 @@
     "framer-motion": "^7.6.12",
     "google-spreadsheet": "^3.3.0",
     "next": "13.0.2",
+    "next-sanity": "^5.5.8",
     "react": "18.2.0",
     "react-div-100vh": "^0.7.0",
     "react-dom": "18.2.0",

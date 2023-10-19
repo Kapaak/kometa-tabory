@@ -1,0 +1,13 @@
+export { AboutSection } from "./AboutSection";
+export { ContactSection } from "./ContactSection";
+export { DocumentSection } from "./DocumentSection";
+export { FAQSection } from "./FAQSection";
+export { GallerySection } from "./GallerySection";
+export { HeroSection } from "./HeroSection";
+export { LocationSection } from "./LocationSection";
+export { ServiceSection } from "./ServiceSection";
+export { SponsorSection } from "./SponsorSection";
+export { TestimonialSection } from "./TestimonialSection";
+export { TrainerSection } from "./TrainerSection";
+export { VideoSection } from "./VideoSection";
+export { HomePageScreen } from "./Home";
