@@ -1,7 +1,7 @@
 //styles
 import * as S from "./Logo.style";
 //images
-import LogoLatest from "../../../../public/icons/logo-tabory.svg";
+import LogoLatest from "../../../../../public/icons/logo-tabory.svg";
 import Link from "next/link";
 
 export function Logo() {

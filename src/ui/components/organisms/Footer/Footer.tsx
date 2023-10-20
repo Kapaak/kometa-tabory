@@ -7,7 +7,7 @@ import * as S from "./Footer.style";
 //data
 import { data } from "./Footer.data";
 
-const Footer = () => {
+export function Footer(){
   return (
     <S.Footer>
       <S.MaxWidth>
@@ -20,5 +20,3 @@ const Footer = () => {
     </S.Footer>
   );
 };
-
-export default Footer;

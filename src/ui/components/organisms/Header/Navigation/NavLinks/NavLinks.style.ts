@@ -1,6 +1,6 @@
 //libraries
 import styled, { css } from "styled-components";
-import { Flex } from "~/ui/components";
+import { Flex } from "../../../../atoms/Flex";
 //styles
 import { dimensions } from "~/ui/theme";
 

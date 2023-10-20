@@ -1,7 +1,7 @@
 //libraries
 import styled, { css } from "styled-components";
 //styles
-import { Subheadline, Text } from "~/ui/components";
+import { Subheadline, Text } from "../../../../atoms";
 
 export const FooterSection = styled.section``;
 

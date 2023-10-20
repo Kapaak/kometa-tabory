@@ -5,9 +5,9 @@ import Link from "next/link";
 import * as S from "./FooterEnding.style";
 import { Flex } from "~/ui/components";
 //images
-import FacebookIcon from "../../../../public/icons/facebook.svg";
-import InstagramIcon from "../../../../public/icons/instagram.svg";
-import YoutubeIcon from "../../../../public/icons/youtube.svg";
+import FacebookIcon from "../../../../../../public/icons/facebook.svg";
+import InstagramIcon from "../../../../../../public/icons/instagram.svg";
+import YoutubeIcon from "../../../../../../public/icons/youtube.svg";
 
 const FooterEnding = () => {
   return (

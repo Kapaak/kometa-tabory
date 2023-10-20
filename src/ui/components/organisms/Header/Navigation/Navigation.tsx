@@ -4,8 +4,7 @@ import NavLinks from "./NavLinks/NavLinks";
 import * as S from "./Navigation.style";
 //data
 import { data } from "./Navigation.data";
-import { Logo } from "../Logo";
-import { Hamburger } from "../Hamburger";
+import { Logo,Hamburger } from "../../../atoms";
 
 interface Props {
   isActive: boolean;

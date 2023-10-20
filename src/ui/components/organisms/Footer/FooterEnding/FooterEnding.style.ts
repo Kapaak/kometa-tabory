@@ -1,7 +1,7 @@
 //libraries
 import styled from "styled-components";
 //styles
-import { Flex } from "~/ui/components";
+import { Flex } from "../../../atoms";
 import { dimensions } from "~/ui/theme";
 
 export const Creator = styled.p`

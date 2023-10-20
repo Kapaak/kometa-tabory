@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Text as SText } from "~/ui/components";
+import { Text as SText } from "../../atoms";
 import { CaretDown } from "phosphor-react";
 
 export const Expandable = styled.div`

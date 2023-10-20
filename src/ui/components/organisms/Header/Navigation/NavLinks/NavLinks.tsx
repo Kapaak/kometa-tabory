@@ -11,8 +11,8 @@ import { RootState } from "~/state";
 import { Button, Flex, Hidden } from "~/ui/components";
 import { scrollTo } from "~/utils";
 //images
-import FacebookInvertIcon from "../../../../../public/icons/facebook-invert.svg";
-import InstagramInvertIcon from "../../../../../public/icons/instagram-invert.svg";
+import FacebookInvertIcon from "../../../../../../../public/icons/facebook-invert.svg";
+import InstagramInvertIcon from "../../../../../../../public/icons/instagram-invert.svg";
 import { NavLink as NavLinkType, ScrollTargets } from "~/types";
 
 interface Props {

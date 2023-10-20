@@ -1,7 +1,7 @@
 //libraries
 import styled from "styled-components";
 //styles
-import { dimensions } from "~/ui/theme";
+import { dimensions } from "../../../../ui/theme";
 import Image from "next/image";
 
 export const Img = styled(Image)`
