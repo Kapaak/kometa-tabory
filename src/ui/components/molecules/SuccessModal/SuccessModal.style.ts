@@ -26,6 +26,8 @@ export const CreateButton = styled.button`
 `;
 
 export const ReturnButton = styled(IconButton)`
+  width: auto;
+  min-width: 26rem;
   @media (${dimensions.tablet}) {
     margin-left: auto;
   }
@@ -33,7 +35,7 @@ export const ReturnButton = styled(IconButton)`
 
 export const ArrowRightIcon = styled(ArrowRight)`
   position: absolute;
-  right: 0.2rem;
+  right: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--col2);
@@ -44,6 +46,7 @@ export const ArrowRightIcon = styled(ArrowRight)`
 
 export const ButtonContainer = styled(Flex)`
   margin-top: 3rem;
+  gap: 1rem;
 
   @media (${dimensions.tablet}) {
     flex-direction: row;

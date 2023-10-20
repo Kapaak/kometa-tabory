@@ -1,41 +1,27 @@
-import { Divider, Strong, Text } from "~/ui/components";
-import { Modal } from "../../atoms";
+import { Divider, Strong, Text } from "../../atoms";
 import { UserCirclePlus } from "phosphor-react";
 import * as S from "./SuccessModal.style";
-
+import { Modal } from "../Modal";
 interface ModalProps {
-  isOpen: boolean;
+  open: boolean;
   addChild: () => void;
   redirect: () => void;
+  onChange?: () => void;
 }
 
-export const SuccessModal = ({ addChild, isOpen, redirect }: ModalProps) => {
+export const SuccessModal = ({
+  addChild,
+  open,
+  redirect,
+  onChange,
+}: ModalProps) => {
   return (
     <Modal
-      headline={"vaše přihláška byla úspěšně odeslána"}
-      isOpen={isOpen}
-      redirect={redirect}
-    >
-      <S.TextWrapper>
-        <Text variant="dark">
-          Potvrzení objednávky a informace k platbě jsme Vám poslali na e-mail.
-          Moc si vážíme Vaší důvěry.
-        </Text>
-        <Divider />
-        <Text variant="dark">
-          <Strong weight="400">
-            V případě, že vám e-mail nedorazil, zkontrolujte prosím spam.
-          </Strong>
-        </Text>
-        <Divider />
-        <Text variant="dark">
-          <Strong weight="400">Potřebujete pomoc? </Strong>
-          Volejte na +420 773 708 287 nebo piště na
-          taborpisarky@kometaplavani.cz
-        </Text>
-        <Divider width="50%" />
-
-        <S.ButtonContainer justify="center" gap="2rem">
+      title="vaše přihláška byla úspěšně odeslána"
+      open={open}
+      onChange={onChange}
+      actions={
+        <S.ButtonContainer>
           <S.CreateButton onClick={addChild}>
             <UserCirclePlus size={34} color="var(--col2)" />
             PŘIDAT DALŠÍ DÍTĚ
@@ -44,7 +30,24 @@ export const SuccessModal = ({ addChild, isOpen, redirect }: ModalProps) => {
             vrátit na úvodní stránku
           </S.ReturnButton>
         </S.ButtonContainer>
-      </S.TextWrapper>
+      }
+    >
+      <Text variant="dark">
+        Potvrzení objednávky a informace k platbě jsme Vám poslali na e-mail.
+        Moc si vážíme Vaší důvěry.
+      </Text>
+      <Divider />
+      <Text variant="dark">
+        <Strong weight="400">
+          V případě, že vám e-mail nedorazil, zkontrolujte prosím spam.
+        </Strong>
+      </Text>
+      <Divider />
+      <Text variant="dark">
+        <Strong weight="400">Potřebujete pomoc? </Strong>
+        Volejte na +420 773 708 287 nebo piště na taborpisarky@kometaplavani.cz
+      </Text>
+      <Divider width="50%" />
     </Modal>
   );
 };

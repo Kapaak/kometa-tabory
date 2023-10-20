@@ -14,7 +14,6 @@ export * from './MainHeadline';
 export * from './MainSubheadline';
 export * from './MaxHeadline';
 export * from './MaxWidth';
-export * from './Modal';
 export * from './Popover';
 export * from './SectionElement';
 export * from './Space';

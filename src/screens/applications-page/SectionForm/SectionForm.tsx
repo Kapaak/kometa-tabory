@@ -11,7 +11,7 @@ import dayjs from "dayjs";
 import axios from "axios";
 
 interface SectionFormProps {
-  spreadsheet: string;
+  spreadsheet: number;
 }
 
 export type FormValues = {
@@ -116,7 +116,8 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
   return (
     <FormProvider {...form}>
       <SuccessModal
-        isOpen={isOpen}
+        open={isOpen}
+        onChange={() => setIsOpen(false)}
         addChild={resetAll}
         redirect={redirectHome}
       />

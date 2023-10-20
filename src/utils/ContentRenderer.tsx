@@ -1,6 +1,6 @@
 //libraries
 import { useEffect, useState } from "react";
-import { StyledComponent } from "styled-components";
+// import { StyledComponent } from "styled-components";
 import { ContentType, FragmentType } from "~/types";
 //styles
 import { TextProps } from "~/ui/components";
@@ -8,9 +8,13 @@ import { TextProps } from "~/ui/components";
 
 interface Props {
   fragment: Array<FragmentType>;
-  LinkElement?: StyledComponent<"a", any, TextProps, any>;
-  TextElement?: StyledComponent<"p", any, TextProps, never>;
-  BoldElement?: StyledComponent<"p", any, TextProps, never>;
+  LinkElement?: any;
+  TextElement?: any;
+  BoldElement?: any;
+  //todo -> fix
+  // LinkElement?: StyledComponent<"a", any, TextProps, any>;
+  // TextElement?: StyledComponent<"p", any, TextProps, never>;
+  // BoldElement?: StyledComponent<"p", any, TextProps, never>;
 }
 
 export const ContentRenderer = ({

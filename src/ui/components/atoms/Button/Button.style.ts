@@ -24,7 +24,7 @@ export const Button = styled.button<ButtonProps>`
   overflow: hidden;
   transition: all 0.3s ease;
   letter-spacing: 0.132rem;
-  width: ${({ isLoading }) => isLoading && "14rem"};
+  /* width: ${({ isLoading }) => isLoading && "14rem"}; */
 
   ${({ variant = "bordered", color = "primary" }) => {
     switch (variant) {

@@ -1,6 +1,8 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
 
-const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_SPREADSHEET_ID);
+const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_SPREADSHEET_ID??"",{
+  apiKey: process.env.NEXT_PUBLIC_API_KEY ?? "",
+});
 
 //pokud neni defined, tak hazi no key or key filed defined err
 const authCredentials = {
@@ -8,9 +10,9 @@ const authCredentials = {
   private_key: process.env.NEXT_PUBLIC_PRIVATE_KEY?.replace(/\\n/g, "\n") ?? "",
 };
 
-export const appendSpreadsheet = async (row: any, sheetId: string) => {
+export const appendSpreadsheet = async (row: any, sheetId: number) => {
   try {
-    await doc.useServiceAccountAuth(authCredentials);
+    // await doc.useServiceAccountAuth(authCredentials);
     // loads document properties and worksheets
     await doc.loadInfo();
     const sheet = doc.sheetsById[sheetId];
@@ -21,9 +23,9 @@ export const appendSpreadsheet = async (row: any, sheetId: string) => {
   }
 };
 
-export const getRowsBySheetId = async (sheetId: string) => {
+export const getRowsBySheetId = async (sheetId: number) => {
   try {
-    await doc.useServiceAccountAuth(authCredentials);
+    // await doc.useServiceAccountAuth(authCredentials);
 
     await doc.loadInfo();
 
@@ -36,9 +38,9 @@ export const getRowsBySheetId = async (sheetId: string) => {
   }
 };
 
-export const getAllSheets = async (sheetIds: Array<string>) => {
+export const getAllSheets = async (sheetIds: Array<number>) => {
   try {
-    await doc.useServiceAccountAuth(authCredentials);
+    // await doc.useServiceAccountAuth(authCredentials);
 
     await doc.loadInfo();
 

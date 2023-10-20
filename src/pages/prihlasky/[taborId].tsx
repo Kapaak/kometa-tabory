@@ -2,6 +2,7 @@ import { ApplicationsPageScreen } from "~/screens";
 // import { IService } from "../../components/Pages/PageHome/ServiceSection/ServiceSection.interface";
 import { GetStaticPropsContext } from "next";
 import { getCampByName, getAllCamps } from "~/utils";
+import { PageLayout } from "~/ui/components";
 
 interface PrihlaskyProps {
   camp: any;
@@ -10,9 +11,9 @@ interface PrihlaskyProps {
 
 const Prihlasky = ({ camp }: PrihlaskyProps) => {
   return (
-    <main>
+    <PageLayout>
       <ApplicationsPageScreen camp={camp} />
-    </main>
+    </PageLayout>
   );
 };
 

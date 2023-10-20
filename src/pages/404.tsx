@@ -1,9 +1,10 @@
 import { ErrorPageScreen } from "~/screens";
+import { PageLayout } from "~/ui/components";
 
 export default function ErrorPage() {
   return (
-    <main>
+    <PageLayout>
       <ErrorPageScreen />
-    </main>
+    </PageLayout>
   );
 }

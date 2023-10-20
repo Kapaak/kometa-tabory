@@ -23,7 +23,7 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: ZOO",
     },
-    spreadsheetId: "0",
+    spreadsheetId: 0,
   },
   {
     headline: "T2 - Sporťáček",
@@ -38,7 +38,7 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: Bowling",
     },
-    spreadsheetId: "993666287",
+    spreadsheetId: 993666287,
   },
   {
     headline: "T3 - Piráti z Karibiku",
@@ -53,7 +53,7 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: plavba na člunech",
     },
-    spreadsheetId: "63632264",
+    spreadsheetId: 63632264,
   },
   {
     headline: "T4 - Harry Potter",
@@ -68,7 +68,7 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: Brněnská přehrada, hrad Veveří",
     },
-    spreadsheetId: "149335024",
+    spreadsheetId: 149335024,
   },
   {
     headline: "T5 - Cesta za dobrodružstvím",
@@ -84,7 +84,7 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: Moravský kras",
     },
-    spreadsheetId: "2040410537",
+    spreadsheetId: 2040410537,
   },
   {
     headline: "T6 - Trosečníci",
@@ -100,7 +100,7 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: plavba na paddleboardech",
     },
-    spreadsheetId: "401116402",
+    spreadsheetId: 401116402,
   },
   {
     headline: "T7 - Vesmírná dobrodružství",
@@ -116,6 +116,6 @@ export const data = [
       maxCapacity: 30,
       event: "Výlet: Hvězdárna a planetárium Brno",
     },
-    spreadsheetId: "785653286",
+    spreadsheetId: 785653286,
   },
 ];

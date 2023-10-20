@@ -1,6 +1,5 @@
 import { Space } from "~/ui/components";
 import {
-  TrainerSection,
   TestimonialSection,
   SponsorSection,
   ServiceSection,
@@ -13,6 +12,7 @@ import {
   VideoSection,
   ContactSection,
 } from "./index";
+import React from "react";
 
 export function HomePageScreen() {
   return (
