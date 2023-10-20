@@ -1,8 +1,10 @@
 //libraries
-import styled from "styled-components";
+import Image from 'next/image';
+
+import styled from 'styled-components';
+
 //styles
-import { dimensions } from "../../../../ui/theme";
-import Image from "next/image";
+import { dimensions } from '../../../../ui/theme';
 
 export const Img = styled(Image)`
   position: relative;

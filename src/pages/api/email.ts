@@ -1,6 +1,7 @@
-import sgMail from "@sendgrid/mail";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
+
+import sgMail from "@sendgrid/mail";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   //@ts-ignore  pridej typ pro NextRequest

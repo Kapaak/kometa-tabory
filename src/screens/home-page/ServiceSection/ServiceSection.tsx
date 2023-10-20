@@ -1,15 +1,17 @@
 //libraries
 import { useEffect, useState } from "react";
-import { getAllSheets } from "~/libs/google";
+
 import { useFilteredCamps } from "~/hooks";
+import { getAllSheets } from "~/libs/google";
 //styles
 import { MaxWidth } from "~/ui/components";
-import * as S from "./ServiceSection.style";
+
 //components
-import Service from "./Service/Service";
 import { Filter } from "./Filter";
+import Service from "./Service/Service";
 //data
 import { data } from "./ServiceSection.data";
+import * as S from "./ServiceSection.style";
 
 export const ServiceSection = () => {
   const [sheetsRowCount, setSheetsRowCount] = useState([]);

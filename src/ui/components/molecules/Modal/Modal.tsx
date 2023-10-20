@@ -1,7 +1,9 @@
-import * as Dialog from "@radix-ui/react-dialog";
-import * as S from "./Modal.style";
-import { PropsWithChildren, ReactNode } from "react";
-import { HorizontalStack } from "../../atoms";
+import { PropsWithChildren, ReactNode } from 'react';
+
+import * as Dialog from '@radix-ui/react-dialog';
+
+import * as S from './Modal.style';
+import { HorizontalStack } from '../../atoms';
 
 interface ModalProps {
   open: boolean;

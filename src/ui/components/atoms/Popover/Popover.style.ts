@@ -1,6 +1,6 @@
-import styled, { keyframes } from "styled-components";
 import * as Popover from "@radix-ui/react-popover";
 import { CaretDown } from "phosphor-react";
+import styled, { keyframes } from "styled-components";
 
 export const PopoverTrigger = styled(Popover.Trigger)`
   all: unset;

@@ -1,8 +1,9 @@
 //components
+import { FragmentType } from "~/types";
 import { ContentRenderer } from "~/utils";
+
 //styles
 import * as S from "./FooterSection.style";
-import { FragmentType } from "~/types";
 
 interface Props {
   headline: string;

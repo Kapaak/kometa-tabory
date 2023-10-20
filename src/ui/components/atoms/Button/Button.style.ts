@@ -1,7 +1,9 @@
-import { keyframes, css } from "styled-components";
-import styled from "styled-components";
-import { CircleNotch } from "phosphor-react";
-import { ButtonColor, ButtonSize, ButtonVariant } from "./Button";
+import { CircleNotch } from 'phosphor-react';
+import styled, { css, keyframes } from 'styled-components';
+
+export type ButtonVariant = 'plain' | 'bordered' | 'filled';
+export type ButtonSize = 'small' | 'regular';
+export type ButtonColor = 'primary' | 'secondary';
 
 interface ButtonProps {
   disabled?: boolean;
@@ -24,11 +26,11 @@ export const Button = styled.button<ButtonProps>`
   overflow: hidden;
   transition: all 0.3s ease;
   letter-spacing: 0.132rem;
-  /* width: ${({ isLoading }) => isLoading && "14rem"}; */
+  /* width: ${({ isLoading }) => isLoading && '14rem'}; */
 
-  ${({ variant = "bordered", color = "primary" }) => {
+  ${({ variant = 'bordered', color = 'primary' }) => {
     switch (variant) {
-      case "bordered":
+      case 'bordered':
         return css`
           border: 2px solid var(--col2);
           background-color: transparent;
@@ -39,8 +41,8 @@ export const Button = styled.button<ButtonProps>`
             transition: all 0.3s ease;
           }
         `;
-      case "filled": {
-        if (color === "secondary")
+      case 'filled': {
+        if (color === 'secondary')
           return css`
             background-color: var(--col1);
             color: var(--col2);
@@ -59,7 +61,7 @@ export const Button = styled.button<ButtonProps>`
         `;
       }
 
-      case "plain":
+      case 'plain':
         return css`
           background-color: transparent;
           line-height: 1.6;
@@ -69,13 +71,13 @@ export const Button = styled.button<ButtonProps>`
     }
   }}
 
-  ${({ size = "regular" }) => {
+  ${({ size = 'regular' }) => {
     switch (size) {
-      case "small":
+      case 'small':
         return css`
           padding: 1rem 2rem;
         `;
-      case "regular":
+      case 'regular':
         return css`
           padding: 1.5rem 2rem;
         `;
@@ -83,10 +85,10 @@ export const Button = styled.button<ButtonProps>`
   }}
 
 
-  background-color: ${({ disabled }) => disabled && "transparent"};
-  border-color: ${({ disabled }) => disabled && "var(--collg)"};
-  color: ${({ disabled }) => disabled && "var(--colg)"};
-  pointer-events: ${({ disabled }) => disabled && "none"};
+  background-color: ${({ disabled }) => disabled && 'transparent'};
+  border-color: ${({ disabled }) => disabled && 'var(--collg)'};
+  color: ${({ disabled }) => disabled && 'var(--colg)'};
+  pointer-events: ${({ disabled }) => disabled && 'none'};
 `;
 
 const rollingKeyframe = keyframes`

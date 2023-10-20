@@ -1,5 +1,5 @@
-import { PhotoProps } from "../GallerySection.data";
 import * as S from "./PhotoGrid.style";
+import { PhotoProps } from "../GallerySection.data";
 
 interface PhotoGridProps {
 	photos: PhotoProps[];

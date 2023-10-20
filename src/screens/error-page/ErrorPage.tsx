@@ -1,6 +1,7 @@
 //components
 //styles
 import { MainSubheadline, Flex, MaxWidth, MaxHeight } from "~/ui/components";
+
 import * as S from "./ErrorPage.style";
 
 export function ErrorPageScreen() {

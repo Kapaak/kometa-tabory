@@ -1,7 +1,8 @@
 import { MaxWidth, VerticalStack, Headline, Expandable } from "~/ui/components";
+
+import { data } from "./ContactSection.data";
 import * as S from "./ContactSection.style";
 import { ContactSectionItem } from "./ContactSectionItem";
-import { data } from "./ContactSection.data";
 import TrainerImage from "../../../../public/images/trainer.png";
 
 export const ContactSection = () => {

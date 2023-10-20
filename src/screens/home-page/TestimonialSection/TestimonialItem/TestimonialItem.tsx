@@ -1,4 +1,5 @@
 import { Text } from "~/ui/components";
+
 import * as S from "./TestimonialItem.style";
 
 interface TestimonialItemProps {

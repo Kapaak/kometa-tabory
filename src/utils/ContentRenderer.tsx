@@ -1,9 +1,8 @@
 //libraries
-import { useEffect, useState } from "react";
-import { IStyledComponent } from "styled-components";
-import { ContentType, FragmentType } from "~/types";
+import { useEffect, useState } from 'react';
+
+import { ContentType, FragmentType } from '~/types';
 //styles
-import { TextProps } from "~/ui/components";
 //interfaces
 
 interface Props {
@@ -38,10 +37,10 @@ export const ContentRenderer = ({
         }
 
         case ContentType.link: {
-          const outputWithoutSpaces = a.output.replace(/ /g, "");
-          let triggerOption = outputWithoutSpaces.includes("+")
-            ? "tel"
-            : "mailto";
+          const outputWithoutSpaces = a.output.replace(/ /g, '');
+          let triggerOption = outputWithoutSpaces.includes('+')
+            ? 'tel'
+            : 'mailto';
 
           let href = a.href || `${triggerOption}:${outputWithoutSpaces}`;
 

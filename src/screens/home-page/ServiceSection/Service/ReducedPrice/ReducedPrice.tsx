@@ -1,5 +1,5 @@
-import { labelVariant } from "../Service.variant";
 import * as S from "./ReducedPrice.style";
+import { labelVariant } from "../Service.variant";
 
 interface ReducedPriceProps {
   price: number;

@@ -1,8 +1,10 @@
-import { PropsWithChildren } from "react";
-import * as RadixPopover from "@radix-ui/react-popover";
-import * as S from "./Popover.style";
-import { Flex } from "~/ui/components";
-import { X } from "phosphor-react";
+import { PropsWithChildren } from 'react';
+
+import * as RadixPopover from '@radix-ui/react-popover';
+import { X } from 'phosphor-react';
+
+import * as S from './Popover.style';
+import { Flex } from '../Flex';
 
 interface PopoverProps extends PropsWithChildren {
   buttonLabel?: string;

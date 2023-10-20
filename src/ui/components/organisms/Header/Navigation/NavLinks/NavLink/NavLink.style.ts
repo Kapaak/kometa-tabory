@@ -1,7 +1,8 @@
 //libraries
-import styled from "styled-components";
+import styled from 'styled-components';
+
 //styles
-import { dimensions } from "~/ui/theme";
+import { dimensions } from '~/ui/theme';
 
 export const Dropdown = styled.div`
   display: none;
@@ -29,7 +30,9 @@ export const NavLink = styled.li`
   cursor: pointer;
   padding-left: 4rem;
 
-  a {
+  a,
+  span {
+    color: var(--colw);
     &:hover {
       color: var(--col1);
     }
@@ -38,7 +41,8 @@ export const NavLink = styled.li`
   @media (${dimensions.notebook}) {
     padding-left: 0;
 
-    a {
+    a,
+    span {
       color: var(--colb);
     }
   }

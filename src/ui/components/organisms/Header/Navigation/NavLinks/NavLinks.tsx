@@ -1,19 +1,14 @@
-import Link from "next/link";
-import Image from "next/image";
-//libraries
-import { useSelector } from "react-redux";
-//components
-import NavLink from "./NavLink/NavLink";
-//styles
-import * as S from "./NavLinks.style";
-//redux
-import { RootState } from "~/state";
-import { Button, Flex, Hidden } from "~/ui/components";
-import { scrollTo } from "~/utils";
-//images
-import FacebookInvertIcon from "../../../../../../../public/icons/facebook-invert.svg";
-import InstagramInvertIcon from "../../../../../../../public/icons/instagram-invert.svg";
-import { NavLink as NavLinkType, ScrollTargets } from "~/types";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { NavLink as NavLinkType, ScrollTargets } from '~/types';
+import { scrollTo } from '~/utils';
+
+import NavLink from './NavLink/NavLink';
+import * as S from './NavLinks.style';
+import FacebookInvertIcon from '../../../../../../../public/icons/facebook-invert.svg';
+import InstagramInvertIcon from '../../../../../../../public/icons/instagram-invert.svg';
+import { Button, Hidden } from '../../../../atoms';
 
 interface Props {
   data: Array<NavLinkType>;

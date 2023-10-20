@@ -1,12 +1,13 @@
-import { CaretCircleDown } from "phosphor-react";
 import React, { useId } from "react";
 import { Controller } from "react-hook-form";
-import { ValidationRule } from "react-hook-form/dist/types";
 import Select, {
 	StylesConfig,
 	components,
 	DropdownIndicatorProps,
 } from "react-select";
+
+import { CaretCircleDown } from "phosphor-react";
+import { ValidationRule } from "react-hook-form/dist/types";
 
 type Option = {
 	label: string;

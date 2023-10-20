@@ -1,13 +1,15 @@
 //libraries
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+
 //styles
-import * as S from "./FooterEnding.style";
-import { Flex } from "~/ui/components";
+
+import * as S from './FooterEnding.style';
 //images
-import FacebookIcon from "../../../../../../public/icons/facebook.svg";
-import InstagramIcon from "../../../../../../public/icons/instagram.svg";
-import YoutubeIcon from "../../../../../../public/icons/youtube.svg";
+import FacebookIcon from '../../../../../../public/icons/facebook.svg';
+import InstagramIcon from '../../../../../../public/icons/instagram.svg';
+import YoutubeIcon from '../../../../../../public/icons/youtube.svg';
+import { Flex } from '../../../atoms';
 
 const FooterEnding = () => {
   return (

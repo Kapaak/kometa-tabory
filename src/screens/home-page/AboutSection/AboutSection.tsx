@@ -1,13 +1,15 @@
 //libraries
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useInView } from "react-intersection-observer";
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+
 //images
-import Wave from "../../../../public/icons/wave.svg";
+import { toggleShadow } from '~/state';
+
+import * as S from './AboutSection.style';
+import Wave from '../../../../public/icons/wave.svg';
 //styles
-import * as S from "./AboutSection.style";
 //redux
-import { toggleShadow } from "~/state";
 
 export const AboutSection = () => {
   const { ref, inView, entry } = useInView({

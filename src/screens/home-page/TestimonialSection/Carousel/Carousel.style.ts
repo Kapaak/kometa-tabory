@@ -1,5 +1,8 @@
-import styled from "styled-components";
-import { PREV } from "./Carousel";
+import styled from 'styled-components';
+
+export const NEXT = 'NEXT';
+export const PREV = 'PREV';
+export const NTH = 'NTH';
 
 export const Item = styled.div<{ img: string }>`
   text-align: center;
@@ -11,11 +14,11 @@ export const Item = styled.div<{ img: string }>`
 export const CarouselContainer = styled.div<{ sliding: boolean }>`
   display: flex;
   min-height: 30rem;
-  transition: ${(props) => (props.sliding ? "none" : "transform 1s ease")};
+  transition: ${(props) => (props.sliding ? 'none' : 'transform 1s ease')};
   transform: ${(props) => {
-    if (!props.sliding) return "translateX(calc(-100%))";
-    if (props.dir === PREV) return "translateX(calc(2 * (-100%)))";
-    return "translateX(0%)";
+    if (!props.sliding) return 'translateX(calc(-100%))';
+    if (props.dir === PREV) return 'translateX(calc(2 * (-100%)))';
+    return 'translateX(0%)';
   }};
   cursor: grab;
 
@@ -54,7 +57,7 @@ export const SlideButton = styled.button<{ active: boolean }>`
   border-radius: 50%;
   cursor: pointer;
   background-color: ${({ active }) =>
-    active ? "var(--col1)" : "var(--collg)"};
+    active ? 'var(--col1)' : 'var(--collg)'};
 
   &:active {
     position: relative;

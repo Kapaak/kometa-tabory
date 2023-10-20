@@ -1,7 +1,8 @@
 //components
+import { HeadlineFragment } from "~/types";
+
 import FooterSection from "./FooterSection/FooterSection";
 //interfaces
-import { HeadlineFragment } from "~/types";
 
 interface Props {
   data: HeadlineFragment[];

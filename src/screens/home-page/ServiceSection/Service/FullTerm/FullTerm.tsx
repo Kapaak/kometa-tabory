@@ -1,4 +1,5 @@
 import { Warning } from "phosphor-react";
+
 import * as S from "./FullTerm.style";
 
 export const FullTerm = () => {

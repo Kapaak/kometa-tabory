@@ -1,6 +1,8 @@
-import { MaxWidth } from "~/ui/components";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
+
+import { MaxWidth } from "~/ui/components";
+
 import * as S from "./VideoSection.style";
 
 export const VideoSection = () => {

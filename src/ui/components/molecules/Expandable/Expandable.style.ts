@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import { Text as SText } from "../../atoms";
 import { CaretDown } from "phosphor-react";
+import styled from "styled-components";
+
+import { Text as SText } from "../../atoms";
 
 export const Expandable = styled.div`
   margin: 1rem 0;

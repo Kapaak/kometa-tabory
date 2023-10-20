@@ -1,10 +1,13 @@
 //libraries
-import styled from "styled-components";
 import Image from "next/image";
+import { PropsWithChildren } from "react";
+
+import styled from "styled-components";
+
 //icons
 import Wave from "../../../../../public/icons/wave.svg";
+
 //interfaces
-import { PropsWithChildren } from "react";
 
 type HeadlineType = "h1" | "h2";
 interface Props {

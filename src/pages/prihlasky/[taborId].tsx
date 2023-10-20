@@ -1,8 +1,9 @@
+import { GetStaticPropsContext } from "next";
+
 import { ApplicationsPageScreen } from "~/screens";
 // import { IService } from "../../components/Pages/PageHome/ServiceSection/ServiceSection.interface";
-import { GetStaticPropsContext } from "next";
-import { getCampByName, getAllCamps } from "~/utils";
 import { PageLayout } from "~/ui/components";
+import { getCampByName, getAllCamps } from "~/utils";
 
 interface PrihlaskyProps {
   camp: any;

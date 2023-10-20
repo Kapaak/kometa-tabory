@@ -1,5 +1,6 @@
 import React, { BaseSyntheticEvent } from "react";
 import { Controller } from "react-hook-form";
+
 import * as S from "./ControlledInput.style";
 
 interface ControllerNameInputProps {

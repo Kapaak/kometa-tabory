@@ -1,6 +1,8 @@
-import { Flex } from "~/ui/components";
-import * as S from "./ContactSectionItem.style";
 import { Icon } from "phosphor-react";
+
+import { Flex } from "~/ui/components";
+
+import * as S from "./ContactSectionItem.style";
 
 export interface ContactItem {
   title: string;

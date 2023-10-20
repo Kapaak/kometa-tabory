@@ -1,19 +1,17 @@
-//libraries
-import { useSelector } from "react-redux";
-//styles
-import * as S from "./Header.style";
-//components
-import { Navigation } from "./Navigation";
-//redux
-import { RootState } from "~/state";
-import { DiscountLabel,  } from "~/ui/components";
-import { SanityInfoBar } from "~/domains";
+import { useSelector } from 'react-redux';
+
+import { SanityInfoBar } from '~/domains';
+import { RootState } from '~/state';
+
+import * as S from './Header.style';
+import { Navigation } from './Navigation';
+import { DiscountLabel } from '../../atoms/DiscountLabel';
 
 interface HeaderProps {
   infoBar?: SanityInfoBar;
 }
 
-export function Header ({ infoBar }: HeaderProps) {
+export function Header({ infoBar }: HeaderProps) {
   const isActive = useSelector(
     (state: RootState) => state.navigation.isNavActive
   );
@@ -30,6 +28,6 @@ export function Header ({ infoBar }: HeaderProps) {
       <Navigation isActive={isActive} />
     </S.Header>
   );
-};
+}
 
 export default Header;

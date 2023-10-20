@@ -1,7 +1,9 @@
-import { Flex, IconButton } from "../../atoms";
-import { ArrowRight } from "phosphor-react";
-import styled from "styled-components";
-import { dimensions } from "~/ui/theme";
+import { ArrowRight } from 'phosphor-react';
+import styled from 'styled-components';
+
+import { dimensions } from '~/ui/theme';
+
+import { Flex, IconButton } from '../../atoms';
 
 export const TextWrapper = styled.div`
   @media (${dimensions.tablet}) {

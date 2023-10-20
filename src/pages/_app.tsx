@@ -1,9 +1,10 @@
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import { Provider } from "react-redux";
+
 import { HeadComponent } from "~/components";
 import { store } from "~/state";
-import { Provider } from "react-redux";
-import Script from "next/script";
-import { useRouter } from "next/router";
 import { GlobalStyles } from "~/ui/theme";
 
 export default function App({ Component, pageProps }: AppProps) {

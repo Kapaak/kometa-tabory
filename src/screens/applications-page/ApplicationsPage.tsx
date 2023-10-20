@@ -1,7 +1,7 @@
 import { MaxWidth } from "~/ui/components";
 
-import { SectionForm } from "./SectionForm";
 import * as S from "./ApplicationsPage.style";
+import { SectionForm } from "./SectionForm";
 // import { IService } from "~/components/Pages/PageHome/ServiceSection/ServiceSection.interface";
 
 interface ApplicationsPageProps {

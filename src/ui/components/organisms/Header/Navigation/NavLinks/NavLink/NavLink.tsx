@@ -1,14 +1,16 @@
 //libraries
-import Link from "next/link";
-import { toggleNavigation } from "~/state";
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+
+import { toggleNavigation } from '~/state';
 //styles
-import * as S from "./NavLink.style";
 //interfaces
 //others
-import { scrollTo } from "~/utils";
-import { Dropdown, ScrollTargets } from "~/types";
+import { Dropdown, ScrollTargets } from '~/types';
+import { scrollTo } from '~/utils';
+
+import * as S from './NavLink.style';
 
 interface NavLinkProps {
   children: React.ReactNode;
@@ -30,19 +32,22 @@ const NavLink = ({ scrollTarget, children, href, dropdown }: NavLinkProps) => {
 
     dispatch(toggleNavigation());
   };
+
+  if (scrollTarget)
+    return (
+      <S.NavLink onClick={() => clickHandler(scrollTarget, href)}>
+        <span>{children}</span>
+      </S.NavLink>
+    );
   return (
     //I dont use next/link because I want to change route and then scroll to element
     //if I had next/link I would only change route, the function would not fire
     //maybe push route like /example#school and on example page have useEffect, that would fire
     //Scrolling to #school element on the initial page load (empty dependency array)
     <S.NavLink>
-      {scrollTarget ? (
-        <a onClick={() => clickHandler(scrollTarget, href)}>{children}</a>
-      ) : (
-        <Link href={href} onClick={() => dispatch(toggleNavigation())}>
-          {children}
-        </Link>
-      )}
+      <Link href={href} onClick={() => dispatch(toggleNavigation())}>
+        {children}
+      </Link>
       {/* {dropdown && (
         <S.Dropdown>
           {dropdown.map((g, i) => (

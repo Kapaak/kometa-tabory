@@ -1,8 +1,10 @@
 //libraries
 import styled from "styled-components";
+
 //styles
-import { Flex as SFlex, MaxWidth as SMaxWidth } from "../../atoms";
 import { dimensions } from "~/ui/theme";
+
+import { Flex as SFlex, MaxWidth as SMaxWidth } from "../../atoms";
 
 export const Footer = styled.div`
   padding: 2rem 0;

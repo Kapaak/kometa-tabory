@@ -1,10 +1,11 @@
 //styles
 import { MainHeadline, MainSubheadline, MaxHeight } from "~/ui/components";
+import { scrollTo } from "~/utils";
+
 import * as S from "./HeroSection.style";
 //images
 import HeroImage from "../../../../public/images/hero-img.jpg";
 //others
-import { scrollTo } from "~/utils";
 
 export const HeroSection = () => {
   return (

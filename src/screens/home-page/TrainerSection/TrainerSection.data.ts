@@ -1,6 +1,6 @@
+import Ostatní from "../../../../public/images/all-trainer.jpg";
 import Anicka from "../../../../public/images/anicka_trainer.jpg";
 import Tom from "../../../../public/images/tom_trainer.jpg";
-import Ostatní from "../../../../public/images/all-trainer.jpg";
 
 export const data = [
   {

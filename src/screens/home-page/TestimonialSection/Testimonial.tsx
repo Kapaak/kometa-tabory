@@ -1,7 +1,8 @@
 import styled from "styled-components";
+
 import { Carousel } from "./Carousel";
-import * as S from "./Testimonial.style";
 import { data } from "./Testimonial.data";
+import * as S from "./Testimonial.style";
 import { TestimonialItem } from "./TestimonialItem";
 
 export const Item = styled.div<{ img: string }>`

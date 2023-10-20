@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 import { dimensions } from "./breakpoints";
 import { styleReset } from "./style-reset";
 

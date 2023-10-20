@@ -1,11 +1,13 @@
 //libraries
 import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
+
 //components
 import { MaxWidth, SectionElement, Headline } from "~/ui/components";
+
+import { photos } from "./GallerySection.data";
 import { PhotoGrid } from "./PhotoGrid";
 //data
-import { photos } from "./GallerySection.data";
 
 export const GallerySection = () => {
   const [currentImage, setCurrentImage] = useState(0);

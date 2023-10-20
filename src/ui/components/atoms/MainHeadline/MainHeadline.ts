@@ -1,5 +1,6 @@
-import { dimensions } from "~/ui/theme";
 import styled from "styled-components";
+
+import { dimensions } from "~/ui/theme";
 
 export const MainHeadline = styled.h1`
   color: var(--colw);

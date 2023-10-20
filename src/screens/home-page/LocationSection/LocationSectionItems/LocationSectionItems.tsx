@@ -1,9 +1,10 @@
 //components
+import { Flex, Headline } from "~/ui/components";
+
 import LocationSectionItem, {
   LocationSection,
 } from "./LocationSectionItem/LocationSectionItem";
 //styles
-import { Flex, Headline } from "~/ui/components";
 import * as S from "./LocationSectionItems.style";
 
 interface Props {

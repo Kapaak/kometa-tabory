@@ -1,10 +1,11 @@
 //components
+import { MaxWidth, Text, Headline } from "~/ui/components";
+
 import { Document } from "./Document";
 //styles
-import * as S from "./DocumentSection.style";
-import { MaxWidth, Text, Headline } from "~/ui/components";
-//data
 import { data } from "./DocumentSection.data";
+import * as S from "./DocumentSection.style";
+//data
 
 export const DocumentSection = () => {
   return (

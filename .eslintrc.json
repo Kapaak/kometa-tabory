@@ -1,3 +1,51 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/strict"],
+  "plugins": ["jsx-a11y"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "import/no-cycle": 2,
+        "import/order": [
+          "warn",
+          {
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "newlines-between": "always",
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              ["parent", "sibling", "index"],
+              "object",
+              "unknown",
+              "type"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "react*",
+                "group": "builtin"
+              },
+              {
+                "pattern": "next*",
+                "group": "builtin"
+              },
+              {
+                "pattern": "next/**",
+                "group": "builtin"
+              },
+              {
+                "pattern": "~/**",
+                "group": "external",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"]
+          }
+        ]
+      }
+    }
+  ]
 }

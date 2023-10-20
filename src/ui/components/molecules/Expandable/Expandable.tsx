@@ -1,7 +1,9 @@
-import { useState } from "react";
-import * as S from "./Expandable.style";
-import { Icon as TIcon } from "phosphor-react";
-import { VerticalStack } from "~/ui/components";
+import { useState } from 'react';
+
+import { Icon as TIcon } from 'phosphor-react';
+
+import * as S from './Expandable.style';
+import { VerticalStack } from '../../atoms';
 
 interface FAQProps {
   title: string;

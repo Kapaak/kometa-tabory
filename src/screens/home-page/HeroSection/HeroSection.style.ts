@@ -1,6 +1,8 @@
 //libraries
-import styled from "styled-components";
 import NextImage from "next/image";
+
+import styled from "styled-components";
+
 //components
 import {
   Flex,

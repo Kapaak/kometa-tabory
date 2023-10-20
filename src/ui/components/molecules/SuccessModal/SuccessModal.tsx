@@ -1,6 +1,7 @@
-import { Divider, Strong, Text } from "../../atoms";
 import { UserCirclePlus } from "phosphor-react";
+
 import * as S from "./SuccessModal.style";
+import { Divider, Strong, Text } from "../../atoms";
 import { Modal } from "../Modal";
 interface ModalProps {
   open: boolean;

@@ -1,10 +1,11 @@
 //libraries
 import Marquee from "react-fast-marquee";
+
 //styles
-import * as S from "./SponsorSection.style";
 import Sponsor from "./Sponsor/Sponsor";
 //data
 import { data as sponsors } from "./SponsorSection.data";
+import * as S from "./SponsorSection.style";
 
 export const SponsorSection = () => {
 	return (

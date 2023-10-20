@@ -5,10 +5,11 @@ import {
   MaxWidth,
   SectionElement,
 } from "~/ui/components";
+
 //styles
+import { data } from "./FAQSection.data";
 import * as S from "./FAQSection.style";
 //data
-import { data } from "./FAQSection.data";
 
 export const FAQSection = () => {
   return (

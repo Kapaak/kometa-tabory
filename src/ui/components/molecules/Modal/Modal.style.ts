@@ -1,6 +1,8 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import styled, { keyframes } from "styled-components";
+
 import { dimensions } from "~/ui/theme";
+
 import { Text } from "../../atoms";
 
 const overlayShow = keyframes`

@@ -1,5 +1,6 @@
-import { SectionElement } from "~/ui/components";
 import styled from "styled-components";
+
+import { SectionElement } from "~/ui/components";
 
 export const VideoWrapper = styled.div`
   overflow: hidden;

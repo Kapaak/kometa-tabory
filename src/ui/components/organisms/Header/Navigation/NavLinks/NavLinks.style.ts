@@ -1,8 +1,10 @@
 //libraries
 import styled, { css } from "styled-components";
+
+import { dimensions } from "~/ui/theme";
+
 import { Flex } from "../../../../atoms/Flex";
 //styles
-import { dimensions } from "~/ui/theme";
 
 export const NavLinks = styled.ul<{ isActive: boolean }>(
   ({ isActive }) => css`

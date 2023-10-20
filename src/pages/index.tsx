@@ -1,9 +1,10 @@
-import { HomePageScreen } from "~/screens";
-import { SanityActuality, SanityFaq, SanityInfoBar } from "~/domains";
-import { client } from "~/libs";
 import { InferGetServerSidePropsType } from "next";
 import { SanityDocument, groq } from "next-sanity";
+
 import { SanityContextProvider } from "~/contexts";
+import { SanityActuality, SanityFaq, SanityInfoBar } from "~/domains";
+import { client } from "~/libs";
+import { HomePageScreen } from "~/screens";
 import { PageLayout } from "~/ui/components";
 
 interface Props

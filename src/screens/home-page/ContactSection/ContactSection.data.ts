@@ -1,5 +1,6 @@
 //images
 import { Phone, EnvelopeOpen } from "phosphor-react";
+
 import { ContactItem } from "./ContactSectionItem";
 //interfaces
 

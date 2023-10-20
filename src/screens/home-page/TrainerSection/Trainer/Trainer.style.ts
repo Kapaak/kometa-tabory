@@ -1,7 +1,9 @@
-import styled from "styled-components";
 import NextImage from "next/image";
-import { center } from "~/utils";
+
+import styled from "styled-components";
+
 import { dimensions } from "~/ui/theme";
+import { center } from "~/utils";
 
 export const Trainer = styled.article`
   position: relative;

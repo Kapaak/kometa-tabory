@@ -1,10 +1,10 @@
 //components
-import NavLinks from "./NavLinks/NavLinks";
+import { data } from './Navigation.data';
+import * as S from './Navigation.style';
+import NavLinks from './NavLinks/NavLinks';
 //styles
-import * as S from "./Navigation.style";
 //data
-import { data } from "./Navigation.data";
-import { Logo,Hamburger } from "../../../atoms";
+import { Hamburger, Logo } from '../../../atoms';
 
 interface Props {
   isActive: boolean;

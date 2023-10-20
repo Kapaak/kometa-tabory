@@ -1,11 +1,12 @@
 //components
-import ContactItems from "./LocationSectionItems/LocationSectionItems";
+import { MaxWidth } from "~/ui/components";
+
 import ContactMap from "./ContactMap/ContactMap";
 //styles
-import { MaxWidth } from "~/ui/components";
+import { data } from "./LocationSection.data";
 import * as S from "./LocationSection.style";
 //data
-import { data } from "./LocationSection.data";
+import ContactItems from "./LocationSectionItems/LocationSectionItems";
 
 export const LocationSection = () => {
   return (

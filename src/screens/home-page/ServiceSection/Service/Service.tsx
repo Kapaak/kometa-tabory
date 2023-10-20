@@ -1,16 +1,18 @@
 //libraries
-import { useState } from "react";
 import { StaticImageData } from "next/image";
+import { useState } from "react";
+
 //components
-import { ServiceInfo, ServiceInfoType } from "./ServiceInfo";
+import { Button, Hidden, Text } from "~/ui/components";
+
 import { FullTerm } from "./FullTerm";
 //styles
+import { ReducedPrice } from "./ReducedPrice";
 import * as S from "./Service.style";
-import { Button, Hidden, Text } from "~/ui/components";
 //interfaces
 //others
 import { imageVariant, textVariant } from "./Service.variant";
-import { ReducedPrice } from "./ReducedPrice";
+import { ServiceInfo, ServiceInfoType } from "./ServiceInfo";
 
 interface ServiceProps {
   headline: string;

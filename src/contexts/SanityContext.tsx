@@ -1,5 +1,6 @@
-import { SanityActuality, SanityDocument, SanityFaq } from "~/domains";
 import { PropsWithChildren, createContext, useContext } from "react";
+
+import { SanityActuality, SanityDocument, SanityFaq } from "~/domains";
 
 type SanityContext = {
   actualities: SanityActuality[];

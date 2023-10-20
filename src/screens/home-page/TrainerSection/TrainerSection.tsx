@@ -1,4 +1,5 @@
 import { Flex, Headline, MaxWidth, SectionElement } from "~/ui/components";
+
 import { Trainer } from "./Trainer";
 import { data } from "./TrainerSection.data";
 import * as S from "./TrainerSection.style";

@@ -1,5 +1,6 @@
-import { MaxWidth as SMaxWidth, SectionElement } from "~/ui/components";
 import styled from "styled-components";
+
+import { MaxWidth as SMaxWidth, SectionElement } from "~/ui/components";
 import { dimensions } from "~/ui/theme";
 
 export const Testimonial = styled(SectionElement)`

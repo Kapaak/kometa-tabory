@@ -1,6 +1,8 @@
-import { PropsWithChildren } from "react";
-import { SanityInfoBar } from "~/domains";
-import {Header,Footer} from "../../organisms";
+import { PropsWithChildren } from 'react';
+
+import { SanityInfoBar } from '~/domains';
+
+import { Footer, Header } from '../../organisms';
 
 interface PageLayoutProps {
   infoBar?: SanityInfoBar;

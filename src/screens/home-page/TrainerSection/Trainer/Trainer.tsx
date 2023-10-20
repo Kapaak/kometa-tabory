@@ -1,9 +1,13 @@
-import { A, Divider, Text } from "~/ui/components";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
-import { removeSpace } from "~/utils";
-import * as S from "./Trainer.style";
+
 import { ArrowUp } from "phosphor-react";
+
+import { A, Divider, Text } from "~/ui/components";
+import { removeSpace } from "~/utils";
+
+import * as S from "./Trainer.style";
+
 
 interface TrainerProps {
   name: string;

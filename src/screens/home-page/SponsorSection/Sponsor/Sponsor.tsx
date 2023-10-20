@@ -1,5 +1,6 @@
 //libraries
 import { StaticImageData } from "next/image";
+
 //styles
 import * as S from "./Sponsor.style";
 

@@ -1,7 +1,9 @@
 //libraries
 import styled from "styled-components";
+
 //styles
 import { dimensions } from "~/ui/theme";
+
 import { Flex as SFlex } from "../../../atoms";
 
 export const Navigation = styled(SFlex).attrs({

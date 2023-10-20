@@ -1,5 +1,6 @@
-import { Text } from "~/ui/components";
 import styled from "styled-components";
+
+import { Text } from "~/ui/components";
 
 export const FullContainer = styled.div`
   position: absolute;

@@ -1,11 +1,14 @@
 //libraries
-import styled from "styled-components";
-import Link from "next/link";
 import NextImage from "next/image";
-//styles
-import { dimensions } from "~/ui/theme";
-import { Subheadline as SSubheadline } from "~/ui/components";
+import Link from "next/link";
+
 import { motion } from "framer-motion";
+import styled from "styled-components";
+
+//styles
+import { Subheadline as SSubheadline } from "~/ui/components";
+import { dimensions } from "~/ui/theme";
+
 
 export const ImageContainer = styled(motion.div)`
   position: relative;

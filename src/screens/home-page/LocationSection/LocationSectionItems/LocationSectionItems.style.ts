@@ -1,5 +1,6 @@
 //libraries
 import styled from "styled-components";
+
 //styles
 import { Text as SText } from "~/ui/components";
 import { dimensions } from "~/ui/theme";

@@ -1,5 +1,6 @@
-import { Flex, Text } from "~/ui/components";
 import styled from "styled-components";
+
+import { Flex, Text } from "~/ui/components";
 
 export const Headline = styled(Text).attrs({
   as: "h3",

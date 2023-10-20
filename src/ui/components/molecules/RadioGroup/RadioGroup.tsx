@@ -1,6 +1,7 @@
-import { Flex } from "../../atoms";
 import React from "react";
+
 import * as S from "./RadioGroup.style";
+import { Flex } from "../../atoms";
 
 export type RadioOption = {
   id: string;

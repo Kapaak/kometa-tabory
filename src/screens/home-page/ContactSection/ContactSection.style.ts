@@ -1,6 +1,8 @@
-import { Flex, SectionElement } from "~/ui/components";
-import styled from "styled-components";
 import NextImage from "next/image";
+
+import styled from "styled-components";
+
+import { Flex, SectionElement } from "~/ui/components";
 import { dimensions } from "~/ui/theme";
 
 export const ContactSection = styled(SectionElement)`

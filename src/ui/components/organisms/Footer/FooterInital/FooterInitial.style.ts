@@ -1,8 +1,10 @@
 //libraries
 import styled from "styled-components";
+
 //styles
-import { Text as SText, Flex as SFlex } from "../../../atoms";
 import { dimensions } from "~/ui/theme";
+
+import { Text as SText, Flex as SFlex } from "../../../atoms";
 
 export const Text = styled(SText)`
   flex: 100%;

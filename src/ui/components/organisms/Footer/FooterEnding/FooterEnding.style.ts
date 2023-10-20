@@ -1,8 +1,10 @@
 //libraries
 import styled from "styled-components";
+
 //styles
-import { Flex } from "../../../atoms";
 import { dimensions } from "~/ui/theme";
+
+import { Flex } from "../../../atoms";
 
 export const Creator = styled.p`
   color: var(--colw);

@@ -1,11 +1,11 @@
 //images or svgs
 import Adventure from "../../public/images/adventure.jpg";
-import Harry from "../../public/images/harry-potter.jpg";
 import Trosečníci from "../../public/images/castaway.jpg";
-import Zootropolis from "../../public/images/zootropolis.jpg";
-import Sport from "../../public/images/sport.jpg";
+import Harry from "../../public/images/harry-potter.jpg";
 import Piráti from "../../public/images/pirati-z-karibiku.jpg";
 import Vesmír from "../../public/images/space.jpg";
+import Sport from "../../public/images/sport.jpg";
+import Zootropolis from "../../public/images/zootropolis.jpg";
 
 //todo -> delete when sanity is implemented
 export const data = [

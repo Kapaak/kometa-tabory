@@ -1,5 +1,7 @@
-import styled, { css } from "styled-components";
 import NextImage from "next/image";
+
+import styled, { css } from "styled-components";
+
 import { dimensions } from "~/ui/theme";
 
 type ImageContainerProps = {

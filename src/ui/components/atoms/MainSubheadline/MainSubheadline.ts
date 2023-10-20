@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { dimensions } from "~/ui/theme";
 
 export const MainSubheadline = styled.h2`

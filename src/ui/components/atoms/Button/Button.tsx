@@ -1,9 +1,10 @@
-import { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import * as S from "./Button.style";
+import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
-export type ButtonVariant = "plain" | "bordered" | "filled";
-export type ButtonSize = "small" | "regular";
-export type ButtonColor = "primary" | "secondary";
+import * as S from './Button.style';
+
+export type ButtonVariant = 'plain' | 'bordered' | 'filled';
+export type ButtonSize = 'small' | 'regular';
+export type ButtonColor = 'primary' | 'secondary';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
