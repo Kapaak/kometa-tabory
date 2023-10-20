@@ -1,6 +1,6 @@
 import { PropsWithChildren, forwardRef } from "react";
 import { Element } from "react-scroll";
-import styled from "styled-components";
+import styled, { WebTarget } from "styled-components";
 
 interface Props {
   className?: string;
@@ -21,7 +21,6 @@ export const SectionElement = forwardRef(
   }
 );
 
-//@ts-ignore -> fix this
-const Section = styled(Element).attrs({ as: "section" })``;
+const Section = styled(Element as WebTarget).attrs({ as: "section" })``;
 
 SectionElement.displayName = "SectionElement";

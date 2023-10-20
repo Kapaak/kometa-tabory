@@ -1,6 +1,6 @@
 //libraries
 import { useEffect, useState } from "react";
-// import { StyledComponent } from "styled-components";
+import { IStyledComponent } from "styled-components";
 import { ContentType, FragmentType } from "~/types";
 //styles
 import { TextProps } from "~/ui/components";
