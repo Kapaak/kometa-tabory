@@ -11,7 +11,6 @@ export const Img = styled(Image)`
   padding: 1rem 2rem;
   cursor: pointer;
   width: 11rem;
-  margin: 0 2rem;
   height: 100%;
   z-index: 2;
 
