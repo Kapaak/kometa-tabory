@@ -8,6 +8,8 @@ export const styleReset = css`
     padding: 0;
     padding: 0;
     border: none;
+    font: inherit;
+    font-weight: initial;
     text-transform: inherit;
     letter-spacing: inherit;
     color: inherit;

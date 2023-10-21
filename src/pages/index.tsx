@@ -1,22 +1,20 @@
-import { InferGetServerSidePropsType } from "next";
-import { SanityDocument, groq } from "next-sanity";
+import { InferGetServerSidePropsType } from 'next';
+import { SanityDocument, groq } from 'next-sanity';
 
-import { SanityContextProvider } from "~/contexts";
-import { SanityActuality, SanityFaq, SanityInfoBar } from "~/domains";
-import { client } from "~/libs";
-import { HomePageScreen } from "~/screens";
-import { PageLayout } from "~/ui/components";
+import { SanityContextProvider } from '~/contexts';
+import { SanityActuality, SanityFaq, SanityInfoBar } from '~/domains';
+import { client } from '~/libs';
+import { HomePageScreen } from '~/screens';
+import { PageLayout } from '~/ui/components';
 
 interface Props
   extends InferGetServerSidePropsType<typeof getServerSideProps> {}
 
 export default function Home({ actualities, documents, faqs, infoBar }: Props) {
-  console.log(actualities, "actu");
-
   return (
     //@ts-ignore TODO: fix this
     <SanityContextProvider sanityData={{ actualities, documents, faqs }}>
-      <PageLayout>
+      <PageLayout infoBar={infoBar}>
         <HomePageScreen />
       </PageLayout>
     </SanityContextProvider>
