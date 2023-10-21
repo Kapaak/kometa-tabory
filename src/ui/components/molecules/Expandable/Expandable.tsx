@@ -2,8 +2,8 @@ import { ReactNode, useState } from 'react';
 
 import { AvailableIcons, getAvailableIconByName } from '~/utils';
 
-import * as S from './Expandable.style';
 import { Flex } from '../../atoms';
+import * as S from './Expandable.style';
 
 interface FAQProps {
   title: string;
