@@ -7,6 +7,7 @@ import {
   SanityDocument,
   SanityFaq,
   SanityInfoBar,
+  SanityTestimonial,
 } from '~/domains';
 import { client } from '~/libs';
 import { HomePageScreen } from '~/screens';
@@ -15,9 +16,17 @@ import { PageLayout } from '~/ui/components';
 interface Props
   extends InferGetServerSidePropsType<typeof getServerSideProps> {}
 
-export default function Home({ actualities, documents, faqs, infoBar }: Props) {
+export default function Home({
+  actualities,
+  documents,
+  faqs,
+  infoBar,
+  testimonial,
+}: Props) {
   return (
-    <SanityContextProvider sanityData={{ actualities, documents, faqs }}>
+    <SanityContextProvider
+      sanityData={{ actualities, documents, faqs, testimonial }}
+    >
       <PageLayout infoBar={infoBar}>
         <HomePageScreen />
       </PageLayout>
@@ -30,11 +39,13 @@ export const getServerSideProps = async () => {
   const queryFAQ = groq`*[_type == "faq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
   const queryDocument = groq`*[_type == "doc"]{title,order,file{asset->{url}}}|order(order asc)`;
   const queryInfoBar = groq`*[_type == "infoBar" && visibility == true][0]{title,visibility,text}`;
+  const queryTestimonial = groq`*[_type == "testimonial"]{title,text,origin}`;
 
   const actualities: SanityActuality[] = await client.fetch(queryActualities);
   const faqs: SanityFaq[] = await client.fetch(queryFAQ);
   const documents: SanityDocument[] = await client.fetch(queryDocument);
   const infoBar: SanityInfoBar = await client.fetch(queryInfoBar);
+  const testimonial: SanityTestimonial[] = await client.fetch(queryTestimonial);
 
   return {
     props: {
@@ -42,6 +53,7 @@ export const getServerSideProps = async () => {
       faqs,
       documents,
       infoBar,
+      testimonial,
     },
   };
 };

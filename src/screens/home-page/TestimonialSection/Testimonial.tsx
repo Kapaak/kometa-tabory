@@ -1,32 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Carousel } from "./Carousel";
-import { data } from "./Testimonial.data";
-import * as S from "./Testimonial.style";
-import { TestimonialItem } from "./TestimonialItem";
+import { useSanityContext } from '~/contexts';
+
+import { Carousel } from './Carousel';
+import * as S from './Testimonial.style';
+import { TestimonialItem } from './TestimonialItem';
 
 export const Item = styled.div<{ img: string }>`
-	text-align: center;
-	padding: 100px;
-	background-image: ${props => `url(${props.img})`};
-	background-size: cover;
+  text-align: center;
+  padding: 100px;
+  background-image: ${(props) => `url(${props.img})`};
+  background-size: cover;
 `;
 
 export const TestimonialSection = () => {
-	return (
-		<S.Testimonial name="testimonial">
-			<S.MaxWidth>
-				<Carousel>
-					{data?.map(d => (
-						<TestimonialItem
-							key={d?.id}
-							author={d?.author}
-							source={d?.source}
-							text={d?.text}
-						/>
-					))}
-				</Carousel>
-			</S.MaxWidth>
-		</S.Testimonial>
-	);
+  const { testimonial } = useSanityContext();
+  return (
+    <S.Testimonial name="testimonial">
+      <S.MaxWidth>
+        <Carousel>
+          {testimonial?.map((reference, index) => (
+            <TestimonialItem
+              key={`${reference?.title}_${index}`}
+              author={reference.title}
+              source={reference.origin}
+              text={reference.text}
+            />
+          ))}
+        </Carousel>
+      </S.MaxWidth>
+    </S.Testimonial>
+  );
 };

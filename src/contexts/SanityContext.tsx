@@ -1,17 +1,24 @@
-import { PropsWithChildren, createContext, useContext } from "react";
+import { PropsWithChildren, createContext, useContext } from 'react';
 
-import { SanityActuality, SanityDocument, SanityFaq } from "~/domains";
+import {
+  SanityActuality,
+  SanityDocument,
+  SanityFaq,
+  SanityTestimonial,
+} from '~/domains';
 
 type SanityContext = {
   actualities: SanityActuality[];
   faqs: SanityFaq[];
   documents: SanityDocument[];
+  testimonial: SanityTestimonial[];
 };
 
 const SanityContext = createContext<SanityContext>({
   actualities: [],
   faqs: [],
   documents: [],
+  testimonial: [],
 });
 
 export const SanityContextProvider = ({

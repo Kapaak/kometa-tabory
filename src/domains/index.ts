@@ -30,6 +30,12 @@ export type SanityInfoBar = {
   visibility?: boolean;
 };
 
+export type SanityTestimonial = {
+  title: string;
+  text: string;
+  origin: string;
+};
+
 export type SanityCourse = {
   value: string;
   title: string;
