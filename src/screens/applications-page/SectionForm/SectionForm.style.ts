@@ -1,8 +1,8 @@
-import { ArrowRight } from "phosphor-react";
-import styled from "styled-components";
+import { ArrowRight } from '@phosphor-icons/react';
+import styled from 'styled-components';
 
-import { Text as SText } from "~/ui/components";
-import { dimensions } from "~/ui/theme";
+import { Text as SText } from '~/ui/components';
+import { dimensions } from '~/ui/theme';
 
 export const Container = styled.div`
   display: grid;
@@ -45,7 +45,9 @@ export const Label = styled.label`
   top: 0;
   left: 0;
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.2s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
   pointer-events: none;
   font-size: 1.3rem;
 `;

@@ -1,33 +1,67 @@
-//components
+import { PortableText } from '@portabletext/react';
+
+import { useSanityContext } from '~/contexts';
 import {
   Expandable,
   Headline,
   MaxWidth,
   SectionElement,
-} from "~/ui/components";
+  Text,
+} from '~/ui/components';
 
-//styles
-import { data } from "./FAQSection.data";
-import * as S from "./FAQSection.style";
-//data
+import * as S from './FAQSection.style';
 
 export const FAQSection = () => {
+  const { faqs } = useSanityContext();
   return (
     <SectionElement name="faq">
       <MaxWidth>
         <Headline>Základní informace</Headline>
         <S.Container>
-          {data?.map((d) => (
-            <S.FAQWrapper key={d?.id}>
-              <S.Headline>{d?.headline}</S.Headline>
-              {d?.items.map((item) => (
-                <Expandable
-                  key={item?.id}
-                  title={item?.title}
-                  description={item?.description}
-                  icon={item?.icon}
-                />
-              ))}
+          {faqs?.map((faq, index) => (
+            <S.FAQWrapper key={`${faq?.title}_${index}`}>
+              <S.Headline>{faq?.title}</S.Headline>
+              {faq?.faqItems.map((item, i) => {
+                return (
+                  <Expandable
+                    key={`${item?.title}_${i}`}
+                    title={item?.title}
+                    description={
+                      <PortableText
+                        value={item?.text}
+                        key={index}
+                        components={{
+                          block: {
+                            normal: (props) => {
+                              return (
+                                <Text variant="dark">{props.children}</Text>
+                              );
+                            },
+                          },
+
+                          listItem: {
+                            bullet: (props) => {
+                              return (
+                                <S.ListItem>
+                                  <Text variant="dark">{props.children}</Text>
+                                </S.ListItem>
+                              );
+                            },
+                            number: (props) => {
+                              return (
+                                <S.ListItem>
+                                  <Text variant="dark">{props.children}</Text>
+                                </S.ListItem>
+                              );
+                            },
+                          },
+                        }}
+                      />
+                    }
+                    icon={item?.icon}
+                  />
+                );
+              })}
             </S.FAQWrapper>
           ))}
         </S.Container>

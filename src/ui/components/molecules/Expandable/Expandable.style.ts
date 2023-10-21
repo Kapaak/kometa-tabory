@@ -1,7 +1,7 @@
-import { CaretDown } from "phosphor-react";
-import styled from "styled-components";
+import { CaretDown } from '@phosphor-icons/react';
+import styled from 'styled-components';
 
-import { Text as SText } from "../../atoms";
+import { Text as SText } from '../../atoms';
 
 export const Expandable = styled.div`
   margin: 1rem 0;
@@ -45,7 +45,7 @@ export const Text = styled(SText)`
 
 export const CaretIcon = styled(CaretDown)<{ $isActive?: boolean }>`
   margin-left: auto;
-  transform: ${({ $isActive }) => ($isActive ? "rotate(180deg)" : "rotate(0)")};
+  transform: ${({ $isActive }) => ($isActive ? 'rotate(180deg)' : 'rotate(0)')};
   transition: all 0.5s ease;
   min-width: 2rem;
 `;

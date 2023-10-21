@@ -1,18 +1,18 @@
 //images
-import { Phone, EnvelopeOpen } from "phosphor-react";
+import { EnvelopeOpen, Phone } from '@phosphor-icons/react';
 
-import { ContactItem } from "./ContactSectionItem";
+import { ContactItem } from './ContactSectionItem';
 //interfaces
 
 export const data: ContactItem[] = [
   {
-    title: "Telefon",
+    title: 'Telefon',
     icon: Phone,
-    description: "+420 773 708 287",
+    description: '+420 773 708 287',
   },
   {
-    title: "E-mail",
+    title: 'E-mail',
     icon: EnvelopeOpen,
-    description: "taborpisarky@kometaplavani.cz",
+    description: 'taborpisarky@kometaplavani.cz',
   },
 ];

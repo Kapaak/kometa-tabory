@@ -1,10 +1,10 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from 'react';
 
-import { Icon as TIcon } from "phosphor-react";
+import { Icon as TIcon } from '@phosphor-icons/react';
 
-import * as S from "./IconButton.style";
-import { ButtonProps } from "../Button";
-import { LoadingIcon } from "../Button/Button.style";
+import { ButtonProps } from '../Button';
+import { LoadingIcon } from '../Button/Button.style';
+import * as S from './IconButton.style';
 
 interface IconButtonProps extends ButtonProps {
   iconBefore?: TIcon;

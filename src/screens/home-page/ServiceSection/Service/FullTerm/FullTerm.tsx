@@ -1,6 +1,6 @@
-import { Warning } from "phosphor-react";
+import { Warning } from '@phosphor-icons/react';
 
-import * as S from "./FullTerm.style";
+import * as S from './FullTerm.style';
 
 export const FullTerm = () => {
   return (

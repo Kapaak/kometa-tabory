@@ -1,6 +1,6 @@
-import * as Popover from "@radix-ui/react-popover";
-import { CaretDown } from "phosphor-react";
-import styled, { keyframes } from "styled-components";
+import { CaretDown } from '@phosphor-icons/react';
+import * as Popover from '@radix-ui/react-popover';
+import styled, { keyframes } from 'styled-components';
 
 export const PopoverTrigger = styled(Popover.Trigger)`
   all: unset;
@@ -13,7 +13,7 @@ export const PopoverTrigger = styled(Popover.Trigger)`
 
 export const CaretIcon = styled(CaretDown)<{ $isActive?: boolean }>`
   margin-left: auto;
-  transform: ${({ $isActive }) => ($isActive ? "rotate(180deg)" : "rotate(0)")};
+  transform: ${({ $isActive }) => ($isActive ? 'rotate(180deg)' : 'rotate(0)')};
   transition: all 0.5s ease;
   min-width: 2rem;
 `;
@@ -102,7 +102,8 @@ export const PopoverContent = styled(Popover.Content)`
   padding: 2rem;
   width: 26rem;
   background-color: white;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -110,20 +111,22 @@ export const PopoverContent = styled(Popover.Content)`
   z-index: 8;
 
   &:focus {
-    box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-      hsl(206 22% 7% / 20%) 0px 10px 20px -15px, 0 0 0 2px var(--col2);
+    box-shadow:
+      hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+      hsl(206 22% 7% / 20%) 0px 10px 20px -15px,
+      0 0 0 2px var(--col2);
   }
 
-  &[data-state="open"][data-side="top"] {
+  &[data-state='open'][data-side='top'] {
     animation-name: ${slideDownAndFade};
   }
-  &[data-state="open"][data-side="right"] {
+  &[data-state='open'][data-side='right'] {
     animation-name: ${slideLeftAndFade};
   }
-  &[data-state="open"][data-side="bottom"] {
+  &[data-state='open'][data-side='bottom'] {
     animation-name: ${slideUpAndFade};
   }
-  &[data-state="open"][data-side="left"] {
+  &[data-state='open'][data-side='left'] {
     animation-name: ${slideRightAndFade};
   }
 `;

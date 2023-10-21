@@ -1,18 +1,16 @@
-//images
-import { Car, Bus } from "phosphor-react";
-//interfaces
+import { Bus, Car } from '@phosphor-icons/react';
 
 export const data = [
   {
-    title: "Příjezd autem",
+    title: 'Příjezd autem',
     icon: Car,
     description:
-      "Když přijedete autem, tak můžete zastavit naproti přes ulici, kde je veliké parkoviště.",
+      'Když přijedete autem, tak můžete zastavit naproti přes ulici, kde je veliké parkoviště.',
   },
   {
-    title: "Městská hromadná doprava",
+    title: 'Městská hromadná doprava',
     icon: Bus,
     description:
-      "Pokud se k nám chcete vydat MHD, tak je nejlepší vystoupit na zastávce BAUEROVA.",
+      'Pokud se k nám chcete vydat MHD, tak je nejlepší vystoupit na zastávce BAUEROVA.',
   },
 ];

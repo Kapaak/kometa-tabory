@@ -1,4 +1,4 @@
-import { CircleNotch } from 'phosphor-react';
+import { CircleNotch } from '@phosphor-icons/react';
 import styled, { css, keyframes } from 'styled-components';
 
 export type ButtonVariant = 'plain' | 'bordered' | 'filled';

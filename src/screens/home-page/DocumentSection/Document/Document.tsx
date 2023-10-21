@@ -1,8 +1,8 @@
-import { FileArrowDown } from "phosphor-react";
+import { FileArrowDown } from '@phosphor-icons/react';
 
-import { Flex } from "~/ui/components";
+import { Flex } from '~/ui/components';
 
-import * as S from "./Document.style";
+import * as S from './Document.style';
 
 interface DocumentProps {
   title: string;

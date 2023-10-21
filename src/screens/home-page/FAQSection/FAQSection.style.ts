@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { dimensions } from "~/ui/theme";
+import { dimensions } from '~/ui/theme';
 
 export const Headline = styled.h3`
   font-family: var(--font1);
@@ -22,4 +22,8 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 3.3rem;
+`;
+
+export const ListItem = styled.li`
+  margin-left: 2rem;
 `;

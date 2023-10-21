@@ -1,9 +1,8 @@
-//styles
-import { Icon } from "phosphor-react";
+import { Icon } from '@phosphor-icons/react';
 
-import { Flex } from "~/ui/components";
+import { Flex } from '~/ui/components';
 
-import * as S from "./LocationSectionItem.style";
+import * as S from './LocationSectionItem.style';
 
 export type LocationSection = {
   title: string;

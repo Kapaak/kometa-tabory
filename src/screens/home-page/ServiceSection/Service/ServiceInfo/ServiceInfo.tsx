@@ -1,7 +1,12 @@
-import { Backpack, BatteryMedium, CalendarBlank, Coin } from "phosphor-react";
+import {
+  Backpack,
+  BatteryMedium,
+  CalendarBlank,
+  Coin,
+} from '@phosphor-icons/react';
 
-import * as S from "./ServiceInfo.style";
-import { ulVariant } from "../Service.variant";
+import * as S from './ServiceInfo.style';
+import { ulVariant } from '../Service.variant';
 
 export interface ServiceInfoType {
   price: number;

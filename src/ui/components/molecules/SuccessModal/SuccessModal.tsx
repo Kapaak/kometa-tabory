@@ -1,8 +1,8 @@
-import { UserCirclePlus } from "phosphor-react";
+import { UserCirclePlus } from '@phosphor-icons/react';
 
-import * as S from "./SuccessModal.style";
-import { Divider, Strong, Text } from "../../atoms";
-import { Modal } from "../Modal";
+import { Divider, Strong, Text } from '../../atoms';
+import { Modal } from '../Modal';
+import * as S from './SuccessModal.style';
 interface ModalProps {
   open: boolean;
   addChild: () => void;
