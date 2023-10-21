@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { dimensions } from "./breakpoints";
-import { styleReset } from "./style-reset";
+import { dimensions } from './breakpoints';
+import { styleReset } from './style-reset';
 
 export const GlobalStyles = createGlobalStyle`
     ${styleReset}

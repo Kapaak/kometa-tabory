@@ -4,7 +4,12 @@ import { useInView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
 
 //images
+
+import { PortableText } from '@portabletext/react';
+
+import { useSanityContext } from '~/contexts';
 import { toggleShadow } from '~/state';
+import { Text } from '~/ui/components';
 
 import * as S from './AboutSection.style';
 import Wave from '../../../../public/icons/wave.svg';
@@ -12,6 +17,8 @@ import Wave from '../../../../public/icons/wave.svg';
 //redux
 
 export const AboutSection = () => {
+  const { actualities } = useSanityContext();
+
   const { ref, inView, entry } = useInView({
     threshold: 0.15,
   });
@@ -32,6 +39,17 @@ export const AboutSection = () => {
     <S.AboutSection name="about" ref={ref}>
       <S.MaxWidth>
         <S.Image src={Wave} alt="vlnka" />
+        {actualities.map((actuality, index) => (
+          <PortableText
+            value={actuality?.text}
+            key={`${actuality?.title}_${index}`}
+            components={{
+              block: {
+                normal: (props) => <Text center>{props.children}</Text>,
+              },
+            }}
+          />
+        ))}
         <S.AboutText center>
           Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
           příměstský tábor s profesionální výukou plavání a otevírací dobou od

@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 export const styleReset = css`
   *,
@@ -8,7 +8,6 @@ export const styleReset = css`
     padding: 0;
     padding: 0;
     border: none;
-    font: inherit;
     text-transform: inherit;
     letter-spacing: inherit;
     color: inherit;
