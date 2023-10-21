@@ -36,7 +36,7 @@ const NavLink = ({ scrollTarget, children, href, dropdown }: NavLinkProps) => {
   if (scrollTarget)
     return (
       <S.NavLink onClick={() => clickHandler(scrollTarget, href)}>
-        <span>{children}</span>
+        <button>{children}</button>
       </S.NavLink>
     );
   return (

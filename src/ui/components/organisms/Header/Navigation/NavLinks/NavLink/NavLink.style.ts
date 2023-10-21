@@ -27,11 +27,11 @@ export const NavLink = styled.li`
   font-family: var(--font1);
   font-size: var(--fnavlink);
   line-height: 2.4;
-  cursor: pointer;
   padding-left: 4rem;
 
   a,
-  span {
+  button {
+    cursor: pointer;
     color: var(--colw);
     &:hover {
       color: var(--col1);
@@ -42,7 +42,7 @@ export const NavLink = styled.li`
     padding-left: 0;
 
     a,
-    span {
+    button {
       color: var(--colb);
     }
   }
