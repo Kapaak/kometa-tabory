@@ -1,4 +1,4 @@
-import { PortableTextBlock } from "@portabletext/types";
+import { PortableTextBlock } from '@portabletext/types';
 
 export type SanityActuality = {
   title: string;
@@ -49,13 +49,6 @@ export type SanityCourse = {
 };
 
 export type SanityCourseDay = {
-  //NEW
   start: number;
   capacity: number;
-};
-
-export type DayCapacity = {
-  lectureTimeId?: number;
-  max?: number;
-  aplications?: number;
 };

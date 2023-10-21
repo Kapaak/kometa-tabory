@@ -1,13 +1,11 @@
-//components
-import { MaxWidth, Text, Headline } from "~/ui/components";
+import { useSanityContext } from '~/contexts';
+import { Headline, MaxWidth, Text } from '~/ui/components';
 
-import { Document } from "./Document";
-//styles
-import { data } from "./DocumentSection.data";
-import * as S from "./DocumentSection.style";
-//data
+import { Document } from './Document';
+import * as S from './DocumentSection.style';
 
 export const DocumentSection = () => {
+  const { documents } = useSanityContext();
   return (
     <S.DocumentSection name="documents">
       <MaxWidth>
@@ -19,8 +17,12 @@ export const DocumentSection = () => {
             </Text>
           </S.TextContainer>
           <S.GridContainer>
-            {data.map((d) => (
-              <Document key={d?.id} title={d?.title} filePath={d?.filePath} />
+            {documents?.map((doc, index) => (
+              <Document
+                key={`${doc?.title}_${index}`}
+                title={doc?.title}
+                filePath={doc?.file?.asset?.url}
+              />
             ))}
           </S.GridContainer>
         </S.FlexContainer>
