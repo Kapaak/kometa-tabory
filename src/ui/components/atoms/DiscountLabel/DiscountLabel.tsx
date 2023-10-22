@@ -1,4 +1,4 @@
-import * as S from "./DiscountLabel.style";
+import * as S from './DiscountLabel.style';
 
 interface DiscountLabelProps {
   title?: string;
