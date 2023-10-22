@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
-export const Label = styled(motion.span)`
+export const DiscountChip = styled(motion.span)`
   position: absolute;
   top: -5rem;
   left: 2rem;

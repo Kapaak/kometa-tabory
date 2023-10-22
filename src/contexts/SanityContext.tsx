@@ -2,6 +2,7 @@ import { PropsWithChildren, createContext, useContext } from 'react';
 
 import {
   SanityActuality,
+  SanityCamp,
   SanityDocument,
   SanityFaq,
   SanityTestimonial,
@@ -12,6 +13,7 @@ type SanityContext = {
   faqs: SanityFaq[];
   documents: SanityDocument[];
   testimonial: SanityTestimonial[];
+  camps: SanityCamp[];
 };
 
 const SanityContext = createContext<SanityContext>({
@@ -19,6 +21,7 @@ const SanityContext = createContext<SanityContext>({
   faqs: [],
   documents: [],
   testimonial: [],
+  camps: [],
 });
 
 export const SanityContextProvider = ({

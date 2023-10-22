@@ -1,11 +1,11 @@
-import { Text } from "~/ui/components";
+import { Text } from '~/ui/components';
 
-import * as S from "./TestimonialItem.style";
+import * as S from './TestimonialItem.style';
 
 interface TestimonialItemProps {
-  text: string;
-  author: string;
-  source: string;
+  text?: string;
+  author?: string;
+  source?: string;
 }
 
 export const TestimonialItem = ({
@@ -17,14 +17,14 @@ export const TestimonialItem = ({
     <S.TestimonialItem>
       <S.TestimonialWrapper>
         <S.Text center variant="dark">
-          {text}
+          {text ?? ''}
         </S.Text>
         <S.AuthorContainer>
           <Text bold variant="dark" center>
-            {author}
+            {author ?? ''}
           </Text>
           <Text variant="grey" center>
-            {source}
+            {source ?? ''}
           </Text>
         </S.AuthorContainer>
       </S.TestimonialWrapper>

@@ -4,6 +4,7 @@ import { groq } from 'next-sanity';
 import { SanityContextProvider } from '~/contexts';
 import {
   SanityActuality,
+  SanityCamp,
   SanityDocument,
   SanityFaq,
   SanityInfoBar,
@@ -22,10 +23,11 @@ export default function Home({
   faqs,
   infoBar,
   testimonial,
+  camps,
 }: Props) {
   return (
     <SanityContextProvider
-      sanityData={{ actualities, documents, faqs, testimonial }}
+      sanityData={{ actualities, documents, faqs, testimonial, camps }}
     >
       <PageLayout infoBar={infoBar}>
         <HomePageScreen />
@@ -40,12 +42,14 @@ export const getServerSideProps = async () => {
   const queryDocument = groq`*[_type == "doc"]{title,order,file{asset->{url}}}|order(order asc)`;
   const queryInfoBar = groq`*[_type == "infoBar" && visibility == true][0]{title,visibility,text}`;
   const queryTestimonial = groq`*[_type == "testimonial"]{title,text,origin}`;
+  const queryCamp = groq`*[_type == "camp"]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},photoAlt,targetUrl,spreadsheetId}|order(title asc)`;
 
   const actualities: SanityActuality[] = await client.fetch(queryActualities);
   const faqs: SanityFaq[] = await client.fetch(queryFAQ);
   const documents: SanityDocument[] = await client.fetch(queryDocument);
   const infoBar: SanityInfoBar = await client.fetch(queryInfoBar);
   const testimonial: SanityTestimonial[] = await client.fetch(queryTestimonial);
+  const camps: SanityCamp[] = await client.fetch(queryCamp);
 
   return {
     props: {
@@ -54,6 +58,7 @@ export const getServerSideProps = async () => {
       documents,
       infoBar,
       testimonial,
+      camps,
     },
   };
 };

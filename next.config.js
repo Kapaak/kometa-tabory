@@ -18,6 +18,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@phosphor-icons/react'],
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 };
 
 module.exports = nextConfig;

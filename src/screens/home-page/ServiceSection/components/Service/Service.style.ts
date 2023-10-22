@@ -1,14 +1,10 @@
-//libraries
-import NextImage from "next/image";
-import Link from "next/link";
+import NextLink from 'next/link';
 
-import { motion } from "framer-motion";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
-//styles
-import { Subheadline as SSubheadline } from "~/ui/components";
-import { dimensions } from "~/ui/theme";
-
+import { Button, Subheadline as SSubheadline } from '~/ui/components';
+import { dimensions } from '~/ui/theme';
 
 export const ImageContainer = styled(motion.div)`
   position: relative;
@@ -50,26 +46,26 @@ export const Container = styled(motion.div)`
   }
 `;
 
-export const Image = styled(NextImage)<{ $toGrayscale?: boolean }>`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: ${({ $toGrayscale }) => $toGrayscale && "grayscale(20)"};
-`;
-export const ButtonContainer = styled.div`
+export const ActionsContainer = styled.div`
   display: flex;
   margin-top: auto;
   margin-left: auto;
+  flex-wrap: wrap;
 `;
 
-export const A = styled(Link)`
-  //todo uprav jestli ty styly jsou vsecchny potreba
-  display: inline-block;
+export const ShowMoreButton = styled(Button)`
+  display: block;
+  @media (${dimensions.notebook}) {
+    display: none;
+  }
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    display: block;
+  }
+`;
+
+export const Link = styled(NextLink)`
   border-radius: 3rem;
-  text-transform: inherit;
-  font-family: inherit;
   font-size: var(--fbutton);
-  padding: inherit;
   letter-spacing: 0.1rem;
   transition: all 0.2s ease;
   cursor: pointer;

@@ -25,6 +25,10 @@ import {
   SwimmingPool,
   TreePalm,
 } from '@phosphor-icons/react';
+import imageUrlBuilder from '@sanity/image-url';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+import { client } from '~/libs';
 
 export type AvailableIcons =
   | 'ClipboardText'
@@ -109,3 +113,9 @@ export const getAvailableIconByName = (iconName: AvailableIcons) => {
       return TreePalm;
   }
 };
+
+const builder = imageUrlBuilder(client);
+
+export function urlForImage(source: SanityImageSource) {
+  return builder.image(source);
+}

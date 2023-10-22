@@ -22,9 +22,9 @@ export const TestimonialSection = () => {
           {testimonial?.map((reference, index) => (
             <TestimonialItem
               key={`${reference?.title}_${index}`}
-              author={reference.title}
-              source={reference.origin}
-              text={reference.text}
+              author={reference?.title}
+              source={reference?.origin}
+              text={reference?.text}
             />
           ))}
         </Carousel>

@@ -1,13 +1,14 @@
 import { PortableTextBlock } from '@portabletext/types';
+import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 
 export type SanityActuality = {
-  title: string;
-  text: PortableTextBlock[];
+  title?: string;
+  text?: PortableTextBlock[];
 };
 
 export type SanityFaq = {
-  title: string;
-  faqItems: {
+  title?: string;
+  faqItems?: {
     title: string;
     icon: any;
     // icon: KeyofIcons;
@@ -16,8 +17,8 @@ export type SanityFaq = {
 };
 
 export type SanityDocument = {
-  title: string;
-  file: {
+  title?: string;
+  file?: {
     asset: {
       url: string;
     };
@@ -31,22 +32,48 @@ export type SanityInfoBar = {
 };
 
 export type SanityTestimonial = {
-  title: string;
-  text: string;
-  origin: string;
+  title?: string;
+  text?: string;
+  origin?: string;
+};
+
+export type SanityImage = SanityImageObject & {
+  asset: {
+    metadata: {
+      lqip: string;
+    };
+  };
+};
+
+export type SanityCamp = {
+  availability?: {
+    label?: string;
+    open?: boolean;
+  };
+  capacity?: number;
+  date?: string;
+  discountedPrice?: number;
+  name?: string;
+  photo?: SanityImage;
+  price?: number;
+  title?: string;
+  trip?: string;
+  photoAlt?: string;
+  targetUrl?: string;
+  spreadsheetId?: number;
 };
 
 export type SanityCourse = {
-  value: string;
-  title: string;
-  price: string;
-  age: string;
-  file: {
+  value?: string;
+  title?: string;
+  price?: string;
+  age?: string;
+  file?: {
     asset: {
       url: string;
     };
   };
-  duration: number;
+  duration?: number;
   pondeli?: SanityCourseDay[];
   utery?: SanityCourseDay[];
   streda?: SanityCourseDay[];
@@ -55,6 +82,6 @@ export type SanityCourse = {
 };
 
 export type SanityCourseDay = {
-  start: number;
-  capacity: number;
+  start?: number;
+  capacity?: number;
 };

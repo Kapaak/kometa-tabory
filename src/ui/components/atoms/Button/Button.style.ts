@@ -1,4 +1,3 @@
-import { CircleNotch } from '@phosphor-icons/react';
 import styled, { css, keyframes } from 'styled-components';
 
 export type ButtonVariant = 'plain' | 'bordered' | 'filled';
@@ -97,7 +96,8 @@ const rollingKeyframe = keyframes`
   }
 `;
 
-export const LoadingIcon = styled(CircleNotch)`
+// export const LoadingIcon = styled(CircleNotch)`
+export const LoadingIcon = styled('div')`
   position: absolute;
   right: 0.4rem;
   top: 50%;

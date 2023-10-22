@@ -5,8 +5,8 @@ import { Flex } from '~/ui/components';
 import * as S from './Document.style';
 
 interface DocumentProps {
-  title: string;
-  filePath: string;
+  title?: string;
+  filePath?: string;
 }
 
 export const Document = ({ title, filePath }: DocumentProps) => {

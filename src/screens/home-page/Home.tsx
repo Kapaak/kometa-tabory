@@ -14,7 +14,7 @@ import { VideoSection } from './VideoSection';
 
 export function HomePageScreen() {
   return (
-    <main>
+    <>
       <HeroSection />
       <Space half />
       <AboutSection />
@@ -38,6 +38,6 @@ export function HomePageScreen() {
       <ContactSection />
       <Space />
       <SponsorSection />
-    </main>
+    </>
   );
 }
