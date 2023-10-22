@@ -24,10 +24,18 @@ export default function Home({
   infoBar,
   testimonial,
   camps,
+  spreadSheetsIds,
 }: Props) {
   return (
     <SanityContextProvider
-      sanityData={{ actualities, documents, faqs, testimonial, camps }}
+      sanityData={{
+        actualities,
+        documents,
+        faqs,
+        testimonial,
+        camps,
+        spreadSheetsIds,
+      }}
     >
       <PageLayout infoBar={infoBar}>
         <HomePageScreen />
@@ -51,6 +59,11 @@ export const getServerSideProps = async () => {
   const testimonial: SanityTestimonial[] = await client.fetch(queryTestimonial);
   const camps: SanityCamp[] = await client.fetch(queryCamp);
 
+  const spreadSheetsIds: number[] = (camps ?? [])
+    .map((camp) => camp?.spreadsheetId)
+    //we are taking care so that id:0 is not filtered out
+    .filter((id: number | undefined) => typeof id === 'number') as number[];
+
   return {
     props: {
       actualities,
@@ -59,6 +72,7 @@ export const getServerSideProps = async () => {
       infoBar,
       testimonial,
       camps,
+      spreadSheetsIds,
     },
   };
 };

@@ -1,1 +1,1 @@
-export * from "./useFilteredCamps";
+export * from './useGoogleSheetsCapacities';

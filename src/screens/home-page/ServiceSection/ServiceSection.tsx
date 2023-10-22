@@ -1,52 +1,22 @@
 //libraries
-import { useEffect, useState } from 'react';
 
 import { useSanityContext } from '~/contexts';
-import { useFilteredCamps } from '~/hooks';
-import { getAllSheets } from '~/libs/google';
+import { useGoogleSheetsCapacities } from '~/hooks';
 import { MaxWidth } from '~/ui/components';
 import { joinValues } from '~/utils';
 
-import { Filter, Service } from './components';
+import { Service } from './components';
 
 import * as S from './ServiceSection.style';
 
 export const ServiceSection = () => {
-  const [sheetsRowCount, setSheetsRowCount] = useState([]);
-  const { filteredData, criteria, setCriteria } = useFilteredCamps();
-
   const { camps } = useSanityContext();
 
-  const handleCriteriaSelect = (val: any) => {
-    setCriteria(val);
-  };
-
-  //get from sanity
-  //nebo mozna ze ServerSideProps
-  const sheetIds: any = [];
-  // const sheetIds = data?.map((d) => d?.spreadsheetId);
-
-  useEffect(() => {
-    (async () => {
-      const sheets = await getAllSheets(sheetIds);
-
-      sheets &&
-        Promise.allSettled(sheets)
-          .then((resSheets: any) => {
-            const updated = resSheets.map((sheet: any) => sheet.value.length);
-            setSheetsRowCount(updated);
-          })
-          .catch((e) => console.log('promise error', e));
-    })();
-  }, []);
+  const { googleSheetsCapacities } = useGoogleSheetsCapacities();
 
   return (
     <S.ServiceSection name="services">
       <MaxWidth>
-        <Filter
-          selectedOption={criteria}
-          onCriteriaChange={handleCriteriaSelect}
-        />
         <S.Container>
           {camps?.map((camp, index: number) => (
             <Service
@@ -58,7 +28,11 @@ export const ServiceSection = () => {
               trip={camp?.trip}
               date={camp?.date}
               maxCapacity={camp?.capacity}
-              currentCapacity={sheetsRowCount[index] ?? 0}
+              currentCapacity={
+                typeof camp?.spreadsheetId === 'number'
+                  ? googleSheetsCapacities[camp.spreadsheetId]
+                  : NaN
+              }
               imageAlt={camp?.photoAlt}
               url={camp?.targetUrl ?? '#'}
               isAvailable={camp?.availability?.open}

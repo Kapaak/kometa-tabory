@@ -14,6 +14,7 @@ type SanityContext = {
   documents: SanityDocument[];
   testimonial: SanityTestimonial[];
   camps: SanityCamp[];
+  spreadSheetsIds: number[];
 };
 
 const SanityContext = createContext<SanityContext>({
@@ -22,6 +23,7 @@ const SanityContext = createContext<SanityContext>({
   documents: [],
   testimonial: [],
   camps: [],
+  spreadSheetsIds: [],
 });
 
 export const SanityContextProvider = ({
