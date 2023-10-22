@@ -1,31 +1,24 @@
-import { useSelector } from 'react-redux';
-
+import { usePageContext } from '~/contexts/PageContext';
 import { SanityInfoBar } from '~/domains';
-import { RootState } from '~/state';
+
+import { DiscountLabel } from '../../atoms/DiscountLabel';
+import { Navigation } from './Navigation';
 
 import * as S from './Header.style';
-import { Navigation } from './Navigation';
-import { DiscountLabel } from '../../atoms/DiscountLabel';
 
 interface HeaderProps {
   infoBar?: SanityInfoBar;
 }
 
 export function Header({ infoBar }: HeaderProps) {
-  const isActive = useSelector(
-    (state: RootState) => state.navigation.isNavActive
-  );
-
-  const withShadow = useSelector(
-    (state: RootState) => state.navigation.withShadow
-  );
+  const { isNavigationOpen, isShadowActive } = usePageContext();
 
   return (
-    <S.Header withShadow={withShadow}>
+    <S.Header withShadow={isShadowActive}>
       {infoBar && (
         <DiscountLabel title={infoBar?.title} description={infoBar?.text} />
       )}
-      <Navigation isActive={isActive} />
+      <Navigation isActive={isNavigationOpen} />
     </S.Header>
   );
 }

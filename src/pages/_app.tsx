@@ -1,18 +1,17 @@
-import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
-import Script from "next/script";
-import { Provider } from "react-redux";
+import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
 
-import { HeadComponent } from "~/components";
-import { store } from "~/state";
-import { GlobalStyles } from "~/ui/theme";
+import { HeadComponent } from '~/components';
+import { PageContextProvider } from '~/contexts/PageContext';
+import { GlobalStyles } from '~/ui/theme';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isPrihlaskyPage = router.pathname === "/prihlasky/[taborId]";
+  const isPrihlaskyPage = router.pathname === '/prihlasky/[taborId]';
 
   return (
-    <Provider store={store}>
+    <PageContextProvider>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         strategy="afterInteractive"
@@ -28,14 +27,13 @@ export default function App({ Component, pageProps }: AppProps) {
 							${
                 isPrihlaskyPage
                   ? `gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GOOGLE_ADS}/R7_GCPrj24oYEPmetKYp'}`
-                  : ""
+                  : ''
               })
             `}
       </Script>
       <HeadComponent />
-      {/* <DiscountLabel /> */}
       <GlobalStyles />
       <Component {...pageProps} />
-    </Provider>
+    </PageContextProvider>
   );
 }

@@ -1,12 +1,11 @@
 //libraries
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
 
-import { toggleNavigation } from '~/state';
 //styles
 //interfaces
 //others
+import { usePageContext } from '~/contexts/PageContext';
 import { Dropdown, ScrollTargets } from '~/types';
 import { scrollTo } from '~/utils';
 
@@ -19,8 +18,15 @@ interface NavLinkProps {
   dropdown?: Array<Dropdown>;
 }
 
-const NavLink = ({ scrollTarget, children, href, dropdown }: NavLinkProps) => {
-  const dispatch = useDispatch();
+export function NavLink({
+  scrollTarget,
+  children,
+  href,
+  dropdown,
+}: NavLinkProps) {
+  // const dispatch = useDispatch();
+  const { toggleNavigation } = usePageContext();
+
   const router = useRouter();
 
   const clickHandler = async (scrollTarget: string, href: string) => {
@@ -30,7 +36,7 @@ const NavLink = ({ scrollTarget, children, href, dropdown }: NavLinkProps) => {
     if (onDifferentPage) await router.push(href);
     scrollTo(scrollTarget);
 
-    dispatch(toggleNavigation());
+    toggleNavigation(false);
   };
 
   if (scrollTarget)
@@ -39,13 +45,14 @@ const NavLink = ({ scrollTarget, children, href, dropdown }: NavLinkProps) => {
         <button>{children}</button>
       </S.NavLink>
     );
+
   return (
     //I dont use next/link because I want to change route and then scroll to element
     //if I had next/link I would only change route, the function would not fire
     //maybe push route like /example#school and on example page have useEffect, that would fire
     //Scrolling to #school element on the initial page load (empty dependency array)
     <S.NavLink>
-      <Link href={href} onClick={() => dispatch(toggleNavigation())}>
+      <Link href={href} onClick={() => toggleNavigation(false)}>
         {children}
       </Link>
       {/* {dropdown && (
@@ -59,6 +66,6 @@ const NavLink = ({ scrollTarget, children, href, dropdown }: NavLinkProps) => {
       )} */}
     </S.NavLink>
   );
-};
+}
 
 export default NavLink;

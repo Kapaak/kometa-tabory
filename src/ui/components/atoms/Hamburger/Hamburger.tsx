@@ -1,24 +1,13 @@
-//libraries
-import { useDispatch, useSelector } from "react-redux";
+import * as S from './Hamburger.style';
 
-//styles
-import { RootState, toggleNavigation } from "~/state";
+interface HamburgerProps {
+  isOpen?: boolean;
+  onChange?: () => void;
+}
 
-import * as S from "./Hamburger.style";
-//redux
-
-export function Hamburger() {
-  const dispatch = useDispatch();
-
-  const isActive = useSelector(
-    (state: RootState) => state.navigation.isNavActive
-  );
-
+export function Hamburger({ isOpen = false, onChange }: HamburgerProps) {
   return (
-    <S.Hamburger
-      isActive={isActive}
-      onClick={() => dispatch(toggleNavigation())}
-    >
+    <S.Hamburger isOpen={isOpen} onClick={onChange}>
       <p></p>
       <p></p>
       <p></p>

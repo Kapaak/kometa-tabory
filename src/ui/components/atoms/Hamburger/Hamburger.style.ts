@@ -1,10 +1,10 @@
-//libraries
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-//styles
-import { dimensions } from "~/ui/theme";
+import { dimensions } from '~/ui/theme';
 
-export const Hamburger = styled.div<{ isActive: boolean }>`
+export const Hamburger = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['isOpen'].includes(prop),
+})<{ isOpen: boolean }>`
   position: relative;
   height: 2.6rem;
   width: 3.4rem;
@@ -27,8 +27,8 @@ export const Hamburger = styled.div<{ isActive: boolean }>`
     }
   }
 
-  ${({ isActive }) => {
-    if (isActive)
+  ${({ isOpen }) => {
+    if (isOpen)
       return css`
         p {
           background-color: var(--colw);
@@ -50,7 +50,7 @@ export const Hamburger = styled.div<{ isActive: boolean }>`
           }
         }
       `;
-    if (!isActive)
+    if (!isOpen)
       return css`
         p {
           background-color: var(--col2);

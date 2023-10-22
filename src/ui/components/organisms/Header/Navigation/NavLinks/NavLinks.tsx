@@ -4,18 +4,19 @@ import Link from 'next/link';
 import { NavLink as NavLinkType, ScrollTargets } from '~/types';
 import { scrollTo } from '~/utils';
 
-import NavLink from './NavLink/NavLink';
-import * as S from './NavLinks.style';
+import { NavLink } from './NavLink';
 import FacebookInvertIcon from '../../../../../../../public/icons/facebook-invert.svg';
 import InstagramInvertIcon from '../../../../../../../public/icons/instagram-invert.svg';
 import { Button, Hidden } from '../../../../atoms';
+
+import * as S from './NavLinks.style';
 
 interface Props {
   data: Array<NavLinkType>;
   isActive?: boolean;
 }
 
-const NavItems = ({ data, isActive = false }: Props) => {
+export function NavLInks({ data, isActive = false }: Props) {
   return (
     <S.NavLinks isActive={isActive}>
       {data.map((d, i) => (
@@ -64,6 +65,4 @@ const NavItems = ({ data, isActive = false }: Props) => {
       </Hidden>
     </S.NavLinks>
   );
-};
-
-export default NavItems;
+}

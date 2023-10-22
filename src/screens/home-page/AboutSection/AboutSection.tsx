@@ -1,14 +1,13 @@
 //libraries
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useDispatch } from 'react-redux';
 
 //images
 
 import { PortableText } from '@portabletext/react';
 
 import { useSanityContext } from '~/contexts';
-import { toggleShadow } from '~/state';
+import { usePageContext } from '~/contexts/PageContext';
 import { Text } from '~/ui/components';
 
 import Wave from '../../../../public/icons/wave.svg';
@@ -16,13 +15,12 @@ import Wave from '../../../../public/icons/wave.svg';
 import * as S from './AboutSection.style';
 
 export const AboutSection = () => {
+  const { toggleShadow } = usePageContext();
   const { actualities } = useSanityContext();
 
   const { ref, inView, entry } = useInView({
     threshold: 0.15,
   });
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     //this would trigger everytime I enter / leave this element
@@ -31,7 +29,8 @@ export const AboutSection = () => {
     //therefore I check if boundingClientRect - visible area of element is above current page or not
     const isCrossingHeroSection =
       entry?.boundingClientRect && entry?.boundingClientRect.top > 0;
-    if (isCrossingHeroSection) dispatch(toggleShadow(inView));
+    if (isCrossingHeroSection) toggleShadow(inView);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
   return (
