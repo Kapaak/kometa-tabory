@@ -26,8 +26,6 @@ export function HomePageScreen() {
       <FAQSection />
       <Space />
       <TestimonialSection />
-      {/* <Space />
-      <TrainerSection /> */}
       <Space />
       <GallerySection />
       <Space />

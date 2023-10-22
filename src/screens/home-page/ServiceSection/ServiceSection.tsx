@@ -8,7 +8,6 @@ import { MaxWidth } from '~/ui/components';
 import { joinValues } from '~/utils';
 
 import { Filter, Service } from './components';
-import { data } from './ServiceSection.data';
 
 import * as S from './ServiceSection.style';
 
@@ -22,7 +21,10 @@ export const ServiceSection = () => {
     setCriteria(val);
   };
 
-  const sheetIds = data?.map((d) => d?.spreadsheetId);
+  //get from sanity
+  //nebo mozna ze ServerSideProps
+  const sheetIds: any = [];
+  // const sheetIds = data?.map((d) => d?.spreadsheetId);
 
   useEffect(() => {
     (async () => {
