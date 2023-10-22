@@ -1,8 +1,7 @@
-import NextImage from 'next/image';
-
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
+import { NextSanityImage } from '~/components';
 import { Text } from '~/ui/components';
 
 export const ServiceImage = styled(motion.div)`
@@ -11,7 +10,7 @@ export const ServiceImage = styled(motion.div)`
   overflow: hidden;
 `;
 
-export const Image = styled(NextImage).withConfig({
+export const Image = styled(NextSanityImage).withConfig({
   shouldForwardProp: (prop) => !['hasFilter'].includes(prop),
 })<{ hasFilter?: boolean }>`
   width: 100%;

@@ -2,7 +2,6 @@ import { Warning } from '@phosphor-icons/react';
 
 import { SanityImage } from '~/domains';
 import { Flex } from '~/ui/components';
-import { urlForImage } from '~/utils';
 
 import { imageVariant } from '../../variants';
 
@@ -23,18 +22,7 @@ export function ServiceImage({
 }: ServiceImageProps) {
   return (
     <S.ServiceImage variants={imageVariant} transition={{ bounce: 0 }}>
-      {image && (
-        <S.Image
-          src={urlForImage(image).url()}
-          width={100}
-          height={100}
-          sizes="(max-width: 800px) 100vw, 800px"
-          alt={alt}
-          hasFilter={hasWarning}
-          placeholder="blur"
-          blurDataURL={image.asset.metadata.lqip}
-        />
-      )}
+      {image && <S.Image image={image} alt={alt} hasFilter={hasWarning} />}
       {hasWarning && (
         <S.WarningContainer>
           <Flex align="center" justify="center">
