@@ -1,43 +1,43 @@
-import { GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import { groq } from 'next-sanity';
 
-import { ApplicationsPageScreen } from "~/screens";
-// import { IService } from "../../components/Pages/PageHome/ServiceSection/ServiceSection.interface";
-import { PageLayout } from "~/ui/components";
-import { getCampByName, getAllCamps } from "~/utils";
+import { SanityCamp } from '~/domains';
+import { client } from '~/libs';
+import { ApplicationsPageScreen } from '~/screens';
+import { PageLayout } from '~/ui/components';
+import { joinValues } from '~/utils';
 
-interface PrihlaskyProps {
-  camp: any;
-  // camp: IService;
-}
+interface ApplicationsPageProps
+  extends InferGetServerSidePropsType<typeof getServerSideProps> {}
 
-const Prihlasky = ({ camp }: PrihlaskyProps) => {
+export default function ApplicationsPage({ camp }: ApplicationsPageProps) {
   return (
     <PageLayout>
-      <ApplicationsPageScreen camp={camp} />
+      <ApplicationsPageScreen
+        title={joinValues([camp?.title, ' - ', camp?.name])}
+        subtitle={camp?.date}
+        spreadsheetId={camp?.spreadsheetId}
+      />
     </PageLayout>
   );
-};
+}
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const currentRoute = context.params?.taborId as string;
+
+  const queryCamp = groq`*[_type == "camp" && targetUrl == "${currentRoute}"][0]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},photoAlt,targetUrl,spreadsheetId}`;
+
+  const camp: SanityCamp = await client.fetch(queryCamp);
+
+  if (!camp) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      camp: getCampByName(currentRoute),
+      camp: camp,
     },
   };
 }
-
-export const getStaticPaths = async () => {
-  const paths = getAllCamps()?.map((camp) => ({
-    params: {
-      taborId: camp?.url,
-    },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export default Prihlasky;

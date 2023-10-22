@@ -14,10 +14,10 @@ import { client } from '~/libs';
 import { HomePageScreen } from '~/screens';
 import { PageLayout } from '~/ui/components';
 
-interface Props
+interface HomePageProps
   extends InferGetServerSidePropsType<typeof getServerSideProps> {}
 
-export default function Home({
+export default function HomePage({
   actualities,
   documents,
   faqs,
@@ -25,7 +25,7 @@ export default function Home({
   testimonial,
   camps,
   spreadSheetsIds,
-}: Props) {
+}: HomePageProps) {
   return (
     <SanityContextProvider
       sanityData={{

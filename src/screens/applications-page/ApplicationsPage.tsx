@@ -1,22 +1,28 @@
-import { MaxWidth } from "~/ui/components";
+import { MaxWidth } from '~/ui/components';
 
-import * as S from "./ApplicationsPage.style";
-import { SectionForm } from "./SectionForm";
+import { SectionForm } from './SectionForm';
+
+import * as S from './ApplicationsPage.style';
 // import { IService } from "~/components/Pages/PageHome/ServiceSection/ServiceSection.interface";
 
 interface ApplicationsPageProps {
-  camp?: any;
-  // camp: IService | undefined;
+  title?: string;
+  subtitle?: string;
+  spreadsheetId?: number;
 }
 
-export function ApplicationsPageScreen({ camp }: ApplicationsPageProps) {
+export function ApplicationsPageScreen({
+  spreadsheetId,
+  subtitle,
+  title,
+}: ApplicationsPageProps) {
   return (
     <MaxWidth>
       <S.Wrapper>
-        <S.Headline>{camp?.headline}</S.Headline>
-        <S.Subheadline>{camp?.info?.date}</S.Subheadline>
-        {camp?.spreadsheetId && (
-          <SectionForm spreadsheet={camp.spreadsheetId} />
+        <S.Headline>{title}</S.Headline>
+        <S.Subheadline>{subtitle}</S.Subheadline>
+        {typeof spreadsheetId === 'number' && (
+          <SectionForm spreadsheet={spreadsheetId} />
         )}
       </S.Wrapper>
     </MaxWidth>
