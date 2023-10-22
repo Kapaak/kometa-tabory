@@ -10,7 +10,6 @@ export function useGoogleSheetsCapacities() {
 
   const { spreadSheetsIds } = useSanityContext();
 
-  console.log(spreadSheetsIds, 'capa');
   useEffect(() => {
     getAllSheets(spreadSheetsIds).then((resSheets: any) => {
       resSheets &&
