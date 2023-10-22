@@ -88,8 +88,11 @@ export function Service(props: ServiceProps) {
           {isFullCapacity && isAvailable && (
             <Button disabled>Termín je již zaplněný</Button>
           )}
-          {!isFullCapacity && isAvailable && (
+          {!isFullCapacity && isAvailable && !isNaN(currentCapacity) && (
             <S.Link href={`/prihlasky/${url}`}>Přihláška</S.Link>
+          )}
+          {!isFullCapacity && isAvailable && isNaN(currentCapacity) && (
+            <Button disabled>Načítání ...</Button>
           )}
         </S.ActionsContainer>
       </S.Container>
