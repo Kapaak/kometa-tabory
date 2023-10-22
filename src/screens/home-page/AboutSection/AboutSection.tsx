@@ -11,10 +11,9 @@ import { useSanityContext } from '~/contexts';
 import { toggleShadow } from '~/state';
 import { Text } from '~/ui/components';
 
-import * as S from './AboutSection.style';
 import Wave from '../../../../public/icons/wave.svg';
-//styles
-//redux
+
+import * as S from './AboutSection.style';
 
 export const AboutSection = () => {
   const { actualities } = useSanityContext();
@@ -39,17 +38,20 @@ export const AboutSection = () => {
     <S.AboutSection name="about" ref={ref}>
       <S.MaxWidth>
         <S.Image src={Wave} alt="vlnka" />
-        {actualities.map((actuality, index) => (
-          <PortableText
-            value={actuality?.text}
-            key={`${actuality?.title}_${index}`}
-            components={{
-              block: {
-                normal: (props) => <Text center>{props.children}</Text>,
-              },
-            }}
-          />
-        ))}
+        {actualities.map(
+          (actuality, index) =>
+            actuality?.text && (
+              <PortableText
+                value={actuality.text}
+                key={`${actuality?.title}_${index}`}
+                components={{
+                  block: {
+                    normal: (props) => <Text center>{props.children}</Text>,
+                  },
+                }}
+              />
+            )
+        )}
         <S.AboutText center>
           Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
           příměstský tábor s profesionální výukou plavání a otevírací dobou od
