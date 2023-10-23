@@ -7,11 +7,13 @@ interface NextSanityImageProps {
   image: SanityImage;
   className?: string;
   alt: string;
+  sizes?: string;
 }
 export function NextSanityImage({
   className,
   image,
   alt,
+  sizes,
 }: NextSanityImageProps) {
   return (
     <Image
@@ -20,7 +22,8 @@ export function NextSanityImage({
       className={className}
       width={100}
       height={100}
-      sizes="(max-width: 800px) 100vw, 800px"
+      //sizes = (max-width: breakpoint when we want to apply some style) + the size of the image on that breakpoint
+      sizes={sizes}
       alt={alt}
       placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}

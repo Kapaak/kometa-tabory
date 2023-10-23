@@ -22,7 +22,16 @@ export function ServiceImage({
 }: ServiceImageProps) {
   return (
     <S.ServiceImage variants={imageVariant} transition={{ bounce: 0 }}>
-      {image && <S.Image image={image} alt={alt} hasFilter={hasWarning} />}
+      {image && (
+        <S.Image
+          image={image}
+          alt={alt}
+          hasFilter={hasWarning}
+          sizes="(max-width: 820px) 90vw,
+            33vw
+          "
+        />
+      )}
       {hasWarning && (
         <S.WarningContainer>
           <Flex align="center" justify="center">
