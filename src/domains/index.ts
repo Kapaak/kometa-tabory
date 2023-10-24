@@ -41,6 +41,10 @@ export type SanityImage = SanityImageObject & {
   asset: {
     metadata: {
       lqip: string;
+      dimensions: {
+        width: number;
+        height: number;
+      };
     };
   };
 };
@@ -63,22 +67,10 @@ export type SanityCamp = {
   spreadsheetId?: number;
 };
 
-export type SanityCourse = {
-  value?: string;
+export type SanityPhotoGallery = {
   title?: string;
-  price?: string;
-  age?: string;
-  file?: {
-    asset: {
-      url: string;
-    };
-  };
-  duration?: number;
-  pondeli?: SanityCourseDay[];
-  utery?: SanityCourseDay[];
-  streda?: SanityCourseDay[];
-  ctvrtek?: SanityCourseDay[];
-  patek?: SanityCourseDay[];
+  image?: SanityImage;
+  alt?: string;
 };
 
 export type SanityCourseDay = {

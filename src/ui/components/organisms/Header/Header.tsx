@@ -1,8 +1,8 @@
 import { usePageContext } from '~/contexts/PageContext';
 import { SanityInfoBar } from '~/domains';
 
-import { DiscountLabel } from '../../atoms/DiscountLabel';
 import { Navigation } from './Navigation';
+import { DiscountLabel } from '../../atoms/DiscountLabel';
 
 import * as S from './Header.style';
 
@@ -22,5 +22,3 @@ export function Header({ infoBar }: HeaderProps) {
     </S.Header>
   );
 }
-
-export default Header;

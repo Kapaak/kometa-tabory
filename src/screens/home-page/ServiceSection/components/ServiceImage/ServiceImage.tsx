@@ -26,6 +26,8 @@ export function ServiceImage({
         <S.Image
           image={image}
           alt={alt}
+          width={image.asset.metadata.dimensions.width}
+          height={image.asset.metadata.dimensions.height}
           hasFilter={hasWarning}
           sizes="(max-width: 820px) 90vw,
             33vw

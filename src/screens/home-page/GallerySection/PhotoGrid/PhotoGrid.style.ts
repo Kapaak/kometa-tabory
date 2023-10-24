@@ -1,15 +1,7 @@
-import NextImage from "next/image";
+import styled from 'styled-components';
 
-import styled, { css } from "styled-components";
-
-import { dimensions } from "~/ui/theme";
-
-type ImageContainerProps = {
-  colStart: number;
-  colEnd: number;
-  rowStart: number;
-  rowEnd: number;
-};
+import { NextSanityImage } from '~/components';
+import { dimensions } from '~/ui/theme';
 
 export const PhotoGrid = styled.div`
   display: grid;
@@ -22,27 +14,14 @@ export const PhotoGrid = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div<ImageContainerProps>`
+export const ImageContainer = styled.div`
   position: relative;
   height: 15rem;
   overflow: hidden;
   border-radius: 0.5rem;
-
-  ${({ colStart, colEnd, rowStart, rowEnd }) => css`
-    grid-column: ${colStart} ${colEnd};
-    grid-row: ${rowStart} ${rowEnd};
-  `}
-
-  @media(${dimensions.desktop}) {
-    height: 20rem;
-    ${({ colStart, colEnd, rowStart, rowEnd }) => css`
-      grid-column: ${colStart} / ${colEnd};
-      grid-row: ${rowStart} / ${rowEnd};
-    `}
-  }
 `;
 
-export const Image = styled(NextImage)`
+export const Image = styled(NextSanityImage)`
   object-fit: cover;
   cursor: pointer;
 

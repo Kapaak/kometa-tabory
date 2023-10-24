@@ -8,6 +8,7 @@ import {
   SanityDocument,
   SanityFaq,
   SanityInfoBar,
+  SanityPhotoGallery,
   SanityTestimonial,
 } from '~/domains';
 import { client } from '~/libs';
@@ -25,6 +26,7 @@ export default function HomePage({
   testimonial,
   camps,
   spreadSheetsIds,
+  photoGallery,
 }: HomePageProps) {
   return (
     <SanityContextProvider
@@ -35,6 +37,7 @@ export default function HomePage({
         testimonial,
         camps,
         spreadSheetsIds,
+        photoGallery,
       }}
     >
       <PageLayout infoBar={infoBar}>
@@ -50,7 +53,8 @@ export const getServerSideProps = async () => {
   const queryDocument = groq`*[_type == "doc"]{title,order,file{asset->{url}}}|order(order asc)`;
   const queryInfoBar = groq`*[_type == "infoBar" && visibility == true][0]{title,visibility,text}`;
   const queryTestimonial = groq`*[_type == "testimonial"]{title,text,origin}`;
-  const queryCamp = groq`*[_type == "camp"]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},photoAlt,targetUrl,spreadsheetId}|order(title asc)`;
+  const queryCamp = groq`*[_type == "camp"]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},alt,targetUrl,spreadsheetId}|order(title asc)`;
+  const queryPhotoGallery = groq`*[_type == "gallery"]{title,alt,image{asset->{...,metadata}}}`;
 
   const actualities: SanityActuality[] = await client.fetch(queryActualities);
   const faqs: SanityFaq[] = await client.fetch(queryFAQ);
@@ -58,6 +62,8 @@ export const getServerSideProps = async () => {
   const infoBar: SanityInfoBar = await client.fetch(queryInfoBar);
   const testimonial: SanityTestimonial[] = await client.fetch(queryTestimonial);
   const camps: SanityCamp[] = await client.fetch(queryCamp);
+  const photoGallery: SanityPhotoGallery[] =
+    await client.fetch(queryPhotoGallery);
 
   const spreadSheetsIds: number[] = (camps ?? [])
     .map((camp) => camp?.spreadsheetId)
@@ -73,6 +79,7 @@ export const getServerSideProps = async () => {
       testimonial,
       camps,
       spreadSheetsIds,
+      photoGallery,
     },
   };
 };

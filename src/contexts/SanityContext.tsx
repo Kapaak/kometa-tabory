@@ -5,6 +5,7 @@ import {
   SanityCamp,
   SanityDocument,
   SanityFaq,
+  SanityPhotoGallery,
   SanityTestimonial,
 } from '~/domains';
 
@@ -15,6 +16,7 @@ type SanityContext = {
   testimonial: SanityTestimonial[];
   camps: SanityCamp[];
   spreadSheetsIds: number[];
+  photoGallery: SanityPhotoGallery[];
 };
 
 const SanityContext = createContext<SanityContext>({
@@ -24,6 +26,7 @@ const SanityContext = createContext<SanityContext>({
   testimonial: [],
   camps: [],
   spreadSheetsIds: [],
+  photoGallery: [],
 });
 
 export const SanityContextProvider = ({

@@ -1,31 +1,44 @@
-import Image from 'next/image';
-
 import { SanityImage } from '~/domains';
 import { urlForImage } from '~/utils';
 
-interface NextSanityImageProps {
+import * as S from './NextSanityImage.style';
+
+interface NextSanityImageProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >,
+    'height' | 'width' | 'loading' | 'ref' | 'alt' | 'src' | 'srcSet'
+  > {
   image: SanityImage;
   className?: string;
   alt: string;
   sizes?: string;
+  fill?: boolean;
+  height?: number;
+  width?: number;
+  loading?: 'eager' | 'lazy';
+  objectFit?: string;
+  placeholder?: 'blur' | 'empty' | `data:image/${string}`;
 }
+
 export function NextSanityImage({
   className,
   image,
   alt,
   sizes,
+  ...props
 }: NextSanityImageProps) {
   return (
-    <Image
+    <S.NextSanityImage
+      {...props}
       src={urlForImage(image).url()}
       //className is here so we can style the image via styled-components
       className={className}
-      width={100}
-      height={100}
       //sizes = (max-width: breakpoint when we want to apply some style) + the size of the image on that breakpoint
       sizes={sizes}
       alt={alt}
-      placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}
     />
   );

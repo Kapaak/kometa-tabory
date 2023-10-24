@@ -1,17 +1,22 @@
-//libraries
-import { useCallback, useState } from "react";
-import Carousel, { Modal, ModalGateway } from "react-images";
+import dynamic from 'next/dynamic';
+import { useCallback, useState } from 'react';
 
-//components
-import { MaxWidth, SectionElement, Headline } from "~/ui/components";
+const LightboxComponent = dynamic(() => import('yet-another-react-lightbox'), {
+  ssr: false,
+});
 
-import { photos } from "./GallerySection.data";
-import { PhotoGrid } from "./PhotoGrid";
-//data
+import { useSanityContext } from '~/contexts';
+import { Headline, MaxWidth, SectionElement } from '~/ui/components';
+
+import 'yet-another-react-lightbox/styles.css';
+import { GalleryImage } from './GalleryImage';
+import { PhotoGrid } from './PhotoGrid';
 
 export const GallerySection = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const { photoGallery } = useSanityContext();
 
   const openLightbox = useCallback((photoIndex: number) => {
     setViewerIsOpen(true);
@@ -26,16 +31,23 @@ export const GallerySection = () => {
     <SectionElement name="gallery">
       <MaxWidth>
         <Headline>Galerie</Headline>
-        <PhotoGrid photos={photos} onClick={openLightbox} />
-        {/* tuhle knihovnu zamen za jinej lighthouse uz dlouho nebyla menena */}
-        {/* @ts-ignore */}
-        <ModalGateway>
-          {viewerIsOpen && (
-            <Modal onClose={closeLightbox}>
-              <Carousel views={photos} currentIndex={currentImage} />
-            </Modal>
-          )}
-        </ModalGateway>
+        <PhotoGrid photos={photoGallery} onClick={openLightbox} />
+        <LightboxComponent
+          open={viewerIsOpen}
+          index={currentImage}
+          close={closeLightbox}
+          //@ts-ignore I changed the type in GalleryImage.tsx
+          slides={photoGallery?.map((photo) => {
+            return {
+              src: photo.image,
+              alt: photo.alt,
+              width: photo?.image?.asset.metadata.dimensions.width,
+              height: photo.image?.asset.metadata.dimensions.height,
+            };
+          })}
+          //@ts-ignore I changed the type in GalleryImage.tsx
+          render={{ slide: GalleryImage }}
+        />
       </MaxWidth>
     </SectionElement>
   );

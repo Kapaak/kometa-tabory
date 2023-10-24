@@ -1,35 +1,31 @@
-import * as S from "./PhotoGrid.style";
-import { PhotoProps } from "../GallerySection.data";
+import { SanityPhotoGallery } from '~/domains';
+
+import * as S from './PhotoGrid.style';
 
 interface PhotoGridProps {
-	photos: PhotoProps[];
-	onClick: (num: number) => void;
+  photos: SanityPhotoGallery[];
+  onClick: (num: number) => void;
 }
 
 export const PhotoGrid = ({ photos, onClick }: PhotoGridProps) => {
-	return (
-		<S.PhotoGrid>
-			{photos.map((photo, i) => (
-				<S.ImageContainer
-					key={i}
-					onClick={() => onClick(i)}
-					colStart={photo?.colStart}
-					colEnd={photo?.colEnd}
-					rowStart={photo?.rowStart}
-					rowEnd={photo?.rowEnd}
-				>
-					<S.Image
-						alt={photo?.alt}
-						src={photo?.source}
-						fill
-						sizes="(max-width: 768px) 50vw,
+  return (
+    <S.PhotoGrid>
+      {photos.map(
+        (photo, i) =>
+          photo?.image && (
+            <S.ImageContainer key={i} onClick={() => onClick(i)}>
+              <S.Image
+                alt={photo?.alt ?? ''}
+                image={photo?.image}
+                fill
+                sizes="(max-width: 768px) 50vw,
 						(max-width: 1200px) 50vw,
 						33vw"
-						blurDataURL={photo?.source}
-						placeholder="blur"
-					/>
-				</S.ImageContainer>
-			))}
-		</S.PhotoGrid>
-	);
+                placeholder="blur"
+              />
+            </S.ImageContainer>
+          )
+      )}
+    </S.PhotoGrid>
+  );
 };
