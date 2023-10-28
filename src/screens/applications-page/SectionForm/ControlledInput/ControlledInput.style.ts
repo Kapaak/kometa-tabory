@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FormInput = styled.input`
   border: none;
@@ -14,8 +14,6 @@ export const FormInput = styled.input`
   }
 
   &:focus {
-    /* outline: 1px solid var(--dark-blue); */
-    /* border: 1px solid transparent; */
     &::placeholder {
       color: transparent;
     }

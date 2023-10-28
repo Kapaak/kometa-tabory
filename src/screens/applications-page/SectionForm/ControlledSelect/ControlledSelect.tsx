@@ -30,11 +30,19 @@ export const ControlledSelect = ({
 }: ControlledSelectProps) => {
   const styles: StylesConfig = {
     control: (baseStyles, state) => ({
-      // ...baseStyles,
       display: 'flex',
+      backgroundColor: 'transparent',
       flexDirection: 'row-reverse',
-      borderBottom: '1px solid var(--collg)',
       fontFamily: 'var(--font2)',
+      border: '2px solid transparent',
+      borderColor: state.isFocused ? '2px solid pink' : 'none',
+      borderBottom: !state.isFocused
+        ? '1px solid var(--collg) !important'
+        : 'none',
+      outline: state.isFocused ? '2px solid var(--col2)' : 'none',
+      height: '4.6rem',
+      transition: 'none',
+      borderRadius: '.2rem',
     }),
     placeholder: (defaultStyles) => ({
       ...defaultStyles,
