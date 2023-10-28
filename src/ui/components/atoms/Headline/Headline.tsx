@@ -1,15 +1,15 @@
 //libraries
-import Image from "next/image";
-import { PropsWithChildren } from "react";
+import Image from 'next/image';
+import { PropsWithChildren } from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 //icons
-import Wave from "../../../../../public/icons/wave.svg";
+import Wave from '../../../../../public/icons/wave.svg';
 
 //interfaces
 
-type HeadlineType = "h1" | "h2";
+type HeadlineType = 'h1' | 'h2';
 interface Props {
   className?: string;
   headlineType?: HeadlineType;
@@ -21,7 +21,7 @@ interface StyleProps {
 
 export const Headline = ({
   children,
-  headlineType = "h2",
+  headlineType = 'h2',
   ...rest
 }: PropsWithChildren<Props>) => {
   return (
@@ -34,9 +34,13 @@ export const Headline = ({
   );
 };
 
-const SHeadline = styled.h2.attrs<StyleProps>((props) => ({
-  as: props.headlineType || "h2",
-}))<StyleProps>`
+const SHeadline = styled.h2
+  .attrs<StyleProps>((props) => ({
+    as: props.headlineType || 'h2',
+  }))
+  .withConfig({
+    shouldForwardProp: (prop) => !['headlineType'].includes(prop),
+  })`
   color: var(--col2);
   font-family: var(--font1);
   font-size: var(--fheadline);

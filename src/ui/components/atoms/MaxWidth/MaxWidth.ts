@@ -1,11 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { dimensions } from "~/ui/theme";
+import { dimensions } from '~/ui/theme';
 
-export const MaxWidth = styled.div<{ maxWidth?: string }>`
+export const MaxWidth = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['maxWidth'].includes(prop),
+})<{ maxWidth?: string }>`
   height: 100%;
   width: 100%;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "var(--max-width)")};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : 'var(--max-width)')};
   margin: 0 auto;
   padding: var(--vertical-padding) var(--side-padding);
 

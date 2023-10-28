@@ -11,7 +11,9 @@ export const Item = styled.div<{ img: string }>`
   background-size: cover;
 `;
 
-export const CarouselContainer = styled.div<{ sliding: boolean }>`
+export const CarouselContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['sliding', 'dir'].includes(prop),
+})<{ sliding: boolean }>`
   display: flex;
   min-height: 30rem;
   transition: ${(props) => (props.sliding ? 'none' : 'transform 1s ease')};
@@ -50,7 +52,9 @@ export const SlideButtonContainer = styled.div`
   max-width: 14rem;
 `;
 
-export const SlideButton = styled.button<{ active: boolean }>`
+export const SlideButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => !['active'].includes(prop),
+})<{ active: boolean }>`
   width: 1rem;
   height: 1rem;
   border: none;
