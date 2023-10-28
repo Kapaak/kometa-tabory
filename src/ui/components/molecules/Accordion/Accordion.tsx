@@ -25,12 +25,6 @@ export function Accordion({ accordionItems }: AccordionProps) {
   return (
     <RadixAccordion.Root type="single" collapsible>
       {accordionItems?.map((accordionItem, index) => {
-        console.log(
-          'cion',
-          accordionItem.icon,
-          getAvailableIconByName(accordionItem.icon)
-        );
-
         const Icon = getAvailableIconByName(accordionItem?.icon);
 
         return (
