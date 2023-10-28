@@ -1,51 +1,60 @@
-import { GoogleSpreadsheet } from "google-spreadsheet";
+import { JWT } from 'google-auth-library';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_SPREADSHEET_ID??"",{
-  apiKey: process.env.NEXT_PUBLIC_API_KEY ?? "",
+const serviceAccontAuth = new JWT({
+  email: process.env.NEXT_PUBLIC_CLIENT_EMAIL ?? '',
+  key: process.env.NEXT_PUBLIC_PRIVATE_KEY?.replace(/\\n/g, '\n') ?? '',
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
 //pokud neni defined, tak hazi no key or key filed defined err
-const authCredentials = {
-  client_email: process.env.NEXT_PUBLIC_CLIENT_EMAIL ?? "",
-  private_key: process.env.NEXT_PUBLIC_PRIVATE_KEY?.replace(/\\n/g, "\n") ?? "",
-};
+const googleDocument = new GoogleSpreadsheet(
+  process.env.NEXT_PUBLIC_SPREADSHEET_ID ?? '',
+  serviceAccontAuth
+);
 
 export const appendSpreadsheet = async (row: any, sheetId: number) => {
+  console.log(
+    sheetId,
+    'sheetId',
+    serviceAccontAuth,
+    process.env.NEXT_PUBLIC_CLIENT_EMAIL,
+    process.env.NEXT_PUBLIC_PRIVATE_KEY?.replace(/\\n/g, '\n')
+  );
+
   try {
-    // await doc.useServiceAccountAuth(authCredentials);
     // loads document properties and worksheets
-    await doc.loadInfo();
-    const sheet = doc.sheetsById[sheetId];
-    console.log(sheet, "sheet");
+    await googleDocument.loadInfo();
+
+    const sheet = googleDocument.sheetsById[sheetId];
+
     await sheet.addRow(row);
   } catch (e) {
-    console.error("Error: ", e);
+    console.error('Error: ', e);
   }
 };
 
 export const getRowsBySheetId = async (sheetId: number) => {
   try {
-    // await doc.useServiceAccountAuth(authCredentials);
+    await googleDocument.loadInfo();
 
-    await doc.loadInfo();
-
-    const sheet = doc.sheetsById[sheetId];
+    const sheet = googleDocument.sheetsById[sheetId];
     const result = await sheet.getRows();
 
     return result;
   } catch (e) {
-    console.log("get rows by sheet id:", e);
+    console.log('get rows by sheet id:', e);
   }
 };
 
 export const getAllSheets = async (sheetIds: Array<number>) => {
   try {
-    // await doc.useServiceAccountAuth(authCredentials);
+    await googleDocument.loadInfo();
 
-    await doc.loadInfo();
-
-    return sheetIds?.map((sheetId) => doc.sheetsById[sheetId].getRows());
+    return sheetIds?.map((sheetId) =>
+      googleDocument.sheetsById[sheetId].getRows()
+    );
   } catch (e) {
-    console.log("get all sheets:" + e);
+    console.log('get all sheets:' + e);
   }
 };
