@@ -57,7 +57,7 @@ export type AvailableIcons =
   | 'Lifebuoy'
   | 'Carrot';
 
-export const getAvailableIconByName = (iconName: AvailableIcons) => {
+export const getAvailableIconByName = (iconName?: AvailableIcons) => {
   switch (iconName) {
     case 'ClipboardText':
       return ClipboardText;

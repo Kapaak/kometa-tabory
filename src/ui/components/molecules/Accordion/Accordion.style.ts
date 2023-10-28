@@ -18,6 +18,7 @@ export const StyledTrigger = styled(RadixAccordion.Trigger)`
   align-items: center;
   justify-content: space-between;
   flex: 1;
+  gap: 1rem;
   padding: 1rem 0rem 2rem;
   cursor: pointer;
 `;
