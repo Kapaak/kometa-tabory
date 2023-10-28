@@ -23,7 +23,3 @@ export const Container = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 3.3rem;
 `;
-
-export const ListItem = styled.li`
-  margin-left: 2rem;
-`;

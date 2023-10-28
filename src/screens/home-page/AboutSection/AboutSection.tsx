@@ -4,11 +4,9 @@ import { useInView } from 'react-intersection-observer';
 
 //images
 
-import { PortableText } from '@portabletext/react';
-
 import { useSanityContext } from '~/contexts';
 import { usePageContext } from '~/contexts/PageContext';
-import { Text } from '~/ui/components';
+import { TextBuilder } from '~/ui/components';
 
 import Wave from '../../../../public/icons/wave.svg';
 
@@ -40,14 +38,10 @@ export const AboutSection = () => {
         {actualities.map(
           (actuality, index) =>
             actuality?.text && (
-              <PortableText
+              <TextBuilder
                 value={actuality.text}
+                options={{ paragraph: { position: 'center' } }}
                 key={`${actuality?.title}_${index}`}
-                components={{
-                  block: {
-                    normal: (props) => <Text center>{props.children}</Text>,
-                  },
-                }}
               />
             )
         )}

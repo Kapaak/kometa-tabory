@@ -1,9 +1,10 @@
-import { MaxWidth, VerticalStack, Headline, Expandable } from "~/ui/components";
+import { Accordion, Headline, MaxWidth, VerticalStack } from '~/ui/components';
 
-import { data } from "./ContactSection.data";
-import * as S from "./ContactSection.style";
-import { ContactSectionItem } from "./ContactSectionItem";
-import TrainerImage from "../../../../public/images/trainer.png";
+import TrainerImage from '../../../../public/images/trainer.png';
+import { data } from './ContactSection.data';
+import { ContactSectionItem } from './ContactSectionItem';
+
+import * as S from './ContactSection.style';
 
 export const ContactSection = () => {
   return (
@@ -16,16 +17,23 @@ export const ContactSection = () => {
             alt="hlavní trenérka plavání Anna Matušová"
           />
           <VerticalStack margin="-2rem 0 0 0" flex="1">
-            <Expandable
-              title="Anna Matušová"
-              subtitle="Vedoucí táborů"
-              description="Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Poté jsem začala trénovat děti. Momentálně vedu plavání na Kohoutovicích a Holzové. Volný čas ráda trávím cestováním a sledováním filmů."
+            <Accordion
+              accordionItems={[
+                {
+                  title: 'Anna Matušová',
+                  subtitle: 'Vedoucí táborů',
+                  content:
+                    'Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Poté jsem začala trénovat děti. Momentálně vedu plavání na Kohoutovicích a Holzové. Volný čas ráda trávím cestováním a sledováním filmů.',
+                },
+                {
+                  title: 'Tom Strnad',
+                  subtitle: 'Vedoucí táborů',
+                  content:
+                    'Trénování dětí se věnuji více než 5 let. Momentálně působím na bazénech v Kohoutovicích, na Holzové a Milenové. Ve volném čase rád cestuji, sportuji a zkoumám nové věci.',
+                },
+              ]}
             />
-            <Expandable
-              title="Tom Strnad"
-              subtitle="Vedoucí táborů"
-              description="Trénování dětí se věnuji více než 5 let. Momentálně působím na bazénech v Kohoutovicích, na Holzové a Milenové. Ve volném čase rád cestuji, sportuji a zkoumám nové věci."
-            />
+
             <VerticalStack padding="2rem 0 0 0" gap="2rem">
               {data?.map((contact) => (
                 <ContactSectionItem
