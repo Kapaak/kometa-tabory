@@ -1,28 +1,40 @@
 import { MaxWidth } from '~/ui/components';
+import { joinValues } from '~/utils';
 
 import { SectionForm } from './SectionForm';
 
 import * as S from './ApplicationsPage.style';
-// import { IService } from "~/components/Pages/PageHome/ServiceSection/ServiceSection.interface";
 
 interface ApplicationsPageProps {
-  title?: string;
-  subtitle?: string;
+  courseId?: string;
+  name?: string;
+  date?: string;
+  price?: string;
   spreadsheetId?: number;
 }
 
 export function ApplicationsPageScreen({
   spreadsheetId,
-  subtitle,
-  title,
+  courseId,
+  date,
+  price,
+  name,
 }: ApplicationsPageProps) {
   return (
     <MaxWidth>
       <S.Wrapper>
-        <S.Headline>{title}</S.Headline>
-        <S.Subheadline>{subtitle}</S.Subheadline>
+        <S.Headline>{joinValues([courseId, ' - ', name])}</S.Headline>
+        <S.Subheadline>{date}</S.Subheadline>
         {typeof spreadsheetId === 'number' && (
-          <SectionForm spreadsheet={spreadsheetId} />
+          <SectionForm
+            spreadsheetId={spreadsheetId}
+            courseInfo={{
+              courseId,
+              name,
+              date,
+              price,
+            }}
+          />
         )}
       </S.Wrapper>
     </MaxWidth>

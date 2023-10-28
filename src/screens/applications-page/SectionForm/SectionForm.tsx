@@ -1,24 +1,27 @@
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
-import axios from "axios";
-import dayjs from "dayjs";
+import axios from 'axios';
+import dayjs from 'dayjs';
 
-import { appendSpreadsheet } from "~/libs";
-import { Danger, IconButton, Subheadline, SuccessModal } from "~/ui/components";
-import { createOption } from "~/utils";
+import { appendSpreadsheet } from '~/libs';
+import { Danger, IconButton, Subheadline, SuccessModal } from '~/ui/components';
+import { createOption } from '~/utils';
 
-import { ControlledInput, ControlledNameInput } from "./ControlledInput";
-import { ControlledSelect } from "./ControlledSelect";
-import * as S from "./SectionForm.style";
+import { ControlledInput, ControlledNameInput } from './ControlledInput';
+import { ControlledSelect } from './ControlledSelect';
 
-
-
-
+import * as S from './SectionForm.style';
 
 interface SectionFormProps {
-  spreadsheet: number;
+  spreadsheetId: number;
+  courseInfo: {
+    courseId?: string;
+    name?: string;
+    date?: string;
+    price?: string;
+  };
 }
 
 export type FormValues = {
@@ -40,38 +43,33 @@ export type FormValues = {
   swimmingAbilities: string;
 };
 
-export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const SectionForm = ({
+  spreadsheetId,
+  courseInfo,
+}: SectionFormProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
-  const onSubmit = async (d: any) => {
-    const newVals = normalizeSelectInputs(d);
+  const form = useForm<FormValues>();
+
+  const onSubmit = async (formValues: FormValues) => {
     setIsLoading(true);
     try {
-      await handleExcelUpload(newVals);
-      axios.post("/api/email", { email: d?.email });
+      await handleExcelUpload(formValues);
+
+      axios.post('/api/email', {
+        email: formValues?.email,
+        ...courseInfo,
+      });
     } catch (e) {
-      console.log("cant send email or create user");
+      console.log('cant send email or create user');
     } finally {
-      setIsOpen(true);
+      setIsModalOpen(true);
       setIsLoading(false);
     }
   };
-
-  //todo select input vraci {label:"...",value:"..."}, ja chci ale jen "...", to se nastavuje uvnitr toho selectu nejak
-  const normalizeSelectInputs = (data: any) => {
-    const newData = { ...data };
-    newData.czechNationality = data?.czechNationality?.value;
-    newData.gender = data?.gender?.value;
-    newData.insurance = data?.insurance?.value;
-    newData.swimmingAbilities = data?.swimmingAbilities?.value;
-
-    return newData;
-  };
-
-  const form = useForm<FormValues>();
 
   const {
     handleSubmit,
@@ -80,51 +78,45 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
   } = form;
 
   const resetAll = () => {
-    //ty select pole se neresetovaly, kdyz jsem dal reset()
-    reset({
-      gender: "",
-      czechNationality: "",
-      insurance: "",
-      swimmingAbilities: "",
-    });
-    setIsOpen(false);
+    reset();
+    setIsModalOpen(false);
   };
 
   const redirectHome = () => {
-    router.push("/");
+    router.push('/');
   };
 
   const handleExcelUpload = async (d: FormValues) => {
-    const currentDateTime = dayjs().format("DD-MM-YYYY hh:mm");
+    const currentDateTime = dayjs().format('DD-MM-YYYY hh:mm');
     await appendSpreadsheet(
       {
-        "Časová značka": currentDateTime,
+        'Časová značka': currentDateTime,
         Jméno: d?.firstName,
         Příjmení: d?.lastName,
         Pohlaví: d?.gender,
-        "Rodné číslo": d?.personalIdNum,
-        "Je dítě občan ČR": d?.czechNationality,
-        "Datum narození": d?.dateOfBirth,
-        "Zdravotní pojišťovna": d?.insurance,
+        'Rodné číslo': d?.personalIdNum,
+        'Je dítě občan ČR': d?.czechNationality,
+        'Datum narození': d?.dateOfBirth,
+        'Zdravotní pojišťovna': d?.insurance,
         Telefon: d?.phone,
         Email: d?.email,
-        "Adresa a číslo popisné": d?.address,
+        'Adresa a číslo popisné': d?.address,
         Město: d?.city,
         PSČ: d?.postCode,
         Alergie: d?.alergy,
-        "Plavecké schopnosti": d?.swimmingAbilities,
-        "Zdravotní potíže": d?.healthIssues,
-        "Jak jste se o nás dozvěděli": d?.foundUs,
+        'Plavecké schopnosti': d?.swimmingAbilities,
+        'Zdravotní potíže': d?.healthIssues,
+        'Jak jste se o nás dozvěděli': d?.foundUs,
       },
-      spreadsheet
+      spreadsheetId
     );
   };
 
   return (
     <FormProvider {...form}>
       <SuccessModal
-        open={isOpen}
-        onChange={() => setIsOpen(false)}
+        open={isModalOpen}
+        onChange={() => setIsModalOpen(false)}
         addChild={resetAll}
         redirect={redirectHome}
       />
@@ -155,8 +147,8 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 name="gender"
                 placeholder="Pohlaví"
                 options={[
-                  createOption("Muž", "muž"),
-                  createOption("Žena", "žena"),
+                  createOption('Muž', 'muž'),
+                  createOption('Žena', 'žena'),
                 ]}
                 required="Pohlaví musí být vyplněno"
               />
@@ -169,7 +161,7 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 pattern={{
                   value: /\d{4}([.,\/]\d{4})/,
                   message:
-                    "Rodné číslo v nesprávném formátu. Příklad: 045421/1234.",
+                    'Rodné číslo v nesprávném formátu. Příklad: 045421/1234.',
                 }}
                 required="Rodné číslo musí být vyplněno."
               />
@@ -179,7 +171,7 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
             <div>
               <ControlledSelect
                 name="czechNationality"
-                options={[createOption("Ano", "ano"), createOption("Ne", "ne")]}
+                options={[createOption('Ano', 'ano'), createOption('Ne', 'ne')]}
                 placeholder="Je dítě občanem ČR?"
                 required="Národnost musí být vyplněna"
               />
@@ -199,35 +191,35 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 name="insurance"
                 options={[
                   createOption(
-                    "Všeobecná zdravotní pojišťovna",
-                    "všeobecná zdravotní pojišťovna"
+                    'Všeobecná zdravotní pojišťovna',
+                    'všeobecná zdravotní pojišťovna'
                   ),
                   createOption(
-                    "Vojenská zdravotní pojišťovna",
-                    "vojenská zdravotní pojišťovna"
+                    'Vojenská zdravotní pojišťovna',
+                    'vojenská zdravotní pojišťovna'
                   ),
                   createOption(
-                    "Česká průmyslová zdravotní pojišťovna",
-                    "česká průmyslová zdravotní pojišťovna"
+                    'Česká průmyslová zdravotní pojišťovna',
+                    'česká průmyslová zdravotní pojišťovna'
                   ),
                   createOption(
-                    "Oborová zdravotní pojišťovna",
-                    "oborová zdravotní pojišťovna"
+                    'Oborová zdravotní pojišťovna',
+                    'oborová zdravotní pojišťovna'
                   ),
                   createOption(
-                    "Zaměstnanecká pojišťovna Škoda",
-                    "zaměstnanecká pojišťovna škoda"
+                    'Zaměstnanecká pojišťovna Škoda',
+                    'zaměstnanecká pojišťovna škoda'
                   ),
                   createOption(
-                    "Zdravotní pojišťovna ministerstva vnitra",
-                    "zdravotní pojišťovna ministerstva vnitra"
+                    'Zdravotní pojišťovna ministerstva vnitra',
+                    'zdravotní pojišťovna ministerstva vnitra'
                   ),
                   createOption(
-                    "Revírní bratrská pokladna zdravotní pojišťovna",
-                    "revírní bratrská pokladna zdravotní pojišťovna"
+                    'Revírní bratrská pokladna zdravotní pojišťovna',
+                    'revírní bratrská pokladna zdravotní pojišťovna'
                   ),
-                  createOption("Jiná", "jiná"),
-                  createOption("Žádná", "žádná"),
+                  createOption('Jiná', 'jiná'),
+                  createOption('Žádná', 'žádná'),
                 ]}
                 placeholder="Zdravotní pojišťovna"
                 required="Zdravotní pojišťovn musí být vyplněna"
@@ -253,7 +245,7 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 pattern={{
                   value: /\S+@\S+\.\S+/,
                   message:
-                    "Platný email musí obsahovat @ (př. novak.filip@email.cz).",
+                    'Platný email musí obsahovat @ (př. novak.filip@email.cz).',
                 }}
                 required="Email musí být vyplněn."
               />
@@ -299,8 +291,8 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
                 name="swimmingAbilities"
                 placeholder="Plavecké schopnosti"
                 options={[
-                  createOption("Plavec", "plavec"),
-                  createOption("Neplavec", "neplavec"),
+                  createOption('Plavec', 'plavec'),
+                  createOption('Neplavec', 'neplavec'),
                 ]}
                 required="Plavecké schopnosti musí být vyplněny."
               />
@@ -325,7 +317,7 @@ export const SectionForm = ({ spreadsheet }: SectionFormProps) => {
         </S.Container>
         <S.SubmitContainer>
           <S.Text>
-            Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{" "}
+            Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{' '}
             <S.UnderlinedInput
               href="/files/VSEOBECNE-PODMINKY.pdf"
               rel="noopener noreferrer"

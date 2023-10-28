@@ -21,6 +21,34 @@ interface ControlledSelectProps {
   pattern?: ValidationRule<RegExp>;
 }
 
+const DropdownIndicator = (props: DropdownIndicatorProps) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <CaretCircleDown size={22} cursor="pointer" />
+    </components.DropdownIndicator>
+  );
+};
+
+const styles: StylesConfig = {
+  control: (baseStyles, state) => ({
+    display: 'flex',
+    backgroundColor: 'transparent',
+    flexDirection: 'row-reverse',
+    fontFamily: 'var(--font2)',
+    border: '2px solid transparent',
+    borderColor: state.isFocused ? '2px solid pink' : 'none',
+    borderBottom: !state.isFocused ? '1px solid var(--collg)' : 'none',
+    outline: state.isFocused ? '2px solid var(--col2)' : 'none',
+    height: '4.6rem',
+    transition: 'none',
+    borderRadius: '.2rem',
+  }),
+  placeholder: (defaultStyles) => ({
+    ...defaultStyles,
+    fontSize: '1.3rem',
+  }),
+};
+
 export const ControlledSelect = ({
   name,
   placeholder,
@@ -28,43 +56,13 @@ export const ControlledSelect = ({
   required,
   pattern,
 }: ControlledSelectProps) => {
-  const styles: StylesConfig = {
-    control: (baseStyles, state) => ({
-      display: 'flex',
-      backgroundColor: 'transparent',
-      flexDirection: 'row-reverse',
-      fontFamily: 'var(--font2)',
-      border: '2px solid transparent',
-      borderColor: state.isFocused ? '2px solid pink' : 'none',
-      borderBottom: !state.isFocused
-        ? '1px solid var(--collg) !important'
-        : 'none',
-      outline: state.isFocused ? '2px solid var(--col2)' : 'none',
-      height: '4.6rem',
-      transition: 'none',
-      borderRadius: '.2rem',
-    }),
-    placeholder: (defaultStyles) => ({
-      ...defaultStyles,
-      fontSize: '1.3rem',
-    }),
-  };
-
-  const DropdownIndicator = (props: DropdownIndicatorProps) => {
-    return (
-      <components.DropdownIndicator {...props}>
-        <CaretCircleDown size={22} cursor="pointer" />
-      </components.DropdownIndicator>
-    );
-  };
-
   const id = useId();
 
   return (
     <Controller
       name={name}
       rules={{ required, pattern }}
-      render={({ field: { onChange, value, name, ...restField } }) => (
+      render={({ field: { onChange, value, name, ...rest } }) => (
         <Select
           name={name}
           instanceId={id}
@@ -73,14 +71,15 @@ export const ControlledSelect = ({
           options={options}
           menuPosition="fixed"
           menuPlacement="auto"
-          value={value}
-          onChange={(val) => onChange(val)}
+          value={options.find((c) => c.value === value) ?? ''}
+          //@ts-ignore
+          onChange={(val: Option) => onChange(val.value)}
           styles={styles}
           components={{
             DropdownIndicator,
             IndicatorSeparator: null,
           }}
-          {...restField}
+          {...rest}
         />
       )}
     />

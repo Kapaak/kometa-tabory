@@ -5,7 +5,6 @@ import { SanityCamp } from '~/domains';
 import { client } from '~/libs';
 import { ApplicationsPageScreen } from '~/screens';
 import { PageLayout } from '~/ui/components';
-import { joinValues } from '~/utils';
 
 interface ApplicationsPageProps
   extends InferGetServerSidePropsType<typeof getServerSideProps> {}
@@ -14,8 +13,10 @@ export default function ApplicationsPage({ camp }: ApplicationsPageProps) {
   return (
     <PageLayout>
       <ApplicationsPageScreen
-        title={joinValues([camp?.title, ' - ', camp?.name])}
-        subtitle={camp?.date}
+        courseId={camp?.title}
+        name={camp?.name}
+        price={String(camp?.price)}
+        date={camp?.date}
         spreadsheetId={camp?.spreadsheetId}
       />
     </PageLayout>

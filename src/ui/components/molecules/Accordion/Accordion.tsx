@@ -9,7 +9,6 @@ import { Flex } from '../../atoms';
 import * as S from './Accordion.style';
 
 type AccordionItem = {
-  // id: string;
   title: string;
   subtitle?: string;
   content?: ReactNode;

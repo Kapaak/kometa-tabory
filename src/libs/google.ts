@@ -14,14 +14,6 @@ const googleDocument = new GoogleSpreadsheet(
 );
 
 export const appendSpreadsheet = async (row: any, sheetId: number) => {
-  console.log(
-    sheetId,
-    'sheetId',
-    serviceAccontAuth,
-    process.env.NEXT_PUBLIC_CLIENT_EMAIL,
-    process.env.NEXT_PUBLIC_PRIVATE_KEY?.replace(/\\n/g, '\n')
-  );
-
   try {
     // loads document properties and worksheets
     await googleDocument.loadInfo();
