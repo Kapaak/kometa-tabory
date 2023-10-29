@@ -15,7 +15,7 @@ export default function ApplicationsPage({ camp }: ApplicationsPageProps) {
       <ApplicationsPageScreen
         courseId={camp?.title}
         name={camp?.name}
-        price={String(camp?.price)}
+        price={String(camp?.discountedPrice || camp?.price)}
         date={camp?.date}
         spreadsheetId={camp?.spreadsheetId}
       />
