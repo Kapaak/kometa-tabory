@@ -1,4 +1,4 @@
-import { InferGetServerSidePropsType } from 'next';
+import { InferGetStaticPropsType } from 'next';
 import { groq } from 'next-sanity';
 
 import { SanityContextProvider } from '~/contexts';
@@ -16,7 +16,7 @@ import { HomePageScreen } from '~/screens';
 import { PageLayout } from '~/ui/components';
 
 interface HomePageProps
-  extends InferGetServerSidePropsType<typeof getServerSideProps> {}
+  extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 export default function HomePage({
   actualities,
@@ -47,7 +47,7 @@ export default function HomePage({
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const queryActualities = groq`*[_type == "home" && visibility == true]{text,order,title}|order(order asc)`;
   const queryFAQ = groq`*[_type == "faq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
   const queryDocument = groq`*[_type == "doc"]{title,order,file{asset->{url}}}|order(order asc)`;
@@ -81,5 +81,6 @@ export const getServerSideProps = async () => {
       spreadSheetsIds,
       photoGallery,
     },
+    revalidate: 10,
   };
 };
