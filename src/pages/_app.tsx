@@ -2,6 +2,8 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 
+import { Analytics } from '@vercel/analytics/react';
+
 import { HeadComponent } from '~/components';
 import { PageContextProvider } from '~/contexts/PageContext';
 import { GlobalStyles } from '~/ui/theme';
@@ -31,6 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
               })
             `}
       </Script>
+      <Analytics />
       <HeadComponent />
       <GlobalStyles />
       <Component {...pageProps} />
