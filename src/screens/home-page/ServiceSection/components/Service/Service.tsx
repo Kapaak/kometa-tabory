@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { SanityImage } from '~/domains';
 import { Button, Text } from '~/ui/components';
-import { getDiscount } from '~/utils';
+import { getDiscount, isTouchDevice } from '~/utils';
 
 import { textVariant } from '../../variants';
 import { DiscountChip } from '../DiscountChip/DiscountChip';
@@ -53,7 +53,7 @@ export function Service(props: ServiceProps) {
   return (
     <S.Service
       initial="hidden"
-      whileHover="visible"
+      {...(!isTouchDevice() && { whileHover: 'visible' })}
       animate={showMore ? 'visible' : 'hidden'}
     >
       <ServiceImage
@@ -77,12 +77,14 @@ export function Service(props: ServiceProps) {
           trip={trip}
         />
         <S.ActionsContainer>
-          <S.ShowMoreButton
-            variant="plain"
-            onClick={() => setShowMore((prev) => !prev)}
-          >
-            Více o táboru
-          </S.ShowMoreButton>
+          {isTouchDevice() && (
+            <S.ShowMoreButton
+              variant="plain"
+              onClick={() => setShowMore((prev) => !prev)}
+            >
+              {showMore ? 'Méně' : 'Více'} o táboru
+            </S.ShowMoreButton>
+          )}
 
           {!isAvailable && <Button disabled>{availabilityLabel}</Button>}
           {isFullCapacity && isAvailable && (

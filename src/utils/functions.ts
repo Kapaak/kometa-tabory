@@ -48,3 +48,11 @@ export function getDiscount(price?: number, discountPrice?: number) {
   if (!price || !discountPrice) return NaN;
   return Math.floor(100 - (discountPrice / price) * 100);
 }
+
+export function isTouchDevice() {
+  if (typeof window !== 'undefined') {
+    return matchMedia('(hover: none)').matches;
+  }
+
+  return false;
+}

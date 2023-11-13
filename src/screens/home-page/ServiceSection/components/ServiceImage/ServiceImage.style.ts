@@ -6,7 +6,7 @@ import { Text } from '~/ui/components';
 
 export const ServiceImage = styled(motion.div)`
   position: relative;
-  height: 50%;
+  height: 26rem;
   overflow: hidden;
 `;
 

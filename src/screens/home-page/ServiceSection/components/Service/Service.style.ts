@@ -55,12 +55,6 @@ export const ActionsContainer = styled.div`
 
 export const ShowMoreButton = styled(Button)`
   display: block;
-  @media (${dimensions.notebook}) {
-    display: none;
-  }
-  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    display: block;
-  }
 `;
 
 export const Link = styled(NextLink)`

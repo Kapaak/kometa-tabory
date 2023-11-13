@@ -2,7 +2,7 @@ import { Variants } from 'framer-motion';
 
 export const imageVariant: Variants = {
   hidden: {
-    height: '50%',
+    height: '26rem',
     transition: {
       duration: 0.4,
       bounce: 0,
