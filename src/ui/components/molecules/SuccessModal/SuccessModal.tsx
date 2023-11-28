@@ -46,7 +46,7 @@ export const SuccessModal = ({
       <Divider />
       <Text variant="dark">
         <Strong weight="400">Potřebujete pomoc? </Strong>
-        Volejte na +420 773 708 287 nebo piště na taborpisarky@kometaplavani.cz
+        Volejte na +420 773 708 287 nebo piště na info@primestak-brno.cz
       </Text>
       <Divider width="50%" />
     </Modal>

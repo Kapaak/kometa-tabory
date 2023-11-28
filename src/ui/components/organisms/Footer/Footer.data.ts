@@ -1,4 +1,4 @@
-import { ContentType, FragmentType } from "~/types";
+import { ContentType, FragmentType } from '~/types';
 
 interface FooterData {
   headline: string;
@@ -7,76 +7,76 @@ interface FooterData {
 
 export const data: Array<FooterData> = [
   {
-    headline: "Kontaktní osoba",
+    headline: 'Kontaktní osoba',
     fragment: [
       {
-        output: "Bc. Anna Matušová",
+        output: 'Bc. Anna Matušová',
         type: ContentType.bold,
       },
       {
-        output: "+420 773 708 287",
+        output: '+420 773 708 287',
         type: ContentType.link,
       },
       {
-        output: "taborpisarky@kometaplavani.cz",
+        output: 'info@primestak-brno.cz',
         type: ContentType.link,
       },
       {
-        output: "Bauerova 321/5, Brno 603 00",
+        output: 'Bauerova 321/5, Brno 603 00',
         type: ContentType.normal,
       },
       {
-        output: "Po - Pá: 8:00-15:30",
+        output: 'Po - Pá: 8:00-15:30',
         type: ContentType.normal,
       },
     ],
   },
   {
-    headline: "Užitečné odkazy",
+    headline: 'Užitečné odkazy',
     fragment: [
       {
-        output: "Plavecké kurzy Kometa",
+        output: 'Plavecké kurzy Kometa',
         type: ContentType.bold,
       },
       {
-        output: "Kraví hora",
+        output: 'Kraví hora',
         type: ContentType.link,
-        href: "https://kometaplavani.cz/plavani-katka/",
+        href: 'https://kometaplavani.cz/plavani-katka/',
       },
       {
-        output: "Kohoutovice",
+        output: 'Kohoutovice',
         type: ContentType.link,
-        href: "https://kometaplavani.cz/plavani-bazenky/bazenky/aquapark-kohoutovice/",
+        href: 'https://kometaplavani.cz/plavani-bazenky/bazenky/aquapark-kohoutovice/',
       },
       {
-        output: "Bazénky",
+        output: 'Bazénky',
         type: ContentType.link,
-        href: "https://kometaplavani.cz/plavani-bazenky/",
+        href: 'https://kometaplavani.cz/plavani-bazenky/',
       },
       {
-        output: "",
+        output: '',
         type: ContentType.blank,
       },
       {
-        output: "Tábory a letní akce",
+        output: 'Tábory a letní akce',
         type: ContentType.bold,
       },
       {
-        output: "Kraví hora",
+        output: 'Kraví hora',
         type: ContentType.link,
-        href: "https://kometaplavani.cz/plavani-katka/tabory/",
+        href: 'https://kometaplavani.cz/plavani-katka/tabory/',
       },
     ],
   },
   {
-    headline: "Informace",
+    headline: 'Informace',
     fragment: [
       {
-        output: "GDPR",
+        output: 'GDPR',
         type: ContentType.link,
-        href: "https://www.primestak-brno.cz/files/ZASADY_GDPR.pdf",
+        href: 'https://www.primestak-brno.cz/files/ZASADY_GDPR.pdf',
       },
-      { output: "IČO: 41604164", type: ContentType.normal },
+      { output: 'IČO: 41604164', type: ContentType.normal },
     ],
   },
 ];

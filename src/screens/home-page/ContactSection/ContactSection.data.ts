@@ -13,6 +13,6 @@ export const data: ContactItem[] = [
   {
     title: 'E-mail',
     icon: EnvelopeOpen,
-    description: 'taborpisarky@kometaplavani.cz',
+    description: 'info@primestak-brno.cz',
   },
 ];
