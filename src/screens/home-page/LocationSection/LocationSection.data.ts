@@ -5,12 +5,12 @@ export const data = [
     title: 'Příjezd autem',
     icon: Car,
     description:
-      'Když přijedete autem, tak můžete zastavit naproti přes ulici, kde je veliké parkoviště.',
+      'Pro ty, kteří preferují cestu autem, jsou k dispozici pohodlná parkovací místa.',
   },
   {
     title: 'Městská hromadná doprava',
     icon: Bus,
     description:
-      'Pokud se k nám chcete vydat MHD, tak je nejlepší vystoupit na zastávce BAUEROVA.',
+      'Pokud dáváte přednost městské hromadné dopravě, máte možnost využít několik zastávek v okolí, včetně Sportovní, Zimní stadion, NC Královo Pole nebo Reissigova.',
   },
 ];

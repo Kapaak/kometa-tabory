@@ -1,11 +1,10 @@
 //styles
-import { MainHeadline, MainSubheadline, MaxHeight } from "~/ui/components";
-import { scrollTo } from "~/utils";
+import { MainHeadline, MainSubheadline, MaxHeight } from '~/ui/components';
+import { scrollTo } from '~/utils';
 
-import * as S from "./HeroSection.style";
-//images
-import HeroImage from "../../../../public/images/hero-img.jpg";
-//others
+import HeroImage from '../../../../public/images/hero-img.jpg';
+
+import * as S from './HeroSection.style';
 
 export const HeroSection = () => {
   return (
@@ -14,7 +13,7 @@ export const HeroSection = () => {
         <S.MaxWidth>
           <S.FlexWrapper justify="flex-end" gap="1rem" align="flex-start">
             <div>
-              <MainHeadline>Tábory riviéra</MainHeadline>
+              <MainHeadline>Tábory lužánky</MainHeadline>
               <MainSubheadline>Plavecká škola kometa</MainSubheadline>
             </div>
             <div>
@@ -26,7 +25,7 @@ export const HeroSection = () => {
             <S.LightButton
               variant="filled"
               color="secondary"
-              onClick={() => scrollTo("services")}
+              onClick={() => scrollTo('services')}
             >
               Dostupné tábory
             </S.LightButton>

@@ -17,7 +17,7 @@ const LocationSectionItems = ({ data }: Props) => {
     <Flex gap="2rem">
       <Headline>Místo konání</Headline>
       <S.Text variant="dark" bold style={{ textTransform: 'uppercase' }}>
-        Bauerova 321/5, Brno 603 00
+        SPORTOVNÍ 486/4, BRNO 602 00
       </S.Text>
       {/* <S.Text>
         Z důvodu opravy je ulice Bauerova zavřena. Místo toho lze použít
@@ -35,10 +35,9 @@ const LocationSectionItems = ({ data }: Props) => {
         zóny C (přes den zdarma).
       </S.Text> */}
       <S.Text variant="dark">
-        Náš tábor se nachází v rozlehlém areálu SKP KOMETA BRNO, který se
-        nachází vedle Brněnské Riviéry. Máme tu obrovské travnaté plochy, kde
-        můžeme běhat a hrát spousty her, ať už ve stínu pod stromy nebo na
-        sluníčku. A kdyby pršelo, tak máme připravenou tělocvičnu.
+        Náš tábor má základnu na bazéně Lužánky. Bezstarostně se sem dostanete
+        jak autem, tak i veřejnou dopravou. Těšíme se na setkání s vámi na našem
+        táboře plném zábavy a dobrodružství!
       </S.Text>
       <S.Container>
         {data.map((d, i) => (
