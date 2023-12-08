@@ -11,6 +11,6 @@ export const data = [
     title: 'Městská hromadná doprava',
     icon: Bus,
     description:
-      'Pokud dáváte přednost městské hromadné dopravě, máte možnost využít několik zastávek v okolí, včetně Sportovní, Zimní stadion, NC Královo Pole nebo Reissigova.',
+      'Nejbližší zastávky MHD jsou Sportovní, Zimní stadion, NC Královo Pole a Reissigova.',
   },
 ];
