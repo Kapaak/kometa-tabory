@@ -2,10 +2,10 @@
 
 import { useSanityContext } from '~/contexts';
 import { useGoogleSheetsCapacities } from '~/hooks';
-import { MaxWidth } from '~/ui/components';
+import { MaxWidth, Space } from '~/ui/components';
 import { joinValues } from '~/utils';
 
-import { Service } from './components';
+import { IndividualCourse, Service } from './components';
 
 import * as S from './ServiceSection.style';
 
@@ -40,6 +40,8 @@ export const ServiceSection = () => {
             />
           ))}
         </S.Container>
+        <Space />
+        <IndividualCourse />
       </MaxWidth>
     </S.ServiceSection>
   );
