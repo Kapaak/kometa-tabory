@@ -40,8 +40,6 @@ export const ServiceSection = () => {
             />
           ))}
         </S.Container>
-        <Space />
-        <IndividualCourse />
       </MaxWidth>
     </S.ServiceSection>
   );
