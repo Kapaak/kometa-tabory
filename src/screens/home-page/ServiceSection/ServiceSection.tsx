@@ -1,5 +1,3 @@
-//libraries
-
 import { useSanityContext } from '~/contexts';
 import { useGoogleSheetsCapacities } from '~/hooks';
 import { MaxWidth } from '~/ui/components';
@@ -12,8 +10,8 @@ import * as S from './ServiceSection.style';
 export const ServiceSection = () => {
   const { camps } = useSanityContext();
 
-  const { googleSheetsCapacities } = useGoogleSheetsCapacities();
-
+  const { googleSheetsCapacities, isLoading, isError } =
+    useGoogleSheetsCapacities();
   return (
     <S.ServiceSection name="services">
       <MaxWidth>
@@ -36,6 +34,7 @@ export const ServiceSection = () => {
               imageAlt={camp?.photoAlt}
               url={camp?.targetUrl ?? '#'}
               isAvailable={camp?.availability?.open}
+              isDataError={isError}
               availabilityLabel={camp?.availability?.label}
             />
           ))}

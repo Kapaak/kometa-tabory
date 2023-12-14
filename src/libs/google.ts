@@ -48,5 +48,6 @@ export const getAllSheets = async (sheetIds: Array<number>) => {
     );
   } catch (e) {
     console.log('get all sheets:' + e);
+    return Error;
   }
 };

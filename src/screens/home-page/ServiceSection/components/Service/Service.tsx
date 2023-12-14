@@ -23,6 +23,7 @@ interface ServiceProps {
   date?: string;
   maxCapacity?: number;
   isAvailable?: boolean;
+  isDataError?: boolean;
   availabilityLabel?: string;
 }
 
@@ -39,6 +40,7 @@ export function Service(props: ServiceProps) {
     url,
     currentCapacity,
     isAvailable,
+    isDataError,
     availabilityLabel,
   } = props;
   const [showMore, setShowMore] = useState(false);
@@ -69,6 +71,7 @@ export function Service(props: ServiceProps) {
         <S.Subheadline variant="dark">{headline}</S.Subheadline>
         <Text variant="grey">{date ?? ''}</Text>
         <ServiceInfo
+          isAvailable={isAvailable}
           currentCapacity={currentCapacity}
           maxCapacity={maxCapacity}
           date={date}
@@ -85,17 +88,23 @@ export function Service(props: ServiceProps) {
               {showMore ? 'Méně' : 'Více'} o táboru
             </S.ShowMoreButton>
           )}
-
-          {!isAvailable && <Button disabled>{availabilityLabel}</Button>}
-          {isFullCapacity && isAvailable && (
+          {isDataError && <Button disabled>Nepodařilo se načíst data</Button>}
+          {!isAvailable && !isDataError && (
+            <Button disabled>{availabilityLabel}</Button>
+          )}
+          {isFullCapacity && isAvailable && !isDataError && (
             <Button disabled>Termín je již zaplněný</Button>
           )}
-          {!isFullCapacity && isAvailable && !isNaN(currentCapacity) && (
-            <S.Link href={`/prihlasky/${url}`}>Přihláška</S.Link>
-          )}
-          {!isFullCapacity && isAvailable && isNaN(currentCapacity) && (
-            <Button disabled>Načítání ...</Button>
-          )}
+          {!isFullCapacity &&
+            isAvailable &&
+            !isNaN(currentCapacity) &&
+            !isDataError && (
+              <S.Link href={`/prihlasky/${url}`}>Přihláška</S.Link>
+            )}
+          {!isFullCapacity &&
+            isAvailable &&
+            isNaN(currentCapacity) &&
+            !isDataError && <Button disabled>Načítání ...</Button>}
         </S.ActionsContainer>
       </S.Container>
     </S.Service>

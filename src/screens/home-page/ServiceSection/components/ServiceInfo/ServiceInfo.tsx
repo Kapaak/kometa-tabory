@@ -19,13 +19,22 @@ export interface ServiceInfoType {
   currentCapacity?: number;
   maxCapacity?: number;
   trip?: string;
+  isAvailable?: boolean;
 }
 
 export const ServiceInfo = (props: ServiceInfoType) => {
-  const { currentCapacity, date, maxCapacity, price, discountPrice, trip } =
-    props;
+  const {
+    currentCapacity,
+    date,
+    maxCapacity,
+    price,
+    isAvailable,
+    discountPrice,
+    trip,
+  } = props;
 
-  const hasCapacity = maxCapacity && currentCapacity;
+  const hasCapacity =
+    maxCapacity !== undefined && currentCapacity !== undefined && isAvailable;
 
   return (
     <S.ServiceItems layout variants={ulVariant}>
@@ -41,18 +50,16 @@ export const ServiceInfo = (props: ServiceInfoType) => {
         {discountPrice && <S.LineThroughText>{price} Kč</S.LineThroughText>}
       </ServiceInfoItem>
       <ServiceInfoItem icon={CalendarBlank} label={date ?? ''} />
-      <ServiceInfoItem icon={BatteryMedium} label="Volná místa:">
-        <div>
-          <S.CapacityText
-            smallCapacity={
-              hasCapacity ? maxCapacity - currentCapacity < 5 : false
-            }
-          >
-            {hasCapacity ? maxCapacity - currentCapacity : '-'}
-          </S.CapacityText>
-          <span> z {hasCapacity && maxCapacity}</span>
-        </div>
-      </ServiceInfoItem>
+      {hasCapacity && (
+        <ServiceInfoItem icon={BatteryMedium} label="Volná místa:">
+          <div>
+            <S.CapacityText smallCapacity={maxCapacity - currentCapacity < 5}>
+              {maxCapacity - currentCapacity}
+            </S.CapacityText>
+            <span> z {maxCapacity}</span>
+          </div>
+        </ServiceInfoItem>
+      )}
       <ServiceInfoItem icon={Backpack} label={trip ?? ''} />
     </S.ServiceItems>
   );
