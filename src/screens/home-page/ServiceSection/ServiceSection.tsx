@@ -2,10 +2,10 @@
 
 import { useSanityContext } from '~/contexts';
 import { useGoogleSheetsCapacities } from '~/hooks';
-import { MaxWidth, Space } from '~/ui/components';
+import { MaxWidth } from '~/ui/components';
 import { joinValues } from '~/utils';
 
-import { IndividualCourse, Service } from './components';
+import { Service } from './components';
 
 import * as S from './ServiceSection.style';
 
