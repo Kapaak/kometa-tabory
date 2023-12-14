@@ -57,7 +57,7 @@ export function Service(props: ServiceProps) {
       animate={showMore ? 'visible' : 'hidden'}
     >
       <ServiceImage
-        hasWarning={isFullCapacity}
+        hasWarning={isFullCapacity || !isAvailable}
         warningMessage={warningMessage}
         image={image}
         alt={imageAlt ?? ''}
