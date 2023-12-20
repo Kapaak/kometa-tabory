@@ -1,15 +1,12 @@
-//libraries
 import Image from 'next/image';
 import Link from 'next/link';
 
-//styles
-
-import * as S from './FooterEnding.style';
-//images
 import FacebookIcon from '../../../../../../public/icons/facebook.svg';
 import InstagramIcon from '../../../../../../public/icons/instagram.svg';
 import YoutubeIcon from '../../../../../../public/icons/youtube.svg';
 import { Flex } from '../../../atoms';
+
+import * as S from './FooterEnding.style';
 
 const FooterEnding = () => {
   return (
@@ -21,7 +18,7 @@ const FooterEnding = () => {
         <Link href="https://instagram.com/primestakbrno">
           <Image src={InstagramIcon} width={30} height={30} alt="instagram" />
         </Link>
-        <Link href="https://www.facebook.com/primestakbrno">
+        <Link href="https://www.facebook.com/primestakkometa">
           <Image src={FacebookIcon} width={30} height={30} alt="facebook" />
         </Link>
       </S.ImageFlexContainer>

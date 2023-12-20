@@ -24,7 +24,6 @@ export function NavLink({
   href,
   dropdown,
 }: NavLinkProps) {
-  // const dispatch = useDispatch();
   const { toggleNavigation } = usePageContext();
 
   const router = useRouter();
