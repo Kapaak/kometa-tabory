@@ -21,10 +21,7 @@ export const data: Array<FooterData> = [
         output: 'info@primestak-brno.cz',
         type: ContentType.link,
       },
-      {
-        output: 'Bauerova 321/5, Brno 603 00',
-        type: ContentType.normal,
-      },
+
       {
         output: 'Po - Pá: 8:00-15:30',
         type: ContentType.normal,
@@ -44,9 +41,9 @@ export const data: Array<FooterData> = [
         href: 'https://kometaplavani.cz/plavani-katka/',
       },
       {
-        output: 'Kohoutovice',
+        output: 'Lužánky',
         type: ContentType.link,
-        href: 'https://kometaplavani.cz/plavani-bazenky/bazenky/aquapark-kohoutovice/',
+        href: 'https://www.plavani-luzanky.cz/',
       },
       {
         output: 'Bazénky',
@@ -76,7 +73,7 @@ export const data: Array<FooterData> = [
         type: ContentType.link,
         href: 'https://www.primestak-brno.cz/files/ZASADY_GDPR.pdf',
       },
-      { output: 'IČO: 41604164', type: ContentType.normal },
+      { output: 'IČO: 44992432', type: ContentType.normal },
     ],
   },
 ];

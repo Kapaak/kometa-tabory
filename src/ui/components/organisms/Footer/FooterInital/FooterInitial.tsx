@@ -1,11 +1,9 @@
-//libraries
-import Image from "next/image";
+import Image from 'next/image';
 
-//images
-import * as S from "./FooterInitial.style";
-import KometaLogo from "../../../../../../public/icons/kometa.svg";
-import LogoWhite from "../../../../../../public/icons/logo-latest-white.svg";
-//styles
+import KometaLogo from '../../../../../../public/icons/kometa.svg';
+import LogoWhite from '../../../../../../public/icons/logo-latest-white.svg';
+
+import * as S from './FooterInitial.style';
 
 const FooterInitial = () => {
   return (
@@ -14,8 +12,8 @@ const FooterInitial = () => {
       <Image src={KometaLogo} alt="logo Kometa Brno" />
       <S.Text variant="light">
         Sportovní klub policie Brno <br />
-        Bauerova 321/5
-        <br /> 613 00 Brno
+        Sportovní 486/4
+        <br /> 602 00 Brno
       </S.Text>
     </S.Flex>
   );
