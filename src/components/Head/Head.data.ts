@@ -44,16 +44,16 @@ dětský letní tábor
 `;
 
 const mainDescription =
-  "Příměstské tábory pro děti od 4 let do 15 let s lekcemi plavání od licencovaných trenérů s několikaletou praxí. Ve středu je speciální celodenní výlet dle tématu táboru.";
+  'Příměstské tábory pro děti od 4 let do 13 let s lekcemi plavání od licencovaných trenérů s několikaletou praxí. Ve středu je speciální celodenní výlet dle tématu táboru.';
 
 export const data = {
-  "/prihlasky": {
+  '/prihlasky': {
     // title: "Přihlášky - ",
     keywords,
     description:
-      "Nabízíme plavecké kurzy pro děti, školy a školky i dospělé. Učíme plavat zábavnou formou dle nejnovějších metodik.",
+      'Nabízíme plavecké kurzy pro děti, školy a školky i dospělé. Učíme plavat zábavnou formou dle nejnovějších metodik.',
   },
-  "/": {
+  '/': {
     // title: "",
     keywords,
     description: mainDescription,
