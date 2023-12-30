@@ -1,7 +1,7 @@
 import { PortableText } from '@portabletext/react';
 import { PortableTextBlock } from '@portabletext/types';
 
-import { Text } from '../../atoms';
+import { Strong, Text } from '../../atoms';
 
 import * as S from './TextBuilder.style';
 
@@ -33,7 +33,11 @@ export const TextBuilder = ({ value, options }: TextBuilderProps) => {
             );
           },
         },
-
+        marks: {
+          strong: (props) => {
+            return <Strong>{props.children}</Strong>;
+          },
+        },
         listItem: {
           bullet: (props) => {
             return (

@@ -25,5 +25,5 @@ export const BiggerText = styled.span`
 `;
 
 export const SmallerText = styled.span`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 `;

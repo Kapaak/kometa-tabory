@@ -1,11 +1,11 @@
 //libraries
-import NextImage from "next/image";
+import NextImage from 'next/image';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 //styles
-import { Text, MaxWidth as SMaxWidth, SectionElement } from "~/ui/components";
-import { dimensions } from "~/ui/theme";
+import { MaxWidth as SMaxWidth, SectionElement, Text } from '~/ui/components';
+import { dimensions } from '~/ui/theme';
 
 export const AboutSection = styled(SectionElement)`
   padding: 1.5rem 0;
@@ -17,6 +17,8 @@ export const MaxWidth = styled(SMaxWidth)`
 `;
 
 export const Image = styled(NextImage)`
+  margin-block: 2rem;
+
   @media (${dimensions.desktopX}) {
     width: 6rem;
     height: 6rem;

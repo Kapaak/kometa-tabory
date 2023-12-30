@@ -17,15 +17,13 @@ export const Button = styled.button<ButtonProps>`
   display: flex;
   position: relative;
   border: none;
-  text-transform: uppercase;
-  font-family: var(--font1);
+  font-family: var(--font2);
   color: var(--col2);
   cursor: pointer;
   border-radius: 3rem;
   font-size: var(--fbutton);
   overflow: hidden;
   transition: all 0.3s ease;
-  letter-spacing: 0.132rem;
   /* width: ${({ isLoading }) => isLoading && '14rem'}; */
 
   ${({ variant = 'bordered', color = 'primary' }) => {

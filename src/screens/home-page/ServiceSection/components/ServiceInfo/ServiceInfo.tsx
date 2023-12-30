@@ -10,6 +10,7 @@ import { joinValues } from '~/utils';
 import { ulVariant } from '../../variants';
 import { ServiceInfoItem } from '../ServiceInfoItem';
 
+import { Strong } from '~/ui/components';
 import * as S from './ServiceInfo.style';
 
 export interface ServiceInfoType {
@@ -47,7 +48,11 @@ export const ServiceInfo = (props: ServiceInfoType) => {
             : joinValues([price, 'Kč']) ?? '-'
         }
       >
-        {discountPrice && <S.LineThroughText>{price} Kč</S.LineThroughText>}
+        {discountPrice && (
+          <S.LineThroughText>
+            <Strong>{price} Kč</Strong>
+          </S.LineThroughText>
+        )}
       </ServiceInfoItem>
       <ServiceInfoItem icon={CalendarBlank} label={date ?? ''} />
       {hasCapacity && (

@@ -8,6 +8,6 @@ export const ServiceItem = styled.li.withConfig({
   gap: 1rem;
   align-items: center;
   span {
-    font-weight: ${({ bold }) => (bold ? 400 : 300)};
+    font-weight: ${({ bold }) => (bold ? 500 : 300)};
   }
 `;

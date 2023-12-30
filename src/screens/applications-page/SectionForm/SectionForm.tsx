@@ -6,7 +6,7 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 
 import { appendSpreadsheet } from '~/libs';
-import { Danger, IconButton, Subheadline, SuccessModal } from '~/ui/components';
+import { Danger, Subheadline, SuccessModal } from '~/ui/components';
 import { createOption } from '~/utils';
 
 import { ControlledInput, ControlledNameInput } from './ControlledInput';
@@ -328,13 +328,9 @@ export const SectionForm = ({
             . S podmínkami souhlasím a moje dítě je splňuje.
           </S.Text>
 
-          <IconButton
-            isLoading={isLoading}
-            disabled={isLoading}
-            iconAfter={S.ArrowRightIcon}
-          >
+          <S.SubmitButton isLoading={isLoading} disabled={isLoading}>
             Odeslat
-          </IconButton>
+          </S.SubmitButton>
         </S.SubmitContainer>
       </S.Form>
     </FormProvider>

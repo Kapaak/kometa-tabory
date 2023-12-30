@@ -45,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 
         --ftext:1.6rem;
         --fnavlink:2rem;
-        --fbutton:1.7rem;
+        --fbutton:1.4rem;
         --fmheadline:4.5rem;
         --fmsheadline:2.5rem;
         --fheadline:4rem;

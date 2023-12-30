@@ -67,7 +67,7 @@ export const StyledContent = styled(RadixAccordion.Content)`
   }
 `;
 
-export const StyledContentText = styled.div`
+export const StyledContentText = styled(Text)`
   padding: 1.5rem 2rem;
   font-weight: 300;
 `;
