@@ -1,6 +1,6 @@
 import { Accordion, Headline, MaxWidth, VerticalStack } from '~/ui/components';
 
-import TrainerImage from '../../../../public/images/trainer.png';
+import TrainerImage from '~/public/images/trainer.png';
 import { data } from './ContactSection.data';
 import { ContactSectionItem } from './ContactSectionItem';
 

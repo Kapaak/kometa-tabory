@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { NavLink as NavLinkType, ScrollTargets } from '~/types';
 import { scrollTo } from '~/utils';
 
-import { NavLink } from './NavLink';
-import FacebookInvertIcon from '../../../../../../../public/icons/facebook-invert.svg';
-import InstagramInvertIcon from '../../../../../../../public/icons/instagram-invert.svg';
+import FacebookInvertIcon from '~/public/icons/facebook-invert.svg';
+import InstagramInvertIcon from '~/public/icons/instagram-invert.svg';
 import { Button, Hidden } from '../../../../atoms';
+import { NavLink } from './NavLink';
 
 import * as S from './NavLinks.style';
 

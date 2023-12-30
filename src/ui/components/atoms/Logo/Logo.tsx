@@ -1,9 +1,9 @@
 //styles
-import Link from "next/link";
+import Link from 'next/link';
 
-import * as S from "./Logo.style";
+import * as S from './Logo.style';
 //images
-import LogoLatest from "../../../../../public/icons/logo-tabory.svg";
+import LogoLatest from '~/public/icons/kometa-blue.svg';
 
 export function Logo() {
   return (

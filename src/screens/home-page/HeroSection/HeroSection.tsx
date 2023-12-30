@@ -2,7 +2,7 @@
 import { MainHeadline, MainSubheadline, MaxHeight } from '~/ui/components';
 import { scrollTo } from '~/utils';
 
-import HeroImage from '../../../../public/images/hero-img.jpg';
+import HeroImage from '~/public/images/hero-img.jpg';
 
 import * as S from './HeroSection.style';
 

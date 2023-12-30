@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 //icons
-import Wave from '../../../../../public/icons/wave.svg';
+import Wave from '~/public/icons/wave.svg';
 
 //interfaces
 

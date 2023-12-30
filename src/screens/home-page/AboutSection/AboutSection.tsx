@@ -6,9 +6,9 @@ import { useInView } from 'react-intersection-observer';
 
 import { useSanityContext } from '~/contexts';
 import { usePageContext } from '~/contexts/PageContext';
-import { TextBuilder } from '~/ui/components';
+import { Strong, TextBuilder } from '~/ui/components';
 
-import Wave from '../../../../public/icons/wave.svg';
+import Wave from '~/public/icons/wave.svg';
 
 import * as S from './AboutSection.style';
 
@@ -47,11 +47,12 @@ export const AboutSection = () => {
         )}
         <S.AboutText center>
           Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
-          příměstský tábor s profesionální výukou plavání a otevírací dobou od
-          7:30 do 17:00. Naši kvalifikovaní instruktoři pomohou vašim dětem
-          zdokonalit své plavecké dovednosti a získat sebedůvěru ve vodě. S
-          naším bohatým programem aktivit, jako jsou sportovní hry a výlety,
-          budou vaše děti mít nezapomenutelné zážitky a zároveň se naučí
+          příměstský <Strong>tábor s profesionální výukou plavání</Strong> a
+          otevírací dobou <Strong>od 7:30 do 17:00</Strong>. Naši kvalifikovaní
+          instruktoři pomohou vašim dětem zdokonalit své plavecké dovednosti a
+          získat sebedůvěru ve vodě. S naším bohatým programem aktivit, jako
+          jsou sportovní hry a výlety, budou vaše děti mít{' '}
+          <Strong>nezapomenutelné zážitky</Strong> a zároveň se naučí
           spolupracovat a komunikovat s ostatními dětmi. Rezervujte si místo pro
           své dítě na našem letním táboře ještě dnes!
         </S.AboutText>

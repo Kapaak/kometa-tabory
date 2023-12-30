@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import FacebookIcon from '../../../../../../public/icons/facebook.svg';
-import InstagramIcon from '../../../../../../public/icons/instagram.svg';
-import YoutubeIcon from '../../../../../../public/icons/youtube.svg';
+import FacebookIcon from '~/public/icons/facebook.svg';
+import InstagramIcon from '~/public/icons/instagram.svg';
+import YoutubeIcon from '~/public/icons/youtube.svg';
 import { Flex } from '../../../atoms';
 
 import * as S from './FooterEnding.style';

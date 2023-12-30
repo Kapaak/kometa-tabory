@@ -1,89 +1,89 @@
 //interfaces
 //images
-import ArmendaLogo from "../../../../public/sponsors/armenda.svg";
-import BohuniceLogo from "../../../../public/sponsors/bohunice.png";
-import BrnoLogo from "../../../../public/sponsors/brno.png";
-import CusLogo from "../../../../public/sponsors/cus.png";
-import EnervitLogo from "../../../../public/sponsors/enervit.svg";
-import JihomorKrajLogo from "../../../../public/sponsors/jihomor-kraj.png";
-import KamzasportemLogo from "../../../../public/sponsors/kamzasportem.png";
-import KrpoleLogo from "../../../../public/sponsors/krpole.png";
-import NSALogo from "../../../../public/sponsors/nsa.png";
-import OlympLogo from "../../../../public/sponsors/olymp.png";
-import SeverBrnoLogo from "../../../../public/sponsors/severbrno.png";
-import SgldBrnoLogo from "../../../../public/sponsors/sglo.png";
-import VodniPoloLogo from "../../../../public/sponsors/vodni-polo.svg";
-import WaterdropLogo from "../../../../public/sponsors/waterdrop.png";
+import ArmendaLogo from '~/public/sponsors/armenda.svg';
+import BohuniceLogo from '~/public/sponsors/bohunice.png';
+import BrnoLogo from '~/public/sponsors/brno.png';
+import CusLogo from '~/public/sponsors/cus.png';
+import EnervitLogo from '~/public/sponsors/enervit.svg';
+import JihomorKrajLogo from '~/public/sponsors/jihomor-kraj.png';
+import KamzasportemLogo from '~/public/sponsors/kamzasportem.png';
+import KrpoleLogo from '~/public/sponsors/krpole.png';
+import NSALogo from '~/public/sponsors/nsa.png';
+import OlympLogo from '~/public/sponsors/olymp.png';
+import SeverBrnoLogo from '~/public/sponsors/severbrno.png';
+import SgldBrnoLogo from '~/public/sponsors/sglo.png';
+import VodniPoloLogo from '~/public/sponsors/vodni-polo.svg';
+import WaterdropLogo from '~/public/sponsors/waterdrop.png';
 
 export const data = [
   {
-    href: "https://www.zsarmenska.cz",
+    href: 'https://www.zsarmenska.cz',
     image: ArmendaLogo,
-    name: "armenska",
+    name: 'armenska',
   },
   {
-    href: "https://www.brno-bohunice.cz",
+    href: 'https://www.brno-bohunice.cz',
     image: BohuniceLogo,
-    name: "bohunice",
+    name: 'bohunice',
   },
   {
-    href: "https://www.brno.cz",
+    href: 'https://www.brno.cz',
     image: BrnoLogo,
-    name: "brno",
+    name: 'brno',
   },
   {
-    href: "https://www.cuscz.cz",
+    href: 'https://www.cuscz.cz',
     image: CusLogo,
-    name: "cus",
+    name: 'cus',
   },
   {
-    href: "https://www.enervit.cz",
+    href: 'https://www.enervit.cz',
     image: EnervitLogo,
-    name: "enervit",
+    name: 'enervit',
   },
   {
-    href: "https://www.jmk.cz",
+    href: 'https://www.jmk.cz',
     image: JihomorKrajLogo,
-    name: "jihomoravsky kraj",
+    name: 'jihomoravsky kraj',
   },
   {
-    href: "https://www.kamzasportemvbrne.cz",
+    href: 'https://www.kamzasportemvbrne.cz',
     image: KamzasportemLogo,
-    name: "kam za sportem",
+    name: 'kam za sportem',
   },
   {
-    href: "https://kralovopole.brno.cz",
+    href: 'https://kralovopole.brno.cz',
     image: KrpoleLogo,
-    name: "kralovo pole",
+    name: 'kralovo pole',
   },
   {
-    href: "https://agenturasport.cz",
+    href: 'https://agenturasport.cz',
     image: NSALogo,
-    name: "agentura sport",
+    name: 'agentura sport',
   },
   {
-    href: "https://www.olympcsmv.cz",
+    href: 'https://www.olympcsmv.cz',
     image: OlympLogo,
-    name: "olympijsky",
+    name: 'olympijsky',
   },
   {
-    href: "http://www.sever.brno.cz",
+    href: 'http://www.sever.brno.cz',
     image: SeverBrnoLogo,
-    name: "brno sever",
+    name: 'brno sever',
   },
   {
-    href: "https://www.sgldbrno.cz",
+    href: 'https://www.sgldbrno.cz',
     image: SgldBrnoLogo,
-    name: "sgld",
+    name: 'sgld',
   },
   {
-    href: "https://csvp.cz",
+    href: 'https://csvp.cz',
     image: VodniPoloLogo,
-    name: "vodni polo",
+    name: 'vodni polo',
   },
   {
-    href: "https://www.waterdrop.cz",
+    href: 'https://www.waterdrop.cz',
     image: WaterdropLogo,
-    name: "waterdrop",
+    name: 'waterdrop',
   },
 ];
