@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { dimensions } from '~/ui/theme';
 
-import { Flex, IconButton } from '../../atoms';
+import { Button, Flex } from '../../atoms';
 
 export const TextWrapper = styled.div`
   @media (${dimensions.tablet}) {
@@ -27,9 +27,7 @@ export const CreateButton = styled.button`
   border: none;
 `;
 
-export const ReturnButton = styled(IconButton)`
-  width: auto;
-  min-width: 26rem;
+export const ReturnButton = styled(Button)`
   @media (${dimensions.tablet}) {
     margin-left: auto;
   }
