@@ -60,7 +60,6 @@ export const ShowMoreButton = styled(Button)`
 export const Link = styled(NextLink)`
   border-radius: 3rem;
   font-size: var(--fbutton);
-  letter-spacing: 0.1rem;
   transition: all 0.2s ease;
   cursor: pointer;
   align-self: end;
@@ -69,6 +68,7 @@ export const Link = styled(NextLink)`
 
   color: var(--col2);
   border: 2px solid var(--col2);
+  font-family: var(--font2);
 
   &:hover {
     transition: all 0.35s ease;
