@@ -14,7 +14,7 @@ export function Header({ infoBar }: HeaderProps) {
   const { isNavigationOpen, isShadowActive } = usePageContext();
 
   return (
-    <S.Header withShadow={isShadowActive}>
+    <S.Header hasShadow={isShadowActive}>
       {infoBar && (
         <DiscountLabel title={infoBar?.title} description={infoBar?.text} />
       )}

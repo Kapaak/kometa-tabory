@@ -1,34 +1,36 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export interface TextProps {
   center?: boolean;
   bold?: boolean;
-  variant?: "light" | "dark" | "normal" | "grey";
+  variant?: 'light' | 'dark' | 'normal' | 'grey';
 }
 
-export const Text = styled.p<TextProps>`
+export const Text = styled.p.withConfig({
+  shouldForwardProp: (prop) => !['center', 'bold', 'variant'].includes(prop),
+})<TextProps>`
   font-size: var(--ftext);
   line-height: 1.9;
 
   ${({ variant }) => {
     switch (variant) {
-      case "light":
+      case 'light':
         return css`
           color: var(--colw);
         `;
 
-      case "dark":
+      case 'dark':
         return css`
           color: var(--colb);
         `;
 
-      case "grey":
+      case 'grey':
         return css`
           color: var(--colg);
           letter-spacing: 0.08rem;
         `;
 
-      case "normal":
+      case 'normal':
         return css`
           color: var(--col2);
         `;
@@ -39,6 +41,6 @@ export const Text = styled.p<TextProps>`
         `;
     }
   }}
-  font-weight: ${({ bold }) => (bold ? "500" : "300")};
-  text-align: ${({ center }) => (center ? "center" : "left")};
+  font-weight: ${({ bold }) => (bold ? '500' : '300')};
+  text-align: ${({ center }) => (center ? 'center' : 'left')};
 `;

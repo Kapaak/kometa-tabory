@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { dimensions, maxDimensions } from "../../../theme";
+import { dimensions, maxDimensions } from '../../../theme';
 
 type HiddenProps = {
   down?: keyof typeof dimensions;
@@ -8,47 +8,49 @@ type HiddenProps = {
   isHidden?: boolean;
 };
 
-export const Hidden = styled.div<HiddenProps>`
+export const Hidden = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['up', 'down', 'isHidden'].includes(prop),
+})<HiddenProps>`
   display: block;
 
   ${({ isHidden }) => {
     if (isHidden) {
-      return "visibility: hidden;";
+      return 'visibility: hidden;';
     }
-    return "visibility: visible;";
+    return 'visibility: visible;';
   }}
 
   ${({ up }) => {
     switch (up) {
-      case "tablet":
+      case 'tablet':
         return `@media (${dimensions.tablet}) { display: none; }`;
-      case "tabletX":
+      case 'tabletX':
         return `@media (${dimensions.tabletX}) { display: none; }`;
-      case "notebook":
+      case 'notebook':
         return `@media (${dimensions.notebook}) { display: none; }`;
-      case "desktop":
+      case 'desktop':
         return `@media (${dimensions.desktop}) { display: none; }`;
-      case "desktopX":
+      case 'desktopX':
         return `@media (${dimensions.desktopX}) { display: none; }`;
       default:
-        return "";
+        return '';
     }
   }}
 
   ${({ down }) => {
     switch (down) {
-      case "tablet":
+      case 'tablet':
         return `@media (${maxDimensions.tablet}) { display: none; }`;
-      case "tabletX":
+      case 'tabletX':
         return `@media (${maxDimensions.tabletX}) { display: none; }`;
-      case "notebook":
+      case 'notebook':
         return `@media (${maxDimensions.notebook}) { display: none; }`;
-      case "desktop":
+      case 'desktop':
         return `@media (${maxDimensions.desktop}) { display: none; }`;
-      case "desktopX":
+      case 'desktopX':
         return `@media (${maxDimensions.desktopX}) { display: none; }`;
       default:
-        return "";
+        return '';
     }
   }}
 `;

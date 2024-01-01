@@ -1,12 +1,12 @@
-//libraries
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { dimensions } from "~/ui/theme";
+import { dimensions } from '~/ui/theme';
 
-import { Flex } from "../../../../atoms/Flex";
-//styles
+import { Flex } from '../../../../atoms/Flex';
 
-export const NavLinks = styled.ul<{ isActive: boolean }>(
+export const NavLinks = styled.ul.withConfig({
+  shouldForwardProp: (prop) => !['isActive'].includes(prop),
+})<{ isActive: boolean }>(
   ({ isActive }) => css`
     display: none;
     position: fixed;
