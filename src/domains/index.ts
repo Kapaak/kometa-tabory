@@ -77,3 +77,8 @@ export type SanityCourseDay = {
   start?: number;
   capacity?: number;
 };
+
+export type CookieConsents = {
+  adStorage: 'denied' | 'granted' | 'pending';
+  analyticsStorage: 'denied' | 'granted' | 'pending';
+};

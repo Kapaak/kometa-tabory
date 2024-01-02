@@ -19,5 +19,6 @@ export * from './SectionElement';
 export * from './Space';
 export * from './Strong';
 export * from './Subheadline';
+export * from './Switch';
 export * from './Text';
 export * from './VerticalStack';

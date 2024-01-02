@@ -2,13 +2,14 @@ import { useState } from 'react';
 
 import { SanityImage } from '~/domains';
 import { Button, Text } from '~/ui/components';
-import { getDiscount, isTouchDevice } from '~/utils';
+import { getDiscount } from '~/utils';
 
 import { textVariant } from '../../variants';
 import { DiscountChip } from '../DiscountChip/DiscountChip';
 import { ServiceImage } from '../ServiceImage';
 import { ServiceInfo } from '../ServiceInfo';
 
+import { useIsTouchDevice } from '~/hooks';
 import * as S from './Service.style';
 
 interface ServiceProps {
@@ -44,6 +45,8 @@ export function Service(props: ServiceProps) {
     availabilityLabel,
   } = props;
   const [showMore, setShowMore] = useState(false);
+  const isTouchDevice = useIsTouchDevice();
+
   let isFullCapacity = true;
   const warningMessage = isAvailable
     ? 'Tento termín je již zaplněný'
@@ -55,7 +58,7 @@ export function Service(props: ServiceProps) {
   return (
     <S.Service
       initial="hidden"
-      {...(!isTouchDevice() && { whileHover: 'visible' })}
+      {...(!isTouchDevice && { whileHover: 'visible' })}
       animate={showMore ? 'visible' : 'hidden'}
     >
       <ServiceImage
@@ -80,7 +83,7 @@ export function Service(props: ServiceProps) {
           trip={trip}
         />
         <S.ActionsContainer>
-          {isTouchDevice() && (
+          {isTouchDevice && (
             <S.ShowMoreButton
               variant="plain"
               onClick={() => setShowMore((prev) => !prev)}

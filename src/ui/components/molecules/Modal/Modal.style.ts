@@ -1,9 +1,9 @@
-import * as Dialog from "@radix-ui/react-dialog";
-import styled, { keyframes } from "styled-components";
+import * as Dialog from '@radix-ui/react-dialog';
+import styled, { keyframes } from 'styled-components';
 
-import { dimensions } from "~/ui/theme";
+import { dimensions } from '~/ui/theme';
 
-import { Text } from "../../atoms";
+import { Text } from '../../atoms';
 
 const overlayShow = keyframes`
   from { opacity: 0 }
@@ -39,7 +39,7 @@ export const DialogContent = styled(Dialog.Content)`
 `;
 export const TextWrapper = styled.div`
   @media (${dimensions.notebook}) {
-    padding-block: 4rem;
+    padding-bottom: 4rem;
   }
 `;
 
