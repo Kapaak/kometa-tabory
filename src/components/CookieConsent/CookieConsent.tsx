@@ -2,6 +2,7 @@ import { consent } from 'nextjs-google-analytics';
 import { useEffect, useState } from 'react';
 
 import cookie from 'js-cookie';
+import posthog from 'posthog-js';
 
 import { CookieConsents } from '~/domains';
 import { Button, Text } from '~/ui/components';
@@ -29,6 +30,9 @@ export const CookieConsent = ({ cookieConsents }: CookieConsentProps) => {
       adStorage: 'granted',
       analyticsStorage: 'granted',
     };
+    console.log('accept all', posthog);
+
+    posthog.opt_in_capturing();
 
     setSelectedCookies(acceptConsents);
   };
@@ -38,6 +42,10 @@ export const CookieConsent = ({ cookieConsents }: CookieConsentProps) => {
       adStorage: 'denied',
       analyticsStorage: 'denied',
     };
+
+    console.log('reject all', posthog);
+
+    posthog.opt_out_capturing();
 
     setSelectedCookies(deniedConsents);
   };
