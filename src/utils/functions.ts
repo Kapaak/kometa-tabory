@@ -51,7 +51,7 @@ export function getDiscount(price?: number, discountPrice?: number) {
 
 export function isTouchDevice() {
   if (typeof window !== 'undefined') {
-    return matchMedia('(hover: none)').matches;
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   }
 
   return false;
