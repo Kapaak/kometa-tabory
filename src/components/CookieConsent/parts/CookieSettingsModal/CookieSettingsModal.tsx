@@ -1,6 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { CookieConsents } from '~/domains';
 import { Button, Divider, Modal, Text } from '~/ui/components';
 
 import { CookieSetingsItem } from '../CookieSetingsItem';
@@ -16,7 +15,7 @@ interface CookieSettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
   onRejectAll: () => void;
-  onSave: (checkedSwitches: CookieConsents) => void;
+  onSave: (checkedSwitches: boolean) => void;
 }
 
 export const CookieSettingsModal = ({
@@ -40,12 +39,11 @@ export const CookieSettingsModal = ({
   };
 
   const handleSave = (formValues: FormValues) => {
-    const transformedConsents: CookieConsents = {
-      adStorage: formValues.adStorage ? 'granted' : 'denied',
-      analyticsStorage: formValues.analyticsStorage ? 'granted' : 'denied',
-    };
+    const hasAcceptedConsent = Object.values(formValues).some(
+      (value) => value === true
+    );
 
-    onSave(transformedConsents);
+    onSave(hasAcceptedConsent);
     onClose();
   };
 
@@ -56,8 +54,14 @@ export const CookieSettingsModal = ({
       onChange={onClose}
       actions={
         <S.CookieSettingsActions>
-          <Button onClick={handleRejectAll}>Odmítnout vše</Button>
-          <Button variant="filled" onClick={handleSubmit(handleSave)}>
+          <Button type="button" onClick={handleRejectAll}>
+            Odmítnout vše
+          </Button>
+          <Button
+            type="button"
+            variant="filled"
+            onClick={handleSubmit(handleSave)}
+          >
             Uložit
           </Button>
         </S.CookieSettingsActions>
@@ -67,8 +71,7 @@ export const CookieSettingsModal = ({
         <form>
           <div>
             <Text variant="dark">
-              Vyberte, jaké soubory cookies chcete přijmout. Vaše volba bude
-              uložena po dobu jednoho roku.
+              Vyberte, jaké soubory cookies chcete přijmout.
             </Text>
             <Divider />
             <CookieSetingsItem title="Statistika" name="analyticsStorage">

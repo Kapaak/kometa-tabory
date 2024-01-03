@@ -1,6 +1,5 @@
-import type { AppContext, AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { useEffect } from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
@@ -9,13 +8,7 @@ import { PostHogProvider } from 'posthog-js/react';
 
 import { CookieConsent, HeadComponent } from '~/components';
 import { PageContextProvider } from '~/contexts/PageContext';
-import { CookieConsents } from '~/domains';
 import { GlobalStyles } from '~/ui/theme';
-import { getCookieConsents } from '~/utils';
-
-interface MyAppProps extends AppProps {
-  cookieConsents?: CookieConsents | null;
-}
 
 if (typeof window !== 'undefined') {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY ?? '', {
@@ -27,11 +20,7 @@ if (typeof window !== 'undefined') {
   });
 }
 
-export default function App({
-  Component,
-  pageProps,
-  cookieConsents,
-}: MyAppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
@@ -51,34 +40,34 @@ export default function App({
   return (
     <PostHogProvider client={posthog}>
       <PageContextProvider>
-        <GoogleAnalytics
+        {/* <GoogleAnalytics
           trackPageViews
           gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
-        />
+        /> */}
         <Analytics />
         <HeadComponent />
         <GlobalStyles />
         <Component {...pageProps} />
-        <CookieConsent cookieConsents={cookieConsents} />
+        <CookieConsent />
       </PageContextProvider>
     </PostHogProvider>
   );
 }
 
-App.getInitialProps = async (
-  appContext: AppContext
-): Promise<Partial<MyAppProps>> => {
-  const { ctx, Component } = appContext;
+// App.getInitialProps = async (
+//   appContext: AppContext
+// ): Promise<Partial<MyAppProps>> => {
+//   const { ctx, Component } = appContext;
 
-  let pageProps = {};
+//   let pageProps = {};
 
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
-  }
+//   if (Component.getInitialProps) {
+//     pageProps = await Component.getInitialProps(ctx);
+//   }
 
-  const cookieConsents = (await getCookieConsents(
-    ctx
-  )) as CookieConsents | null;
+//   const cookieConsents = (await getCookieConsents(
+//     ctx
+//   )) as CookieConsents | null;
 
-  return { pageProps, cookieConsents };
-};
+//   return { pageProps, cookieConsents };
+// };

@@ -1,77 +1,46 @@
-import { consent } from 'nextjs-google-analytics';
 import { useEffect, useState } from 'react';
 
-import cookie from 'js-cookie';
 import posthog from 'posthog-js';
 
-import { CookieConsents } from '~/domains';
 import { Button, Text } from '~/ui/components';
 
 import { CookieSettingsModal } from './parts';
 
 import * as S from './CookieConsent.style';
 
-type CookieConsentProps = {
-  cookieConsents?: CookieConsents | null;
-};
-
-const setCookieConsents = (cookieConsents: CookieConsents) => {
-  cookie.set('cookie-consent', JSON.stringify(cookieConsents), {
-    expires: 365,
-  });
-};
-
-export const CookieConsent = ({ cookieConsents }: CookieConsentProps) => {
-  const [selectedCookies, setSelectedCookies] = useState(cookieConsents);
+export const CookieConsent = () => {
   const [showSettings, setShowSettings] = useState(false);
+  const [showConsent, setShowConsent] = useState(false);
+
+  useEffect(() => {
+    if (
+      !posthog.has_opted_in_capturing() &&
+      !posthog.has_opted_out_capturing()
+    ) {
+      setShowConsent(true);
+    }
+  }, []);
 
   const handleAcceptAll = () => {
-    const acceptConsents: CookieConsents = {
-      adStorage: 'granted',
-      analyticsStorage: 'granted',
-    };
-    console.log('accept all', posthog);
-
     posthog.opt_in_capturing();
 
-    setSelectedCookies(acceptConsents);
+    setShowConsent(false);
   };
 
   const handleRejectAll = () => {
-    const deniedConsents: CookieConsents = {
-      adStorage: 'denied',
-      analyticsStorage: 'denied',
-    };
-
-    console.log('reject all', posthog);
-
     posthog.opt_out_capturing();
 
-    setSelectedCookies(deniedConsents);
+    setShowConsent(false);
   };
 
-  const handleSave = (savedCookies: CookieConsents) => {
-    setShowSettings(true);
-    setSelectedCookies(savedCookies);
-  };
-
-  useEffect(() => {
-    setSelectedCookies(cookieConsents);
-  }, [cookieConsents]);
-
-  useEffect(() => {
-    if (selectedCookies) {
-      setCookieConsents(selectedCookies);
-
-      consent({
-        arg: 'update',
-        params: {
-          ad_storage: selectedCookies?.adStorage,
-          analytics_storage: selectedCookies?.analyticsStorage,
-        },
-      });
+  const handleSave = (hasAcceptedConsents: boolean) => {
+    if (hasAcceptedConsents) {
+      posthog.opt_in_capturing();
+    } else {
+      posthog.opt_out_capturing();
     }
-  }, [selectedCookies]);
+    setShowConsent(false);
+  };
 
   return (
     <>
@@ -81,7 +50,7 @@ export const CookieConsent = ({ cookieConsents }: CookieConsentProps) => {
         onSave={handleSave}
         onRejectAll={handleRejectAll}
       />
-      {!selectedCookies && !showSettings && (
+      {showConsent && (
         <S.CookieConsent>
           <S.MaxWidth>
             <S.Container>
@@ -91,8 +60,14 @@ export const CookieConsent = ({ cookieConsents }: CookieConsentProps) => {
                 &bdquo;Přijmout vše&rdquo; dáváte souhlas s jejich používáním.
               </Text>
               <S.ButtonContainer>
-                <Button onClick={() => setShowSettings(true)}>Nastavení</Button>
-                <Button variant="filled" onClick={handleAcceptAll}>
+                <Button type="button" onClick={() => setShowSettings(true)}>
+                  Nastavení
+                </Button>
+                <Button
+                  type="button"
+                  variant="filled"
+                  onClick={handleAcceptAll}
+                >
                   Přijmout vše
                 </Button>
               </S.ButtonContainer>

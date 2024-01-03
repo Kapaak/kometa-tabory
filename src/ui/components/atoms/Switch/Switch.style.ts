@@ -5,7 +5,7 @@ export const Switch = styled(RadixSwitch.Root)`
   all: unset;
   cursor: pointer;
   min-width: 4.2rem;
-  height: 2.5rem;
+  height: 2.7rem;
   background-color: #adadad;
   border-radius: 1.4rem;
   position: relative;
