@@ -4,6 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import axios from 'axios';
 import dayjs from 'dayjs';
+import posthog from 'posthog-js';
 
 import { appendSpreadsheet } from '~/libs';
 import { Danger, Subheadline, SuccessModal } from '~/ui/components';
@@ -68,6 +69,8 @@ export const SectionForm = ({
     } finally {
       setIsModalOpen(true);
       setIsLoading(false);
+
+      posthog.capture('conversion', { property: 'value' });
     }
   };
 

@@ -34,10 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
-  // const click = () => { //custom event
-  //   posthog.capture('my event', { property: 'value' });
-  // };
-
   return (
     <PostHogProvider client={posthog}>
       <PageContextProvider>
