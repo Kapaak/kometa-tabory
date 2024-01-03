@@ -8,7 +8,7 @@ export const CookieConsent = styled.div`
   bottom: 0;
   width: 100%;
   background-color: var(--colw);
-  padding-block: 2rem 4.8rem;
+  padding-block: 2rem;
   z-index: 10;
   box-shadow: var(--shadow);
 

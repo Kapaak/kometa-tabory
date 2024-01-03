@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
         --col-success:#34C759;
 
         --max-width:145rem;
-        --side-padding:3rem;
+        --side-padding:2rem;
         --vertical-padding:2rem;
         --gap:2.5rem;
         --header-height:7rem;
