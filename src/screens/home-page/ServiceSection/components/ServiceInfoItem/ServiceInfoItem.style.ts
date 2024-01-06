@@ -7,7 +7,4 @@ export const ServiceItem = styled.li.withConfig({
   display: flex;
   gap: 1rem;
   align-items: center;
-  span {
-    font-weight: ${({ bold }) => (bold ? 500 : 300)};
-  }
 `;

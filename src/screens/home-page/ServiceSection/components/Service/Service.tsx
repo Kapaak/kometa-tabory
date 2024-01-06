@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
 
 import { SanityImage } from '~/domains';
-import { Button, Text } from '~/ui/components';
+import { HorizontalStack, VerticalStack } from '~/ui/components';
 import { getDiscount } from '~/utils';
+import { formatLocaleNumber } from '~/utils/number';
 
-import { textVariant } from '../../variants';
 import { DiscountChip } from '../DiscountChip/DiscountChip';
+import { ServiceActionButton } from '../ServiceActionButton';
 import { ServiceImage } from '../ServiceImage';
 import { ServiceInfo } from '../ServiceInfo';
 
-import { useIsTouchDevice } from '~/hooks';
 import * as S from './Service.style';
 
 interface ServiceProps {
@@ -44,8 +44,6 @@ export function Service(props: ServiceProps) {
     isDataError,
     availabilityLabel,
   } = props;
-  const [showMore, setShowMore] = useState(false);
-  const isTouchDevice = useIsTouchDevice();
 
   let isFullCapacity = true;
   const warningMessage = isAvailable
@@ -55,60 +53,66 @@ export function Service(props: ServiceProps) {
   if (maxCapacity) {
     isFullCapacity = currentCapacity >= maxCapacity;
   }
+
+  const isServiceAvailable =
+    isAvailable && !isFullCapacity && !isNaN(currentCapacity);
+
+  const actionButtonLabel = useMemo(() => {
+    if (isDataError) return 'Nepodařilo se načíst data';
+    else if (!isAvailable) return availabilityLabel ?? '';
+    else if (isFullCapacity) return 'Termín je již zaplněný';
+    else if (isAvailable && !isFullCapacity && !isNaN(currentCapacity))
+      return 'Přihláška';
+    else if (isAvailable && !isFullCapacity && isNaN(currentCapacity))
+      return 'Načítání ...';
+    else return '';
+  }, [
+    availabilityLabel,
+    currentCapacity,
+    isAvailable,
+    isDataError,
+    isFullCapacity,
+  ]);
+
   return (
-    <S.Service
-      initial="hidden"
-      {...(!isTouchDevice && { whileHover: 'visible' })}
-      animate={showMore ? 'visible' : 'hidden'}
-    >
+    <S.Service>
+      {discountPrice && (
+        <DiscountChip value={getDiscount(price, discountPrice)} />
+      )}
       <ServiceImage
         hasWarning={isFullCapacity || !isAvailable}
         warningMessage={warningMessage}
         image={image}
         alt={imageAlt ?? ''}
       />
-      <S.Container layout variants={textVariant}>
-        {discountPrice && (
-          <DiscountChip value={getDiscount(price, discountPrice)} />
-        )}
+      <S.Container>
         <S.Subheadline variant="dark">{headline}</S.Subheadline>
-        <Text variant="grey">{date ?? ''}</Text>
         <ServiceInfo
           isAvailable={isAvailable}
           currentCapacity={currentCapacity}
           maxCapacity={maxCapacity}
           date={date}
-          price={price}
-          discountPrice={discountPrice}
           trip={trip}
         />
-        <S.ActionsContainer>
-          {isTouchDevice && (
-            <S.ShowMoreButton
-              variant="plain"
-              onClick={() => setShowMore((prev) => !prev)}
-            >
-              {showMore ? 'Méně' : 'Více'} o táboru
-            </S.ShowMoreButton>
-          )}
-          {isDataError && <Button disabled>Nepodařilo se načíst data</Button>}
-          {!isAvailable && !isDataError && (
-            <Button disabled>{availabilityLabel}</Button>
-          )}
-          {isFullCapacity && isAvailable && !isDataError && (
-            <Button disabled>Termín je již zaplněný</Button>
-          )}
-          {!isFullCapacity &&
-            isAvailable &&
-            !isNaN(currentCapacity) &&
-            !isDataError && (
-              <S.Link href={`/prihlasky/${url}`}>Přihláška</S.Link>
+        <HorizontalStack justify="space-between" align="center">
+          <ServiceActionButton
+            label={actionButtonLabel}
+            href={isServiceAvailable ? `/prihlasky/${url}` : undefined}
+          />
+          <VerticalStack justify="center" align="flex-end">
+            {discountPrice && (
+              <>
+                <S.DiscountPrice>
+                  {formatLocaleNumber(Number(price))}
+                </S.DiscountPrice>
+                <S.Price>{formatLocaleNumber(Number(discountPrice))}</S.Price>
+              </>
             )}
-          {!isFullCapacity &&
-            isAvailable &&
-            isNaN(currentCapacity) &&
-            !isDataError && <Button disabled>Načítání ...</Button>}
-        </S.ActionsContainer>
+            {!discountPrice && (
+              <S.Price>{formatLocaleNumber(Number(price))}</S.Price>
+            )}
+          </VerticalStack>
+        </HorizontalStack>
       </S.Container>
     </S.Service>
   );

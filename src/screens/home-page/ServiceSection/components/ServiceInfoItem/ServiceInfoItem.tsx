@@ -2,6 +2,8 @@ import { PropsWithChildren } from 'react';
 
 import { Icon } from '@phosphor-icons/react';
 
+import { Text } from '~/ui/components';
+
 import * as S from './ServiceInfoItem.style';
 
 interface ServiceInfoItemProps {
@@ -20,7 +22,7 @@ export function ServiceInfoItem({
   return (
     <S.ServiceItem bold={bold}>
       <Icon size={22} />
-      <span>{label}</span>
+      <Text variant="dark">{label}</Text>
       {children}
     </S.ServiceItem>
   );

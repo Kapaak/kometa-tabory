@@ -1,78 +1,49 @@
-import NextLink from 'next/link';
-
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-import { Button, Subheadline as SSubheadline } from '~/ui/components';
+import { Subheadline as SSubheadline, Text } from '~/ui/components';
 import { dimensions } from '~/ui/theme';
-
-export const ImageContainer = styled(motion.div)`
-  position: relative;
-  height: 50%;
-  overflow: hidden;
-`;
 
 export const Subheadline = styled(SSubheadline)`
   margin-bottom: 0;
 `;
 
-export const Service = styled(motion.article)`
-  display: flex;
-  flex-direction: column;
-  height: 48rem;
-  border-radius: var(--small-border-rad);
-  box-shadow: var(--shadow);
-  font-family: var(--font1);
-  overflow: hidden;
-
-  ul {
-    display: none;
-  }
-`;
-
-export const Container = styled(motion.div)`
+export const Service = styled.article`
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 3rem;
-  flex: 1;
+  height: 44.5rem;
+  border-radius: var(--small-border-rad);
+  box-shadow: var(--shadow);
+  font-family: var(--font1);
+`;
 
-  @media (${dimensions.tablet}) {
-    padding: 3rem 4rem;
-  }
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  flex: 1;
 
   @media (${dimensions.notebook}) {
     padding: 3rem;
   }
 `;
 
-export const ActionsContainer = styled.div`
-  display: flex;
-  margin-top: auto;
-  margin-left: auto;
-  flex-wrap: wrap;
-`;
-
-export const ShowMoreButton = styled(Button)`
-  display: block;
-`;
-
-export const Link = styled(NextLink)`
-  border-radius: 3rem;
-  font-size: var(--fbutton);
-  transition: all 0.2s ease;
-  cursor: pointer;
-  align-self: end;
-  padding: 1.5rem 4rem;
-  margin-top: auto;
-
-  color: var(--col2);
-  border: 2px solid var(--col2);
+export const Price = styled(Text)`
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
   font-family: var(--font2);
+`;
 
-  &:hover {
-    transition: all 0.35s ease;
-    background-color: var(--col2);
-    color: var(--colw);
-  }
+export const DiscountPrice = styled(Text).attrs({
+  variant: 'grey',
+})`
+  font-family: var(--font2);
+  text-decoration: line-through 0.2rem;
+  text-decoration-line: line-through;
+  text-decoration-thickness: 0.1rem;
+  -webkit-text-decoration-thickness: 0.1rem;
+  -webkit-text-decoration-line: line-through;
 `;

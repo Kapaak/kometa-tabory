@@ -1,21 +1,10 @@
-import {
-  Backpack,
-  BatteryMedium,
-  CalendarBlank,
-  Coin,
-} from '@phosphor-icons/react';
+import { Backpack, BatteryMedium, CalendarBlank } from '@phosphor-icons/react';
 
-import { joinValues } from '~/utils';
-
-import { ulVariant } from '../../variants';
 import { ServiceInfoItem } from '../ServiceInfoItem';
 
-import { Strong } from '~/ui/components';
 import * as S from './ServiceInfo.style';
 
 export interface ServiceInfoType {
-  price?: number;
-  discountPrice?: number;
   date?: string;
   currentCapacity?: number;
   maxCapacity?: number;
@@ -24,38 +13,16 @@ export interface ServiceInfoType {
 }
 
 export const ServiceInfo = (props: ServiceInfoType) => {
-  const {
-    currentCapacity,
-    date,
-    maxCapacity,
-    price,
-    isAvailable,
-    discountPrice,
-    trip,
-  } = props;
+  const { currentCapacity, date, maxCapacity, isAvailable, trip } = props;
 
   const hasCapacity =
     maxCapacity !== undefined && currentCapacity !== undefined && isAvailable;
 
   return (
-    <S.ServiceItems layout variants={ulVariant}>
-      <ServiceInfoItem
-        bold
-        icon={Coin}
-        label={
-          discountPrice
-            ? joinValues([discountPrice, 'Kč'])
-            : joinValues([price, 'Kč']) ?? '-'
-        }
-      >
-        {discountPrice && (
-          <S.LineThroughText>
-            <Strong>{price} Kč</Strong>
-          </S.LineThroughText>
-        )}
-      </ServiceInfoItem>
+    <S.ServiceItems>
       <ServiceInfoItem icon={CalendarBlank} label={date ?? ''} />
-      {hasCapacity && (
+      <ServiceInfoItem icon={Backpack} label={trip ?? ''} />
+      {hasCapacity && maxCapacity - currentCapacity < 5 && (
         <ServiceInfoItem icon={BatteryMedium} label="Volná místa:">
           <div>
             <S.CapacityText smallCapacity={maxCapacity - currentCapacity < 5}>
@@ -65,7 +32,6 @@ export const ServiceInfo = (props: ServiceInfoType) => {
           </div>
         </ServiceInfoItem>
       )}
-      <ServiceInfoItem icon={Backpack} label={trip ?? ''} />
     </S.ServiceItems>
   );
 };

@@ -1,5 +1,3 @@
-import { labelVariant } from '../../variants';
-
 import * as S from './DiscountChip.style';
 
 interface DiscountChipProps {
@@ -7,7 +5,5 @@ interface DiscountChipProps {
 }
 
 export function DiscountChip({ value }: DiscountChipProps) {
-  return (
-    <S.DiscountChip variants={labelVariant}>sleva {value} %</S.DiscountChip>
-  );
+  return <S.DiscountChip>sleva {value} %</S.DiscountChip>;
 }

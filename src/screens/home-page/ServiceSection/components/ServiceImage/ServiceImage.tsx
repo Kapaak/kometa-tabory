@@ -3,8 +3,6 @@ import { Warning } from '@phosphor-icons/react';
 import { SanityImage } from '~/domains';
 import { Flex } from '~/ui/components';
 
-import { imageVariant } from '../../variants';
-
 import * as S from './ServiceImage.style';
 
 interface ServiceImageProps {
@@ -21,7 +19,7 @@ export function ServiceImage({
   warningMessage,
 }: ServiceImageProps) {
   return (
-    <S.ServiceImage variants={imageVariant} transition={{ bounce: 0 }}>
+    <S.ServiceImage>
       {image && (
         <S.Image
           image={image}

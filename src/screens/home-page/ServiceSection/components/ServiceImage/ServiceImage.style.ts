@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import { NextSanityImage } from '~/components';
 import { Text } from '~/ui/components';
 
-export const ServiceImage = styled(motion.div)`
+export const ServiceImage = styled.div`
   position: relative;
-  height: 26rem;
+  height: 18.4rem;
   overflow: hidden;
+  border-radius: var(--small-border-rad) var(--small-border-rad) 0 0;
 `;
 
 export const Image = styled(NextSanityImage).withConfig({
