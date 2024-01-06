@@ -58,7 +58,7 @@ export function Service(props: ServiceProps) {
     isAvailable && !isFullCapacity && !isNaN(currentCapacity);
 
   const actionButtonLabel = useMemo(() => {
-    if (isDataError) return 'Nepodařilo se načíst data';
+    if (isDataError) return 'Nepodařilo se načíst';
     else if (!isAvailable) return availabilityLabel ?? '';
     else if (isFullCapacity) return 'Termín je již zaplněný';
     else if (isAvailable && !isFullCapacity && !isNaN(currentCapacity))

@@ -19,13 +19,9 @@ export const Button = ({
   ...rest
 }: PropsWithChildren<ButtonProps>) => {
   return (
-    <S.Button {...rest}>
+    <S.Button isLoading={isLoading} {...rest}>
       {!isLoading && children}
-      {isLoading && (
-        <span>
-          odesílám ... <S.LoadingIcon size={32} weight="fill" />
-        </span>
-      )}
+      {isLoading && <S.LoadingIcon size={32} />}
     </S.Button>
   );
 };

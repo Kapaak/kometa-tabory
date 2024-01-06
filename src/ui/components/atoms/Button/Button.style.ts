@@ -26,13 +26,17 @@ export const Button = styled.button<ButtonProps>`
   overflow: hidden;
   transition: all 0.3s ease;
   justify-content: center;
-  width: ${({ isLoading }) => isLoading && '14rem'};
+  min-width: 12rem;
+  height: 5.1rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 
   ${({ variant = 'bordered', color = 'primary' }) => {
     switch (variant) {
       case 'bordered':
         return css`
-          border: 2px solid var(--col2);
+          border: 1px solid var(--col2);
           background-color: transparent;
 
           &:hover {
@@ -79,7 +83,7 @@ export const Button = styled.button<ButtonProps>`
         `;
       case 'regular':
         return css`
-          padding: 1.5rem 2rem;
+          padding: 1.5rem 3rem;
         `;
     }
   }}
@@ -99,11 +103,8 @@ const rollingKeyframe = keyframes`
 
 export const LoadingIcon = styled(CircleNotch)`
   position: absolute;
-  right: 0.4rem;
-  top: 50%;
-  color: var(--colg);
-  border-radius: 50%;
   padding: 0.6rem;
-  transform: translateY(-50%) rotate(0deg);
+  top: 50%;
+  transform: translateY(-50%);
   animation: ${rollingKeyframe} 1.2s linear infinite;
 `;
