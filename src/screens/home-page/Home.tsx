@@ -10,11 +10,14 @@ import { LocationSection } from './LocationSection';
 import { ServiceSection } from './ServiceSection';
 import { SponsorSection } from './SponsorSection';
 import { TestimonialSection } from './TestimonialSection';
+import { USPSection } from './USPSection';
 
 export function HomePageScreen() {
   return (
     <>
       <HeroSection />
+      <Space half />
+      <USPSection />
       <Space half />
       <AboutSection />
       <Space half />

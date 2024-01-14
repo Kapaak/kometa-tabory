@@ -41,7 +41,7 @@ export const GlobalStyles = createGlobalStyle`
         --gap:2.5rem;
         --header-height:7rem;
 
-        --shadow:0 0 20px 0 rgba(10, 19, 10, 0.1);
+        --shadow:0 0 10px 0 rgba(0, 0, 0, 0.05);
         --small-border-rad:1rem;
 
         --ftext:1.6rem;
