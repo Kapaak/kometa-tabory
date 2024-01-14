@@ -9,3 +9,4 @@ export { LocationSection } from './LocationSection';
 export { ServiceSection } from './ServiceSection';
 export { SponsorSection } from './SponsorSection';
 export { TestimonialSection } from './TestimonialSection';
+export { USPSection } from './USPSection';
