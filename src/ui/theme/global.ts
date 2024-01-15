@@ -22,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         --font2: 'Poppins', sans-serif;
 
         --col1: #73F0C0;
+        --col1-lighter:#73F0C033;
         --col1-light:#ABF6D9;
         --col1-hover: #6ed8b0;
         --col2-hover: #1A5FBF;
