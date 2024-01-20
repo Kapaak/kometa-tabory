@@ -1,18 +1,15 @@
-//libraries
-import NextImage from "next/image";
+import NextImage from 'next/image';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-//components
 import {
+  Button,
   Flex,
-  Text,
   MaxWidth as SMaxWidth,
   SectionElement,
-  Button,
-} from "~/ui/components";
-//functions
-import { dimensions } from "~/ui/theme";
+  Text,
+} from '~/ui/components';
+import { dimensions } from '~/ui/theme';
 
 export const HeroSection = styled(SectionElement)`
   @media (${dimensions.notebook}) {
@@ -89,4 +86,11 @@ export const TextContainer = styled(Text)`
   @media (${dimensions.desktop}) {
     margin-bottom: 1rem;
   }
+`;
+
+export const PlayVideoButton = styled(Button)`
+  color: var(--colw);
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0;
 `;

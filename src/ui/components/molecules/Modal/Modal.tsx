@@ -8,7 +8,7 @@ import * as S from './Modal.style';
 
 interface ModalProps {
   open: boolean;
-  title: string;
+  title?: string;
   actions?: ReactNode;
   onChange?: () => void;
 }

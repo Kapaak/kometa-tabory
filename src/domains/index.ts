@@ -78,6 +78,14 @@ export type SanityCourseDay = {
   capacity?: number;
 };
 
+export type SanityVideo = {
+  videoFile: {
+    asset: {
+      url: string;
+    };
+  };
+};
+
 export type CookieConsents = {
   adStorage: 'denied' | 'granted' | 'pending';
   analyticsStorage: 'denied' | 'granted' | 'pending';

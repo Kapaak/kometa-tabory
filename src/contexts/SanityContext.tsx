@@ -7,6 +7,7 @@ import {
   SanityFaq,
   SanityPhotoGallery,
   SanityTestimonial,
+  SanityVideo,
 } from '~/domains';
 
 type SanityContext = {
@@ -17,6 +18,7 @@ type SanityContext = {
   camps: SanityCamp[];
   spreadSheetsIds: number[];
   photoGallery: SanityPhotoGallery[];
+  videos: SanityVideo[];
 };
 
 const SanityContext = createContext<SanityContext>({
@@ -27,6 +29,7 @@ const SanityContext = createContext<SanityContext>({
   camps: [],
   spreadSheetsIds: [],
   photoGallery: [],
+  videos: [],
 });
 
 export const SanityContextProvider = ({

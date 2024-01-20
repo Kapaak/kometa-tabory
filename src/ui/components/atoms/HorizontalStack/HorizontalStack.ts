@@ -18,6 +18,7 @@ export const HorizontalStack = styled.div.withConfig({
       'align',
       'direction',
       'gap',
+      'flex',
       'textAlign',
       'width',
       'relative',
@@ -32,6 +33,7 @@ export const HorizontalStack = styled.div.withConfig({
   width?: string;
   relative?: boolean;
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  flex?: string;
 }>`
   position: ${({ relative }) => (relative ? 'relative' : 'static')};
   display: flex;
@@ -44,4 +46,5 @@ export const HorizontalStack = styled.div.withConfig({
   width: ${({ width }) => (width ? width : '100%')};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
   flex-wrap: ${({ wrap }) => (wrap ? wrap : 'nowrap')};
+  flex: ${({ flex }) => (flex ? flex : 'initial')};
 `;

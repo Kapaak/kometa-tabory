@@ -10,6 +10,7 @@ import {
   SanityInfoBar,
   SanityPhotoGallery,
   SanityTestimonial,
+  SanityVideo,
 } from '~/domains';
 import { client } from '~/libs';
 import { HomePageScreen } from '~/screens';
@@ -27,6 +28,7 @@ export default function HomePage({
   camps,
   spreadSheetsIds,
   photoGallery,
+  videos,
 }: HomePageProps) {
   return (
     <SanityContextProvider
@@ -38,6 +40,7 @@ export default function HomePage({
         camps,
         spreadSheetsIds,
         photoGallery,
+        videos,
       }}
     >
       <PageLayout infoBar={infoBar}>
@@ -55,6 +58,7 @@ export const getStaticProps = async () => {
   const queryTestimonial = groq`*[_type == "testimonial"]{title,text,origin}`;
   const queryCamp = groq`*[_type == "camp"]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},alt,targetUrl,spreadsheetId}|order(title asc)`;
   const queryPhotoGallery = groq`*[_type == "gallery"]{title,alt,image{asset->{...,metadata}}}`;
+  const queryVideo = groq`*[_type == "video"]{title,videoFile{asset->{url}}}`;
 
   const actualities: SanityActuality[] = await client.fetch(queryActualities);
   const faqs: SanityFaq[] = await client.fetch(queryFAQ);
@@ -64,6 +68,7 @@ export const getStaticProps = async () => {
   const camps: SanityCamp[] = await client.fetch(queryCamp);
   const photoGallery: SanityPhotoGallery[] =
     await client.fetch(queryPhotoGallery);
+  const videos: SanityVideo[] = await client.fetch(queryVideo);
 
   const spreadSheetsIds: number[] = (camps ?? [])
     .map((camp) => camp?.spreadsheetId)
@@ -80,6 +85,7 @@ export const getStaticProps = async () => {
       camps,
       spreadSheetsIds,
       photoGallery,
+      videos,
     },
     revalidate: 10,
   };

@@ -10,7 +10,6 @@ import { LocationSection } from './LocationSection';
 import { ServiceSection } from './ServiceSection';
 import { SponsorSection } from './SponsorSection';
 import { TestimonialSection } from './TestimonialSection';
-import { VideoSection } from './VideoSection';
 
 export function HomePageScreen() {
   return (
@@ -19,8 +18,6 @@ export function HomePageScreen() {
       <Space half />
       <AboutSection />
       <Space half />
-      <VideoSection />
-      <Space />
       <ServiceSection />
       <Space />
       <FAQSection />

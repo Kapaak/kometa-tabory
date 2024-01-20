@@ -26,7 +26,7 @@ export const DialogContent = styled(Dialog.Content)`
   width: 90vw;
   max-width: 60rem;
   max-height: 99%;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 2rem;
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 11;
