@@ -1,41 +1,53 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 type justifyOptions =
-  | "space-between"
-  | "space-evenly"
-  | "center"
-  | "space-around"
-  | "end"
-  | "flex-end"
-  | "flex-start"
-  | "left"
-  | "right";
+  | 'space-between'
+  | 'space-evenly'
+  | 'center'
+  | 'space-around'
+  | 'end'
+  | 'flex-end'
+  | 'flex-start'
+  | 'left'
+  | 'right';
 
-export const VerticalStack = styled.div<{
+export const VerticalStack = styled.div.withConfig({
+  shouldForwardProp: (prop) =>
+    ![
+      'justify',
+      'align',
+      'direction',
+      'gap',
+      'textAlign',
+      'width',
+      'relative',
+      'wrap',
+    ].includes(prop),
+})<{
   justify?: justifyOptions;
   align?: string;
-  direction?: "row" | "column" | "row-reverse" | "column-reverse";
+  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   gap?: string;
-  textAlign?: "left" | "center" | "right";
+  textAlign?: 'left' | 'center' | 'right';
   width?: string;
   relative?: boolean;
-  wrap?: "nowrap" | "wrap" | "wrap-reverse";
+  wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   padding?: string;
   margin?: string;
   flex?: string;
 }>`
-  position: ${({ relative }) => (relative ? "relative" : "static")};
+  position: ${({ relative }) => (relative ? 'relative' : 'static')};
   display: flex;
   flex-direction: column;
-  justify-content: ${({ justify }) => (justify ? justify : "flex-start")};
-  align-items: ${({ align }) => (align ? align : "stretch")};
-  flex-direction: ${({ direction }) => (direction ? direction : "column")};
-  gap: ${({ gap }) => (gap ? gap : "0")};
+  justify-content: ${({ justify }) => (justify ? justify : 'flex-start')};
+  align-items: ${({ align }) => (align ? align : 'stretch')};
+  flex-direction: ${({ direction }) => (direction ? direction : 'column')};
+  gap: ${({ gap }) => (gap ? gap : '0')};
   height: 100%;
-  width: ${({ width }) => (width ? width : "100%")};
-  text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
-  flex-wrap: ${({ wrap }) => (wrap ? wrap : "nowrap")};
-  padding: ${({ padding }) => (padding ? padding : "0")};
-  margin: ${({ margin }) => (margin ? margin : "0")};
-  margin: ${({ flex }) => (flex ? flex : "0")};
+  width: ${({ width }) => (width ? width : '100%')};
+  text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
+  flex-wrap: ${({ wrap }) => (wrap ? wrap : 'nowrap')};
+  padding: ${({ padding }) => (padding ? padding : '0')};
+  margin: ${({ margin }) => (margin ? margin : '0')};
+  margin: ${({ flex }) => (flex ? flex : '0')};
 `;

@@ -13,7 +13,10 @@ interface ButtonProps {
   color?: ButtonColor;
 }
 
-export const Button = styled.button<ButtonProps>`
+export const Button = styled.button.withConfig({
+  shouldForwardProp: (prop) =>
+    !['disabled', 'isLoading', 'variant', 'size', 'color'].includes(prop),
+})<ButtonProps>`
   display: flex;
   position: relative;
   white-space: nowrap;
