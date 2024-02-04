@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 
 import { data } from './Head.data';
 
+type RouteType = '/' | '/prihlasky';
+
 export const HeadComponent = () => {
   const router = useRouter();
 

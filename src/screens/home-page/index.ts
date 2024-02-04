@@ -1,4 +1,5 @@
 export { AboutSection } from './AboutSection';
+export { ActualitiesSection } from './ActualitiesSection';
 export { ContactSection } from './ContactSection';
 export { DiscountSection } from './DiscountSection';
 export { DocumentSection } from './DocumentSection';
