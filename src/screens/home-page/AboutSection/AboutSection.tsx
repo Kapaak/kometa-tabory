@@ -1,20 +1,50 @@
-//libraries
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-//images
-
-import { useSanityContext } from '~/contexts';
 import { usePageContext } from '~/contexts/PageContext';
-import { Strong, TextBuilder } from '~/ui/components';
-
-import Wave from '~/public/icons/wave.svg';
+import AboutUsImage0 from '~/public/images/about-us/photo0.jpg';
+import AboutUsImage1 from '~/public/images/about-us/photo1.jpg';
+import AboutUsImage2 from '~/public/images/about-us/photo2.jpg';
+import AboutUsImage3 from '~/public/images/about-us/photo3.jpg';
+import AboutUsImage4 from '~/public/images/about-us/photo4.jpg';
+import AboutUsImage5 from '~/public/images/about-us/photo5.jpg';
+import AboutUsImage6 from '~/public/images/about-us/photo6.jpg';
+import { Headline, MaxWidth, Strong, VerticalStack } from '~/ui/components';
 
 import * as S from './AboutSection.style';
 
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+const images = [
+  //TODO -> přidat spravny ALT
+  { src: AboutUsImage0, alt: 'Image 0' },
+  { src: AboutUsImage1, alt: 'Image 1' },
+  { src: AboutUsImage2, alt: 'Image 2' },
+  { src: AboutUsImage3, alt: 'Image 3' },
+  { src: AboutUsImage4, alt: 'Image 4' },
+  { src: AboutUsImage5, alt: 'Image 5' },
+  { src: AboutUsImage6, alt: 'Image 6' },
+];
+
 export const AboutSection = () => {
   const { toggleShadow } = usePageContext();
-  const { actualities } = useSanityContext();
 
   const { ref, inView, entry } = useInView({
     threshold: 0.15,
@@ -33,31 +63,49 @@ export const AboutSection = () => {
 
   return (
     <S.AboutSection name="about" ref={ref}>
-      <S.MaxWidth>
-        <S.Image src={Wave} alt="vlnka" />
-        {actualities.map(
-          (actuality, index) =>
-            actuality?.text && (
-              <TextBuilder
-                value={actuality.text}
-                options={{ paragraph: { position: 'center' } }}
-                key={`${actuality?.title}_${index}`}
+      <MaxWidth>
+        <S.AboutUsContainer gap="4.8rem">
+          <S.AboutUsCarousel
+            responsive={responsive}
+            draggable
+            ssr
+            infinite
+            autoPlay
+            autoPlaySpeed={4000}
+            transitionDuration={100}
+            pauseOnHover
+          >
+            {images.map((image, index) => (
+              <S.AboutUsImage
+                key={index}
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 1024px) 90vw,
+            40vw
+          "
+                placeholder="blur"
               />
-            )
-        )}
-        <S.AboutText center>
-          Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
-          příměstský <Strong>tábor s profesionální výukou plavání</Strong> a
-          otevírací dobou <Strong>od 7:30 do 17:00</Strong>. Naši kvalifikovaní
-          instruktoři pomohou vašim dětem zdokonalit své plavecké dovednosti a
-          získat sebedůvěru ve vodě. S naším bohatým programem aktivit, jako
-          jsou sportovní hry a výlety, budou vaše děti mít{' '}
-          <Strong>nezapomenutelné zážitky</Strong> a zároveň se naučí
-          spolupracovat a komunikovat s ostatními dětmi. Rezervujte si místo pro
-          své dítě na našem letním táboře ještě dnes!
-        </S.AboutText>
-        <S.Image src={Wave} alt="vlnka" />
-      </S.MaxWidth>
+            ))}
+          </S.AboutUsCarousel>
+          <VerticalStack flex="1 1 50%">
+            <Headline>O nás</Headline>
+            <S.AboutText>
+              Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
+              příměstský <Strong>tábor s profesionální výukou plavání</Strong> a
+              otevírací dobou <Strong>od 7:30 do 17:00</Strong>.
+              <br />
+              <br />
+              Naši kvalifikovaní instruktoři pomohou vašim dětem zdokonalit své
+              plavecké dovednosti a získat sebedůvěru ve vodě. S naším bohatým
+              programem aktivit, jako jsou sportovní hry a výlety, budou vaše
+              děti mít <Strong>nezapomenutelné zážitky</Strong> a zároveň se
+              naučí spolupracovat a komunikovat s ostatními dětmi. Rezervujte si
+              místo pro své dítě na našem letním táboře ještě dnes!
+            </S.AboutText>
+          </VerticalStack>
+        </S.AboutUsContainer>
+      </MaxWidth>
     </S.AboutSection>
   );
 };
