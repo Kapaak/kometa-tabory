@@ -161,11 +161,11 @@ export const SectionForm = ({
               <ControlledInput
                 name="personalIdNum"
                 placeholder="Rodné číslo dítěte (př. 045421/1234)"
-                pattern={{
-                  value: /\d{4}([.,\/]\d{4})/,
-                  message:
-                    'Rodné číslo v nesprávném formátu. Příklad: 045421/1234.',
-                }}
+                // pattern={{
+                //   value: /\d{4}([.,\/]\d{4})/,
+                //   message:
+                //     'Rodné číslo v nesprávném formátu. Příklad: 045421/1234.',
+                // }}
                 required="Rodné číslo musí být vyplněno."
               />
               <S.Label>Rodné číslo</S.Label>
