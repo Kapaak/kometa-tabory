@@ -1,66 +1,28 @@
-const keywords = `příměstský tábor brno,
-příměstský tábor,
-letní tábory 2023,
-tábory 2023,
-tábory,
-letní tábor,
-dětský tábor,
-příměstské tábory,
-tábor 2023,
-detsky tabor,
-příměstské tábory brno,
-příměstský tábor brno 2023,
-tábor brno,
-tábor pro děti,
-letni tabor,
-primestsky tabor,
-tabor brno,
-primestsky tabor brno,
-letní dětský tábor,
-hry pro děti na tábor,
-celotáborová hra,
-letní příměstské tábory brno 2023,
-letní hry pro děti,
-příměstské tábory brno 2023,
-letní tábory od 12 let,
-stan tábory,
-letní tábory na týden,
-sportovní tábor,
-tábory brno,
-primestske tabory brno,
-příměstský tábor říčany,
-plavecký tábor,
-tabor pro deti,
-co s sebou na tábor,
-plavecký příměstský tábor brno,
-tábory 2023,
-tabory brno,
-plavání kometa,
-aktivity na tábor,
-hry na tábor pro děti,
-letní tábory 2023,
-letní tábor pro děti od 4 let,
-dětský letní tábor
-`;
+export type SeoData = Record<
+  string,
+  { title?: string; keywords: string; description: string }
+>;
 
-const mainDescription =
+const keywords = `příměstský tábor brno, letní tábory, tabory, tábory brno, primestske tabory brno, plavecký tábor, plavání kometa brno, příměstský tábor od 4 let, příměstské tábory v brně, bazén Lužánky`;
+
+const description =
   'Příměstské tábory pro děti od 4 let do 13 let s lekcemi plavání od licencovaných trenérů s několikaletou praxí. Ve středu je speciální celodenní výlet dle tématu táboru.';
 
-export const data = {
-  '/prihlasky': {
-    // title: "Přihlášky - ",
+export const data: SeoData = {
+  '/prihlasky/[taborId]': {
+    title: 'Přihlášky | Příměšťák Brno',
     keywords,
     description:
       'Nabízíme plavecké kurzy pro děti, školy a školky i dospělé. Učíme plavat zábavnou formou dle nejnovějších metodik.',
   },
   '/': {
-    // title: "",
+    title: 'Příměšťák Brno | Kometa',
     keywords,
-    description: mainDescription,
+    description,
   },
   default: {
-    // title: "",
+    title: 'Příměšťák Brno | Kometa',
     keywords,
-    description: mainDescription,
+    description,
   },
 };

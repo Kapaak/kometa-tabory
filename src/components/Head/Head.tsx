@@ -1,37 +1,42 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-import { data } from "./Head.data";
-
-type RouteType = "/" | "/prihlasky";
+import { data } from './Head.data';
 
 export const HeadComponent = () => {
   const router = useRouter();
 
-  const currentRoute = router.asPath;
+  const currentRoute = router.pathname;
 
-  const currentRouteMetaDesc =
-    data[currentRoute as RouteType]?.description ?? data.default.description;
+  const routeMetaData = data[currentRoute] ?? data.default;
 
   return (
     <Head>
-      <title> Příměšťák Brno | Kometa </title>
+      <title>{routeMetaData.title}</title>
       <link rel="icon" href="/icons/logo-tabory.svg" />
+      <link rel="canonical" href="https://www.primestak-brno.cz/" />
+      <meta name="title" content={routeMetaData.title} />
       <meta name="author" content="Pavel Zapletal & Barbora Novakova" />
-      <meta name="keywords" content={currentRouteMetaDesc} />
-      <link
-        rel="canonical"
-        href={`https://www.primestak-brno.cz${currentRoute}`}
-      />
+      <meta name="keywords" content={routeMetaData.keywords} />
+      <meta name="description" content={routeMetaData.description} />
       <meta
         name="google-site-verification"
         content="KV7BmFAqyUFzPz1ft0TFad03jyyUR8o0b-1CvI4FmGs"
       />
-      <meta name="description" content={currentRouteMetaDesc} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://www.primestak-brno.cz/" />
+      <meta property="og:title" content={routeMetaData.title} />
+      <meta property="og:description" content={routeMetaData.description} />
+      <meta property="og:image" content="/images/social-media-card.jpg" />
+
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://www.primestak-brno.cz/" />
+      <meta property="twitter:title" content={routeMetaData.title} />
       <meta
-        name="keywords"
-        content="plavání Lužánky, bazén Lužánky, bazén za Lužánkami, výuka plavání v Brně, plavání Brno, plavecké kurzy brno, plavání brno, plavání pro děti, plavání s dětmi"
+        property="twitter:description"
+        content={routeMetaData.description}
       />
+      <meta property="twitter:image" content="/images/social-media-card.jpg" />
     </Head>
   );
 };
