@@ -23,11 +23,11 @@ export function HomePageScreen() {
       <Space half />
       <USPSection />
       <Space half />
-      <DiscountSection />
-      <Space half />
       <AboutSection />
       <Space half />
       <ServiceSection />
+      <Space />
+      <DiscountSection />
       <Space />
       <FAQSection />
       <Space />
