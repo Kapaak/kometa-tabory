@@ -12,7 +12,8 @@ export const AboutSection = styled(SectionElement)`
 `;
 
 export const AboutUsImage = styled(Image)`
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: contain;
   pointer-events: none;
 `;
 
