@@ -30,6 +30,6 @@ export const USP_SECTION_DATA = [
     icon: FirstPlace,
     title: 'Mnohaleté zkušenosti',
     description:
-      'SKP Kometa učí děti plavat již XX let, jsme plavecký klub plný profesionálů.',
+      'SKP Kometa učí děti plavat již mnoho let, jsme plavecký klub plný profesionálů.',
   },
 ];
