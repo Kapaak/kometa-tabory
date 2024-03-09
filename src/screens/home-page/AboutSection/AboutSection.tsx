@@ -2,9 +2,7 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { usePageContext } from '~/contexts/PageContext';
-import AboutUsImage0 from '~/public/images/about-us/photo0.jpg';
 import AboutUsImage1 from '~/public/images/about-us/photo1.jpg';
-import AboutUsImage2 from '~/public/images/about-us/photo2.jpg';
 import AboutUsImage3 from '~/public/images/about-us/photo3.jpg';
 import AboutUsImage4 from '~/public/images/about-us/photo4.jpg';
 import AboutUsImage5 from '~/public/images/about-us/photo5.jpg';
@@ -33,14 +31,11 @@ const responsive = {
 };
 
 const images = [
-  //TODO -> přidat spravny ALT
-  { src: AboutUsImage0, alt: 'Image 0' },
-  { src: AboutUsImage1, alt: 'Image 1' },
-  { src: AboutUsImage2, alt: 'Image 2' },
-  { src: AboutUsImage3, alt: 'Image 3' },
-  { src: AboutUsImage4, alt: 'Image 4' },
-  { src: AboutUsImage5, alt: 'Image 5' },
-  { src: AboutUsImage6, alt: 'Image 6' },
+  { src: AboutUsImage3, alt: 'Děti na táborovém výletu' },
+  { src: AboutUsImage4, alt: 'Plavečtí trenéři Komety s dětmi' },
+  { src: AboutUsImage1, alt: 'Trenér mezi dětmi na bazéně' },
+  { src: AboutUsImage5, alt: 'Dva trenéři plavání na selfie s dětmi' },
+  { src: AboutUsImage6, alt: 'Táborové míčové hry' },
 ];
 
 export const AboutSection = () => {
@@ -70,7 +65,7 @@ export const AboutSection = () => {
             draggable
             ssr
             infinite
-            autoPlay
+            autoPlay={false}
             autoPlaySpeed={4000}
             transitionDuration={100}
             pauseOnHover
@@ -89,7 +84,7 @@ export const AboutSection = () => {
             ))}
           </S.AboutUsCarousel>
           <VerticalStack flex="1 1 50%">
-            <Headline>O nás</Headline>
+            <Headline>Naše tábory</Headline>
             <S.AboutText>
               Hledáte pro své děti skvělé letní dobrodružství? Přijďte na náš
               příměstský <Strong>tábor s profesionální výukou plavání</Strong> a

@@ -12,7 +12,6 @@ export const AboutSection = styled(SectionElement)`
 `;
 
 export const AboutUsImage = styled(Image)`
-  /* object-fit: cover; */
   object-fit: contain;
   pointer-events: none;
 `;
@@ -31,12 +30,17 @@ export const AboutUsCarousel = styled(Carousel)`
   flex: 1 1 60%;
 
   li {
-    height: 45rem;
-    width: 50rem;
+    height: 20rem;
   }
 
   button {
     z-index: 2;
+  }
+
+  @media (${dimensions.tablet}) {
+    li {
+      height: 45rem;
+    }
   }
 `;
 
