@@ -1,9 +1,9 @@
 //libraries
-import styled from "styled-components";
+import styled from 'styled-components';
 
 //styles
-import { Flex as SFlex, SectionElement } from "~/ui/components";
-import { dimensions } from "~/ui/theme";
+import { Flex as SFlex, SectionElement } from '~/ui/components';
+import { dimensions } from '~/ui/theme';
 
 export const Flex = styled(SFlex)`
   @media (${dimensions.notebook}) {
@@ -20,4 +20,9 @@ export const Container = styled.div`
 
 export const ServiceSection = styled(SectionElement)`
   padding: 1.5rem 0;
+`;
+
+export const UnderlinedLink = styled.a`
+  text-decoration: underline;
+  color: inherit;
 `;
