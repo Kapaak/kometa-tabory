@@ -38,7 +38,12 @@ export const data: Array<FooterData> = [
       {
         output: 'Kraví hora',
         type: ContentType.link,
-        href: 'https://kometaplavani.cz/plavani-katka/',
+        href: 'https://www.plavanikometa.cz/kravi-hora/',
+      },
+      {
+        output: 'Kohoutovice',
+        type: ContentType.link,
+        href: 'https://www.plavanikometa.cz/aquapark-kohoutovice/',
       },
       {
         output: 'Lužánky',
@@ -61,7 +66,12 @@ export const data: Array<FooterData> = [
       {
         output: 'Kraví hora',
         type: ContentType.link,
-        href: 'https://kometaplavani.cz/plavani-katka/tabory/',
+        href: 'https://www.plavanikometa.cz/tabor-kravi-hora/',
+      },
+      {
+        output: 'Pisárky',
+        type: ContentType.link,
+        href: 'https://www.plavanikometa.cz/tabor-pisarky/',
       },
     ],
   },
