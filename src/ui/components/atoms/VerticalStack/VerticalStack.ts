@@ -49,5 +49,5 @@ export const VerticalStack = styled.div.withConfig({
   flex-wrap: ${({ wrap }) => (wrap ? wrap : 'nowrap')};
   padding: ${({ padding }) => (padding ? padding : '0')};
   margin: ${({ margin }) => (margin ? margin : '0')};
-  margin: ${({ flex }) => (flex ? flex : '0')};
+  flex: ${({ flex }) => (flex ? flex : '0')};
 `;

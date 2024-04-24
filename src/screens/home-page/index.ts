@@ -1,5 +1,7 @@
 export { AboutSection } from './AboutSection';
+export { ActualitiesSection } from './ActualitiesSection';
 export { ContactSection } from './ContactSection';
+export { DiscountSection } from './DiscountSection';
 export { DocumentSection } from './DocumentSection';
 export { FAQSection } from './FAQSection';
 export { GallerySection } from './GallerySection';
@@ -9,3 +11,4 @@ export { LocationSection } from './LocationSection';
 export { ServiceSection } from './ServiceSection';
 export { SponsorSection } from './SponsorSection';
 export { TestimonialSection } from './TestimonialSection';
+export { USPSection } from './USPSection';

@@ -1,34 +1,53 @@
-//libraries
-import NextImage from 'next/image';
+import Image from 'next/image';
+import Carousel from 'react-multi-carousel';
 
+import 'react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
 
-//styles
-import { MaxWidth as SMaxWidth, SectionElement, Text } from '~/ui/components';
+import { Flex, SectionElement, Text } from '~/ui/components';
 import { dimensions } from '~/ui/theme';
 
 export const AboutSection = styled(SectionElement)`
   padding: 1.5rem 0;
 `;
 
-export const MaxWidth = styled(SMaxWidth)`
-  text-align: center;
-  max-width: 60rem;
+export const AboutUsImage = styled(Image)`
+  object-fit: contain;
+  pointer-events: none;
 `;
 
-export const Image = styled(NextImage)`
-  margin-block: 2rem;
-
-  @media (${dimensions.desktopX}) {
-    width: 6rem;
-    height: 6rem;
-  }
-  @media (${dimensions.desktopX}) {
-    width: 8rem;
-    height: 8rem;
-  }
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 export const AboutText = styled(Text)`
   padding: 2rem 0;
+`;
+
+export const AboutUsCarousel = styled(Carousel)`
+  flex: 1 1 60%;
+
+  li {
+    height: 20rem;
+  }
+
+  button {
+    z-index: 2;
+  }
+
+  @media (${dimensions.tablet}) {
+    li {
+      height: 45rem;
+    }
+  }
+`;
+
+export const AboutUsContainer = styled(Flex)`
+  flex-direction: column;
+
+  @media (${dimensions.notebook}) {
+    flex-direction: row;
+  }
 `;

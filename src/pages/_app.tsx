@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { useEffect } from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
@@ -37,10 +38,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <PostHogProvider client={posthog}>
       <PageContextProvider>
-        {/* <GoogleAnalytics
+        <GoogleAnalytics
           trackPageViews
           gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
-        /> */}
+        />
         <Analytics />
         <HeadComponent />
         <GlobalStyles />
