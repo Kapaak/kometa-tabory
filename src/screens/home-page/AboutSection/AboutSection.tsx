@@ -65,7 +65,7 @@ export const AboutSection = () => {
             draggable
             ssr
             infinite
-            autoPlay={false}
+            autoPlay
             autoPlaySpeed={4000}
             transitionDuration={100}
             pauseOnHover

@@ -3,7 +3,6 @@ import { Space } from '~/ui/components';
 import { AboutSection } from './AboutSection';
 import { ActualitiesSection } from './ActualitiesSection';
 import { ContactSection } from './ContactSection';
-import { DiscountSection } from './DiscountSection';
 import { DocumentSection } from './DocumentSection';
 import { FAQSection } from './FAQSection';
 import { GallerySection } from './GallerySection';
@@ -23,13 +22,13 @@ export function HomePageScreen() {
       <Space half />
       <USPSection />
       <Space half />
-      <AboutSection />
-      <Space half />
       <ServiceSection />
-      <Space />
-      <DiscountSection />
+      {/* <Space />
+      <DiscountSection /> */}
       <Space />
       <FAQSection />
+      <Space />
+      <AboutSection />
       <Space />
       <TestimonialSection />
       <Space />

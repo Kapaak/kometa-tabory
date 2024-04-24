@@ -11,16 +11,12 @@ export const USPSection = styled.div`
   border-radius: 1rem;
   box-shadow: var(--shadow);
 
-  @media (${dimensions.desktop}) {
-    padding: 3rem 5rem;
-  }
-
   @media (${dimensions.notebook}) {
     padding: 3rem 6rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (${dimensions.desktopX}) {
-    grid-template-columns: repeat(4, 1fr);
+  @media (${dimensions.desktop}) {
+    padding: 3rem 5rem;
   }
 `;

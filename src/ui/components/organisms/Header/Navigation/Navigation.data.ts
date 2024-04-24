@@ -1,15 +1,15 @@
-import { NavLink, ScrollTargets } from "~/types";
+import { NavLink, ScrollTargets } from '~/types';
 
 export const data: Array<NavLink> = [
   {
-    href: "/",
+    href: '/',
     scrollTarget: ScrollTargets.home,
-    output: "Domů",
+    output: 'Domů',
   },
   {
-    href: "/",
+    href: '/',
     scrollTarget: ScrollTargets.about,
-    output: "O nás",
+    output: 'Naše tábory',
   },
   // {
   //   href: "/",
@@ -36,14 +36,14 @@ export const data: Array<NavLink> = [
   // ],
   // },
   {
-    href: "/",
+    href: '/',
     scrollTarget: ScrollTargets.faq,
-    output: "Základní informace",
+    output: 'Základní informace',
   },
   {
-    href: "/",
+    href: '/',
     scrollTarget: ScrollTargets.gallery,
-    output: "Galerie",
+    output: 'Galerie',
   },
   // {
   //   href: "/",
@@ -51,13 +51,13 @@ export const data: Array<NavLink> = [
   //   output: "Trenéři",
   // },
   {
-    href: "/",
+    href: '/',
     scrollTarget: ScrollTargets.location,
-    output: "Lokalita",
+    output: 'Lokalita',
   },
   {
-    href: "/",
+    href: '/',
     scrollTarget: ScrollTargets.contact,
-    output: "Kontakt",
+    output: 'Kontakt',
   },
 ];
