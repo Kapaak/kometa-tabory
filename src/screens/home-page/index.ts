@@ -1,5 +1,6 @@
 export { AboutSection } from './AboutSection';
 export { ActualitiesSection } from './ActualitiesSection';
+export { CampTypeSection } from './CampTypeSection';
 export { ContactSection } from './ContactSection';
 export { DiscountSection } from './DiscountSection';
 export { DocumentSection } from './DocumentSection';

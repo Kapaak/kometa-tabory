@@ -1,3 +1,8 @@
+parts x components
+
+- parts: a section is divided into multiple parts that are made of components
+- components: specific for this current section, cant be reused (else should be put in ui atomic components)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

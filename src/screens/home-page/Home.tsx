@@ -2,6 +2,7 @@ import { Space } from '~/ui/components';
 
 import { AboutSection } from './AboutSection';
 import { ActualitiesSection } from './ActualitiesSection';
+import { CampTypeSection } from './CampTypeSection';
 import { ContactSection } from './ContactSection';
 import { DocumentSection } from './DocumentSection';
 import { FAQSection } from './FAQSection';
@@ -21,6 +22,8 @@ export function HomePageScreen() {
       <ActualitiesSection />
       <Space half />
       <USPSection />
+      <Space half />
+      <CampTypeSection />
       <Space half />
       <ServiceSection />
       {/* <Space />
