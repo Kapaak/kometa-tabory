@@ -17,6 +17,11 @@ export const GlobalStyles = createGlobalStyle`
         color:inherit;
     }
 
+    .react-loading-skeleton{
+        //fix for skeleton, that is not taking full height without this
+        line-height:unset
+    }
+
     :root{
         --font1: 'Bebas Neue', cursive;
         --font2: 'Poppins', sans-serif;

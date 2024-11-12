@@ -22,7 +22,7 @@ export function CampTypeSection({}: CampTypeSectionProps) {
               title={campType?.title}
               url={campType?.url}
               image={campType?.image}
-              availableFrom="2026-11-06"
+              // availableFrom="2026-11-06"
             />
           ))}
         </S.CampTypeCards>

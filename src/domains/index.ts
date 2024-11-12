@@ -6,6 +6,30 @@ export type SanityActuality = {
   text?: PortableTextBlock[];
 };
 
+export type SanityCamp = {
+  id: string;
+  title?: string;
+  name?: string;
+  date?: string;
+  price?: number;
+  discountedPrice?: number;
+  capacity?: number;
+  availability?: {
+    label?: string;
+    open?: boolean;
+  };
+  image?: SanityImage;
+  alt?: string;
+  slug?: string;
+  spreadsheetId: number;
+};
+
+export interface SanityTripCamp extends SanityCamp {}
+
+export interface SanitySwimmingCamp extends SanityCamp {
+  trip?: string;
+}
+
 export type SanityFaq = {
   title?: string;
   faqItems?: {
@@ -47,24 +71,6 @@ export type SanityImage = SanityImageObject & {
       };
     };
   };
-};
-
-export type SanityCamp = {
-  availability?: {
-    label?: string;
-    open?: boolean;
-  };
-  capacity?: number;
-  date?: string;
-  discountedPrice?: number;
-  name?: string;
-  photo?: SanityImage;
-  price?: number;
-  title?: string;
-  trip?: string;
-  photoAlt?: string;
-  targetUrl?: string;
-  spreadsheetId?: number;
 };
 
 export type SanityPhotoGallery = {

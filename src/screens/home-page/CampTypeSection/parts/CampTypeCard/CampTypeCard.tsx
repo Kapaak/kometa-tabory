@@ -68,11 +68,9 @@ export function CampTypeCard({
             <Baby /> <Strong>{age}</Strong>
           </S.CampTypeCardListItem>
         </S.CampTypeCardList>
-        <Button disabled={!isAvailable}>
-          <NextLink href={url ?? ''} passHref>
-            {redirectButtonText}
-          </NextLink>
-        </Button>
+        <NextLink href={url ?? ''} passHref>
+          <Button disabled={!isAvailable}>{redirectButtonText}</Button>
+        </NextLink>
       </VerticalStack>
     </S.CampTypeCard>
   );
