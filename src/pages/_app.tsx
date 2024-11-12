@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { useEffect } from 'react';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
@@ -22,6 +23,8 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
   });
 }
 
+const queryClient = new QueryClient();
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
@@ -36,19 +39,21 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <PostHogProvider client={posthog}>
-      <PageContextProvider>
-        <GoogleAnalytics
-          trackPageViews
-          gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
-        />
-        <Analytics />
-        <HeadComponent />
-        <GlobalStyles />
-        <Component {...pageProps} />
-        <CookieConsent />
-      </PageContextProvider>
-    </PostHogProvider>
+    <QueryClientProvider client={queryClient}>
+      <PostHogProvider client={posthog}>
+        <PageContextProvider>
+          <GoogleAnalytics
+            trackPageViews
+            gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
+          />
+          <Analytics />
+          <HeadComponent />
+          <GlobalStyles />
+          <Component {...pageProps} />
+          <CookieConsent />
+        </PageContextProvider>
+      </PostHogProvider>
+    </QueryClientProvider>
   );
 }
 

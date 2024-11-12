@@ -1,34 +1,36 @@
+import { SanitySwimmingCamp, SanityTripCamp } from '~/domains';
+
 export enum ScrollTargets {
-  home = "home",
-  about = "about",
-  application = "application",
-  contact = "contact",
-  skolky = "skolky",
-  skoly = "skoly",
-  kurzy = "kurzy",
-  kindergardens = "kindergardens",
-  schools = "schools",
-  courses = "courses",
-  trainer = "trainer",
-  testimonial = "testimonial",
-  gallery = "gallery",
-  faq = "faq",
-  services = "services",
-  location = "location",
+  home = 'home',
+  about = 'about',
+  application = 'application',
+  contact = 'contact',
+  skolky = 'skolky',
+  skoly = 'skoly',
+  kurzy = 'kurzy',
+  kindergardens = 'kindergardens',
+  schools = 'schools',
+  courses = 'courses',
+  trainer = 'trainer',
+  testimonial = 'testimonial',
+  gallery = 'gallery',
+  faq = 'faq',
+  services = 'services',
+  location = 'location',
 }
 
 export enum ContentType {
-  normal = "normal",
-  bold = "bold",
-  link = "link",
-  blank = "blank",
+  normal = 'normal',
+  bold = 'bold',
+  link = 'link',
+  blank = 'blank',
 }
 
 export enum Content {
-  normal = "normal",
-  bold = "bold",
-  link = "link",
-  blank = "blank",
+  normal = 'normal',
+  bold = 'bold',
+  link = 'link',
+  blank = 'blank',
 }
 
 export type Fragment = {
@@ -56,4 +58,12 @@ export interface Dropdown {
 
 export interface NavLink extends Dropdown {
   dropdown?: Array<Dropdown>;
+}
+
+export interface TripCamp extends SanityTripCamp {
+  currentCapacity: number;
+}
+
+export interface SwimmingCamp extends SanitySwimmingCamp {
+  currentCapacity: number;
 }

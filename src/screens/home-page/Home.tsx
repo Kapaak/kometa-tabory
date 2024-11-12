@@ -9,7 +9,6 @@ import { FAQSection } from './FAQSection';
 import { GallerySection } from './GallerySection';
 import { HeroSection } from './HeroSection';
 import { LocationSection } from './LocationSection';
-import { ServiceSection } from './ServiceSection';
 import { SponsorSection } from './SponsorSection';
 import { TestimonialSection } from './TestimonialSection';
 import { USPSection } from './USPSection';
@@ -25,7 +24,6 @@ export function HomePageScreen() {
       <Space half />
       <CampTypeSection />
       <Space half />
-      <ServiceSection />
       {/* <Space />
       <DiscountSection /> */}
       <Space />

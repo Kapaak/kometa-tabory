@@ -1,2 +1,2 @@
-export * from './google';
 export * from './sanity';
+export * from './google';

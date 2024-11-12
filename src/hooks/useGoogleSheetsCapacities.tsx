@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { useSanityContext } from '~/contexts';
 import { getAllSheets } from '~/libs';
 
-export function useGoogleSheetsCapacities() {
+export function useGoogleSheetsCapacities(
+  spreadSheetsIds: number[],
+  enabled?: boolean
+) {
   const [googleSheetsCapacities, setGoogleSheetsCapacities] = useState<
     Record<number, number>
   >({});
@@ -11,9 +13,18 @@ export function useGoogleSheetsCapacities() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const { spreadSheetsIds } = useSanityContext();
-
   useEffect(() => {
+    if (
+      spreadSheetsIds?.length === 0 ||
+      !spreadSheetsIds ||
+      isError ||
+      !enabled
+    ) {
+      setIsLoading(false);
+
+      return;
+    }
+
     getAllSheets(spreadSheetsIds).then((resSheets: any) => {
       resSheets &&
         Promise.allSettled(resSheets)
@@ -33,7 +44,7 @@ export function useGoogleSheetsCapacities() {
             setIsLoading(false);
           });
     });
-  }, [spreadSheetsIds]);
+  }, [enabled, isError, spreadSheetsIds]);
 
   return {
     googleSheetsCapacities,
