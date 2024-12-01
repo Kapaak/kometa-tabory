@@ -41,12 +41,16 @@ export const CampTypeCardListItem = styled.li`
 export const CampTypeCardImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 33.6rem;
+  height: 20rem;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
   border-radius: 1rem 1rem 0 0;
   background-color: var(--collg);
+
+  @media (${dimensions.tablet}) {
+    height: 33.6rem;
+  }
 `;
 
 export const CampTypeCardContainer = styled.div`
