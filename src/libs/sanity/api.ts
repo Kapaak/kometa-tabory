@@ -25,6 +25,22 @@ export async function getAllTripCamps(): Promise<SanityTripCamp[]> {
   return course;
 }
 
+export async function getAllTripFaqs(): Promise<SanityCampType> {
+  const queryTripFAQs = groq`*[_type == "tripFaq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
+
+  const tripFaqs = await client.fetch(queryTripFAQs);
+
+  return tripFaqs;
+}
+
+export async function getAllSwimmingFaqs(): Promise<SanityCampType> {
+  const querySwimmingFAQs = groq`*[_type == "faq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
+
+  const swimmingFaqs = await client.fetch(querySwimmingFAQs);
+
+  return swimmingFaqs;
+}
+
 export async function getAllCampTypes(): Promise<SanityCampType> {
   const queryCampTypes = groq`*[_type == "campType"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,swimmingFrequency,age}|order(order asc)`;
 

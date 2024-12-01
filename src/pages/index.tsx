@@ -52,6 +52,7 @@ export default function HomePage({
 
 export const getStaticProps = async () => {
   const queryActualities = groq`*[_type == "home" && visibility == true]{text,order,title}|order(order asc)`;
+  //TODO: REMOVE FAQ
   const queryFAQ = groq`*[_type == "faq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
   const queryDocument = groq`*[_type == "doc"]{title,order,file{asset->{url}}}|order(order asc)`;
   const queryInfoBar = groq`*[_type == "infoBar" && visibility == true][0]{title,visibility,text}`;
