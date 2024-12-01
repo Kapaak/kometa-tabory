@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import FacebookInvertIcon from '~/public/icons/facebook-invert.svg';
+import InstagramInvertIcon from '~/public/icons/instagram-invert.svg';
 import { NavLink as NavLinkType, ScrollTargets } from '~/types';
 import { scrollTo } from '~/utils';
 
-import FacebookInvertIcon from '~/public/icons/facebook-invert.svg';
-import InstagramInvertIcon from '~/public/icons/instagram-invert.svg';
 import { Button, Hidden } from '../../../../atoms';
 import { NavLink } from './NavLink';
 
@@ -58,7 +58,7 @@ export function NavLInks({ data, isActive = false }: Props) {
         <Button
           variant="filled"
           size="small"
-          onClick={() => scrollTo(ScrollTargets.services)}
+          onClick={() => scrollTo(ScrollTargets.campTypes)}
         >
           Volné termíny
         </Button>

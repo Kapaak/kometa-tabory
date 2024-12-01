@@ -1,4 +1,4 @@
-import { MaxWidth } from '~/ui/components';
+import { MaxWidth, SectionElement } from '~/ui/components';
 
 import { campTypeData } from './constants';
 import { CampTypeCard } from './parts';
@@ -9,7 +9,7 @@ interface CampTypeSectionProps {}
 
 export function CampTypeSection({}: CampTypeSectionProps) {
   return (
-    <section>
+    <SectionElement name="camp-types">
       <MaxWidth>
         <S.CampTypeCards>
           {campTypeData.map((campType) => (
@@ -27,6 +27,6 @@ export function CampTypeSection({}: CampTypeSectionProps) {
           ))}
         </S.CampTypeCards>
       </MaxWidth>
-    </section>
+    </SectionElement>
   );
 }

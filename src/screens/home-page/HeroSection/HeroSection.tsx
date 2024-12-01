@@ -1,4 +1,11 @@
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
+
+import { PlayCircle } from '@phosphor-icons/react';
 import Video from 'yet-another-react-lightbox/plugins/video';
+
+import { useSanityContext } from '~/contexts';
+import HeroImage from '~/public/images/hero-img.jpg';
 import {
   HorizontalStack,
   MainHeadline,
@@ -7,12 +14,6 @@ import {
 } from '~/ui/components';
 import { scrollTo } from '~/utils';
 
-import HeroImage from '~/public/images/hero-img.jpg';
-
-import { PlayCircle } from '@phosphor-icons/react';
-import dynamic from 'next/dynamic';
-import { useState } from 'react';
-import { useSanityContext } from '~/contexts';
 import * as S from './HeroSection.style';
 
 const LightboxComponent = dynamic(() => import('yet-another-react-lightbox'), {
@@ -75,7 +76,7 @@ export const HeroSection = () => {
               <S.LightButton
                 variant="filled"
                 color="secondary"
-                onClick={() => scrollTo('services')}
+                onClick={() => scrollTo('camp-types')}
               >
                 Dostupné tábory
               </S.LightButton>

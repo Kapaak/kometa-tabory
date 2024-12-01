@@ -17,6 +17,7 @@ export enum ScrollTargets {
   faq = 'faq',
   services = 'services',
   location = 'location',
+  campTypes = 'camp-types',
 }
 
 export enum ContentType {
