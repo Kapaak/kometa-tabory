@@ -1,8 +1,6 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
-import { groq } from 'next-sanity';
 
-import { SanityCamp } from '~/domains';
-import { client } from '~/libs';
+import { getCourseDetailBySlug } from '~/libs';
 import { ApplicationsPageScreen } from '~/screens';
 import { PageLayout } from '~/ui/components';
 
@@ -23,12 +21,11 @@ export default function ApplicationsPage({ camp }: ApplicationsPageProps) {
   );
 }
 
+//TODO: proc tu nepouzivam staticProps a staticPaths ?????
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const currentRoute = context.params?.taborId as string;
 
-  const queryCamp = groq`*[_type == "camp" && targetUrl == "${currentRoute}"][0]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},photoAlt,targetUrl,spreadsheetId}`;
-
-  const camp: SanityCamp = await client.fetch(queryCamp);
+  const camp = await getCourseDetailBySlug(currentRoute);
 
   if (!camp) {
     return {
@@ -38,7 +35,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      camp: camp,
+      camp,
     },
   };
 }
