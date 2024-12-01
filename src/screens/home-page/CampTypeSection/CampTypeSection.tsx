@@ -1,28 +1,27 @@
+import { useGetAllCampTypes } from '~/adapters/campTypesAdapter';
 import { MaxWidth, SectionElement } from '~/ui/components';
+import { campTypeToUrl } from '~/utils/campType';
 
-import { campTypeData } from './constants';
 import { CampTypeCard } from './parts';
 
 import * as S from './CampTypeSection.style';
 
-interface CampTypeSectionProps {}
-
-export function CampTypeSection({}: CampTypeSectionProps) {
+export function CampTypeSection() {
+  const { data, isLoading } = useGetAllCampTypes();
   return (
     <SectionElement name="camp-types">
       <MaxWidth>
         <S.CampTypeCards>
-          {campTypeData.map((campType) => (
+          {data?.map((campType) => (
             <CampTypeCard
               key={campType.id}
               age={campType?.age}
-              dailySwimmingCount={campType?.dailySwimmingCount}
+              dailySwimmingCount={campType?.swimmingFrequency}
               description={campType?.description}
               price={campType?.price}
               title={campType?.title}
-              url={campType?.url}
-              image={campType?.image}
-              // availableFrom="2026-11-06"
+              url={campTypeToUrl(campType?.value)}
+              image={{ src: campType?.image, alt: campType?.alt }}
             />
           ))}
         </S.CampTypeCards>

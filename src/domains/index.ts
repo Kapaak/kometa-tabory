@@ -24,6 +24,18 @@ export type SanityCamp = {
   spreadsheetId: number;
 };
 
+export interface SanityCampType {
+  id: string;
+  title?: string;
+  image?: SanityImage;
+  alt?: string;
+  value?: string;
+  description?: string;
+  price?: number;
+  swimmingFrequency?: number;
+  age?: string;
+}
+
 export interface SanityTripCamp extends SanityCamp {}
 
 export interface SanitySwimmingCamp extends SanityCamp {
