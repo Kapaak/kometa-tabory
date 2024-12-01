@@ -1,6 +1,6 @@
-import { MaxWidth } from '~/ui/components';
+import { MaxWidth, VerticalStack } from '~/ui/components';
 
-import { CampsSection } from './parts';
+import { CampsSection, FAQSection } from './parts';
 
 import * as S from './CampsTripScreen.style';
 
@@ -9,7 +9,10 @@ export function CampsTripScreen() {
     <MaxWidth>
       <S.Headline>Tábory zaměřené na výlety</S.Headline>
 
-      <CampsSection />
+      <VerticalStack gap="3rem">
+        <CampsSection />
+        <FAQSection />
+      </VerticalStack>
     </MaxWidth>
   );
 }

@@ -5,7 +5,6 @@ import { ActualitiesSection } from './ActualitiesSection';
 import { CampTypeSection } from './CampTypeSection';
 import { ContactSection } from './ContactSection';
 import { DocumentSection } from './DocumentSection';
-import { FAQSection } from './FAQSection';
 import { GallerySection } from './GallerySection';
 import { HeroSection } from './HeroSection';
 import { LocationSection } from './LocationSection';
@@ -26,8 +25,6 @@ export function HomePageScreen() {
       <Space half />
       {/* <Space />
       <DiscountSection /> */}
-      <Space />
-      <FAQSection />
       <Space />
       <AboutSection />
       <Space />

@@ -4,7 +4,6 @@ export { CampTypeSection } from './CampTypeSection';
 export { ContactSection } from './ContactSection';
 export { DiscountSection } from './DiscountSection';
 export { DocumentSection } from './DocumentSection';
-export { FAQSection } from './FAQSection';
 export { GallerySection } from './GallerySection';
 export { HeroSection } from './HeroSection';
 export { HomePageScreen } from './Home';
