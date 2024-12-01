@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { NextSanityImage } from '~/components';
-import { HorizontalStack } from '~/ui/components';
+import { dimensions } from '~/ui/theme';
 
 export const CampTypeCard = styled.article`
   box-shadow: var(--shadow);
@@ -19,12 +19,16 @@ export const CampTypeCardDescription = styled.p`
   font-size: 1.6rem;
 `;
 
-export const CampTypeCardList = styled(HorizontalStack).attrs({
-  as: 'ul',
-})`
+export const CampTypeCardList = styled.ul`
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  height: auto;
   max-width: 55rem;
+  gap: 0.5rem;
+
+  @media (${dimensions.notebook}) {
+    flex-direction: row;
+  }
 `;
 
 export const CampTypeCardListItem = styled.li`

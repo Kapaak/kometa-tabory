@@ -7,12 +7,6 @@ import { CampSectionError } from '../../components';
 import * as S from './CampsSection.style';
 
 export function CampsSection() {
-  //TOOD: odebrat nacitani z uvodni stranky, at neni tak pomala ...
-  //TODO: TY camp types pridat do SANITY at ty data muzou zadavat
-
-  //NESMIS TED ULOZIT DO SANITY ZMENY Z LOKALU .. uz tam je jinej typ
-  //TODO:NAPOJIT na sanity campy .. a upravit typ, udelej podle tripcamps
-
   const { data, isError, isLoading } = useSwimmingCamps();
 
   return (
