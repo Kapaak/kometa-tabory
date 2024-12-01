@@ -56,6 +56,8 @@ export const getStaticProps = async () => {
   const queryDocument = groq`*[_type == "doc"]{title,order,file{asset->{url}}}|order(order asc)`;
   const queryInfoBar = groq`*[_type == "infoBar" && visibility == true][0]{title,visibility,text}`;
   const queryTestimonial = groq`*[_type == "testimonial"]{title,text,origin}`;
+
+  //TODO: REMOVE CAMP
   const queryCamp = groq`*[_type == "camp"]{title,name,date,price,discountedPrice,trip,capacity,availability,photo{asset->{...,metadata}},alt,targetUrl,spreadsheetId}|order(title asc)`;
   const queryPhotoGallery = groq`*[_type == "gallery"]{title,alt,image{asset->{...,metadata}}}`;
   const queryVideo = groq`*[_type == "video"]{title,videoFile{asset->{url}}}`;
