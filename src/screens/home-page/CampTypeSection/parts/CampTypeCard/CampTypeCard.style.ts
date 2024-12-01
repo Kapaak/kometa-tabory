@@ -45,6 +45,13 @@ export const CampTypeCardImageContainer = styled.div`
   background-color: var(--collg);
 `;
 
+export const CampTypeCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+  gap: 2rem;
+`;
+
 export const CampTypeCardImage = styled(NextSanityImage)`
   object-fit: cover;
   border-radius: inherit;

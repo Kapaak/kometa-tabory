@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 import { Baby, Coin, SwimmingPool } from '@phosphor-icons/react';
 
 import { SanityImage } from '~/domains';
-import { Button, Strong, VerticalStack } from '~/ui/components';
+import { Button, Strong } from '~/ui/components';
 
 import * as S from './CampTypeCard.style';
 
@@ -27,8 +27,6 @@ export function CampTypeCard({
   title,
   url,
 }: CampTypeCardProps) {
-  console.log(image, 'img');
-
   return (
     <S.CampTypeCard>
       <S.CampTypeCardImageContainer>
@@ -45,7 +43,7 @@ export function CampTypeCard({
         )}
       </S.CampTypeCardImageContainer>
 
-      <VerticalStack gap="2rem" align="flex-start" padding="2.4rem">
+      <S.CampTypeCardContainer>
         <S.CampTypeCardTitle>{title}</S.CampTypeCardTitle>
         <S.CampTypeCardDescription>{description}</S.CampTypeCardDescription>
         <S.CampTypeCardList>
@@ -64,7 +62,7 @@ export function CampTypeCard({
         <NextLink href={url ?? ''} passHref>
           <Button>Zobrazit termíny</Button>
         </NextLink>
-      </VerticalStack>
+      </S.CampTypeCardContainer>
     </S.CampTypeCard>
   );
 }
