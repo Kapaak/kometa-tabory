@@ -2,9 +2,7 @@ import { PropsWithChildren, createContext, useContext } from 'react';
 
 import {
   SanityActuality,
-  SanityCamp,
   SanityDocument,
-  SanityFaq,
   SanityPhotoGallery,
   SanityTestimonial,
   SanityVideo,
@@ -12,22 +10,16 @@ import {
 
 type SanityContext = {
   actualities: SanityActuality[];
-  faqs: SanityFaq[];
   documents: SanityDocument[];
   testimonial: SanityTestimonial[];
-  camps: SanityCamp[];
-  spreadSheetsIds: number[];
   photoGallery: SanityPhotoGallery[];
   videos: SanityVideo[];
 };
 
 const SanityContext = createContext<SanityContext>({
   actualities: [],
-  faqs: [],
   documents: [],
   testimonial: [],
-  camps: [],
-  spreadSheetsIds: [],
   photoGallery: [],
   videos: [],
 });
