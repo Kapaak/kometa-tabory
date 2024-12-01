@@ -1,5 +1,7 @@
 import { SanitySwimmingCamp, SanityTripCamp } from '~/domains';
 
+//TODO: zapisuj enum membery v pascal case - napr ScrollTargets
+
 export enum ScrollTargets {
   home = 'home',
   about = 'about',
@@ -32,6 +34,11 @@ export enum Content {
   bold = 'bold',
   link = 'link',
   blank = 'blank',
+}
+
+export enum CampType {
+  Swimming = 'swimming-course',
+  Trip = 'trip-course',
 }
 
 export type Fragment = {

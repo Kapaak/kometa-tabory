@@ -2,8 +2,8 @@ import NextLink from 'next/link';
 
 import { Baby, Coin, SwimmingPool } from '@phosphor-icons/react';
 
+import { SanityImage } from '~/domains';
 import { Button, Strong, VerticalStack } from '~/ui/components';
-import { convertDateToLocaleString } from '~/utils/date';
 
 import * as S from './CampTypeCard.style';
 
@@ -14,17 +14,9 @@ interface CampTypeCardProps {
   age?: string;
   url?: string;
   dailySwimmingCount?: number;
-  image?: { src?: string; alt?: string };
+  image?: { src?: SanityImage; alt?: string };
   availableFrom?: string;
 }
-
-//TODO:pokud neni sezona, tak ten redirect schovat a dat placeholder s nejakym datem
-// v tu dobu nefetchovat data pro ty podstranky
-//  - to aktivni dej do settings karty v sanity ... to nemusim nastavovat pro kazdej kurz
-
-//TOOD: pridej zadavani pro tyhle karty v SANITY
-
-//TODO: check jestli availableFrom je v minulosti, pokud jo tak se lze prihlasit, jinak zobraz placehodler text
 
 export function CampTypeCard({
   age,
@@ -34,21 +26,22 @@ export function CampTypeCard({
   image,
   title,
   url,
-  availableFrom,
 }: CampTypeCardProps) {
-  const isAvailable = availableFrom
-    ? new Date(availableFrom) < new Date()
-    : true;
-
-  const redirectButtonText = isAvailable
-    ? 'Zobrazit termíny'
-    : `otvíráme ${convertDateToLocaleString(availableFrom, 'D. M. YYYY')}`;
+  console.log(image, 'img');
 
   return (
     <S.CampTypeCard>
       <S.CampTypeCardImageContainer>
         {image?.src && (
-          <S.CampTypeCardImage src={image.src} alt={image?.alt ?? ''} fill />
+          <S.CampTypeCardImage
+            fill
+            alt={image?.alt ?? ''}
+            image={image.src}
+            objectFit="cover"
+            draggable={false}
+            placeholder="blur"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         )}
       </S.CampTypeCardImageContainer>
 
@@ -69,7 +62,7 @@ export function CampTypeCard({
           </S.CampTypeCardListItem>
         </S.CampTypeCardList>
         <NextLink href={url ?? ''} passHref>
-          <Button disabled={!isAvailable}>{redirectButtonText}</Button>
+          <Button>Zobrazit termíny</Button>
         </NextLink>
       </VerticalStack>
     </S.CampTypeCard>

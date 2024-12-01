@@ -1,7 +1,6 @@
-import NextImage from 'next/image';
-
 import styled from 'styled-components';
 
+import { NextSanityImage } from '~/components';
 import { HorizontalStack } from '~/ui/components';
 
 export const CampTypeCard = styled.article`
@@ -46,7 +45,7 @@ export const CampTypeCardImageContainer = styled.div`
   background-color: var(--collg);
 `;
 
-export const CampTypeCardImage = styled(NextImage)`
+export const CampTypeCardImage = styled(NextSanityImage)`
   object-fit: cover;
   border-radius: inherit;
 `;

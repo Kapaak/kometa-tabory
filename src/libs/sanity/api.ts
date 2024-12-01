@@ -1,6 +1,11 @@
 import { groq } from 'next-sanity';
 
-import { SanityCamp, SanitySwimmingCamp, SanityTripCamp } from '~/domains';
+import {
+  SanityCamp,
+  SanityCampType,
+  SanitySwimmingCamp,
+  SanityTripCamp,
+} from '~/domains';
 
 import { client } from './config';
 
@@ -18,6 +23,14 @@ export async function getAllTripCamps(): Promise<SanityTripCamp[]> {
   const course = await client.fetch(queryTripCamps);
 
   return course;
+}
+
+export async function getAllCampTypes(): Promise<SanityCampType> {
+  const queryCampTypes = groq`*[_type == "campType"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,swimmingFrequency,age}|order(order asc)`;
+
+  const campTypes = await client.fetch(queryCampTypes);
+
+  return campTypes;
 }
 
 export async function getCourseDetailBySlug(
