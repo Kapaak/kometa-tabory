@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useGetAllSwimmingCamps } from '~/adapters/campsAdapter';
+import { useGetAllTripCamps } from '~/adapters/campsAdapter';
 import { useGetGoogleSheetCampCapacities } from '~/adapters/googleAdapter';
 import { TripCamp } from '~/types';
 
@@ -9,7 +9,7 @@ export function useTripCamps() {
     data: camps,
     isLoading: isCampsLoading,
     isError: isCampsError,
-  } = useGetAllSwimmingCamps();
+  } = useGetAllTripCamps();
 
   const spreadSheetsIds = useMemo(() => {
     return camps?.map((camp) => camp?.spreadsheetId) ?? [];
