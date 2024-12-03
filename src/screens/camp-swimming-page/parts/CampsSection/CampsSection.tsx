@@ -30,7 +30,6 @@ export function CampsSection() {
               camp?.discountedPrice &&
               getDiscount(camp?.price, camp?.discountedPrice)
             }
-            trip={camp?.trip}
             date={camp?.date}
             currentCapacity={camp?.currentCapacity}
             maxCapacity={camp?.capacity}

@@ -31,6 +31,7 @@ export function CampsSection() {
               getDiscount(camp?.price, camp?.discountedPrice)
             }
             date={camp?.date}
+            trip={camp?.trip}
             currentCapacity={camp?.currentCapacity}
             maxCapacity={camp?.capacity}
             imageAlt={camp?.alt}
