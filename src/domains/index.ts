@@ -36,11 +36,11 @@ export interface SanityCampType {
   age?: string;
 }
 
-export interface SanityTripCamp extends SanityCamp {}
-
-export interface SanitySwimmingCamp extends SanityCamp {
+export interface SanityTripCamp extends SanityCamp {
   trip?: string;
 }
+
+export interface SanitySwimmingCamp extends SanityCamp {}
 
 export type SanityFaq = {
   title?: string;

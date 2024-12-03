@@ -10,7 +10,7 @@ import {
 import { client } from './config';
 
 export async function getAllSwimmingCamps(): Promise<SanitySwimmingCamp[]> {
-  const querySwimmingCamps = groq`*[_type == "camp"]{"id":_id,title,name,date,price,discountedPrice,trip,capacity,availability,image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
+  const querySwimmingCamps = groq`*[_type == "camp"]{"id":_id,title,name,date,price,discountedPrice,capacity,availability,image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
 
   const course = await client.fetch(querySwimmingCamps);
 
@@ -18,7 +18,7 @@ export async function getAllSwimmingCamps(): Promise<SanitySwimmingCamp[]> {
 }
 
 export async function getAllTripCamps(): Promise<SanityTripCamp[]> {
-  const queryTripCamps = groq`*[_type == "tripCamp"]{"id":_id,title,name,date,price,discountedPrice,capacity,availability,"image":image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
+  const queryTripCamps = groq`*[_type == "tripCamp"]{"id":_id,title,name,date,price,discountedPrice,trip,capacity,availability,"image":image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
 
   const course = await client.fetch(queryTripCamps);
 
