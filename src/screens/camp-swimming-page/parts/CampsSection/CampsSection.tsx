@@ -1,6 +1,6 @@
 import { CampCard, LoadingCampCard } from '~/components/CampCard';
 import { useSwimmingCamps } from '~/hooks';
-import { getDiscount, joinValues } from '~/utils';
+import { joinValues } from '~/utils';
 
 import { CampSectionError } from '../../components';
 
@@ -26,10 +26,7 @@ export function CampsSection() {
             title={joinValues([camp?.title, ' - ', camp?.name])}
             image={camp?.image}
             price={camp?.price}
-            discountPrice={
-              camp?.discountedPrice &&
-              getDiscount(camp?.price, camp?.discountedPrice)
-            }
+            discountPrice={camp?.discountedPrice}
             date={camp?.date}
             currentCapacity={camp?.currentCapacity}
             maxCapacity={camp?.capacity}

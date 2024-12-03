@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { SanityImage } from '~/domains';
 import { VerticalStack } from '~/ui/components';
+import { getDiscount } from '~/utils';
 import { formatLocaleNumber } from '~/utils/number';
 
 import {
@@ -72,7 +73,9 @@ export function CampCard(props: CampCardProps) {
 
   return (
     <S.CampCard>
-      {discountPrice && <DiscountChip value={discountPrice} />}
+      {discountPrice && (
+        <DiscountChip value={getDiscount(price, discountPrice)} />
+      )}
       <S.CampCardImageContainer>
         <CampCardImage
           hasWarning={isFullCapacity || !isAvailable}
