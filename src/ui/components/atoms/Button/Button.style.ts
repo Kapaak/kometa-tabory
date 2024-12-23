@@ -58,12 +58,17 @@ export const Button = styled.button.withConfig({
               background-color: var(--col1-hover);
             }
           `;
+
         return css`
           line-height: 1.6;
           background-color: var(--col2);
+          border: 1px solid var(--col2);
           color: var(--colw);
+
           &:hover {
-            background-color: var(--col2-hover);
+            color: var(--col2);
+            background-color: var(--colw);
+            border: 1px solid var(--col2);
           }
         `;
       }

@@ -89,8 +89,8 @@ export const TextContainer = styled(Text)`
 `;
 
 export const PlayVideoButton = styled(Button)`
-  color: var(--colw);
   display: inline-flex;
   gap: 0.5rem;
   padding: 0;
+  color: var(--colw);
 `;
