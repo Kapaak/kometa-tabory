@@ -35,11 +35,11 @@ export const data: Array<NavLink> = [
   //   },
   // ],
   // },
-  {
-    href: '/',
-    scrollTarget: ScrollTargets.faq,
-    output: 'Základní informace',
-  },
+  // {
+  //   href: '/',
+  //   scrollTarget: ScrollTargets.faq,
+  //   output: 'Základní informace',
+  // },
   {
     href: '/',
     scrollTarget: ScrollTargets.gallery,

@@ -1,3 +1,5 @@
+import NextLink from 'next/link';
+
 import styled from 'styled-components';
 
 import { NextSanityImage } from '~/components';
@@ -6,6 +8,8 @@ import { dimensions } from '~/ui/theme';
 export const CampTypeCard = styled.article`
   box-shadow: var(--shadow);
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const CampTypeCardTitle = styled.h3`
@@ -17,6 +21,7 @@ export const CampTypeCardTitle = styled.h3`
 
 export const CampTypeCardDescription = styled.p`
   font-size: 1.6rem;
+  margin-top: auto;
 `;
 
 export const CampTypeCardList = styled.ul`
@@ -58,9 +63,14 @@ export const CampTypeCardContainer = styled.div`
   flex-direction: column;
   padding: 2.4rem;
   gap: 2rem;
+  flex: 1;
 `;
 
 export const CampTypeCardImage = styled(NextSanityImage)`
   object-fit: cover;
   border-radius: inherit;
+`;
+
+export const CampTypeCardLink = styled(NextLink)`
+  align-self: flex-start;
 `;

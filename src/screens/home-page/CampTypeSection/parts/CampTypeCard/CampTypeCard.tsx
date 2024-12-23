@@ -1,5 +1,3 @@
-import NextLink from 'next/link';
-
 import { Baby, Coin, SwimmingPool } from '@phosphor-icons/react';
 
 import { SanityImage } from '~/domains';
@@ -52,16 +50,16 @@ export function CampTypeCard({
           </S.CampTypeCardListItem>
           {dailySwimmingCount && (
             <S.CampTypeCardListItem>
-              <SwimmingPool /> <Strong>{dailySwimmingCount}x denně</Strong>
+              <SwimmingPool /> <Strong>{dailySwimmingCount}x týdně</Strong>
             </S.CampTypeCardListItem>
           )}
           <S.CampTypeCardListItem>
             <Baby /> <Strong>{age}</Strong>
           </S.CampTypeCardListItem>
         </S.CampTypeCardList>
-        <NextLink href={url ?? ''} passHref>
-          <Button>Zobrazit termíny</Button>
-        </NextLink>
+        <S.CampTypeCardLink href={url ?? ''} passHref>
+          <Button variant="filled">Zobrazit termíny</Button>
+        </S.CampTypeCardLink>
       </S.CampTypeCardContainer>
     </S.CampTypeCard>
   );
