@@ -7,7 +7,7 @@ import * as S from './CampsTripScreen.style';
 export function CampsTripScreen() {
   return (
     <MaxWidth>
-      <S.Headline>Tábory zaměřené na výlety</S.Headline>
+      <S.Headline>Dobrodružné tábory</S.Headline>
 
       <S.Container>
         <CampsSection />
