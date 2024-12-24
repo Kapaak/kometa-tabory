@@ -1,23 +1,16 @@
 import { PropsWithChildren, createContext, useContext } from 'react';
 
-import {
-  SanityActuality,
-  SanityDocument,
-  SanityTestimonial,
-  SanityVideo,
-} from '~/domains';
+import { SanityActuality, SanityDocument, SanityVideo } from '~/domains';
 
 type SanityContext = {
   actualities: SanityActuality[];
   documents: SanityDocument[];
-  testimonial: SanityTestimonial[];
   videos: SanityVideo[];
 };
 
 const SanityContext = createContext<SanityContext>({
   actualities: [],
   documents: [],
-  testimonial: [],
   videos: [],
 });
 

@@ -3,7 +3,9 @@ import { groq } from 'next-sanity';
 import {
   SanityCamp,
   SanityCampType,
+  SanityPhotoGallery,
   SanitySwimmingCamp,
+  SanityTestimonial,
   SanityTripCamp,
 } from '~/domains';
 
@@ -49,12 +51,24 @@ export async function getAllCampTypes(): Promise<SanityCampType> {
   return campTypes;
 }
 
-export async function getAllPhotosByCampType(campType: string): Promise<any> {
+export async function getAllPhotosByCampType(
+  campType: string
+): Promise<SanityPhotoGallery[]> {
   const queryPhotos = groq`*[_type == "gallery" && campType == "${campType}"]{"id":_id,title,image{asset->{...,metadata}},campType}|order(order asc)`;
 
   const photos = await client.fetch(queryPhotos);
 
   return photos;
+}
+
+export async function getAllTestimonialsByCampType(
+  campType: string
+): Promise<SanityTestimonial[]> {
+  const queryTestimonials = groq`*[_type == "testimonial" && campType == "${campType}"]{title,text,origin}`;
+
+  const testimonials = await client.fetch(queryTestimonials);
+
+  return testimonials;
 }
 
 export async function getCourseDetailBySlug(
