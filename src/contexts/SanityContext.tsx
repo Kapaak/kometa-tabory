@@ -3,7 +3,6 @@ import { PropsWithChildren, createContext, useContext } from 'react';
 import {
   SanityActuality,
   SanityDocument,
-  SanityPhotoGallery,
   SanityTestimonial,
   SanityVideo,
 } from '~/domains';
@@ -12,7 +11,6 @@ type SanityContext = {
   actualities: SanityActuality[];
   documents: SanityDocument[];
   testimonial: SanityTestimonial[];
-  photoGallery: SanityPhotoGallery[];
   videos: SanityVideo[];
 };
 
@@ -20,7 +18,6 @@ const SanityContext = createContext<SanityContext>({
   actualities: [],
   documents: [],
   testimonial: [],
-  photoGallery: [],
   videos: [],
 });
 

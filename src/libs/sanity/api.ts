@@ -49,6 +49,14 @@ export async function getAllCampTypes(): Promise<SanityCampType> {
   return campTypes;
 }
 
+export async function getAllPhotosByCampType(campType: string): Promise<any> {
+  const queryPhotos = groq`*[_type == "gallery" && campType == "${campType}"]{"id":_id,title,image{asset->{...,metadata}},campType}|order(order asc)`;
+
+  const photos = await client.fetch(queryPhotos);
+
+  return photos;
+}
+
 export async function getCourseDetailBySlug(
   slug: string
 ): Promise<SanitySwimmingCamp> {

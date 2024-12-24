@@ -89,6 +89,7 @@ export type SanityPhotoGallery = {
   title?: string;
   image?: SanityImage;
   alt?: string;
+  campType?: string;
 };
 
 export type SanityCourseDay = {

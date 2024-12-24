@@ -37,8 +37,8 @@ export enum Content {
 }
 
 export enum CampType {
-  Swimming = 'swimming-course',
-  Trip = 'trip-course',
+  Swimming = 'swimming-camp',
+  Trip = 'trip-camp',
 }
 
 export type Fragment = {

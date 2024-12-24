@@ -6,7 +6,6 @@ import {
   SanityActuality,
   SanityDocument,
   SanityInfoBar,
-  SanityPhotoGallery,
   SanityTestimonial,
   SanityVideo,
 } from '~/domains';
@@ -22,7 +21,6 @@ export default function HomePage({
   documents,
   infoBar,
   testimonial,
-  photoGallery,
   videos,
 }: HomePageProps) {
   return (
@@ -31,7 +29,6 @@ export default function HomePage({
         actualities,
         documents,
         testimonial,
-        photoGallery,
         videos,
       }}
     >
@@ -48,15 +45,13 @@ export const getStaticProps = async () => {
   const queryInfoBar = groq`*[_type == "infoBar" && visibility == true][0]{title,visibility,text}`;
   const queryTestimonial = groq`*[_type == "testimonial"]{title,text,origin}`;
 
-  const queryPhotoGallery = groq`*[_type == "gallery"]{title,alt,image{asset->{...,metadata}}}`;
   const queryVideo = groq`*[_type == "video"]{title,videoFile{asset->{url}}}`;
 
   const actualities: SanityActuality[] = await client.fetch(queryActualities);
   const documents: SanityDocument[] = await client.fetch(queryDocument);
   const infoBar: SanityInfoBar = await client.fetch(queryInfoBar);
   const testimonial: SanityTestimonial[] = await client.fetch(queryTestimonial);
-  const photoGallery: SanityPhotoGallery[] =
-    await client.fetch(queryPhotoGallery);
+
   const videos: SanityVideo[] = await client.fetch(queryVideo);
 
   return {
@@ -65,7 +60,6 @@ export const getStaticProps = async () => {
       documents,
       infoBar,
       testimonial,
-      photoGallery,
       videos,
     },
     revalidate: 10,
