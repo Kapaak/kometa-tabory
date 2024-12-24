@@ -7,11 +7,15 @@ import { CampsSection, FAQSection } from './parts';
 
 import * as S from './CampsSwimmingScreen.style';
 
-export function CampSwimmingScreen() {
+interface CampSwimmingScreenProps {
+  title?: string;
+}
+
+export function CampSwimmingScreen({ title }: CampSwimmingScreenProps) {
   return (
     <>
       <MaxWidth>
-        <S.Headline>Tábory zaměřené na plavání</S.Headline>
+        <S.Headline>{title}</S.Headline>
       </MaxWidth>
 
       <S.Container>

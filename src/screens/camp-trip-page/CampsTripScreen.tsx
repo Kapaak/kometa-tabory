@@ -7,11 +7,15 @@ import { CampsSection, FAQSection } from './parts';
 
 import * as S from './CampsTripScreen.style';
 
-export function CampsTripScreen() {
+interface CampTripScreenProps {
+  title?: string;
+}
+
+export function CampsTripScreen({ title }: CampTripScreenProps) {
   return (
     <>
       <MaxWidth>
-        <S.Headline>Dobrodružné tábory</S.Headline>
+        <S.Headline>{title}</S.Headline>
       </MaxWidth>
 
       <S.Container>
