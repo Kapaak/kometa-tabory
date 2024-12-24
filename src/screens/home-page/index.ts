@@ -8,5 +8,4 @@ export { HeroSection } from './HeroSection';
 export { HomePageScreen } from './Home';
 export { LocationSection } from './LocationSection';
 export { SponsorSection } from './SponsorSection';
-export { TestimonialSection } from './TestimonialSection';
 export { USPSection } from './USPSection';

@@ -86,6 +86,7 @@ export type SanityImage = SanityImageObject & {
 };
 
 export type SanityPhotoGallery = {
+  id?: string;
   title?: string;
   image?: SanityImage;
   alt?: string;
