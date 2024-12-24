@@ -1,3 +1,5 @@
+import { PhotoGallery } from '~/components/PhotoGallery';
+import { CampType } from '~/types';
 import { MaxWidth } from '~/ui/components';
 
 import { CampsSection, FAQSection } from './parts';
@@ -12,6 +14,7 @@ export function CampSwimmingScreen() {
       <S.Container>
         <CampsSection />
         <FAQSection />
+        <PhotoGallery campType={CampType.Swimming} />
       </S.Container>
     </MaxWidth>
   );
