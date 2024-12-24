@@ -1,7 +1,9 @@
 import { Baby, Coin, SwimmingPool } from '@phosphor-icons/react';
 
+import { DiscountChip } from '~/components/CampCard/parts';
 import { SanityImage } from '~/domains';
 import { Button, Strong } from '~/ui/components';
+import { getDiscount } from '~/utils';
 
 import * as S from './CampTypeCard.style';
 
@@ -9,6 +11,7 @@ interface CampTypeCardProps {
   title?: string;
   description?: string;
   price?: number;
+  discountPrice?: number;
   age?: string;
   url?: string;
   dailySwimmingCount?: number;
@@ -21,12 +24,20 @@ export function CampTypeCard({
   dailySwimmingCount,
   description,
   price,
+  discountPrice,
   image,
   title,
   url,
 }: CampTypeCardProps) {
   return (
     <S.CampTypeCard>
+      {discountPrice && (
+        <DiscountChip
+          label="sleva až"
+          value={getDiscount(price, discountPrice)}
+        />
+      )}
+
       <S.CampTypeCardImageContainer>
         {image?.src && (
           <S.CampTypeCardImage
@@ -46,7 +57,11 @@ export function CampTypeCard({
         <S.CampTypeCardDescription>{description}</S.CampTypeCardDescription>
         <S.CampTypeCardList>
           <S.CampTypeCardListItem>
-            <Coin /> <Strong>{price} Kč</Strong>
+            <Coin />
+            <Strong>
+              {discountPrice && 'od '}
+              {discountPrice ?? price} Kč
+            </Strong>
           </S.CampTypeCardListItem>
           {dailySwimmingCount && (
             <S.CampTypeCardListItem>
