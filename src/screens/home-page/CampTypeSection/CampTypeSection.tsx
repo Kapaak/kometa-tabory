@@ -25,6 +25,7 @@ export function CampTypeSection() {
                 dailySwimmingCount={campType?.swimmingFrequency}
                 description={campType?.description}
                 price={campType?.price}
+                discountPrice={campType?.discountPrice}
                 title={campType?.title}
                 url={campTypeToUrl(campType?.value)}
                 image={{ src: campType?.image, alt: campType?.alt }}

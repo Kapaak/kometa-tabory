@@ -44,7 +44,7 @@ export async function getAllSwimmingFaqs(): Promise<SanityCampType> {
 }
 
 export async function getAllCampTypes(): Promise<SanityCampType> {
-  const queryCampTypes = groq`*[_type == "campType"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,swimmingFrequency,age}|order(order asc)`;
+  const queryCampTypes = groq`*[_type == "campType"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,discountPrice,swimmingFrequency,age}|order(order asc)`;
 
   const campTypes = await client.fetch(queryCampTypes);
 
@@ -52,7 +52,7 @@ export async function getAllCampTypes(): Promise<SanityCampType> {
 }
 
 export async function getCampType(campType: string): Promise<SanityCampType> {
-  const queryCampType = groq`*[_type == "campType" &&value == "${campType}"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,swimmingFrequency,age}|order(order asc)[0]`;
+  const queryCampType = groq`*[_type == "campType" &&value == "${campType}"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,discountPrice,swimmingFrequency,age}|order(order asc)[0]`;
 
   const campTypeInfo = await client.fetch(queryCampType);
 

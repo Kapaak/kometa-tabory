@@ -6,6 +6,7 @@ import { NextSanityImage } from '~/components';
 import { dimensions } from '~/ui/theme';
 
 export const CampTypeCard = styled.article`
+  position: relative;
   box-shadow: var(--shadow);
   border-radius: 1rem;
   display: flex;
