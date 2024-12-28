@@ -23,18 +23,15 @@ const getOrder = (index: number, pos: number, numItems: number) => {
   return index - pos < 0 ? numItems - Math.abs(index - pos) : index - pos;
 };
 
-const getInitialState = (numItems: number): CarouselState => ({
-  pos: numItems - 1,
+const initialState: CarouselState = {
+  pos: 0,
   sliding: false,
   dir: NEXT,
-});
+};
 
 export const Carousel = (props: PropsWithChildren) => {
   const numItems = React.Children.count(props.children);
-  const [state, dispatch] = React.useReducer(
-    reducer,
-    getInitialState(numItems)
-  );
+  const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const slide = (dir: Direction, payload?: number) => {
     dispatch({ type: dir, numItems, payload });
