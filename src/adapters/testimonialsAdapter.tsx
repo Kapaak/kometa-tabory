@@ -6,9 +6,14 @@ export function useGetAllTestimonialsByCampType(campType?: string) {
   const { data, isError, isLoading, isSuccess } = useQuery<SanityTestimonial[]>(
     {
       queryKey: ['testimonials-by-camp-type', campType],
-      enabled: Boolean(campType),
       queryFn: async () => {
-        const response = await fetch(`/api/testimonials?campType=${campType}`);
+        const params = new URLSearchParams();
+
+        if (campType) {
+          params.append('campType', campType);
+        }
+
+        const response = await fetch(`/api/testimonials?${params.toString()}`);
         const data = await response.json();
 
         return data;

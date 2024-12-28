@@ -9,7 +9,6 @@ interface CampTripsPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 export default function CampTripsPage({ campType }: CampTripsPageProps) {
-  console.log('🚀 ~ CampTripsPage ~ campType:', campType);
   return (
     <PageLayout>
       <CampsTripScreen title={campType?.title} />

@@ -79,6 +79,14 @@ export async function getAllTestimonialsByCampType(
   return testimonials;
 }
 
+export async function getAllTestimonials(): Promise<SanityTestimonial[]> {
+  const queryTestimonials = groq`*[_type == "testimonial"]{title,text,origin}`;
+
+  const testimonials = await client.fetch(queryTestimonials);
+
+  return testimonials;
+}
+
 export async function getCourseDetailBySlug(
   slug: string
 ): Promise<SanitySwimmingCamp> {
