@@ -8,6 +8,7 @@ import { DocumentSection } from './DocumentSection';
 import { HeroSection } from './HeroSection';
 import { LocationSection } from './LocationSection';
 import { SponsorSection } from './SponsorSection';
+import { TestimonialSection } from './TestimonialSection';
 import { USPSection } from './USPSection';
 
 export function HomePageScreen() {
@@ -26,8 +27,9 @@ export function HomePageScreen() {
       <Space />
       <AboutSection />
       <Space />
-      <Space />
       <DocumentSection />
+      <Space />
+      <TestimonialSection />
       <Space />
       <LocationSection />
       <Space />

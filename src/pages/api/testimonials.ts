@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getAllTestimonialsByCampType } from '~/libs/sanity';
+import {
+  getAllTestimonials,
+  getAllTestimonialsByCampType,
+} from '~/libs/sanity';
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,11 +11,13 @@ export default async function handler(
 ) {
   const { campType } = req.query;
 
-  if (!campType) {
-    return res.status(400).json({ error: 'Missing campType' });
-  }
-
   try {
+    if (campType === undefined || campType === null) {
+      const courses = await getAllTestimonials();
+
+      return res.json(courses);
+    }
+
     const courses = await getAllTestimonialsByCampType(campType as string);
 
     res.json(courses);

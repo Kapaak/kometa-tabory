@@ -59,6 +59,7 @@ export const SlideButton = styled.button.withConfig({
   height: 1rem;
   border: none;
   border-radius: 50%;
+  flex-shrink: 0;
   cursor: pointer;
   background-color: ${({ active }) =>
     active ? 'var(--col1)' : 'var(--collg)'};
