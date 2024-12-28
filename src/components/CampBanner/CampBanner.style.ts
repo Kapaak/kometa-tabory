@@ -8,7 +8,7 @@ import { dimensions } from '~/ui/theme';
 export const CampBannerTitle = styled(Text).attrs({ as: 'h1' })`
   position: relative;
   max-width: 60rem;
-  color: var(--col4);
+  color: var(--col1);
   line-height: 1.1;
   font-size: 2.4rem;
   font-weight: 500;
@@ -34,7 +34,7 @@ export const CampBanner = styled(Card)`
   grid-template-columns: 1fr;
   position: relative;
   padding: 0;
-  background-color: var(--col2);
+  background-color: #014b8b;
 
   @media (${dimensions.tabletX}) {
     grid-template-columns: 1fr 1fr;

@@ -21,7 +21,6 @@ export function HomePageScreen() {
       <USPSection />
       <Space half />
       <CampTypeSection />
-      <Space half />
       {/* <Space />
       <DiscountSection /> */}
       <Space />
