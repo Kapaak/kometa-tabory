@@ -1,5 +1,6 @@
 export * from './A';
 export * from './Button';
+export * from './Card';
 export * from './Danger';
 export * from './DiscountLabel';
 export * from './Divider';

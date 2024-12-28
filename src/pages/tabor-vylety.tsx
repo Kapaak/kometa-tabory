@@ -4,6 +4,7 @@ import { getCampType } from '~/libs';
 import { CampsTripScreen } from '~/screens/camp-trip-page';
 import { CampType } from '~/types';
 import { PageLayout } from '~/ui/components';
+import { urlForImage } from '~/utils';
 
 interface CampTripsPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
@@ -11,7 +12,13 @@ interface CampTripsPageProps
 export default function CampTripsPage({ campType }: CampTripsPageProps) {
   return (
     <PageLayout>
-      <CampsTripScreen title={campType?.title} />
+      <CampsTripScreen
+        title={campType?.title}
+        description={campType?.description}
+        imageUrl={
+          campType?.image ? urlForImage(campType.image).url() : undefined
+        }
+      />
     </PageLayout>
   );
 }
