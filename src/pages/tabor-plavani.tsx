@@ -4,6 +4,7 @@ import { getCampType } from '~/libs';
 import { CampSwimmingScreen } from '~/screens';
 import { CampType } from '~/types';
 import { PageLayout } from '~/ui/components';
+import { urlForImage } from '~/utils';
 
 interface CampSwimmingPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
@@ -11,7 +12,13 @@ interface CampSwimmingPageProps
 export default function CampSwimmingPage({ campType }: CampSwimmingPageProps) {
   return (
     <PageLayout>
-      <CampSwimmingScreen title={campType?.title} />
+      <CampSwimmingScreen
+        title={campType?.title}
+        description={campType?.description}
+        imageUrl={
+          campType?.image ? urlForImage(campType.image).url() : undefined
+        }
+      />
     </PageLayout>
   );
 }

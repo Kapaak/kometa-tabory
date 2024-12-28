@@ -1,3 +1,4 @@
+import { AvailableCoursesBanner } from '~/components/CampBanner';
 import { PhotoGallery } from '~/components/PhotoGallery';
 import { Testimonials } from '~/components/Testimonials';
 import { CampType } from '~/types';
@@ -9,13 +10,23 @@ import * as S from './CampsSwimmingScreen.style';
 
 interface CampSwimmingScreenProps {
   title?: string;
+  description?: string;
+  imageUrl?: string;
 }
 
-export function CampSwimmingScreen({ title }: CampSwimmingScreenProps) {
+export function CampSwimmingScreen({
+  title,
+  description,
+  imageUrl,
+}: CampSwimmingScreenProps) {
   return (
     <>
       <MaxWidth>
-        <S.Headline>{title}</S.Headline>
+        <AvailableCoursesBanner
+          title={title}
+          description={description}
+          imageUrl={imageUrl}
+        />
       </MaxWidth>
 
       <S.Container>
