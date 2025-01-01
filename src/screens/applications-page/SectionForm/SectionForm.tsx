@@ -119,9 +119,8 @@ export const SectionForm = ({
     <FormProvider {...form}>
       <SuccessModal
         open={isModalOpen}
-        onChange={() => setIsModalOpen(false)}
-        addChild={resetAll}
-        redirect={redirectHome}
+        onClose={resetAll}
+        onRedirect={redirectHome}
       />
       <S.Form onSubmit={handleSubmit(onSubmit)}>
         <S.Container>

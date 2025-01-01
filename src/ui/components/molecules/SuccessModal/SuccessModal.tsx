@@ -2,32 +2,27 @@ import { UserCirclePlus } from '@phosphor-icons/react';
 
 import { Divider, Strong, Text } from '../../atoms';
 import { Modal } from '../Modal';
+
 import * as S from './SuccessModal.style';
 interface ModalProps {
   open: boolean;
-  addChild: () => void;
-  redirect: () => void;
-  onChange?: () => void;
+  onRedirect: () => void;
+  onClose?: () => void;
 }
 
-export const SuccessModal = ({
-  addChild,
-  open,
-  redirect,
-  onChange,
-}: ModalProps) => {
+export const SuccessModal = ({ open, onRedirect, onClose }: ModalProps) => {
   return (
     <Modal
       title="vaše přihláška byla úspěšně odeslána"
       open={open}
-      onChange={onChange}
+      onChange={onClose}
       actions={
         <S.ButtonContainer>
-          <S.CreateButton onClick={addChild}>
+          <S.CreateButton onClick={onClose}>
             <UserCirclePlus size={34} color="var(--col2)" />
             PŘIDAT DALŠÍ DÍTĚ
           </S.CreateButton>
-          <S.ReturnButton onClick={redirect}>
+          <S.ReturnButton onClick={onRedirect}>
             vrátit na úvodní stránku
           </S.ReturnButton>
         </S.ButtonContainer>
