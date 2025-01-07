@@ -4,6 +4,7 @@ import { Divider, Strong, Text } from '../../atoms';
 import { Modal } from '../Modal';
 
 import * as S from './SuccessModal.style';
+
 interface ModalProps {
   open: boolean;
   onRedirect: () => void;
