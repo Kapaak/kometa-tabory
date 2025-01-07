@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
 
 import axios from 'axios';
 import dayjs from 'dayjs';
@@ -60,17 +61,22 @@ export const SectionForm = ({
     try {
       await handleExcelUpload(formValues);
 
-      axios.post('/api/email', {
+      await axios.post('/api/email', {
         email: formValues?.email,
         ...courseInfo,
       });
-    } catch (e) {
-      console.log('cant send email or create user');
-    } finally {
-      setIsModalOpen(true);
-      setIsLoading(false);
 
+      setIsModalOpen(true);
       posthog.capture('conversion', { property: 'value' });
+    } catch (e) {
+      toast('Nepodařilo se vytvořit přihlášku. Zkuste to prosím znovu.', {
+        type: 'error',
+        autoClose: false,
+        position: 'bottom-right',
+        theme: 'colored',
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -112,11 +118,14 @@ export const SectionForm = ({
         'Jak jste se o nás dozvěděli': d?.foundUs,
       },
       spreadsheetId
-    );
+    ).catch((e) => {
+      throw e;
+    });
   };
 
   return (
     <FormProvider {...form}>
+      <ToastContainer />
       <SuccessModal
         open={isModalOpen}
         onClose={resetAll}

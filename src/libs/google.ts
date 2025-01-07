@@ -20,9 +20,9 @@ export const appendSpreadsheet = async (row: any, sheetId: number) => {
 
     const sheet = googleDocument.sheetsById[sheetId];
 
-    await sheet.addRow(row);
-  } catch (e) {
-    console.error('Error: ', e);
+    return await sheet.addRow(row);
+  } catch (error) {
+    throw error;
   }
 };
 
