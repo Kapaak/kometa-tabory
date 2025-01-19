@@ -1,6 +1,6 @@
+import TrainerImage from '~/public/images/trainer.png';
 import { Accordion, Headline, MaxWidth, VerticalStack } from '~/ui/components';
 
-import TrainerImage from '~/public/images/trainer.png';
 import { data } from './ContactSection.data';
 import { ContactSectionItem } from './ContactSectionItem';
 
@@ -23,13 +23,13 @@ export const ContactSection = () => {
                   title: 'Anna Matušová',
                   subtitle: 'Vedoucí táborů',
                   content:
-                    'Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Poté jsem začala trénovat děti. Momentálně vedu plavání na Kohoutovicích a Holzové. Volný čas ráda trávím cestováním a sledováním filmů.',
+                    'Plavání se věnuji od malička a prošla jsem si celou plaveckou přípravku. Postupem času jsem se začala věnovat trénování dětí a nyní vedu plavecké kurzy a závodní přípravku plavců na Lužánkách. Ve volném čase ráda cestuji a poznávám nová místa.',
                 },
                 {
                   title: 'Tom Strnad',
                   subtitle: 'Vedoucí táborů',
                   content:
-                    'Trénování dětí se věnuji více než 5 let. Momentálně působím na bazénech v Kohoutovicích, na Holzové a Milenové. Ve volném čase rád cestuji, sportuji a zkoumám nové věci.',
+                    'Trénování dětí se věnuji více než 8 let. Momentálně působím na bazénu za Lužánkami, kde trénuji závodní přípravku, a také trénuji děti v kurzech. Ve volném čase ráda cestuji a sportuji.',
                 },
               ]}
             />
