@@ -19,7 +19,7 @@ export const StyledTrigger = styled(RadixAccordion.Trigger)`
   justify-content: space-between;
   flex: 1;
   gap: 1rem;
-  padding: 1rem 0rem 2rem;
+  padding: 1rem 0rem;
   cursor: pointer;
 `;
 
@@ -68,6 +68,6 @@ export const StyledContent = styled(RadixAccordion.Content)`
 `;
 
 export const StyledContentText = styled(Text)`
-  padding: 1.5rem 2rem;
+  padding: 0rem 1.4rem 1rem;
   font-weight: 300;
 `;
