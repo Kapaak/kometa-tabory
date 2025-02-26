@@ -1,21 +1,26 @@
+import { Fragment } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { Button, Divider, Modal, Text } from '~/ui/components';
+import { CookieConsent, CookieConsentType } from '~/types';
+import { Button, Text } from '~/ui/components/atoms';
+import { Modal } from '~/ui/components/molecules';
+import {
+  initializeCookieConsent,
+  transformCookieConsent,
+} from '~/utils/cookies';
 
-import { CookieSetingsItem } from '../CookieSetingsItem';
+import { cookieSettingsData } from './CookieSettingsModal.data';
+import { CookieSetingsItem } from '../CookieSettingsItem';
 
 import * as S from './CookieSettingsModal.style';
 
-interface FormValues {
-  adStorage: boolean;
-  analyticsStorage: boolean;
-}
+type CookieSettingsFormValue = Record<CookieConsentType, boolean>;
 
 interface CookieSettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
   onRejectAll: () => void;
-  onSave: (checkedSwitches: boolean) => void;
+  onSave: (cookiePermission: CookieConsent) => void;
 }
 
 export const CookieSettingsModal = ({
@@ -24,11 +29,8 @@ export const CookieSettingsModal = ({
   onSave,
   onClose,
 }: CookieSettingsModalProps) => {
-  const form = useForm<FormValues>({
-    defaultValues: {
-      adStorage: true,
-      analyticsStorage: true,
-    },
+  const form = useForm<CookieSettingsFormValue>({
+    defaultValues: initializeCookieConsent(true),
   });
 
   const { handleSubmit } = form;
@@ -38,12 +40,10 @@ export const CookieSettingsModal = ({
     onClose();
   };
 
-  const handleSave = (formValues: FormValues) => {
-    const hasAcceptedConsent = Object.values(formValues).some(
-      (value) => value === true
-    );
+  const handleSave = (formValues: CookieSettingsFormValue) => {
+    const cookiePermission = transformCookieConsent(formValues);
 
-    onSave(hasAcceptedConsent);
+    onSave(cookiePermission);
     onClose();
   };
 
@@ -54,7 +54,7 @@ export const CookieSettingsModal = ({
       onChange={onClose}
       actions={
         <S.CookieSettingsActions>
-          <Button type="button" onClick={handleRejectAll}>
+          <Button type="button" variant="bordered" onClick={handleRejectAll}>
             Odmítnout vše
           </Button>
           <Button
@@ -69,22 +69,20 @@ export const CookieSettingsModal = ({
     >
       <FormProvider {...form}>
         <form>
-          <div>
-            <Text variant="dark">
-              Vyberte, jaké soubory cookies chcete přijmout.
-            </Text>
-            <Divider />
-            <CookieSetingsItem title="Statistika" name="analyticsStorage">
-              Abychom mohli zlepšit funkci a strukturu webu na základě toho, jak
-              je web používán.
-            </CookieSetingsItem>
-            <Divider />
-            <CookieSetingsItem title="Marketing" name="adStorage">
-              Sdílením svých zájmů a chování při návštěvě našich stránek
-              zvyšujete šanci na zobrazní personalizovaného obsahu.
-            </CookieSetingsItem>
-            <Divider />
-          </div>
+          <Text variant="dark">
+            Vyberte, jaké soubory cookies chcete přijmout.
+          </Text>
+          <S.CookieSettingsDivider />
+          <S.CookieConsentContainer>
+            {cookieSettingsData.map((cookie) => (
+              <Fragment key={cookie.name}>
+                <CookieSetingsItem title={cookie.title} name={cookie.name}>
+                  {cookie.description}
+                </CookieSetingsItem>
+                <S.CookieSettingsDivider />
+              </Fragment>
+            ))}
+          </S.CookieConsentContainer>
         </form>
       </FormProvider>
     </Modal>

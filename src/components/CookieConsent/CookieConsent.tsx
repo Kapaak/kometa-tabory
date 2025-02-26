@@ -1,44 +1,49 @@
+import { consent } from 'nextjs-google-analytics';
 import { useEffect, useState } from 'react';
 
-import posthog from 'posthog-js';
-
-import { Button, Text } from '~/ui/components';
+import { updatePostHogConsent } from '~/libs/posthog';
+import { CookieConsent } from '~/types';
+import { Button } from '~/ui/components/atoms';
+import {
+  cookieConsentGiven,
+  initializeCookieConsent,
+  updateCookieConsent,
+} from '~/utils/cookies';
+import { updateMetaPixel } from '~/utils/meta-pixel';
 
 import { CookieSettingsModal } from './parts';
 
 import * as S from './CookieConsent.style';
 
-export const CookieConsent = () => {
+export const CookieConsentBar = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [showConsent, setShowConsent] = useState(false);
 
+  const consentGiven = cookieConsentGiven();
+
   useEffect(() => {
-    if (
-      !posthog.has_opted_in_capturing() &&
-      !posthog.has_opted_out_capturing()
-    ) {
+    if (typeof window !== 'undefined' && !consentGiven) {
       setShowConsent(true);
     }
-  }, []);
+  }, [consentGiven]);
 
   const handleAcceptAll = () => {
-    posthog.opt_in_capturing();
+    const grantedCookieConsents = initializeCookieConsent('granted');
+    updateAllConsentProviders(grantedCookieConsents);
 
     setShowConsent(false);
   };
 
   const handleRejectAll = () => {
-    posthog.opt_out_capturing();
+    const deniedCookieConsents = initializeCookieConsent('denied');
+    updateAllConsentProviders(deniedCookieConsents);
 
     setShowConsent(false);
   };
 
-  const handleSave = (hasAcceptedConsents: boolean) => {
-    if (hasAcceptedConsents) {
-      posthog.opt_in_capturing();
-    } else {
-      posthog.opt_out_capturing();
-    }
+  const handleSave = (acceptedConsent: CookieConsent) => {
+    updateAllConsentProviders(acceptedConsent);
+
     setShowConsent(false);
   };
 
@@ -54,13 +59,17 @@ export const CookieConsent = () => {
         <S.CookieConsent>
           <S.MaxWidth>
             <S.Container>
-              <Text variant="dark">
+              <S.Description>
                 Tato webová stránka používá soubory cookies k zajištění správné
                 funkčnosti a pro analýzu návštěvnosti. Kliknutím na tlačítko
                 &bdquo;Přijmout vše&rdquo; dáváte souhlas s jejich používáním.
-              </Text>
+              </S.Description>
               <S.ButtonContainer>
-                <Button type="button" onClick={() => setShowSettings(true)}>
+                <Button
+                  type="button"
+                  variant="bordered"
+                  onClick={() => setShowSettings(true)}
+                >
                   Nastavení
                 </Button>
                 <Button
@@ -78,3 +87,14 @@ export const CookieConsent = () => {
     </>
   );
 };
+
+function updateAllConsentProviders(acceptedConsent: CookieConsent) {
+  updatePostHogConsent(acceptedConsent);
+  updateCookieConsent(acceptedConsent);
+  updateMetaPixel(acceptedConsent);
+
+  consent({
+    arg: 'update',
+    params: acceptedConsent,
+  });
+}
