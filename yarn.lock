@@ -1503,6 +1503,11 @@ core-js@^1.0.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha512-ZiPp9pZlgxpWRu0M+YWbm6+aQ84XEfH1JRXvfOc/fILWI0VKhLC2LX13X1NYq4fULzLMq7Hfh43CSo2/aIaUPA==
 
+core-js@^3.38.1:
+  version "3.40.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.40.0.tgz#2773f6b06877d8eda102fc42f828176437062476"
+  integrity sha512-7vsMc/Lty6AGnn7uFpYT56QesI5D2Y/UkgKounk87OP9Z2H9Z8kj6jzcSGAxFmUtDOS0ntK6lbQz+Nsa0Jj6mQ==
+
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
@@ -3595,13 +3600,15 @@ postcss@8.4.31, postcss@^8.4.31:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-posthog-js@^1.105.7:
-  version "1.105.7"
-  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.105.7.tgz#7d0d505efedc849248ec570783b43dc3db6884d8"
-  integrity sha512-skpVufQrYllZ4Hi5bdBfe1F9pzeym1rlXUuvKbEYbMhmA+FCz47ZZ0zDX6a72A5hqPW5h7ZBTEJZbwad7jYt1A==
+posthog-js@^1.223.4:
+  version "1.223.4"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.223.4.tgz#a56616dc1bf6c480dad7a9cb9345c8692d00e732"
+  integrity sha512-dDyUcWJ+6gzaaVS0Ekjot30BeWb5EiWiU+RFI59/2PDoHsjcZ2RPyCb/TRh9b06WvNqJWvck7GdUJwwjhkSzRw==
   dependencies:
+    core-js "^3.38.1"
     fflate "^0.4.8"
     preact "^10.19.3"
+    web-vitals "^4.2.0"
 
 preact@^10.19.3:
   version "10.19.4"
@@ -3698,6 +3705,11 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-facebook-pixel@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-facebook-pixel/-/react-facebook-pixel-1.0.4.tgz#4760b60dc0451e345649d9710152b4b5419cf989"
+  integrity sha512-givZY8MS0v/mdbRzvcvouBo/j0TtDiu/93f4gIjJXwDDgwlf6bYUiQvb2qcqjluOOD/hIKUQHNYLNsSOnoEklg==
 
 react-fast-compare@3.2.2:
   version "3.2.2"
@@ -4564,6 +4576,11 @@ watchpack@2.4.0:
   dependencies:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
+
+web-vitals@^4.2.0:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-4.2.4.tgz#1d20bc8590a37769bd0902b289550936069184b7"
+  integrity sha512-r4DIlprAGwJ7YM11VZp4R884m0Vmgr6EAKe3P+kO0PPj3Unqyvv59rczf6UiGcb9Z8QxZVcqKNwv/g0WNdWwsw==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

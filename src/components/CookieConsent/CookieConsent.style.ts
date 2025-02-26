@@ -28,13 +28,14 @@ export const Container = styled(Flex)`
   }
 
   @media (${dimensions.desktop}) {
-    gap: 13rem;
+    gap: 8rem;
   }
 `;
 
 export const ButtonContainer = styled(Flex)`
   flex: 1;
   gap: 1rem;
+  width: 100%;
 
   @media (${dimensions.desktop}) {
     align-items: center;
@@ -42,6 +43,10 @@ export const ButtonContainer = styled(Flex)`
     justify-content: end;
     gap: 2rem;
   }
+`;
+
+export const Description = styled.p`
+  font-weight: 300;
 `;
 
 export const MaxWidth = styled(SMaxWidth)`

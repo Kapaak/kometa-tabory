@@ -5,7 +5,7 @@ export const Switch = styled(RadixSwitch.Root)`
   all: unset;
   cursor: pointer;
   min-width: 4.2rem;
-  height: 2.7rem;
+  height: 2.6rem;
   background-color: #adadad;
   border-radius: 1.4rem;
   position: relative;
@@ -22,8 +22,8 @@ export const Switch = styled(RadixSwitch.Root)`
 
 export const SwitchThumb = styled(RadixSwitch.Thumb)`
   display: block;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2rem;
+  height: 2rem;
   background-color: var(--colw);
   border-radius: 2rem;
   box-shadow: var(--shadow);
