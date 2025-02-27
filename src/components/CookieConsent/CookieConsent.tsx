@@ -9,7 +9,7 @@ import {
   initializeCookieConsent,
   updateCookieConsent,
 } from '~/utils/cookies';
-import { updateMetaPixel } from '~/utils/meta-pixel';
+import { MetaPixelManager } from '~/utils/meta-pixel';
 
 import { CookieSettingsModal } from './parts';
 
@@ -91,7 +91,7 @@ export const CookieConsentBar = () => {
 function updateAllConsentProviders(acceptedConsent: CookieConsent) {
   updatePostHogConsent(acceptedConsent);
   updateCookieConsent(acceptedConsent);
-  updateMetaPixel(acceptedConsent);
+  MetaPixelManager.updateConsent(acceptedConsent);
 
   consent({
     arg: 'update',
