@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { CookieConsentBar, HeadComponent } from '~/components';
 import { AnalyticsProvider } from '~/contexts/AnalyticsContext';
+import { MetaPixelProvider } from '~/contexts/MetaPixelContext';
 import { PageContextProvider } from '~/contexts/PageContext';
 import { GlobalStyles } from '~/ui/theme';
 
@@ -13,12 +14,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <PageContextProvider>
-        <AnalyticsProvider>
-          <HeadComponent />
-          <GlobalStyles />
-          <Component {...pageProps} />
-          <CookieConsentBar />
-        </AnalyticsProvider>
+        <MetaPixelProvider>
+          <AnalyticsProvider>
+            <HeadComponent />
+            <GlobalStyles />
+            <Component {...pageProps} />
+            <CookieConsentBar />
+          </AnalyticsProvider>
+        </MetaPixelProvider>
       </PageContextProvider>
     </QueryClientProvider>
   );

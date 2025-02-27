@@ -86,3 +86,15 @@ export enum CookieConsentType {
 export type CookieConsentState = 'granted' | 'denied';
 
 export type CookieConsent = Record<string, CookieConsentState>;
+
+export type MetaPixel = {
+  pageView: () => void;
+  init: (key: string, undefined: any, config: any) => void;
+  revokeConsent: () => void;
+  grantConsent: () => void;
+  fbq: (...args: Array<unknown>) => void;
+  track: (title: string, data?: any) => void;
+  trackCustom: (title: string, data?: any) => void;
+  trackSingle: (pixel: string, title: string, data?: any) => void;
+  trackSingleCustom: (pixel: string, title: string, data?: any) => void;
+};

@@ -1,6 +1,7 @@
 import { consent } from 'nextjs-google-analytics';
 import { useEffect, useState } from 'react';
 
+import { useMetaPixelContext } from '~/contexts/MetaPixelContext';
 import { updatePostHogConsent } from '~/libs/posthog';
 import { CookieConsent } from '~/types';
 import { Button } from '~/ui/components/atoms';
@@ -9,7 +10,6 @@ import {
   initializeCookieConsent,
   updateCookieConsent,
 } from '~/utils/cookies';
-import { MetaPixelManager } from '~/utils/meta-pixel';
 
 import { CookieSettingsModal } from './parts';
 
@@ -21,11 +21,18 @@ export const CookieConsentBar = () => {
 
   const consentGiven = cookieConsentGiven();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && !consentGiven) {
-      setShowConsent(true);
-    }
-  }, [consentGiven]);
+  const { updateConsent: updateMetaPixelConsent } = useMetaPixelContext();
+
+  function updateAllConsentProviders(acceptedConsent: CookieConsent) {
+    updatePostHogConsent(acceptedConsent);
+    updateCookieConsent(acceptedConsent);
+    updateMetaPixelConsent(acceptedConsent);
+
+    consent({
+      arg: 'update',
+      params: acceptedConsent,
+    });
+  }
 
   const handleAcceptAll = () => {
     const grantedCookieConsents = initializeCookieConsent('granted');
@@ -46,6 +53,12 @@ export const CookieConsentBar = () => {
 
     setShowConsent(false);
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !consentGiven) {
+      setShowConsent(true);
+    }
+  }, [consentGiven]);
 
   return (
     <>
@@ -87,14 +100,3 @@ export const CookieConsentBar = () => {
     </>
   );
 };
-
-function updateAllConsentProviders(acceptedConsent: CookieConsent) {
-  updatePostHogConsent(acceptedConsent);
-  updateCookieConsent(acceptedConsent);
-  MetaPixelManager.updateConsent(acceptedConsent);
-
-  consent({
-    arg: 'update',
-    params: acceptedConsent,
-  });
-}
