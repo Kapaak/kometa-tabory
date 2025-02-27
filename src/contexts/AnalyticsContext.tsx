@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { consent, GoogleAnalytics } from 'nextjs-google-analytics';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
@@ -6,18 +5,20 @@ import { Analytics } from '@vercel/analytics/react';
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
 
-import { MetaPixel } from '~/components/MetaPixel';
 import { PostHog } from '~/components/PostHog';
 import { CookieConsent } from '~/types';
 import {
   cookieConsentGiven,
   hasEssentialAnalyticsConsents,
 } from '~/utils/cookies';
-import { MetaPixelManager } from '~/utils/meta-pixel';
+
+import { useMetaPixelContext } from './MetaPixelContext';
 
 export const AnalyticsProvider = ({ children }: PropsWithChildren) => {
   const [defaultCookieConsent, setDefaultCookieConsent] =
     useState<CookieConsent>();
+
+  const { grantConsent, revokeConsent } = useMetaPixelContext();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -38,24 +39,18 @@ export const AnalyticsProvider = ({ children }: PropsWithChildren) => {
 
       if (hasEssentialConsents) {
         posthog.opt_in_capturing();
-        MetaPixelManager.grantConsent();
+        grantConsent();
       } else {
         posthog.opt_out_capturing();
-        MetaPixelManager.revokeConsent();
+        revokeConsent();
       }
     }
-  }, [defaultCookieConsent]);
+  }, [defaultCookieConsent, grantConsent, revokeConsent]);
 
   return (
     <PostHogProvider client={posthog}>
       <Analytics />
-      <MetaPixel />
       <PostHog />
-
-      <Script
-        src={`https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}`}
-        strategy="afterInteractive"
-      />
 
       <GoogleAnalytics
         debugMode={process.env.NODE_ENV === 'development'}
@@ -63,6 +58,7 @@ export const AnalyticsProvider = ({ children }: PropsWithChildren) => {
         defaultConsent={defaultCookieConsent ? 'granted' : 'denied'}
         gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
       />
+
       {children}
     </PostHogProvider>
   );
