@@ -15,6 +15,8 @@ export class MetaPixelManager {
       debug: process.env.NODE_ENV === 'development',
     });
 
+    this.pageView();
+
     ReactPixel.revokeConsent();
   }
 
@@ -34,14 +36,9 @@ export class MetaPixelManager {
     const metaPixelAllowed = hasEssentialAnalyticsConsents(cookieConsent);
     await (metaPixelAllowed ? this.grantConsent() : this.revokeConsent());
   }
-}
 
-export function updateMetaPixel(cookieConsent: CookieConsent) {
-  const metaPixelAllowed = hasEssentialAnalyticsConsents(cookieConsent);
-
-  if (metaPixelAllowed) {
-    MetaPixelManager.grantConsent();
-  } else {
-    MetaPixelManager.revokeConsent();
+  static async pageView() {
+    const ReactPixel = await this.getReactPixel();
+    ReactPixel.pageView();
   }
 }
