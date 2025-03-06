@@ -5,19 +5,24 @@ import styled from 'styled-components';
 import { NextSanityImage } from '~/components';
 import { dimensions } from '~/ui/theme';
 
-export const CampTypeCard = styled.article`
+type Disabled = {
+  disabled?: boolean;
+};
+
+export const CampTypeCard = styled.article<Disabled>`
   position: relative;
   box-shadow: var(--shadow);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  opacity: ${({ disabled }) => (disabled ? 0.7 : 1)};
 `;
 
-export const CampTypeCardTitle = styled.h3`
+export const CampTypeCardTitle = styled.h3<Disabled>`
   font-size: 3rem;
   font-family: var(--font1);
   letter-spacing: 0.1rem;
-  color: var(--col2);
+  color: ${({ disabled }) => (disabled ? 'var(--col5)' : 'var(--col2)')};
 `;
 
 export const CampTypeCardDescription = styled.p`
@@ -67,11 +72,13 @@ export const CampTypeCardContainer = styled.div`
   flex: 1;
 `;
 
-export const CampTypeCardImage = styled(NextSanityImage)`
+export const CampTypeCardImage = styled(NextSanityImage)<Disabled>`
   object-fit: cover;
   border-radius: inherit;
+  filter: ${({ disabled }) => (disabled ? 'grayscale(100%)' : 'none')};
 `;
 
-export const CampTypeCardLink = styled(NextLink)`
+export const CampTypeCardLink = styled(NextLink)<Disabled>`
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
   align-self: flex-start;
 `;

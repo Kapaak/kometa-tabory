@@ -17,6 +17,7 @@ interface CampTypeCardProps {
   dailySwimmingCount?: number;
   image?: { src?: SanityImage; alt?: string };
   availableFrom?: string;
+  full?: boolean;
 }
 
 export function CampTypeCard({
@@ -28,10 +29,13 @@ export function CampTypeCard({
   image,
   title,
   url,
+  full,
 }: CampTypeCardProps) {
+  const linkLabel = full ? 'Kurz je obsazený' : 'Zobrazit termíny';
+
   return (
-    <S.CampTypeCard>
-      {discountPrice && (
+    <S.CampTypeCard disabled={full}>
+      {discountPrice && !full && (
         <DiscountChip
           label="sleva až"
           value={getDiscount(price, discountPrice)}
@@ -48,12 +52,13 @@ export function CampTypeCard({
             draggable={false}
             placeholder="blur"
             sizes="(max-width: 768px) 100vw, 50vw"
+            disabled={full}
           />
         )}
       </S.CampTypeCardImageContainer>
 
       <S.CampTypeCardContainer>
-        <S.CampTypeCardTitle>{title}</S.CampTypeCardTitle>
+        <S.CampTypeCardTitle disabled={full}>{title}</S.CampTypeCardTitle>
         <S.CampTypeCardDescription>{description}</S.CampTypeCardDescription>
         <S.CampTypeCardList>
           <S.CampTypeCardListItem>
@@ -72,8 +77,10 @@ export function CampTypeCard({
             <Baby /> <Strong>{age}</Strong>
           </S.CampTypeCardListItem>
         </S.CampTypeCardList>
-        <S.CampTypeCardLink href={url ?? ''} passHref>
-          <Button variant="filled">Zobrazit termíny</Button>
+        <S.CampTypeCardLink href={url ?? ''} passHref disabled={full}>
+          <Button variant="filled" disabled={full}>
+            {linkLabel}
+          </Button>
         </S.CampTypeCardLink>
       </S.CampTypeCardContainer>
     </S.CampTypeCard>

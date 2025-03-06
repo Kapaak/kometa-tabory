@@ -35,6 +35,7 @@ export interface SanityCampType {
   discountPrice?: number;
   swimmingFrequency?: number;
   age?: string;
+  isFull?: boolean;
 }
 
 export interface SanityTripCamp extends SanityCamp {

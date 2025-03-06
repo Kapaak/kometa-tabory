@@ -29,6 +29,7 @@ export function CampTypeSection() {
                 title={campType?.title}
                 url={campTypeToUrl(campType?.value)}
                 image={{ src: campType?.image, alt: campType?.alt }}
+                full={campType?.isFull}
               />
             ))}
         </S.CampTypeCards>
