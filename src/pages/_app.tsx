@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { CookieConsentBar, HeadComponent } from '~/components';
+import { ChatBot } from '~/components/ChatBot';
 import { AnalyticsProvider } from '~/contexts/AnalyticsContext';
 import { MetaPixelProvider } from '~/contexts/MetaPixelContext';
 import { PageContextProvider } from '~/contexts/PageContext';
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <MetaPixelProvider>
           <AnalyticsProvider>
             <HeadComponent />
+            <ChatBot />
             <GlobalStyles />
             <Component {...pageProps} />
             <CookieConsentBar />
