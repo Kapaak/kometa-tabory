@@ -40,11 +40,6 @@ export const data: Array<NavLink> = [
   //   scrollTarget: ScrollTargets.faq,
   //   output: 'Základní informace',
   // },
-  {
-    href: '/',
-    scrollTarget: ScrollTargets.gallery,
-    output: 'Galerie',
-  },
   // {
   //   href: "/",
   //   scrollTarget: ScrollTargets.trainer,
