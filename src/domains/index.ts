@@ -56,6 +56,7 @@ export type SanityFaq = {
 
 export type SanityDocument = {
   title?: string;
+  documentType?: 'gdpr' | 'general' | 'other';
   file?: {
     asset: {
       url: string;
