@@ -119,3 +119,7 @@ const builder = imageUrlBuilder(client);
 export function urlForImage(source: SanityImageSource) {
   return builder.image(source);
 }
+
+export function getSanityFileDownloadUrl(url?: string) {
+  return url ? `${url}?dl` : undefined;
+}

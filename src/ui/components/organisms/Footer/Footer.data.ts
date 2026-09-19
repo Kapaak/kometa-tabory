@@ -5,7 +5,7 @@ interface FooterData {
   fragment: Array<FragmentType>;
 }
 
-export const data: Array<FooterData> = [
+export const getData = (gdprFileUrl?: string): Array<FooterData> => [
   {
     headline: 'Kontaktní osoba',
     fragment: [
@@ -81,7 +81,7 @@ export const data: Array<FooterData> = [
       {
         output: 'GDPR',
         type: ContentType.link,
-        href: 'https://www.primestak-brno.cz/files/ZASADY_GDPR.pdf',
+        href: gdprFileUrl ?? '',
       },
       { output: 'IČO: 44992432', type: ContentType.normal },
     ],

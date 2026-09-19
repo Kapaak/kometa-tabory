@@ -3,6 +3,7 @@ import { groq } from 'next-sanity';
 import {
   SanityCamp,
   SanityCampType,
+  SanityDocument,
   SanityPhotoGallery,
   SanitySwimmingCamp,
   SanityTestimonial,
@@ -113,4 +114,22 @@ export async function getCourseDetailBySlug(
   const course: SanityCamp = await client.fetch(queryCamp);
 
   return course;
+}
+
+export async function getAllDocuments(): Promise<SanityDocument[]> {
+  const queryDocuments = groq`*[_type == "doc"]{title,order,documentType,file{asset->{url}}}|order(order asc)`;
+
+  const documents = await client.fetch(queryDocuments);
+
+  return documents;
+}
+
+export async function getDocumentByType(
+  documentType: string
+): Promise<SanityDocument> {
+  const queryDocument = groq`*[_type == "doc" && documentType == "${documentType}"]{title,file{asset->{url}}}|order(order asc)[0]`;
+
+  const document = await client.fetch(queryDocument);
+
+  return document;
 }

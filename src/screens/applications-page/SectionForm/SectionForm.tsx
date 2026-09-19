@@ -7,9 +7,10 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import posthog from 'posthog-js';
 
+import { useGetDocumentByType } from '~/adapters/documentsAdapter';
 import { appendSpreadsheet } from '~/libs';
 import { Danger, Subheadline, SuccessModal } from '~/ui/components';
-import { createOption } from '~/utils';
+import { createOption, getSanityFileDownloadUrl } from '~/utils';
 
 import { ControlledInput, ControlledNameInput } from './ControlledInput';
 import { ControlledSelect } from './ControlledSelect';
@@ -51,6 +52,8 @@ export const SectionForm = ({
 }: SectionFormProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { data: generalDocument } = useGetDocumentByType('general');
 
   const router = useRouter();
 
@@ -330,9 +333,7 @@ export const SectionForm = ({
           <S.Text>
             Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{' '}
             <S.UnderlinedInput
-              href="/files/VSEOBECNE-PODMINKY.pdf"
-              rel="noopener noreferrer"
-              target="_blank"
+              href={getSanityFileDownloadUrl(generalDocument?.file?.asset?.url)}
             >
               podmínkami přijetí
             </S.UnderlinedInput>
