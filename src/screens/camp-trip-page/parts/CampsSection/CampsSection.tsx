@@ -1,8 +1,7 @@
 import { CampCard, LoadingCampCard } from '~/components/CampCard';
+import { CampsLoadingError } from '~/components/CampsLoadingError';
 import { useTripCamps } from '~/hooks';
 import { joinValues } from '~/utils';
-
-import { CampSectionError } from '../../components';
 
 import * as S from './CampsSection.style';
 
@@ -11,7 +10,7 @@ export function CampsSection() {
 
   return (
     <S.CampsSection hasError={isError}>
-      {isError && <CampSectionError />}
+      {isError && <CampsLoadingError />}
 
       {isLoading &&
         Array.from({ length: 4 }).map((_, index) => (

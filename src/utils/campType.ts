@@ -6,6 +6,8 @@ export function campTypeToUrl(campType?: string) {
       return '/tabor-plavani';
     case CampType.Trip:
       return '/tabor-vylety';
+    case CampType.Residential:
+      return '/tabor-pobytovy';
     default:
       return '/';
   }

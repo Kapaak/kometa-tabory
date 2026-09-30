@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getAllTripFaqs } from '~/libs/sanity';
+import { getAllResidentialCamps } from '~/libs/sanity';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    const courses = await getAllTripFaqs();
+    const courses = await getAllResidentialCamps();
 
     res.json(courses);
   } catch (error: any) {

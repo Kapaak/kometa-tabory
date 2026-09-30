@@ -30,6 +30,6 @@ export const getStaticProps = async () => {
     props: {
       campType,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };

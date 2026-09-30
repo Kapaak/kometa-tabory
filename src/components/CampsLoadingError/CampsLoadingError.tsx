@@ -4,18 +4,18 @@ import { X } from '@phosphor-icons/react';
 
 import { Button, HorizontalStack, Text } from '~/ui/components';
 
-import * as S from './CampSectionError.style';
+import * as S from './CampsLoadingError.style';
 
-export function CampSectionError() {
+export function CampsLoadingError() {
   const router = useRouter();
 
   return (
-    <S.CampSectionError>
+    <S.CampsLoadingError>
       <HorizontalStack align="center" justify="center" gap="1rem">
         <X size={30} color="var(--colr)" weight="bold" />
-        <S.CampSectionErrorTitle>
+        <S.CampsLoadingErrorTitle>
           Nepodařilo se načíst tábory
-        </S.CampSectionErrorTitle>
+        </S.CampsLoadingErrorTitle>
       </HorizontalStack>
       <Text variant="dark" center>
         Omlouváme se, ale došlo k chybě při načítání dat. Zkuste stránku načíst
@@ -24,6 +24,6 @@ export function CampSectionError() {
       <S.ButtonContainer>
         <Button onClick={() => router.reload()}>Znovu načíst</Button>
       </S.ButtonContainer>
-    </S.CampSectionError>
+    </S.CampsLoadingError>
   );
 }

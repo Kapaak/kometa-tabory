@@ -9,6 +9,7 @@ import {
   SanityTestimonial,
   SanityTripCamp,
 } from '~/domains';
+import { CampFaqSanityKey, CampTypeSanityKey } from '~/types';
 
 import { client } from './config';
 
@@ -28,20 +29,20 @@ export async function getAllTripCamps(): Promise<SanityTripCamp[]> {
   return course;
 }
 
-export async function getAllTripFaqs(): Promise<SanityCampType> {
-  const queryTripFAQs = groq`*[_type == "tripFaq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
+export async function getAllResidentialCamps(): Promise<SanityTripCamp[]> {
+  const queryResidentialCamps = groq`*[_type == "residentialCamp"]{"id":_id,title,name,date,price,discountedPrice,trip,capacity,availability,"image":image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
 
-  const tripFaqs = await client.fetch(queryTripFAQs);
+  const course = await client.fetch(queryResidentialCamps);
 
-  return tripFaqs;
+  return course;
 }
 
-export async function getAllSwimmingFaqs(): Promise<SanityCampType> {
-  const querySwimmingFAQs = groq`*[_type == "faq"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
+export async function getCampType(campType: string): Promise<SanityCampType> {
+  const queryCampType = groq`*[_type == "campType" &&value == "${campType}"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,discountPrice,swimmingFrequency,age}|order(order asc)[0]`;
 
-  const swimmingFaqs = await client.fetch(querySwimmingFAQs);
+  const campTypeInfo = await client.fetch(queryCampType);
 
-  return swimmingFaqs;
+  return campTypeInfo;
 }
 
 export async function getAllCampTypes(): Promise<SanityCampType> {
@@ -52,12 +53,14 @@ export async function getAllCampTypes(): Promise<SanityCampType> {
   return campTypes;
 }
 
-export async function getCampType(campType: string): Promise<SanityCampType> {
-  const queryCampType = groq`*[_type == "campType" &&value == "${campType}"]{"id":_id,title,"image":image{asset->{...,metadata}},"alt":image.alt,value,order,description,price,discountPrice,swimmingFrequency,age}|order(order asc)[0]`;
+export async function getAllFaqsByCampFaq(
+  campFaq: CampFaqSanityKey
+): Promise<SanityCampType> {
+  const querySwimmingFAQs = groq`*[_type == "${campFaq}"]{title,order,faqItems[]{icon,text,title}}|order(order asc)`;
 
-  const campTypeInfo = await client.fetch(queryCampType);
+  const swimmingFaqs = await client.fetch(querySwimmingFAQs);
 
-  return campTypeInfo;
+  return swimmingFaqs;
 }
 
 export async function getAllPhotosByCampType(
@@ -94,8 +97,8 @@ export async function getCourseDetailBySlug(
   //Checks if the url is either in swimming camps or trip camps and gets its detail
   const queryCamp = groq`
   *[
-    (_type == "camp" || _type == "tripCamp") && 
-    slug.current == "${slug}"
+    _type in $campTypes && 
+    slug.current == $slug
   ][0]{
     title,
     name,
@@ -111,7 +114,10 @@ export async function getCourseDetailBySlug(
   }
 `;
 
-  const course: SanityCamp = await client.fetch(queryCamp);
+  const course: SanityCamp = await client.fetch(queryCamp, {
+    campTypes: Object.values(CampTypeSanityKey),
+    slug,
+  });
 
   return course;
 }

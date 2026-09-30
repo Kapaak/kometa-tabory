@@ -39,6 +39,19 @@ export enum Content {
 export enum CampType {
   Swimming = 'swimming-camp',
   Trip = 'trip-camp',
+  Residential = 'residential-camp',
+}
+
+export enum CampTypeSanityKey {
+  Swimming = 'camp',
+  Trip = 'tripCamp',
+  Residential = 'residentialCamp',
+}
+
+export enum CampFaqSanityKey {
+  Swimming = 'faq',
+  Trip = 'tripFaq',
+  Residential = 'faqResidentialCamp',
 }
 
 export type Fragment = {
