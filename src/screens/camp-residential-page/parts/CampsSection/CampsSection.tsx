@@ -1,12 +1,12 @@
 import { CampCard, LoadingCampCard } from '~/components/CampCard';
 import { CampsLoadingError } from '~/components/CampsLoadingError';
-import { useSwimmingCamps } from '~/hooks';
+import { useResidentialCamps } from '~/hooks';
 import { joinValues } from '~/utils';
 
 import * as S from './CampsSection.style';
 
 export function CampsSection() {
-  const { data, isError, isLoading } = useSwimmingCamps();
+  const { data, isError, isLoading } = useResidentialCamps();
 
   return (
     <S.CampsSection hasError={isError}>
@@ -27,6 +27,7 @@ export function CampsSection() {
             price={camp?.price}
             discountPrice={camp?.discountedPrice}
             date={camp?.date}
+            trip={camp?.trip}
             currentCapacity={camp?.currentCapacity}
             maxCapacity={camp?.capacity}
             imageAlt={camp?.alt}

@@ -1,18 +1,20 @@
 import { InferGetStaticPropsType } from 'next';
 
 import { getCampType } from '~/libs';
-import { CampsTripScreen } from '~/screens/camp-trip-page';
+import { CampResidentialScreen } from '~/screens/camp-residential-page';
 import { CampType } from '~/types';
 import { PageLayout } from '~/ui/components';
 import { urlForImage } from '~/utils';
 
-interface CampTripsPageProps
+interface CampResidentialPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-export default function CampTripsPage({ campType }: CampTripsPageProps) {
+export default function CampResidentialPage({
+  campType,
+}: CampResidentialPageProps) {
   return (
     <PageLayout>
-      <CampsTripScreen
+      <CampResidentialScreen
         title={campType?.title}
         description={campType?.description}
         imageUrl={
@@ -24,7 +26,7 @@ export default function CampTripsPage({ campType }: CampTripsPageProps) {
 }
 
 export const getStaticProps = async () => {
-  const campType = await getCampType(CampType.Trip);
+  const campType = await getCampType(CampType.Residential);
 
   return {
     props: {

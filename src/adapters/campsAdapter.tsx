@@ -41,3 +41,22 @@ export function useGetAllTripCamps() {
     isLoading,
   };
 }
+
+export function useGetAllResidentialCamps() {
+  const { data, isError, isLoading, isSuccess } = useQuery<SanityTripCamp[]>({
+    queryKey: ['residential-camps'],
+    queryFn: async () => {
+      const response = await fetch('/api/residential-camps');
+      const data = await response.json();
+
+      return data;
+    },
+  });
+
+  return {
+    data,
+    isError,
+    isSuccess,
+    isLoading,
+  };
+}
