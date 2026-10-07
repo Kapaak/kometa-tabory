@@ -44,6 +44,11 @@ export interface SanityTripCamp extends SanityCamp {
 
 export interface SanitySwimmingCamp extends SanityCamp {}
 
+export interface SanityResidentialCamp extends SanityTripCamp {
+  capacityMale?: number;
+  capacityFemale?: number;
+}
+
 export type SanityFaq = {
   title?: string;
   faqItems?: {

@@ -5,6 +5,7 @@ import {
   SanityCampType,
   SanityDocument,
   SanityPhotoGallery,
+  SanityResidentialCamp,
   SanitySwimmingCamp,
   SanityTestimonial,
   SanityTripCamp,
@@ -29,8 +30,10 @@ export async function getAllTripCamps(): Promise<SanityTripCamp[]> {
   return course;
 }
 
-export async function getAllResidentialCamps(): Promise<SanityTripCamp[]> {
-  const queryResidentialCamps = groq`*[_type == "residentialCamp"]{"id":_id,title,name,date,price,discountedPrice,trip,capacity,availability,"image":image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
+export async function getAllResidentialCamps(): Promise<
+  SanityResidentialCamp[]
+> {
+  const queryResidentialCamps = groq`*[_type == "residentialCamp"]{"id":_id,title,name,date,price,discountedPrice,trip,capacity,capacityMale,capacityFemale,availability,"image":image{asset->{...,metadata}},"alt":image.alt,"slug":slug.current,spreadsheetId}|order(title asc)`;
 
   const course = await client.fetch(queryResidentialCamps);
 
@@ -93,7 +96,9 @@ export async function getAllTestimonials(): Promise<SanityTestimonial[]> {
 
 export async function getCourseDetailBySlug(
   slug: string
-): Promise<SanitySwimmingCamp> {
+): Promise<
+  SanityCamp & Pick<SanityResidentialCamp, 'capacityMale' | 'capacityFemale'>
+> {
   //Checks if the url is either in swimming camps or trip camps and gets its detail
   const queryCamp = groq`
   *[
@@ -106,6 +111,8 @@ export async function getCourseDetailBySlug(
     price,
     discountedPrice,
     capacity,
+    capacityMale,
+    capacityFemale,
     availability,
     photo{asset->{...,metadata}},
     photoAlt,
@@ -114,7 +121,7 @@ export async function getCourseDetailBySlug(
   }
 `;
 
-  const course: SanityCamp = await client.fetch(queryCamp, {
+  const course = await client.fetch(queryCamp, {
     campTypes: Object.values(CampTypeSanityKey),
     slug,
   });

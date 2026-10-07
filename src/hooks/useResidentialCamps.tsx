@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 
 import { useGetAllResidentialCamps } from '~/adapters/campsAdapter';
-import { useGetGoogleSheetCampCapacities } from '~/adapters/googleAdapter';
-import { TripCamp } from '~/types';
+import { useGetGoogleSheetCampOccupancies } from '~/adapters/googleAdapter';
+import { ResidentialCamp } from '~/types';
 
 export function useResidentialCamps() {
   const {
@@ -15,21 +15,30 @@ export function useResidentialCamps() {
     return camps?.map((camp) => camp?.spreadsheetId) ?? [];
   }, [camps]);
 
-  const { data, isLoading, isError } = useGetGoogleSheetCampCapacities(
+  const { data, isLoading, isError } = useGetGoogleSheetCampOccupancies(
     spreadSheetsIds,
     spreadSheetsIds?.length > 0 && !isCampsLoading
   );
 
-  const residentialCampsData = useMemo((): TripCamp[] => {
+  const residentialCampsData = useMemo((): ResidentialCamp[] => {
     if (!camps) return [];
 
-    return camps?.map((camp) => ({
-      ...camp,
-      currentCapacity:
+    return camps?.map((camp) => {
+      const occupancy =
         typeof camp?.spreadsheetId === 'number' && data
           ? data?.[camp?.spreadsheetId]
-          : NaN,
-    }));
+          : undefined;
+
+      return {
+        ...camp,
+        // currentCapacity counts all rows in the sheet, not only male + female.
+        // Rows with an empty or unknown "Pohlaví" value (e.g. edited manually)
+        // still take a place, but are not counted in either gender capacity.
+        currentCapacity: occupancy?.total ?? NaN,
+        currentMaleCapacity: occupancy?.male ?? NaN,
+        currentFemaleCapacity: occupancy?.female ?? NaN,
+      };
+    });
   }, [camps, data]);
 
   return {
