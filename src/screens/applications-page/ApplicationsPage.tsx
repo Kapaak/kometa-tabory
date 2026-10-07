@@ -11,6 +11,9 @@ interface ApplicationsPageProps {
   date?: string;
   price?: string;
   spreadsheetId?: number;
+  capacity?: number;
+  capacityMale?: number;
+  capacityFemale?: number;
 }
 
 export function ApplicationsPageScreen({
@@ -19,6 +22,9 @@ export function ApplicationsPageScreen({
   date,
   price,
   name,
+  capacity,
+  capacityMale,
+  capacityFemale,
 }: ApplicationsPageProps) {
   return (
     <MaxWidth>
@@ -28,6 +34,11 @@ export function ApplicationsPageScreen({
         {typeof spreadsheetId === 'number' && (
           <SectionForm
             spreadsheetId={spreadsheetId}
+            limits={{
+              total: capacity,
+              male: capacityMale,
+              female: capacityFemale,
+            }}
             courseInfo={{
               courseId,
               name,

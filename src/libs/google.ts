@@ -1,5 +1,7 @@
 import { JWT } from 'google-auth-library';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { GoogleSpreadsheet, GoogleSpreadsheetRow } from 'google-spreadsheet';
+
+import { Gender } from '~/types';
 
 const serviceAccontAuth = new JWT({
   email: process.env.NEXT_PUBLIC_CLIENT_EMAIL ?? '',
@@ -50,4 +52,34 @@ export const getAllSheets = async (sheetIds: Array<number>) => {
     console.log('get all sheets:' + e);
     return Error;
   }
+};
+
+export type CampOccupancy = {
+  total: number;
+  male: number;
+  female: number;
+};
+
+export const getOccupancyFromRows = (
+  rows: GoogleSpreadsheetRow[] = []
+): CampOccupancy => {
+  const genders = rows.map((row) =>
+    String(row.get('Pohlaví') ?? '')
+      .trim()
+      .toLowerCase()
+  );
+
+  return {
+    total: rows.length,
+    male: genders.filter((gender) => gender === Gender.Male).length,
+    female: genders.filter((gender) => gender === Gender.Female).length,
+  };
+};
+
+export const getOccupancyBySheetId = async (sheetId: number) => {
+  await googleDocument.loadInfo();
+
+  const rows = await googleDocument.sheetsById[sheetId].getRows();
+
+  return getOccupancyFromRows(rows);
 };
