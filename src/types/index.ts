@@ -1,4 +1,8 @@
-import { SanitySwimmingCamp, SanityTripCamp } from '~/domains';
+import {
+  SanityResidentialCamp,
+  SanitySwimmingCamp,
+  SanityTripCamp,
+} from '~/domains';
 
 //TODO: zapisuj enum membery v pascal case - napr ScrollTargets
 
@@ -87,6 +91,23 @@ export interface TripCamp extends SanityTripCamp {
 
 export interface SwimmingCamp extends SanitySwimmingCamp {
   currentCapacity: number;
+}
+
+export interface ResidentialCamp extends SanityResidentialCamp {
+  currentCapacity: number;
+  currentMaleCapacity: number;
+  currentFemaleCapacity: number;
+}
+
+export interface GenderCapacity {
+  current: number;
+  max?: number;
+}
+
+// Values stored in the "Pohlaví" column of the application spreadsheet
+export enum Gender {
+  Male = 'muž',
+  Female = 'žena',
 }
 
 export enum CookieConsentType {

@@ -1,6 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { SanitySwimmingCamp, SanityTripCamp } from '~/domains';
+import {
+  SanityResidentialCamp,
+  SanitySwimmingCamp,
+  SanityTripCamp,
+} from '~/domains';
 
 export function useGetAllSwimmingCamps() {
   const { data, isError, isLoading, isSuccess } = useQuery<
@@ -43,7 +47,9 @@ export function useGetAllTripCamps() {
 }
 
 export function useGetAllResidentialCamps() {
-  const { data, isError, isLoading, isSuccess } = useQuery<SanityTripCamp[]>({
+  const { data, isError, isLoading, isSuccess } = useQuery<
+    SanityResidentialCamp[]
+  >({
     queryKey: ['residential-camps'],
     queryFn: async () => {
       const response = await fetch('/api/residential-camps');

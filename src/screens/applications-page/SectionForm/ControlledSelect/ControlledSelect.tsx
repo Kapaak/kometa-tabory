@@ -12,6 +12,7 @@ import { ValidationRule } from 'react-hook-form/dist/types';
 type Option = {
   label: string;
   value: string;
+  isDisabled?: boolean;
 };
 interface ControlledSelectProps {
   name: string;

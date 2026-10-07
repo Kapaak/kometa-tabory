@@ -30,6 +30,14 @@ export function CampsSection() {
             trip={camp?.trip}
             currentCapacity={camp?.currentCapacity}
             maxCapacity={camp?.capacity}
+            maleCapacity={{
+              current: camp?.currentMaleCapacity,
+              max: camp?.capacityMale,
+            }}
+            femaleCapacity={{
+              current: camp?.currentFemaleCapacity,
+              max: camp?.capacityFemale,
+            }}
             imageAlt={camp?.alt}
             url={camp?.slug ?? '#'}
             isAvailable={camp?.availability?.open}

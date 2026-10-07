@@ -16,6 +16,9 @@ export default function ApplicationsPage({ camp }: ApplicationsPageProps) {
         price={String(camp?.discountedPrice || camp?.price)}
         date={camp?.date}
         spreadsheetId={camp?.spreadsheetId}
+        capacity={camp?.capacity}
+        capacityMale={camp?.capacityMale}
+        capacityFemale={camp?.capacityFemale}
       />
     </PageLayout>
   );

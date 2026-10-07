@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import { SanityImage } from '~/domains';
+import { GenderCapacity } from '~/types';
 import { VerticalStack } from '~/ui/components';
 import { getDiscount } from '~/utils';
 import { formatLocaleNumber } from '~/utils/number';
@@ -28,7 +29,12 @@ interface CampCardProps {
   isAvailable?: boolean;
   isDataError?: boolean;
   availabilityLabel?: string;
+  maleCapacity?: GenderCapacity;
+  femaleCapacity?: GenderCapacity;
 }
+
+const isGenderCapacityFull = (capacity?: GenderCapacity) =>
+  typeof capacity?.max === 'number' && capacity.current >= capacity.max;
 
 export function CampCard(props: CampCardProps) {
   const {
@@ -45,9 +51,17 @@ export function CampCard(props: CampCardProps) {
     isAvailable,
     isDataError,
     availabilityLabel,
+    maleCapacity,
+    femaleCapacity,
   } = props;
 
-  let isFullCapacity = maxCapacity ? currentCapacity >= maxCapacity : false;
+  // An empty capacity means there is no limit, 0 means the camp is closed
+  const isTotalCapacityFull =
+    typeof maxCapacity === 'number' ? currentCapacity >= maxCapacity : false;
+  // A camp with gender limits is full only when there is no place left for either gender
+  const isGenderCapacityFullForAll =
+    isGenderCapacityFull(maleCapacity) && isGenderCapacityFull(femaleCapacity);
+  const isFullCapacity = isTotalCapacityFull || isGenderCapacityFullForAll;
   const warningMessage = !isAvailable
     ? 'Přihlášky ještě nebyly otevřeny'
     : isFullCapacity
@@ -90,6 +104,8 @@ export function CampCard(props: CampCardProps) {
           isAvailable={isAvailable}
           currentCapacity={currentCapacity}
           maxCapacity={maxCapacity}
+          maleCapacity={maleCapacity}
+          femaleCapacity={femaleCapacity}
           date={date}
           trip={trip}
         />

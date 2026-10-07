@@ -8,7 +8,9 @@ import dayjs from 'dayjs';
 import posthog from 'posthog-js';
 
 import { useGetDocumentByType } from '~/adapters/documentsAdapter';
-import { appendSpreadsheet } from '~/libs';
+import { useGetGoogleSheetCampOccupancy } from '~/adapters/googleAdapter';
+import { CampOccupancy, appendSpreadsheet } from '~/libs';
+import { Gender } from '~/types';
 import { Danger, Subheadline, SuccessModal } from '~/ui/components';
 import { createOption, getSanityFileDownloadUrl } from '~/utils';
 
@@ -24,6 +26,11 @@ interface SectionFormProps {
     name?: string;
     date?: string;
     price?: string;
+  };
+  limits?: {
+    total?: number;
+    male?: number;
+    female?: number;
   };
 }
 
@@ -49,11 +56,46 @@ export type FormValues = {
 export const SectionForm = ({
   spreadsheetId,
   courseInfo,
+  limits,
 }: SectionFormProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const { data: generalDocument } = useGetDocumentByType('general');
+
+  // An empty limit means there is no limit, 0 means the camp is closed
+  const totalLimit = limits?.total;
+
+  const hasLimits =
+    typeof totalLimit === 'number' ||
+    typeof limits?.male === 'number' ||
+    typeof limits?.female === 'number';
+
+  const { data: occupancy, refetch: refetchOccupancy } =
+    useGetGoogleSheetCampOccupancy(spreadsheetId, hasLimits);
+
+  const isTotalFull = (campOccupancy?: CampOccupancy) =>
+    typeof totalLimit === 'number' && !!campOccupancy
+      ? campOccupancy.total >= totalLimit
+      : false;
+
+  const isGenderFull = (gender: string, campOccupancy?: CampOccupancy) => {
+    const limit = gender === Gender.Male ? limits?.male : limits?.female;
+    const count =
+      gender === Gender.Male ? campOccupancy?.male : campOccupancy?.female;
+
+    return typeof limit === 'number' && typeof count === 'number'
+      ? count >= limit
+      : false;
+  };
+
+  const getOccupancyError = (gender: string, campOccupancy?: CampOccupancy) => {
+    if (isTotalFull(campOccupancy)) return 'Tento termín je již zaplněný.';
+    if (isGenderFull(gender, campOccupancy))
+      return gender === Gender.Male
+        ? 'Místa pro chlapce jsou již obsazena.'
+        : 'Místa pro dívky jsou již obsazena.';
+  };
 
   const router = useRouter();
 
@@ -62,6 +104,28 @@ export const SectionForm = ({
   const onSubmit = async (formValues: FormValues) => {
     setIsLoading(true);
     try {
+      if (hasLimits) {
+        // Check the latest occupancy right before submitting, the data loaded with the page might be outdated
+        const { data: latestOccupancy } = await refetchOccupancy({
+          throwOnError: true,
+        });
+
+        const occupancyError = getOccupancyError(
+          formValues.gender,
+          latestOccupancy
+        );
+
+        if (occupancyError) {
+          toast(occupancyError, {
+            type: 'error',
+            autoClose: false,
+            position: 'bottom-right',
+            theme: 'colored',
+          });
+          return;
+        }
+      }
+
       await handleExcelUpload(formValues);
 
       await axios.post('/api/email', {
@@ -161,8 +225,14 @@ export const SectionForm = ({
                 name="gender"
                 placeholder="Pohlaví"
                 options={[
-                  createOption('Muž', 'muž'),
-                  createOption('Žena', 'žena'),
+                  {
+                    ...createOption('Muž', Gender.Male),
+                    isDisabled: isGenderFull(Gender.Male, occupancy),
+                  },
+                  {
+                    ...createOption('Žena', Gender.Female),
+                    isDisabled: isGenderFull(Gender.Female, occupancy),
+                  },
                 ]}
                 required="Pohlaví musí být vyplněno"
               />
