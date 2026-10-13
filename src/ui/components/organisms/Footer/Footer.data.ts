@@ -10,7 +10,7 @@ export const getData = (gdprFileUrl?: string): Array<FooterData> => [
     headline: 'Kontaktní osoba',
     fragment: [
       {
-        output: 'Bc. Anna Matušová',
+        output: 'Ing. Anna Matušová',
         type: ContentType.bold,
       },
       {
