@@ -22,6 +22,7 @@ export function CampTypeSection() {
               <CampTypeCard
                 key={campType.id}
                 age={campType?.age}
+                duration={campType?.duration}
                 dailySwimmingCount={campType?.swimmingFrequency}
                 description={campType?.description}
                 price={campType?.price}
