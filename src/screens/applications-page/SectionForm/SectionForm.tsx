@@ -235,11 +235,19 @@ export const SectionForm = ({
                 placeholder="Pohlaví"
                 options={[
                   {
-                    ...createOption('Muž', Gender.Male),
+                    ...createOption(
+                      'Muž',
+                      Gender.Male,
+                      isGenderFull(Gender.Male, occupancy)
+                    ),
                     isDisabled: isGenderFull(Gender.Male, occupancy),
                   },
                   {
-                    ...createOption('Žena', Gender.Female),
+                    ...createOption(
+                      'Žena',
+                      Gender.Female,
+                      isGenderFull(Gender.Female, occupancy)
+                    ),
                     isDisabled: isGenderFull(Gender.Female, occupancy),
                   },
                 ]}
