@@ -14,6 +14,7 @@ interface ApplicationsPageProps {
   capacity?: number;
   capacityMale?: number;
   capacityFemale?: number;
+  isResidential?: boolean;
 }
 
 export function ApplicationsPageScreen({
@@ -25,6 +26,7 @@ export function ApplicationsPageScreen({
   capacity,
   capacityMale,
   capacityFemale,
+  isResidential,
 }: ApplicationsPageProps) {
   return (
     <MaxWidth>
@@ -34,6 +36,7 @@ export function ApplicationsPageScreen({
         {typeof spreadsheetId === 'number' && (
           <SectionForm
             spreadsheetId={spreadsheetId}
+            isResidential={isResidential}
             limits={{
               total: capacity,
               male: capacityMale,

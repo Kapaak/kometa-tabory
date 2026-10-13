@@ -22,6 +22,9 @@ export const appendSpreadsheet = async (row: any, sheetId: number) => {
 
     const sheet = googleDocument.sheetsById[sheetId];
 
+    // headers are cached on the sheet, reload them so newly added columns are picked up
+    await sheet.loadHeaderRow();
+
     return await sheet.addRow(row);
   } catch (error) {
     throw error;

@@ -21,6 +21,7 @@ import * as S from './SectionForm.style';
 
 interface SectionFormProps {
   spreadsheetId: number;
+  isResidential?: boolean;
   courseInfo: {
     courseId?: string;
     name?: string;
@@ -50,12 +51,14 @@ export type FormValues = {
   personalIdNum: string;
   phone: string;
   postCode: string;
-  swimmingAbilities: string;
+  swimmingAbilities?: string;
+  bedding?: string;
 };
 
 export const SectionForm = ({
   spreadsheetId,
   courseInfo,
+  isResidential,
   limits,
 }: SectionFormProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -180,7 +183,9 @@ export const SectionForm = ({
         Město: d?.city,
         PSČ: d?.postCode,
         Alergie: d?.alergy,
-        'Plavecké schopnosti': d?.swimmingAbilities,
+        ...(isResidential
+          ? { 'Vlastní přikrývka': d?.bedding }
+          : { 'Plavecké schopnosti': d?.swimmingAbilities }),
         'Zdravotní potíže': d?.healthIssues,
         'Jak jste se o nás dozvěděli': d?.foundUs,
       },
@@ -378,18 +383,36 @@ export const SectionForm = ({
               <ControlledInput name="alergy" placeholder="Alergie" />
               <S.Label>Alergie</S.Label>
             </S.FormInputContainer>
-            <div>
-              <ControlledSelect
-                name="swimmingAbilities"
-                placeholder="Plavecké schopnosti"
-                options={[
-                  createOption('Plavec', 'plavec'),
-                  createOption('Neplavec', 'neplavec'),
-                ]}
-                required="Plavecké schopnosti musí být vyplněny."
-              />
-              <Danger>{errors?.swimmingAbilities?.message}</Danger>
-            </div>
+            {isResidential ? (
+              <div>
+                <ControlledSelect
+                  name="bedding"
+                  placeholder="Vlastní spacák / peřina"
+                  options={[
+                    createOption('Vlastní spacák', 'vlastní spacák'),
+                    createOption(
+                      'Peřina na ubytování +50 Kč/noc',
+                      'peřina na ubytování'
+                    ),
+                  ]}
+                  required="Vlastní spacák / peřina musí být vyplněno."
+                />
+                <Danger>{errors?.bedding?.message}</Danger>
+              </div>
+            ) : (
+              <div>
+                <ControlledSelect
+                  name="swimmingAbilities"
+                  placeholder="Plavecké schopnosti"
+                  options={[
+                    createOption('Plavec', 'plavec'),
+                    createOption('Neplavec', 'neplavec'),
+                  ]}
+                  required="Plavecké schopnosti musí být vyplněny."
+                />
+                <Danger>{errors?.swimmingAbilities?.message}</Danger>
+              </div>
+            )}
             <S.FormInputContainer>
               <ControlledInput
                 name="healthIssues"
