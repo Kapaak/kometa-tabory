@@ -1,4 +1,4 @@
-import { Baby, Coin, SwimmingPool } from '@phosphor-icons/react';
+import { Baby, Coin, MoonStars, SwimmingPool } from '@phosphor-icons/react';
 
 import { DiscountChip } from '~/components/CampCard/parts';
 import { SanityImage } from '~/domains';
@@ -13,6 +13,7 @@ interface CampTypeCardProps {
   price?: number;
   discountPrice?: number;
   age?: string;
+  duration?: string;
   url?: string;
   dailySwimmingCount?: number;
   image?: { src?: SanityImage; alt?: string };
@@ -24,6 +25,7 @@ export function CampTypeCard({
   age,
   dailySwimmingCount,
   description,
+  duration,
   price,
   discountPrice,
   image,
@@ -71,6 +73,11 @@ export function CampTypeCard({
           {dailySwimmingCount && (
             <S.CampTypeCardListItem>
               <SwimmingPool /> <Strong>{dailySwimmingCount}x týdně</Strong>
+            </S.CampTypeCardListItem>
+          )}
+          {duration && (
+            <S.CampTypeCardListItem>
+              <MoonStars /> <Strong>{duration}</Strong>
             </S.CampTypeCardListItem>
           )}
           <S.CampTypeCardListItem>
