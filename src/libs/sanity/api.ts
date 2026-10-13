@@ -94,10 +94,11 @@ export async function getAllTestimonials(): Promise<SanityTestimonial[]> {
   return testimonials;
 }
 
-export async function getCourseDetailBySlug(
-  slug: string
-): Promise<
-  SanityCamp & Pick<SanityResidentialCamp, 'capacityMale' | 'capacityFemale'>
+export async function getCourseDetailBySlug(slug: string): Promise<
+  SanityCamp &
+    Pick<SanityResidentialCamp, 'capacityMale' | 'capacityFemale'> & {
+      type: CampTypeSanityKey;
+    }
 > {
   //Checks if the url is either in swimming camps or trip camps and gets its detail
   const queryCamp = groq`
@@ -105,6 +106,7 @@ export async function getCourseDetailBySlug(
     _type in $campTypes && 
     slug.current == $slug
   ][0]{
+    "type": _type,
     title,
     name,
     date,

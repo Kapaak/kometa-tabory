@@ -2,6 +2,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
 import { getCourseDetailBySlug } from '~/libs';
 import { ApplicationsPageScreen } from '~/screens';
+import { CampTypeSanityKey } from '~/types';
 import { PageLayout } from '~/ui/components';
 
 interface ApplicationsPageProps
@@ -19,6 +20,7 @@ export default function ApplicationsPage({ camp }: ApplicationsPageProps) {
         capacity={camp?.capacity}
         capacityMale={camp?.capacityMale}
         capacityFemale={camp?.capacityFemale}
+        isResidential={camp?.type === CampTypeSanityKey.Residential}
       />
     </PageLayout>
   );
