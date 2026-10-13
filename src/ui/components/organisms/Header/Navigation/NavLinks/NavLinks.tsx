@@ -36,7 +36,11 @@ export function NavLInks({ data, isActive = false }: Props) {
       </Hidden>
       <Hidden down="desktop">
         <S.IconsWrapper>
-          <Link href="https://www.facebook.com/primestakkometa">
+          <Link
+            href="https://www.facebook.com/primestakkometa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src={FacebookInvertIcon}
               width={22}
@@ -44,7 +48,11 @@ export function NavLInks({ data, isActive = false }: Props) {
               alt="facebook"
             />
           </Link>
-          <Link href="https://www.instagram.com/primestakbrno">
+          <Link
+            href="https://www.instagram.com/primestakbrno"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src={InstagramInvertIcon}
               width={22}
