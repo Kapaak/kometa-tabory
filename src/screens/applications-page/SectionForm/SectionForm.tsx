@@ -14,6 +14,7 @@ import { Gender } from '~/types';
 import { Danger, Subheadline, SuccessModal } from '~/ui/components';
 import { createOption, getSanityFileDownloadUrl } from '~/utils';
 
+import { ControlledCheckbox } from './ControlledCheckbox';
 import { ControlledInput, ControlledNameInput } from './ControlledInput';
 import { ControlledSelect } from './ControlledSelect';
 
@@ -53,6 +54,7 @@ export type FormValues = {
   postCode: string;
   swimmingAbilities?: string;
   bedding?: string;
+  gdprConsent?: boolean;
 };
 
 export const SectionForm = ({
@@ -133,7 +135,13 @@ export const SectionForm = ({
 
       await axios.post('/api/email', {
         email: formValues?.email,
-        ...courseInfo,
+        courseId: courseInfo.courseId,
+        campName: courseInfo.name,
+        date: courseInfo.date,
+        price: courseInfo.price,
+        firstName: formValues?.firstName,
+        lastName: formValues?.lastName,
+        isResidential,
       });
 
       setIsModalOpen(true);
@@ -155,6 +163,8 @@ export const SectionForm = ({
     formState: { errors },
     reset,
   } = form;
+
+  const isConsentGiven = form.watch('gdprConsent');
 
   const resetAll = () => {
     reset();
@@ -430,18 +440,29 @@ export const SectionForm = ({
             </S.FormInputContainer>
           </S.FormItem>
         </S.Container>
-        <S.SubmitContainer>
-          <S.Text>
-            Odesláním přihlášky potvrzuji, že jsem se seznámil(a) s{' '}
-            <S.UnderlinedInput
-              href={getSanityFileDownloadUrl(generalDocument?.file?.asset?.url)}
-            >
-              podmínkami přijetí
-            </S.UnderlinedInput>
-            . S podmínkami souhlasím a moje dítě je splňuje.
-          </S.Text>
 
-          <S.SubmitButton isLoading={isLoading} disabled={isLoading}>
+        <S.SubmitContainer>
+          <ControlledCheckbox
+            name="gdprConsent"
+            label={
+              <S.Text>
+                Potvrzuji, že jsem se seznámil(a) s{' '}
+                <S.UnderlinedInput
+                  href={getSanityFileDownloadUrl(
+                    generalDocument?.file?.asset?.url
+                  )}
+                >
+                  podmínkami přijetí
+                </S.UnderlinedInput>{' '}
+                a že s nimi souhlasím.
+              </S.Text>
+            }
+          />
+
+          <S.SubmitButton
+            isLoading={isLoading}
+            disabled={isLoading || !isConsentGiven}
+          >
             Odeslat
           </S.SubmitButton>
         </S.SubmitContainer>

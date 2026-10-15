@@ -2,7 +2,6 @@ import { ArrowRight } from '@phosphor-icons/react';
 import styled from 'styled-components';
 
 import { Button, Text as SText } from '~/ui/components';
-import { dimensions } from '~/ui/theme';
 
 export const Container = styled.div`
   display: grid;
@@ -57,22 +56,29 @@ export const Label = styled.label`
 `;
 
 export const SubmitContainer = styled.div`
-  margin-left: auto;
-  max-width: 61rem;
+  display: flex;
+  position: relative;
+  padding: 0px;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 2rem;
+  height: auto;
+  width: 100%;
   text-align: left;
-  margin-top: 2rem;
-
-  @media (${dimensions.tablet}) {
-    text-align: right;
-  }
+  flex: 0 1 auto;
+  min-width: 0px;
+  max-width: 100%;
+  order: initial;
+  margin-top: 4rem;
 `;
 
 export const Text = styled(SText)`
   color: var(--colg);
   text-align: inherit;
   font-weight: 500;
-  margin: 1rem 0 4rem;
   font-size: 1.4rem;
+  padding-left: 1rem;
 `;
 
 export const UnderlinedInput = styled.a`
