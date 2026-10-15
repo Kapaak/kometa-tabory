@@ -135,7 +135,12 @@ export const SectionForm = ({
 
       await axios.post('/api/email', {
         email: formValues?.email,
-        ...courseInfo,
+        courseId: courseInfo.courseId,
+        campName: courseInfo.name,
+        date: courseInfo.date,
+        price: courseInfo.price,
+        firstName: formValues?.firstName,
+        lastName: formValues?.lastName,
       });
 
       setIsModalOpen(true);
