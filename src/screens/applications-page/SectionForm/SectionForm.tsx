@@ -55,7 +55,6 @@ export type FormValues = {
   gdprConsent?: boolean;
   swimmingAbilities?: string;
   bedding?: string;
-  gdprConsent?: boolean;
 };
 
 export const SectionForm = ({
