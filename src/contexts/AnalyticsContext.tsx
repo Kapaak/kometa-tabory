@@ -55,7 +55,6 @@ export const AnalyticsProvider = ({ children }: PropsWithChildren) => {
       <GoogleAnalytics
         debugMode={process.env.NODE_ENV === 'development'}
         trackPageViews
-        defaultConsent={defaultCookieConsent ? 'granted' : 'denied'}
         gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
       />
 
