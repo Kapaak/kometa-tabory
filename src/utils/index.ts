@@ -3,3 +3,4 @@ export * from './cookies';
 export * from './functions';
 export * from './mixins';
 export * from './sanity';
+export * from './googleAds';

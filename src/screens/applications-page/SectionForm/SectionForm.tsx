@@ -12,7 +12,11 @@ import { useGetGoogleSheetCampOccupancy } from '~/adapters/googleAdapter';
 import { CampOccupancy, appendSpreadsheet } from '~/libs';
 import { Gender } from '~/types';
 import { Danger, Subheadline, SuccessModal } from '~/ui/components';
-import { createOption, getSanityFileDownloadUrl } from '~/utils';
+import {
+  createOption,
+  getSanityFileDownloadUrl,
+  trackGoogleAdsConversion,
+} from '~/utils';
 
 import { ControlledCheckbox } from './ControlledCheckbox';
 import { ControlledInput, ControlledNameInput } from './ControlledInput';
@@ -145,6 +149,7 @@ export const SectionForm = ({
 
       setIsModalOpen(true);
       posthog.capture('conversion', { property: 'value' });
+      trackGoogleAdsConversion();
     } catch (e) {
       toast('Nepodařilo se vytvořit přihlášku. Zkuste to prosím znovu.', {
         type: 'error',

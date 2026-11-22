@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { consent, GoogleAnalytics } from 'nextjs-google-analytics';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
@@ -57,6 +58,13 @@ export const AnalyticsProvider = ({ children }: PropsWithChildren) => {
         trackPageViews
         gaMeasurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
       />
+
+      {/* Google Ads – reuses gtag.js loaded by <GoogleAnalytics> above */}
+      {process.env.NEXT_PUBLIC_GOOGLE_ADS && (
+        <Script id="google-ads" strategy="afterInteractive">
+          {`window.gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS}');`}
+        </Script>
+      )}
 
       {children}
     </PostHogProvider>
